@@ -109,8 +109,7 @@ namespace HealthCare_Plus__HMS.Admin
             }
 
             // Your logic for setting up the dashboard
-            lblTitleChildForm.Text = "Dashboard"; // Set the dashboard title label.
-                                                  // Maybe open a default child form that acts as a home page of your dashboard.
+            lblTitleChildForm.Text = "Dashboard"; 
         }
 
             private void btnDashboard_Click(object sender, EventArgs e)
