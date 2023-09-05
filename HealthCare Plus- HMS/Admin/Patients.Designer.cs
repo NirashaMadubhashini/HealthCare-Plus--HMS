@@ -65,7 +65,7 @@
             // 
             // PatAlTb
             // 
-            this.PatAlTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatAlTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatAlTb.ForeColor = System.Drawing.Color.Black;
             this.PatAlTb.Location = new System.Drawing.Point(881, 70);
             this.PatAlTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -136,7 +136,7 @@
             // 
             // PatHIVCb
             // 
-            this.PatHIVCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatHIVCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatHIVCb.FormattingEnabled = true;
             this.PatHIVCb.Items.AddRange(new object[] {
             "Positive",
@@ -144,7 +144,7 @@
             this.PatHIVCb.Location = new System.Drawing.Point(614, 164);
             this.PatHIVCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatHIVCb.Name = "PatHIVCb";
-            this.PatHIVCb.Size = new System.Drawing.Size(207, 38);
+            this.PatHIVCb.Size = new System.Drawing.Size(207, 42);
             this.PatHIVCb.TabIndex = 53;
             // 
             // label22
@@ -173,16 +173,16 @@
             // 
             // PatDOB
             // 
-            this.PatDOB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatDOB.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatDOB.Location = new System.Drawing.Point(318, 162);
             this.PatDOB.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatDOB.Name = "PatDOB";
-            this.PatDOB.Size = new System.Drawing.Size(259, 37);
+            this.PatDOB.Size = new System.Drawing.Size(259, 42);
             this.PatDOB.TabIndex = 50;
             // 
             // PatGenCb
             // 
-            this.PatGenCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatGenCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatGenCb.FormattingEnabled = true;
             this.PatGenCb.Items.AddRange(new object[] {
             "Male",
@@ -190,7 +190,7 @@
             this.PatGenCb.Location = new System.Drawing.Point(614, 69);
             this.PatGenCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatGenCb.Name = "PatGenCb";
-            this.PatGenCb.Size = new System.Drawing.Size(207, 38);
+            this.PatGenCb.Size = new System.Drawing.Size(207, 42);
             this.PatGenCb.TabIndex = 49;
             // 
             // label12
@@ -207,12 +207,12 @@
             // 
             // PatPhoneTb
             // 
-            this.PatPhoneTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatPhoneTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatPhoneTb.ForeColor = System.Drawing.Color.Black;
             this.PatPhoneTb.Location = new System.Drawing.Point(29, 162);
             this.PatPhoneTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatPhoneTb.Name = "PatPhoneTb";
-            this.PatPhoneTb.Size = new System.Drawing.Size(259, 37);
+            this.PatPhoneTb.Size = new System.Drawing.Size(259, 42);
             this.PatPhoneTb.TabIndex = 47;
             // 
             // label11
@@ -241,12 +241,12 @@
             // 
             // PatNameTb
             // 
-            this.PatNameTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatNameTb.ForeColor = System.Drawing.Color.Black;
             this.PatNameTb.Location = new System.Drawing.Point(31, 70);
             this.PatNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatNameTb.Name = "PatNameTb";
-            this.PatNameTb.Size = new System.Drawing.Size(259, 37);
+            this.PatNameTb.Size = new System.Drawing.Size(259, 42);
             this.PatNameTb.TabIndex = 43;
             // 
             // label9
@@ -263,12 +263,12 @@
             // 
             // PatAddTb
             // 
-            this.PatAddTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatAddTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatAddTb.ForeColor = System.Drawing.Color.Black;
             this.PatAddTb.Location = new System.Drawing.Point(322, 70);
             this.PatAddTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatAddTb.Name = "PatAddTb";
-            this.PatAddTb.Size = new System.Drawing.Size(259, 37);
+            this.PatAddTb.Size = new System.Drawing.Size(259, 42);
             this.PatAddTb.TabIndex = 60;
             // 
             // Patients

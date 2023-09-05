@@ -107,12 +107,12 @@
             // 
             // LabCostTb
             // 
-            this.LabCostTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabCostTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabCostTb.ForeColor = System.Drawing.Color.Black;
             this.LabCostTb.Location = new System.Drawing.Point(639, 193);
             this.LabCostTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.LabCostTb.Name = "LabCostTb";
-            this.LabCostTb.Size = new System.Drawing.Size(173, 37);
+            this.LabCostTb.Size = new System.Drawing.Size(173, 42);
             this.LabCostTb.TabIndex = 51;
             // 
             // label3
@@ -129,12 +129,12 @@
             // 
             // LabTestTb
             // 
-            this.LabTestTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabTestTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabTestTb.ForeColor = System.Drawing.Color.Black;
             this.LabTestTb.Location = new System.Drawing.Point(276, 193);
             this.LabTestTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.LabTestTb.Name = "LabTestTb";
-            this.LabTestTb.Size = new System.Drawing.Size(263, 37);
+            this.LabTestTb.Size = new System.Drawing.Size(263, 42);
             this.LabTestTb.TabIndex = 49;
             // 
             // label8

@@ -64,43 +64,43 @@
             // PatNameTb
             // 
             this.PatNameTb.Enabled = false;
-            this.PatNameTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatNameTb.ForeColor = System.Drawing.Color.Black;
             this.PatNameTb.Location = new System.Drawing.Point(819, 71);
             this.PatNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatNameTb.Name = "PatNameTb";
-            this.PatNameTb.Size = new System.Drawing.Size(259, 37);
+            this.PatNameTb.Size = new System.Drawing.Size(259, 42);
             this.PatNameTb.TabIndex = 64;
             // 
             // DocNameTb
             // 
             this.DocNameTb.Enabled = false;
-            this.DocNameTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DocNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DocNameTb.ForeColor = System.Drawing.Color.Black;
             this.DocNameTb.Location = new System.Drawing.Point(302, 71);
             this.DocNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DocNameTb.Name = "DocNameTb";
-            this.DocNameTb.Size = new System.Drawing.Size(259, 37);
+            this.DocNameTb.Size = new System.Drawing.Size(259, 42);
             this.DocNameTb.TabIndex = 63;
             // 
             // DocIdCb
             // 
-            this.DocIdCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DocIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DocIdCb.FormattingEnabled = true;
             this.DocIdCb.Location = new System.Drawing.Point(90, 72);
             this.DocIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DocIdCb.Name = "DocIdCb";
-            this.DocIdCb.Size = new System.Drawing.Size(175, 38);
+            this.DocIdCb.Size = new System.Drawing.Size(175, 42);
             this.DocIdCb.TabIndex = 62;
             // 
             // PatIdCb
             // 
-            this.PatIdCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatIdCb.FormattingEnabled = true;
             this.PatIdCb.Location = new System.Drawing.Point(607, 71);
             this.PatIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PatIdCb.Name = "PatIdCb";
-            this.PatIdCb.Size = new System.Drawing.Size(175, 38);
+            this.PatIdCb.Size = new System.Drawing.Size(175, 42);
             this.PatIdCb.TabIndex = 61;
             // 
             // label2
@@ -189,16 +189,16 @@
             // 
             // RDate
             // 
-            this.RDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RDate.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RDate.Location = new System.Drawing.Point(90, 169);
             this.RDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RDate.Name = "RDate";
-            this.RDate.Size = new System.Drawing.Size(259, 37);
+            this.RDate.Size = new System.Drawing.Size(259, 42);
             this.RDate.TabIndex = 54;
             // 
             // RACb
             // 
-            this.RACb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RACb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RACb.FormattingEnabled = true;
             this.RACb.Items.AddRange(new object[] {
             "Yes",
@@ -206,7 +206,7 @@
             this.RACb.Location = new System.Drawing.Point(391, 168);
             this.RACb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RACb.Name = "RACb";
-            this.RACb.Size = new System.Drawing.Size(209, 38);
+            this.RACb.Size = new System.Drawing.Size(209, 42);
             this.RACb.TabIndex = 53;
             // 
             // label12
