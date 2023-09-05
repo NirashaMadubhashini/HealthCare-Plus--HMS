@@ -245,7 +245,7 @@
             this.btnPatient.FlatAppearance.BorderSize = 0;
             this.btnPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPatient.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPatient.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnPatient.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
             this.btnPatient.IconColor = System.Drawing.Color.Gainsboro;
             this.btnPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPatient.IconSize = 40;
