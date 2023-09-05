@@ -40,7 +40,7 @@ namespace HealthCare_Plus__HMS.Admin
             public static Color color3 = Color.FromArgb(254, 132, 46);
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
-            public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color6 = Color.FromArgb(0, 101, 208);
             public static Color color7 = Color.FromArgb(24, 161, 251);
             public static Color color8 = Color.FromArgb(24, 161, 251);
         }
@@ -162,7 +162,8 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void btnRooms_Click(object sender, EventArgs e)
         {
-
+            ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new Rooms());
         }
 
         private void btnLaboratoryTest_Click(object sender, EventArgs e)
