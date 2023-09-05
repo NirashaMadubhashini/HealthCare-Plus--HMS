@@ -39,16 +39,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlLogin = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.RoleCb = new System.Windows.Forms.ComboBox();
-            this.btnHome = new System.Windows.Forms.PictureBox();
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBoxMin = new FontAwesome.Sharp.IconPictureBox();
+            this.btnHome = new System.Windows.Forms.PictureBox();
+            this.pnlLogin = new System.Windows.Forms.Panel();
             this.LoginBtn = new System.Windows.Forms.Button();
-            this.UnameTb = new System.Windows.Forms.TextBox();
             this.PassTb = new System.Windows.Forms.TextBox();
+            this.UnameTb = new System.Windows.Forms.TextBox();
+            this.RoleCb = new System.Windows.Forms.ComboBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pnlLogo = new System.Windows.Forms.Panel();
@@ -56,11 +56,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnlLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
+            this.pnlLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pnlLogo.SuspendLayout();
             this.SuspendLayout();
@@ -165,6 +165,52 @@
             this.panel1.Size = new System.Drawing.Size(1184, 98);
             this.panel1.TabIndex = 3;
             // 
+            // iconPictureBoxClose
+            // 
+            this.iconPictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBoxClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconPictureBoxClose.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.iconPictureBoxClose.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxClose.IconSize = 31;
+            this.iconPictureBoxClose.Location = new System.Drawing.Point(1138, 15);
+            this.iconPictureBoxClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.iconPictureBoxClose.Name = "iconPictureBoxClose";
+            this.iconPictureBoxClose.Size = new System.Drawing.Size(31, 36);
+            this.iconPictureBoxClose.TabIndex = 16;
+            this.iconPictureBoxClose.TabStop = false;
+            this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
+            // 
+            // iconPictureBoxMin
+            // 
+            this.iconPictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBoxMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconPictureBoxMin.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.iconPictureBoxMin.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconPictureBoxMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBoxMin.IconSize = 31;
+            this.iconPictureBoxMin.Location = new System.Drawing.Point(1090, 15);
+            this.iconPictureBoxMin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.iconPictureBoxMin.Name = "iconPictureBoxMin";
+            this.iconPictureBoxMin.Size = new System.Drawing.Size(31, 36);
+            this.iconPictureBoxMin.TabIndex = 15;
+            this.iconPictureBoxMin.TabStop = false;
+            this.iconPictureBoxMin.Click += new System.EventHandler(this.iconPictureBoxMin_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Location = new System.Drawing.Point(13, 15);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(58, 54);
+            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHome.TabIndex = 14;
+            this.btnHome.TabStop = false;
+            // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.White;
@@ -188,6 +234,57 @@
             this.pnlLogin.Size = new System.Drawing.Size(1184, 760);
             this.pnlLogin.TabIndex = 5;
             // 
+            // LoginBtn
+            // 
+            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginBtn.FlatAppearance.BorderSize = 10;
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LoginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginBtn.ForeColor = System.Drawing.Color.White;
+            this.LoginBtn.Location = new System.Drawing.Point(797, 539);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(190, 45);
+            this.LoginBtn.TabIndex = 15;
+            this.LoginBtn.Text = "Login";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            // 
+            // PassTb
+            // 
+            this.PassTb.BackColor = System.Drawing.Color.White;
+            this.PassTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PassTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.PassTb.Location = new System.Drawing.Point(731, 459);
+            this.PassTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PassTb.Name = "PassTb";
+            this.PassTb.Size = new System.Drawing.Size(339, 47);
+            this.PassTb.TabIndex = 2;
+            // 
+            // UnameTb
+            // 
+            this.UnameTb.BackColor = System.Drawing.Color.White;
+            this.UnameTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnameTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.UnameTb.Location = new System.Drawing.Point(731, 377);
+            this.UnameTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UnameTb.Name = "UnameTb";
+            this.UnameTb.Size = new System.Drawing.Size(339, 47);
+            this.UnameTb.TabIndex = 2;
+            // 
+            // RoleCb
+            // 
+            this.RoleCb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.RoleCb.FormattingEnabled = true;
+            this.RoleCb.Items.AddRange(new object[] {
+            "Admin",
+            "Doctor",
+            "Staff Member"});
+            this.RoleCb.Location = new System.Drawing.Point(729, 300);
+            this.RoleCb.Name = "RoleCb";
+            this.RoleCb.Size = new System.Drawing.Size(339, 47);
+            this.RoleCb.TabIndex = 14;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -209,101 +306,6 @@
             this.label6.Size = new System.Drawing.Size(51, 25);
             this.label6.TabIndex = 12;
             this.label6.Text = "Role";
-            // 
-            // RoleCb
-            // 
-            this.RoleCb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoleCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.RoleCb.FormattingEnabled = true;
-            this.RoleCb.Items.AddRange(new object[] {
-            "Admin",
-            "Doctor",
-            "Staff Member"});
-            this.RoleCb.Location = new System.Drawing.Point(729, 300);
-            this.RoleCb.Name = "RoleCb";
-            this.RoleCb.Size = new System.Drawing.Size(339, 47);
-            this.RoleCb.TabIndex = 14;
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(13, 15);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(58, 54);
-            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHome.TabIndex = 14;
-            this.btnHome.TabStop = false;
-            // 
-            // iconPictureBoxClose
-            // 
-            this.iconPictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBoxClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconPictureBoxClose.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconPictureBoxClose.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBoxClose.IconSize = 31;
-            this.iconPictureBoxClose.Location = new System.Drawing.Point(1138, 15);
-            this.iconPictureBoxClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.iconPictureBoxClose.Name = "iconPictureBoxClose";
-            this.iconPictureBoxClose.Size = new System.Drawing.Size(31, 36);
-            this.iconPictureBoxClose.TabIndex = 16;
-            this.iconPictureBoxClose.TabStop = false;
-            // 
-            // iconPictureBoxMin
-            // 
-            this.iconPictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBoxMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconPictureBoxMin.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.iconPictureBoxMin.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconPictureBoxMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBoxMin.IconSize = 31;
-            this.iconPictureBoxMin.Location = new System.Drawing.Point(1090, 15);
-            this.iconPictureBoxMin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.iconPictureBoxMin.Name = "iconPictureBoxMin";
-            this.iconPictureBoxMin.Size = new System.Drawing.Size(31, 36);
-            this.iconPictureBoxMin.TabIndex = 15;
-            this.iconPictureBoxMin.TabStop = false;
-            // 
-            // LoginBtn
-            // 
-            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoginBtn.FlatAppearance.BorderSize = 10;
-            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LoginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginBtn.ForeColor = System.Drawing.Color.White;
-            this.LoginBtn.Location = new System.Drawing.Point(797, 539);
-            this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(190, 45);
-            this.LoginBtn.TabIndex = 15;
-            this.LoginBtn.Text = "Login";
-            this.LoginBtn.UseVisualStyleBackColor = false;
-            // 
-            // UnameTb
-            // 
-            this.UnameTb.BackColor = System.Drawing.Color.White;
-            this.UnameTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UnameTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.UnameTb.Location = new System.Drawing.Point(731, 377);
-            this.UnameTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UnameTb.Name = "UnameTb";
-            this.UnameTb.Size = new System.Drawing.Size(339, 47);
-            this.UnameTb.TabIndex = 2;
-            // 
-            // PassTb
-            // 
-            this.PassTb.BackColor = System.Drawing.Color.White;
-            this.PassTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.PassTb.Location = new System.Drawing.Point(731, 459);
-            this.PassTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PassTb.Name = "PassTb";
-            this.PassTb.Size = new System.Drawing.Size(339, 47);
-            this.PassTb.TabIndex = 2;
             // 
             // label7
             // 
@@ -356,12 +358,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();

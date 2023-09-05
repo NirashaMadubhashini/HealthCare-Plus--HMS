@@ -16,5 +16,15 @@ namespace HealthCare_Plus__HMS
         {
             InitializeComponent();
         }
+
+        private void iconPictureBoxMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void iconPictureBoxClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
