@@ -175,7 +175,9 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Login obj = new Login();
+            obj.Show();
+            this.Hide();
         }
 
         private void DocNumlbl_Click(object sender, EventArgs e)
