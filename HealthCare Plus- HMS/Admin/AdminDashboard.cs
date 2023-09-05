@@ -100,15 +100,21 @@ namespace HealthCare_Plus__HMS.Admin
         }
         private void InitializeDashboard()
         {
-            // Your logic here for setting up the dashboard
+            // Close the current child form to display the dashboard
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+
+            // Your logic for setting up the dashboard
             lblTitleChildForm.Text = "Dashboard"; // Set the dashboard title label.
                                                   // Maybe open a default child form that acts as a home page of your dashboard.
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
+            private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            InitializeDashboard();
+            InitializeDashboard();  // This should now close the current child form and set up the dashboard
         }
 
         private void iconPictureBoxMin_Click(object sender, EventArgs e)
