@@ -131,12 +131,12 @@
             // lblTitleChildForm
             // 
             this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(116, 40);
+            this.lblTitleChildForm.Location = new System.Drawing.Point(106, 27);
             this.lblTitleChildForm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(208, 30);
+            this.lblTitleChildForm.Size = new System.Drawing.Size(342, 49);
             this.lblTitleChildForm.TabIndex = 1;
             this.lblTitleChildForm.Text = "Health Care Plus";
             // 
