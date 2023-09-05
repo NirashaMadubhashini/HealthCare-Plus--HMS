@@ -156,7 +156,8 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
-
+            ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new Prescriptions());
         }
 
         private void btnRooms_Click(object sender, EventArgs e)
