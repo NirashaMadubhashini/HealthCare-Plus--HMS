@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prescriptions));
             this.PrescriptionDGV = new System.Windows.Forms.DataGridView();
             this.PrescSumTxt = new System.Windows.Forms.RichTextBox();
             this.CostTb = new System.Windows.Forms.TextBox();
@@ -49,6 +50,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.MedTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +68,7 @@
             this.PrescriptionDGV.RowTemplate.Height = 28;
             this.PrescriptionDGV.Size = new System.Drawing.Size(1088, 278);
             this.PrescriptionDGV.TabIndex = 68;
+            this.PrescriptionDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrescriptionDGV_CellContentClick);
             // 
             // PrescSumTxt
             // 
@@ -121,6 +125,7 @@
             this.TestIdCb.Name = "TestIdCb";
             this.TestIdCb.Size = new System.Drawing.Size(175, 42);
             this.TestIdCb.TabIndex = 62;
+            this.TestIdCb.SelectionChangeCommitted += new System.EventHandler(this.TestIdCb_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -166,6 +171,7 @@
             this.DocIdCb.Name = "DocIdCb";
             this.DocIdCb.Size = new System.Drawing.Size(175, 42);
             this.DocIdCb.TabIndex = 58;
+            this.DocIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
             // PrintBtn
             // 
@@ -182,6 +188,7 @@
             this.PrintBtn.TabIndex = 57;
             this.PrintBtn.Text = "Print";
             this.PrintBtn.UseVisualStyleBackColor = false;
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // AddBtn
             // 
@@ -209,6 +216,7 @@
             this.PatIdCb.Name = "PatIdCb";
             this.PatIdCb.Size = new System.Drawing.Size(175, 42);
             this.PatIdCb.TabIndex = 55;
+            this.PatIdCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
             // 
             // label12
             // 
@@ -303,6 +311,21 @@
             this.label6.TabIndex = 70;
             this.label6.Text = "PRESCRIPTION";
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // Prescriptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
@@ -364,5 +387,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox MedTb;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
