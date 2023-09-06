@@ -60,6 +60,7 @@
             this.RoomDGV.RowTemplate.Height = 28;
             this.RoomDGV.Size = new System.Drawing.Size(988, 369);
             this.RoomDGV.TabIndex = 65;
+            this.RoomDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoomDGV_CellContentClick);
             // 
             // PatNameTb
             // 
@@ -92,6 +93,7 @@
             this.DocIdCb.Name = "DocIdCb";
             this.DocIdCb.Size = new System.Drawing.Size(175, 42);
             this.DocIdCb.TabIndex = 62;
+            this.DocIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
             // PatIdCb
             // 
@@ -102,6 +104,7 @@
             this.PatIdCb.Name = "PatIdCb";
             this.PatIdCb.Size = new System.Drawing.Size(175, 42);
             this.PatIdCb.TabIndex = 61;
+            this.PatIdCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -142,6 +145,7 @@
             this.DelBtn.TabIndex = 58;
             this.DelBtn.Text = "Delete";
             this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // EditBtn
             // 
@@ -158,6 +162,7 @@
             this.EditBtn.TabIndex = 57;
             this.EditBtn.Text = "Update";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
@@ -174,6 +179,7 @@
             this.AddBtn.TabIndex = 56;
             this.AddBtn.Text = "Save";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // label13
             // 
