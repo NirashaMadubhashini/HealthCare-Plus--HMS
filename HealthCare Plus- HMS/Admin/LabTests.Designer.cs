@@ -56,6 +56,7 @@
             this.LabTestDGV.RowTemplate.Height = 28;
             this.LabTestDGV.Size = new System.Drawing.Size(710, 287);
             this.LabTestDGV.TabIndex = 55;
+            this.LabTestDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LabTestDGV_CellContentClick);
             // 
             // DelBtn
             // 
@@ -72,6 +73,7 @@
             this.DelBtn.TabIndex = 54;
             this.DelBtn.Text = "Delete";
             this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // EditBtn
             // 
@@ -88,6 +90,7 @@
             this.EditBtn.TabIndex = 53;
             this.EditBtn.Text = "Update";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
@@ -104,6 +107,7 @@
             this.AddBtn.TabIndex = 52;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // LabCostTb
             // 

@@ -16,5 +16,10 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
         }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
