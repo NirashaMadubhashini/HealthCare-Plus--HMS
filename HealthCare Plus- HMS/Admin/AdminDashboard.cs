@@ -23,6 +23,7 @@ namespace HealthCare_Plus__HMS.Admin
         public AdminDashboard()
         {
             InitializeComponent();
+            UpdateDashboardStats();
             CountPatients();
             CountDoctors();
             CountStaffs();
@@ -42,6 +43,15 @@ namespace HealthCare_Plus__HMS.Admin
             {
 
             }
+        }
+
+        private void UpdateDashboardStats()
+        {
+            CountPatients();
+            CountDoctors();
+            CountStaffs();
+            CountHIV();
+            CountPriscription();
         }
 
         //Structs
@@ -182,7 +192,8 @@ namespace HealthCare_Plus__HMS.Admin
             private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            InitializeDashboard();  // This should now close the current child form and set up the dashboard
+            UpdateDashboardStats();  // Update the dashboard statistics
+            InitializeDashboard();
         }
 
         private void iconPictureBoxMin_Click(object sender, EventArgs e)
