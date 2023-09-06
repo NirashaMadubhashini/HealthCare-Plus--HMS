@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Data.SqlClient;
 
+
 namespace HealthCare_Plus__HMS.Admin
 {
     public partial class AdminDashboard : Form
@@ -27,7 +28,6 @@ namespace HealthCare_Plus__HMS.Admin
             CountStaffs();
             CountHIV();
             CountPriscription();
-            UpdateCounts();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -37,6 +37,11 @@ namespace HealthCare_Plus__HMS.Admin
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            if (Login.Role == "Admin")
+            {
+
+            }
         }
 
         //Structs
@@ -105,34 +110,6 @@ namespace HealthCare_Plus__HMS.Admin
             Con.Close();
         }
 
-        private void UpdateCounts()
-        {
-            string query = @"SELECT 
-                        (SELECT COUNT(*) FROM PatientTbl) AS PatientCount,
-                        (SELECT COUNT(*) FROM DoctorTbl) AS DoctorCount,
-                        (SELECT COUNT(*) FROM StaffTbl) AS StaffCount,
-                        (SELECT COUNT(*) FROM PrescriptionTbl) AS PrescriptionCount,
-                        (SELECT COUNT(*) FROM PatientTbl WHERE PatHIV = 'Positive') AS HIVCount";
-
-            using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30"))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            PatNumlbl.Text = reader["PatientCount"].ToString();
-                            DocNumlbl.Text = reader["DoctorCount"].ToString();
-                            StaffNumlbl.Text = reader["StaffCount"].ToString();
-                            Prescriptionlbl.Text = reader["PrescriptionCount"].ToString();
-                            HIVlbl.Text = reader["HIVCount"].ToString();
-                        }
-                    }
-                }
-            }
-        }
 
 
         //Methods
