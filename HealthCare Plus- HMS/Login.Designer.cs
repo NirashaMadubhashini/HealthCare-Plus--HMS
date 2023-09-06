@@ -84,6 +84,7 @@
             this.Resetlbl.TabIndex = 11;
             this.Resetlbl.TabStop = true;
             this.Resetlbl.Text = "Reset";
+            this.Resetlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Resetlbl_LinkClicked);
             // 
             // pictureBox3
             // 
@@ -248,6 +249,7 @@
             this.LoginBtn.TabIndex = 15;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // PassTb
             // 
@@ -284,6 +286,7 @@
             this.RoleCb.Name = "RoleCb";
             this.RoleCb.Size = new System.Drawing.Size(339, 47);
             this.RoleCb.TabIndex = 14;
+            this.RoleCb.SelectedIndexChanged += new System.EventHandler(this.RoleCb_SelectedIndexChanged);
             // 
             // pictureBox4
             // 
