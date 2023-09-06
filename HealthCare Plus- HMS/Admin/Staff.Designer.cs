@@ -80,6 +80,7 @@
             this.DelBtn.TabIndex = 46;
             this.DelBtn.Text = "Delete";
             this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // EditBtn
             // 
@@ -96,6 +97,7 @@
             this.EditBtn.TabIndex = 45;
             this.EditBtn.Text = "Update";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
@@ -112,6 +114,7 @@
             this.AddBtn.TabIndex = 44;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // StaffDGV
             // 
@@ -126,6 +129,7 @@
             this.StaffDGV.RowTemplate.Height = 28;
             this.StaffDGV.Size = new System.Drawing.Size(1061, 407);
             this.StaffDGV.TabIndex = 43;
+            this.StaffDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffDGV_CellContentClick);
             // 
             // RPhoneTb
             // 
