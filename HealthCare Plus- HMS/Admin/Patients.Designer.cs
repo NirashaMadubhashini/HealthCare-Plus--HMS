@@ -62,6 +62,7 @@
             this.PatientsDGV.RowTemplate.Height = 28;
             this.PatientsDGV.Size = new System.Drawing.Size(1089, 345);
             this.PatientsDGV.TabIndex = 59;
+            this.PatientsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDGV_CellContentClick);
             // 
             // PatAlTb
             // 
@@ -89,6 +90,7 @@
             this.DelBtn.TabIndex = 57;
             this.DelBtn.Text = "Delete";
             this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // EditBtn
             // 
@@ -105,6 +107,7 @@
             this.EditBtn.TabIndex = 56;
             this.EditBtn.Text = "Update";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
@@ -121,6 +124,7 @@
             this.AddBtn.TabIndex = 55;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // label23
             // 
