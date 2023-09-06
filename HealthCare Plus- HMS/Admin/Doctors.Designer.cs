@@ -64,6 +64,7 @@
             this.DoctorDGV.RowTemplate.Height = 28;
             this.DoctorDGV.Size = new System.Drawing.Size(1089, 345);
             this.DoctorDGV.TabIndex = 60;
+            this.DoctorDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorDGV_CellContentClick);
             // 
             // DocPassWordTb
             // 
@@ -124,6 +125,7 @@
             this.DelBtn.TabIndex = 55;
             this.DelBtn.Text = "Delete";
             this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
             // EditBtn
             // 
@@ -140,6 +142,7 @@
             this.EditBtn.TabIndex = 54;
             this.EditBtn.Text = "Update";
             this.EditBtn.UseVisualStyleBackColor = false;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
@@ -156,6 +159,7 @@
             this.AddBtn.TabIndex = 53;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // DocSpecCb
             // 
