@@ -108,10 +108,10 @@
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SearchBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(665, 163);
+            this.SearchBtn.Location = new System.Drawing.Point(809, 163);
             this.SearchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(297, 38);
+            this.SearchBtn.Size = new System.Drawing.Size(145, 38);
             this.SearchBtn.TabIndex = 87;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = false;
