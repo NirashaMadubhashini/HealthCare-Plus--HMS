@@ -571,6 +571,7 @@
             this.btnPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPatient.UseVisualStyleBackColor = false;
+            this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
             // 
             // btnDoctors
             // 

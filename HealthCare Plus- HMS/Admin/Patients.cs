@@ -167,5 +167,10 @@ namespace HealthCare_Plus__HMS.Admin
                 }
             }
         }
+
+        private void PatNameTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

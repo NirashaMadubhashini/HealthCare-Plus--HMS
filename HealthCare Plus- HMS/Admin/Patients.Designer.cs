@@ -252,6 +252,7 @@
             this.PatNameTb.Name = "PatNameTb";
             this.PatNameTb.Size = new System.Drawing.Size(259, 42);
             this.PatNameTb.TabIndex = 43;
+            this.PatNameTb.TextChanged += new System.EventHandler(this.PatNameTb_TextChanged);
             // 
             // label9
             // 

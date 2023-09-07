@@ -216,5 +216,11 @@ namespace HealthCare_Plus__HMS.Staff
             obj.Show();
             this.Hide();
         }
+
+        private void btnPatient_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Patients());
+        }
     }
 }
