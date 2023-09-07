@@ -77,6 +77,13 @@ namespace HealthCare_Plus__HMS.Admin
 
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
+
+                // Check if any rows were returned, if not show a notification message
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("No matches found for the entered patient or doctor name.");
+                }
+
                 PrescriptionLoadDGV.DataSource = ds.Tables[0];
                 PrescriptionLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
@@ -89,6 +96,7 @@ namespace HealthCare_Plus__HMS.Admin
                 Con.Close();
             }
         }
+
 
 
         private void RefreshBtn_Click(object sender, EventArgs e)
