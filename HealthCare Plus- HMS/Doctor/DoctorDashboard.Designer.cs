@@ -284,6 +284,7 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnRooms
             // 
@@ -330,6 +331,7 @@
             this.btnPrescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrescription.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrescription.UseVisualStyleBackColor = false;
+            this.btnPrescription.Click += new System.EventHandler(this.btnPrescription_Click);
             // 
             // btnStaff
             // 
@@ -422,6 +424,7 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel4
             // 
@@ -456,6 +459,7 @@
             this.panelShadow.Name = "panelShadow";
             this.panelShadow.Size = new System.Drawing.Size(1155, 10);
             this.panelShadow.TabIndex = 10;
+            this.panelShadow.Paint += new System.Windows.Forms.PaintEventHandler(this.panelShadow_Paint);
             // 
             // iconPictureBoxClose
             // 
@@ -472,6 +476,7 @@
             this.iconPictureBoxClose.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxClose.TabIndex = 4;
             this.iconPictureBoxClose.TabStop = false;
+            this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
             // 
             // iconPictureBoxMin
             // 
@@ -488,6 +493,7 @@
             this.iconPictureBoxMin.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxMin.TabIndex = 2;
             this.iconPictureBoxMin.TabStop = false;
+            this.iconPictureBoxMin.Click += new System.EventHandler(this.iconPictureBoxMin_Click);
             // 
             // lblTitleChildForm
             // 

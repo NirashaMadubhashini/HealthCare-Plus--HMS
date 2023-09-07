@@ -211,7 +211,7 @@
             this.btnPrescription.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
             this.btnPrescription.Size = new System.Drawing.Size(347, 78);
             this.btnPrescription.TabIndex = 5;
-            this.btnPrescription.Text = "Prescription";
+            this.btnPrescription.Text = "View Prescription";
             this.btnPrescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrescription.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrescription.UseVisualStyleBackColor = false;
@@ -259,7 +259,7 @@
             this.btnPatient.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
             this.btnPatient.Size = new System.Drawing.Size(347, 78);
             this.btnPatient.TabIndex = 3;
-            this.btnPatient.Text = "Patient";
+            this.btnPatient.Text = "View Patients";
             this.btnPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPatient.UseVisualStyleBackColor = false;

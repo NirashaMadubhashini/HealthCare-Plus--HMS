@@ -1,4 +1,5 @@
 ﻿using HealthCare_Plus__HMS.Admin;
+using HealthCare_Plus__HMS.Doctor;
 using HealthCare_Plus__HMS.Staff;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace HealthCare_Plus__HMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDashboard());
+            Application.Run(new DoctorDashboard());
         }
     }
 }

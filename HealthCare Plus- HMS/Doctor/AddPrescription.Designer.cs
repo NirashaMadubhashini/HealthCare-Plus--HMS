@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPrescription));
             this.label6 = new System.Windows.Forms.Label();
             this.MedTb = new System.Windows.Forms.TextBox();
             this.PrescriptionDGV = new System.Windows.Forms.DataGridView();
@@ -49,6 +50,8 @@
             this.DocNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +91,7 @@
             this.PrescriptionDGV.RowTemplate.Height = 28;
             this.PrescriptionDGV.Size = new System.Drawing.Size(1088, 278);
             this.PrescriptionDGV.TabIndex = 89;
+            this.PrescriptionDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrescriptionDGV_CellContentClick);
             // 
             // PrescSumTxt
             // 
@@ -99,6 +103,7 @@
             this.PrescSumTxt.Size = new System.Drawing.Size(474, 336);
             this.PrescSumTxt.TabIndex = 88;
             this.PrescSumTxt.Text = "";
+            this.PrescSumTxt.TextChanged += new System.EventHandler(this.PrescSumTxt_TextChanged);
             // 
             // CostTb
             // 
@@ -144,6 +149,7 @@
             this.TestIdCb.Name = "TestIdCb";
             this.TestIdCb.Size = new System.Drawing.Size(175, 33);
             this.TestIdCb.TabIndex = 84;
+            this.TestIdCb.SelectionChangeCommitted += new System.EventHandler(this.TestIdCb_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -189,6 +195,7 @@
             this.DocIdCb.Name = "DocIdCb";
             this.DocIdCb.Size = new System.Drawing.Size(175, 33);
             this.DocIdCb.TabIndex = 80;
+            this.DocIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
             // PrintBtn
             // 
@@ -205,6 +212,7 @@
             this.PrintBtn.TabIndex = 79;
             this.PrintBtn.Text = "Print";
             this.PrintBtn.UseVisualStyleBackColor = false;
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // AddBtn
             // 
@@ -221,6 +229,7 @@
             this.AddBtn.TabIndex = 78;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // PatIdCb
             // 
@@ -231,6 +240,8 @@
             this.PatIdCb.Name = "PatIdCb";
             this.PatIdCb.Size = new System.Drawing.Size(175, 33);
             this.PatIdCb.TabIndex = 77;
+            this.PatIdCb.SelectedIndexChanged += new System.EventHandler(this.PatIdCb_SelectedIndexChanged);
+            this.PatIdCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
             // 
             // label12
             // 
@@ -302,6 +313,21 @@
             this.label8.TabIndex = 71;
             this.label8.Text = "Doctor Id";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // AddPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
@@ -363,5 +389,7 @@
         private System.Windows.Forms.TextBox DocNameTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
