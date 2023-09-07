@@ -40,7 +40,7 @@ namespace HealthCare_Plus__HMS.Staff
             string docSpec = SerachBySpecTb.Text; // Get the text from the SearchBySpec text box
             DateTime? docDOB = DocAvailableDate.Checked ? DocAvailableDate.Value.Date : (DateTime?)null; // Get the selected date from the DateTimePicker
 
-            if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec))
+            if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec) && docDOB == null)
             {
                 MessageBox.Show("Please enter a name, specialization, or date to search.", "Input Error");
                 return;
@@ -48,8 +48,8 @@ namespace HealthCare_Plus__HMS.Staff
 
             Con.Open();  // Open the connection
 
-            // Prepare a query to search the doctor by name and/or specialization
-            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM DoctorTbl WHERE ");
+            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM DoctorTbl");
+
             List<string> conditions = new List<string>();
             SqlCommand cmd = new SqlCommand();
 
@@ -67,37 +67,42 @@ namespace HealthCare_Plus__HMS.Staff
 
             if (docDOB != null)
             {
-                conditions.Add("DocDOB = @DocDOB");
-                cmd.Parameters.AddWithValue("@DocDOB", docDOB);
+                conditions.Add("CAST(DocDOB AS DATE) = @DocDOB");
+                cmd.Parameters.AddWithValue("@DocDOB", docDOB.Value);
             }
 
-            queryBuilder.Append(string.Join(" AND ", conditions));
+            if (conditions.Any())
+            {
+                queryBuilder.Append(" WHERE ");
+                queryBuilder.Append(string.Join(" AND ", conditions));
+            }
+
             string query = queryBuilder.ToString();
             cmd.CommandText = query;
             cmd.Connection = Con;
 
-            SqlDataAdapter sda = new SqlDataAdapter(cmd); // Execute the query
-            DataTable dt = new DataTable(); // Create a data table to hold the results
-            sda.Fill(dt);  // Fill the data table
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
 
-            if (dt.Rows.Count == 0)  // Check if no results were found
+            if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("No doctor found with the given criteria.", "No Results");
             }
             else
             {
-                DoctorLoadDGV.DataSource = dt;  // Set the data grid view source to the data table
-                DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  // Set the auto size mode
+                DoctorLoadDGV.DataSource = dt;
+                DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
 
-            Con.Close();  // Close the connection
+            Con.Close();
 
-          
             SerachByNameTb.Text = string.Empty;
             SerachBySpecTb.Text = string.Empty;
-            DocAvailableDate.Value = DateTime.Now; // Reset the DateTimePicker to the current date
-            DocAvailableDate.Checked = false; // Uncheck the DateTimePicker
+            DocAvailableDate.Value = DateTime.Now;
+            DocAvailableDate.Checked = false;
         }
+
 
 
 
