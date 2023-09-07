@@ -36,20 +36,38 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            string docName = SerachByNameTb.Text;  // Get the text from the SearchByName text box
+            string docName = SerachByNameTb.Text; // Get the text from the SearchByName text box
+            string docSpec = SerachBySpecTb.Text; // Get the text from the SearchBySpec text box
 
-            if (string.IsNullOrWhiteSpace(docName))
+            if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec))
             {
-                MessageBox.Show("Please enter a name to search.", "Input Error");
+                MessageBox.Show("Please enter a name or specialization to search.", "Input Error");
                 return;
             }
 
             Con.Open();  // Open the connection
 
-            // Prepare a query to search the doctor by name
-            string query = "SELECT * FROM DoctorTbl WHERE DocName LIKE @DocName";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@DocName", "%" + docName + "%");
+            // Prepare a query to search the doctor by name and/or specialization
+            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM DoctorTbl WHERE ");
+            List<string> conditions = new List<string>();
+            SqlCommand cmd = new SqlCommand();
+
+            if (!string.IsNullOrWhiteSpace(docName))
+            {
+                conditions.Add("DocName LIKE @DocName");
+                cmd.Parameters.AddWithValue("@DocName", "%" + docName + "%");
+            }
+
+            if (!string.IsNullOrWhiteSpace(docSpec))
+            {
+                conditions.Add("DocSpec LIKE @DocSpec");
+                cmd.Parameters.AddWithValue("@DocSpec", "%" + docSpec + "%");
+            }
+
+            queryBuilder.Append(string.Join(" AND ", conditions));
+            string query = queryBuilder.ToString();
+            cmd.CommandText = query;
+            cmd.Connection = Con;
 
             SqlDataAdapter sda = new SqlDataAdapter(cmd); // Execute the query
             DataTable dt = new DataTable(); // Create a data table to hold the results
@@ -57,7 +75,7 @@ namespace HealthCare_Plus__HMS.Staff
 
             if (dt.Rows.Count == 0)  // Check if no results were found
             {
-                MessageBox.Show("No doctor found with the given name.", "No Results");
+                MessageBox.Show("No doctor found with the given criteria.", "No Results");
             }
             else
             {
@@ -72,6 +90,7 @@ namespace HealthCare_Plus__HMS.Staff
             SerachBySpecTb.Text = string.Empty;
             // ... (clear any other text fields or combo boxes you have)
         }
+
 
 
         private void DoctorLoadDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,6 +111,11 @@ namespace HealthCare_Plus__HMS.Staff
         private void DocAvailableDate_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            DisplaySearchDoc();
         }
     }
 }
