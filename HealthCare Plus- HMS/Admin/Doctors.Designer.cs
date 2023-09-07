@@ -48,6 +48,8 @@
             this.DNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.DocAddTb = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RoomNumCb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +120,7 @@
             this.DelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DelBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DelBtn.ForeColor = System.Drawing.Color.White;
-            this.DelBtn.Location = new System.Drawing.Point(956, 252);
+            this.DelBtn.Location = new System.Drawing.Point(977, 282);
             this.DelBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DelBtn.Name = "DelBtn";
             this.DelBtn.Size = new System.Drawing.Size(145, 38);
@@ -135,7 +137,7 @@
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EditBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditBtn.ForeColor = System.Drawing.Color.White;
-            this.EditBtn.Location = new System.Drawing.Point(798, 252);
+            this.EditBtn.Location = new System.Drawing.Point(819, 282);
             this.EditBtn.Margin = new System.Windows.Forms.Padding(2);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(145, 38);
@@ -152,7 +154,7 @@
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(637, 252);
+            this.AddBtn.Location = new System.Drawing.Point(658, 282);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(145, 38);
@@ -302,12 +304,37 @@
             this.DocAddTb.Size = new System.Drawing.Size(259, 42);
             this.DocAddTb.TabIndex = 61;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(26, 236);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Room No.";
+            // 
+            // RoomNumCb
+            // 
+            this.RoomNumCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomNumCb.FormattingEnabled = true;
+            this.RoomNumCb.Location = new System.Drawing.Point(31, 263);
+            this.RoomNumCb.Margin = new System.Windows.Forms.Padding(2);
+            this.RoomNumCb.Name = "RoomNumCb";
+            this.RoomNumCb.Size = new System.Drawing.Size(258, 42);
+            this.RoomNumCb.TabIndex = 63;
+            this.RoomNumCb.SelectedIndexChanged += new System.EventHandler(this.RoomNumCb_SelectedIndexChanged);
+            // 
             // Doctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.RoomNumCb);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.DocAddTb);
             this.Controls.Add(this.DoctorDGV);
             this.Controls.Add(this.DocPassWordTb);
@@ -361,5 +388,7 @@
         private System.Windows.Forms.TextBox DNameTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox DocAddTb;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox RoomNumCb;
     }
 }

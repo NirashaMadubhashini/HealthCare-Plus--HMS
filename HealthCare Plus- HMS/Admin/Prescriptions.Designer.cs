@@ -171,6 +171,7 @@
             this.DocIdCb.Name = "DocIdCb";
             this.DocIdCb.Size = new System.Drawing.Size(175, 42);
             this.DocIdCb.TabIndex = 58;
+            this.DocIdCb.SelectedIndexChanged += new System.EventHandler(this.DocIdCb_SelectedIndexChanged);
             this.DocIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
             // PrintBtn

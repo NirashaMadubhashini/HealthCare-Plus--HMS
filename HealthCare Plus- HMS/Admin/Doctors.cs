@@ -19,6 +19,7 @@ namespace HealthCare_Plus__HMS.Admin
             InitializeComponent();
             DisplayDoc();
             DoctorDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorDGV_DataBindingComplete);
+            GetRoomNum();
 
         }
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
@@ -39,27 +40,51 @@ namespace HealthCare_Plus__HMS.Admin
         {
             DNameTb.Text = "";
             DocAddTb.Text = "";
-            DocGenCb.SelectedIndex = 0;
+            DocGenCb.SelectedIndex = -1;
             DocPhoneTb.Text = "";
             DocDOB.Text = "";
-            DocSpecCb.SelectedIndex = 0;
+            DocSpecCb.SelectedIndex = -1;
             DocExpTb.Text = "";
             DocPassWordTb.Text = "";
+            RoomNumCb.SelectedIndex = -1;
             Key = 0;
         }
+        private void GetRoomNum()
+        {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("Select RoomId from RoomTbl", Con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("RoomId", typeof(int));
+            dt.Load(rdr);
+            RoomNumCb.ValueMember = "RoomId";
+            RoomNumCb.DataSource = dt;
+            Con.Close();
+        }
+
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "")
+            Con.Open();
+            SqlCommand checkRoomCmd = new SqlCommand("select count(*) from DoctorTbl where RoomId=@DR", Con);
+            checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+            int roomCount = Convert.ToInt32(checkRoomCmd.ExecuteScalar());
+            Con.Close();
 
+            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "" || roomCount > 0)
             {
-                MessageBox.Show("Missing Information");
+                // Step 1: Notify if all rooms are booked
+                if (roomCount > 0)
+                    MessageBox.Show("The selected room is already assigned to another doctor.");
+                else
+                    MessageBox.Show("Missing Information");
             }
             else
             {
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into DoctorTbl(DocName, DocAdd, DocGen, DocPhone, DocDOB, DocSpec, DocExp, DocPass)values(@DN, @DA, @DG, @DP, @DD, @DS, @DE, @DPA)", Con);
+                    SqlCommand cmd = new SqlCommand("insert into DoctorTbl(DocName, DocAdd, DocGen, DocPhone, DocDOB, DocSpec, DocExp, DocPass, RoomId)values(@DN, @DA, @DG, @DP, @DD, @DS, @DE, @DPA, @DR)", Con);
                     cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
                     cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
                     cmd.Parameters.AddWithValue("@DG", DocGenCb.SelectedItem.ToString());
@@ -68,11 +93,13 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@DS", DocSpecCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@DE", DocExpTb.Text);
                     cmd.Parameters.AddWithValue("@DPA", DocPassWordTb.Text);
+                    cmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Doctor Added");
                     Con.Close();
                     DisplayDoc();
                     Clear();
+                    RoomNumCb.SelectedIndex = -1;
                 }
                 catch (Exception Ex)
                 {
@@ -80,6 +107,20 @@ namespace HealthCare_Plus__HMS.Admin
                 }
             }
         }
+
+        private void RefreshRoomComboBox()
+{
+    Con.Open();
+    SqlCommand cmd = new SqlCommand("Select RoomId from RoomTbl", Con);
+    SqlDataReader rdr;
+    rdr = cmd.ExecuteReader();
+    DataTable dt = new DataTable();
+    dt.Columns.Add("RoomId", typeof(int));
+    dt.Load(rdr);
+    RoomNumCb.ValueMember = "RoomId";
+    RoomNumCb.DataSource = dt;
+    Con.Close();
+}
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
@@ -92,7 +133,7 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("update DoctorTbl set DocName=@DN, DocAdd=@DA, DocGen=@DG, DocPhone=@DP, DocDOB=@DD, DocSpec=@DS, DocExp=@DE, DocPass=@DPA where DocId=@DKey", Con);
+                    SqlCommand cmd = new SqlCommand("update DoctorTbl set DocName=@DN, DocAdd=@DA, DocGen=@DG, DocPhone=@DP, DocDOB=@DD, DocSpec=@DS, DocExp=@DE, DocPass=@DPA, RoomId=@DR where DocId=@DKey", Con);
                     cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
                     cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
                     cmd.Parameters.AddWithValue("@DG", DocGenCb.SelectedItem.ToString());
@@ -101,6 +142,7 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@DS", DocSpecCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@DE", DocExpTb.Text);
                     cmd.Parameters.AddWithValue("@DPA", DocPassWordTb.Text);
+                    cmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
                     cmd.Parameters.AddWithValue("@DKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Doctor Updated");
@@ -160,6 +202,7 @@ namespace HealthCare_Plus__HMS.Admin
                 DocAddTb.Text = row.Cells["DocAdd"].Value?.ToString() ?? "";
                 DocGenCb.SelectedItem = row.Cells["DocGen"].Value?.ToString() ?? "";
                 DocPhoneTb.Text = row.Cells["DocPhone"].Value?.ToString() ?? "";
+                RoomNumCb.SelectedValue = row.Cells["RoomId"].Value;
 
                 // Use the DateTimePicker's Value property to set its value
                 if (DateTime.TryParse(row.Cells["DocDOB"].Value?.ToString(), out DateTime result))
@@ -182,6 +225,11 @@ namespace HealthCare_Plus__HMS.Admin
                 }
 
             }
+        }
+
+        private void RoomNumCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -266,5 +266,10 @@ namespace HealthCare_Plus__HMS.Admin
             float thanksPointY = startPointY + stringSize.Height + 20; // 20 pixels below the last text
             e.Graphics.DrawString(thanksString, new Font("Century Gothic", 15, FontStyle.Bold), Brushes.Red, new PointF(thanksPointX, thanksPointY));
         }
+
+        private void DocIdCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
