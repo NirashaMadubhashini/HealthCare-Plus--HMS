@@ -45,7 +45,6 @@
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.AppoinmentsNumlbl = new System.Windows.Forms.Label();
@@ -55,6 +54,11 @@
             this.PatNumlbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.RoomAvailablelbl = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRooms = new FontAwesome.Sharp.IconButton();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnPrescription = new FontAwesome.Sharp.IconButton();
@@ -62,10 +66,6 @@
             this.btnPatient = new FontAwesome.Sharp.IconButton();
             this.btnDoctors = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.RoomAvailablelbl = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -75,15 +75,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panelMenu.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -97,7 +97,7 @@
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 40;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 749);
+            this.btnLogout.Location = new System.Drawing.Point(0, 651);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
@@ -233,12 +233,13 @@
             this.iconPictureBoxClose.IconColor = System.Drawing.Color.Gainsboro;
             this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxClose.IconSize = 31;
-            this.iconPictureBoxClose.Location = new System.Drawing.Point(1106, 22);
+            this.iconPictureBoxClose.Location = new System.Drawing.Point(1453, 22);
             this.iconPictureBoxClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.iconPictureBoxClose.Name = "iconPictureBoxClose";
             this.iconPictureBoxClose.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxClose.TabIndex = 4;
             this.iconPictureBoxClose.TabStop = false;
+            this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
             // 
             // iconPictureBoxMin
             // 
@@ -249,12 +250,13 @@
             this.iconPictureBoxMin.IconColor = System.Drawing.Color.Gainsboro;
             this.iconPictureBoxMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxMin.IconSize = 31;
-            this.iconPictureBoxMin.Location = new System.Drawing.Point(1058, 22);
+            this.iconPictureBoxMin.Location = new System.Drawing.Point(1405, 22);
             this.iconPictureBoxMin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.iconPictureBoxMin.Name = "iconPictureBoxMin";
             this.iconPictureBoxMin.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxMin.TabIndex = 2;
             this.iconPictureBoxMin.TabStop = false;
+            this.iconPictureBoxMin.Click += new System.EventHandler(this.iconPictureBoxMin_Click);
             // 
             // lblTitleChildForm
             // 
@@ -276,35 +278,24 @@
             this.panelTitleBar.Controls.Add(this.iconPictureBoxMin);
             this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.Location = new System.Drawing.Point(347, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1155, 98);
+            this.panelTitleBar.Size = new System.Drawing.Size(1502, 98);
             this.panelTitleBar.TabIndex = 13;
             // 
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Controls.Add(this.panel8);
             this.panelDesktop.Controls.Add(this.pictureBox2);
-            this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(347, 0);
+            this.panelDesktop.Location = new System.Drawing.Point(347, 98);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1155, 827);
+            this.panelDesktop.Size = new System.Drawing.Size(1155, 729);
             this.panelDesktop.TabIndex = 15;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(93, 141);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(667, 462);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
             // 
             // panel7
             // 
@@ -313,7 +304,7 @@
             this.panel7.Controls.Add(this.panel6);
             this.panel7.Controls.Add(this.panel5);
             this.panel7.Controls.Add(this.panel4);
-            this.panel7.Location = new System.Drawing.Point(4, 637);
+            this.panel7.Location = new System.Drawing.Point(4, 538);
             this.panel7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1151, 190);
@@ -413,6 +404,64 @@
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.panel8.Controls.Add(this.RoomAvailablelbl);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.pictureBox6);
+            this.panel8.Location = new System.Drawing.Point(789, 162);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(317, 176);
+            this.panel8.TabIndex = 23;
+            // 
+            // RoomAvailablelbl
+            // 
+            this.RoomAvailablelbl.AutoSize = true;
+            this.RoomAvailablelbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomAvailablelbl.ForeColor = System.Drawing.Color.White;
+            this.RoomAvailablelbl.Location = new System.Drawing.Point(135, 120);
+            this.RoomAvailablelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RoomAvailablelbl.Name = "RoomAvailablelbl";
+            this.RoomAvailablelbl.Size = new System.Drawing.Size(51, 37);
+            this.RoomAvailablelbl.TabIndex = 13;
+            this.RoomAvailablelbl.Text = "85";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(20, 67);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(278, 38);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Available Rooms";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(126, 17);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(58, 49);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 13;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(74, 57);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(667, 462);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnRooms
             // 
             this.btnRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
@@ -447,10 +496,10 @@
             this.panelMenu.Controls.Add(this.btnDoctors);
             this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Location = new System.Drawing.Point(0, 98);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(347, 827);
+            this.panelMenu.Size = new System.Drawing.Size(347, 729);
             this.panelMenu.TabIndex = 12;
             // 
             // btnPrescription
@@ -544,6 +593,7 @@
             this.btnDoctors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoctors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoctors.UseVisualStyleBackColor = false;
+            this.btnDoctors.Click += new System.EventHandler(this.btnDoctors_Click);
             // 
             // btnDashboard
             // 
@@ -567,53 +617,7 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.panel8.Controls.Add(this.RoomAvailablelbl);
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.pictureBox6);
-            this.panel8.Location = new System.Drawing.Point(808, 246);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(317, 176);
-            this.panel8.TabIndex = 23;
-            // 
-            // RoomAvailablelbl
-            // 
-            this.RoomAvailablelbl.AutoSize = true;
-            this.RoomAvailablelbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomAvailablelbl.ForeColor = System.Drawing.Color.White;
-            this.RoomAvailablelbl.Location = new System.Drawing.Point(135, 120);
-            this.RoomAvailablelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.RoomAvailablelbl.Name = "RoomAvailablelbl";
-            this.RoomAvailablelbl.Size = new System.Drawing.Size(51, 37);
-            this.RoomAvailablelbl.TabIndex = 13;
-            this.RoomAvailablelbl.Text = "85";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(20, 67);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(278, 38);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Available Rooms";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(126, 17);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(58, 49);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 13;
-            this.pictureBox6.TabStop = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // StaffDashboard
             // 
@@ -622,13 +626,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1502, 827);
             this.Controls.Add(this.panelShadow);
-            this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelTitleBar);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "StaffDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffDashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -642,7 +647,6 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -650,10 +654,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panelMenu.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

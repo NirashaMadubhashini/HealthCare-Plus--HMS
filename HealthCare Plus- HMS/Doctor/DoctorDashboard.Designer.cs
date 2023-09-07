@@ -44,8 +44,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnLaboratoryTest = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.LogoutBtn = new FontAwesome.Sharp.IconButton();
             this.btnRooms = new FontAwesome.Sharp.IconButton();
             this.btnPrescription = new FontAwesome.Sharp.IconButton();
             this.btnStaff = new FontAwesome.Sharp.IconButton();
@@ -71,7 +69,6 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
@@ -230,8 +227,6 @@
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.panelMenu.Controls.Add(this.btnLaboratoryTest);
             this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.iconPictureBox1);
-            this.panelMenu.Controls.Add(this.LogoutBtn);
             this.panelMenu.Controls.Add(this.btnRooms);
             this.panelMenu.Controls.Add(this.btnPrescription);
             this.panelMenu.Controls.Add(this.btnStaff);
@@ -239,10 +234,10 @@
             this.panelMenu.Controls.Add(this.btnDoctors);
             this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 108);
+            this.panelMenu.Location = new System.Drawing.Point(0, 98);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(347, 719);
+            this.panelMenu.Size = new System.Drawing.Size(347, 729);
             this.panelMenu.TabIndex = 8;
             // 
             // btnLaboratoryTest
@@ -289,35 +284,6 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
-            // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Gray;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.House;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Gray;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 51;
-            this.iconPictureBox1.Location = new System.Drawing.Point(19, 763);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(51, 58);
-            this.iconPictureBox1.TabIndex = 7;
-            this.iconPictureBox1.TabStop = false;
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LogoutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.LogoutBtn.IconColor = System.Drawing.Color.Black;
-            this.LogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogoutBtn.Location = new System.Drawing.Point(0, 752);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(347, 75);
-            this.LogoutBtn.TabIndex = 0;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
             // 
             // btnRooms
             // 
@@ -485,10 +451,10 @@
             // 
             this.panelShadow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelShadow.Location = new System.Drawing.Point(0, 98);
+            this.panelShadow.Location = new System.Drawing.Point(347, 98);
             this.panelShadow.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(1502, 10);
+            this.panelShadow.Size = new System.Drawing.Size(1155, 10);
             this.panelShadow.TabIndex = 10;
             // 
             // iconPictureBoxClose
@@ -567,16 +533,16 @@
             this.panelDesktop.Controls.Add(this.pictureBox2);
             this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(0, 0);
+            this.panelDesktop.Location = new System.Drawing.Point(347, 98);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1502, 827);
+            this.panelDesktop.Size = new System.Drawing.Size(1155, 729);
             this.panelDesktop.TabIndex = 11;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(440, 137);
+            this.pictureBox2.Location = new System.Drawing.Point(44, 42);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(972, 462);
@@ -591,7 +557,7 @@
             this.panel7.Controls.Add(this.panel6);
             this.panel7.Controls.Add(this.panel5);
             this.panel7.Controls.Add(this.panel4);
-            this.panel7.Location = new System.Drawing.Point(347, 637);
+            this.panel7.Location = new System.Drawing.Point(4, 539);
             this.panel7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1151, 190);
@@ -626,14 +592,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1502, 827);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelShadow);
-            this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelDesktop);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelTitleBar);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "DoctorDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorDashboard";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -643,7 +610,6 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
@@ -678,8 +644,6 @@
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton btnLaboratoryTest;
         private FontAwesome.Sharp.IconButton btnLogout;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private FontAwesome.Sharp.IconButton LogoutBtn;
         private FontAwesome.Sharp.IconButton btnRooms;
         private FontAwesome.Sharp.IconButton btnPrescription;
         private FontAwesome.Sharp.IconButton btnStaff;
