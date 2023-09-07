@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboard));
-            this.btnLaboratoryTest = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.LogoutBtn = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Prescriptionlbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,21 +48,24 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.StaffNumlbl = new System.Windows.Forms.Label();
+            this.AppoinmentsNumlbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.PatNumlbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btnRooms = new FontAwesome.Sharp.IconButton();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnPrescription = new FontAwesome.Sharp.IconButton();
-            this.btnStaff = new FontAwesome.Sharp.IconButton();
+            this.btnAppoinment = new FontAwesome.Sharp.IconButton();
             this.btnPatient = new FontAwesome.Sharp.IconButton();
             this.btnDoctors = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.RoomAvailablelbl = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -80,32 +81,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLaboratoryTest
-            // 
-            this.btnLaboratoryTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.btnLaboratoryTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLaboratoryTest.FlatAppearance.BorderSize = 0;
-            this.btnLaboratoryTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaboratoryTest.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnLaboratoryTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
-            this.btnLaboratoryTest.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnLaboratoryTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLaboratoryTest.IconSize = 40;
-            this.btnLaboratoryTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLaboratoryTest.Location = new System.Drawing.Point(0, 468);
-            this.btnLaboratoryTest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLaboratoryTest.Name = "btnLaboratoryTest";
-            this.btnLaboratoryTest.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnLaboratoryTest.Size = new System.Drawing.Size(347, 78);
-            this.btnLaboratoryTest.TabIndex = 8;
-            this.btnLaboratoryTest.Text = "Laboratory Test";
-            this.btnLaboratoryTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLaboratoryTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLaboratoryTest.UseVisualStyleBackColor = false;
             // 
             // btnLogout
             // 
@@ -118,7 +97,7 @@
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 40;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 641);
+            this.btnLogout.Location = new System.Drawing.Point(0, 749);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
@@ -128,20 +107,6 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LogoutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.LogoutBtn.IconColor = System.Drawing.Color.Black;
-            this.LogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogoutBtn.Location = new System.Drawing.Point(0, 752);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(347, 75);
-            this.LogoutBtn.TabIndex = 0;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -320,6 +285,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.panel8);
             this.panelDesktop.Controls.Add(this.pictureBox2);
             this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -335,7 +301,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(93, 141);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(972, 462);
+            this.pictureBox2.Size = new System.Drawing.Size(667, 462);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
@@ -356,7 +322,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.StaffNumlbl);
+            this.panel6.Controls.Add(this.AppoinmentsNumlbl);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.pictureBox5);
             this.panel6.Location = new System.Drawing.Point(592, 60);
@@ -365,29 +331,29 @@
             this.panel6.Size = new System.Drawing.Size(246, 96);
             this.panel6.TabIndex = 19;
             // 
-            // StaffNumlbl
+            // AppoinmentsNumlbl
             // 
-            this.StaffNumlbl.AutoSize = true;
-            this.StaffNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffNumlbl.ForeColor = System.Drawing.Color.Black;
-            this.StaffNumlbl.Location = new System.Drawing.Point(143, 40);
-            this.StaffNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.StaffNumlbl.Name = "StaffNumlbl";
-            this.StaffNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.StaffNumlbl.TabIndex = 13;
-            this.StaffNumlbl.Text = "50";
+            this.AppoinmentsNumlbl.AutoSize = true;
+            this.AppoinmentsNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppoinmentsNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.AppoinmentsNumlbl.Location = new System.Drawing.Point(143, 40);
+            this.AppoinmentsNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AppoinmentsNumlbl.Name = "AppoinmentsNumlbl";
+            this.AppoinmentsNumlbl.Size = new System.Drawing.Size(51, 37);
+            this.AppoinmentsNumlbl.TabIndex = 13;
+            this.AppoinmentsNumlbl.Text = "50";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(136, 12);
+            this.label7.Location = new System.Drawing.Point(85, 12);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 25);
+            this.label7.Size = new System.Drawing.Size(156, 25);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Staff";
+            this.label7.Text = "Appoinments";
             // 
             // pictureBox5
             // 
@@ -447,21 +413,6 @@
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Gray;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.House;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Gray;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 51;
-            this.iconPictureBox1.Location = new System.Drawing.Point(19, 763);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(51, 58);
-            this.iconPictureBox1.TabIndex = 7;
-            this.iconPictureBox1.TabStop = false;
-            // 
             // btnRooms
             // 
             this.btnRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
@@ -480,7 +431,7 @@
             this.btnRooms.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
             this.btnRooms.Size = new System.Drawing.Size(347, 78);
             this.btnRooms.TabIndex = 6;
-            this.btnRooms.Text = "Rooms";
+            this.btnRooms.Text = "Room Bookings";
             this.btnRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRooms.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRooms.UseVisualStyleBackColor = false;
@@ -488,13 +439,10 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.panelMenu.Controls.Add(this.btnLaboratoryTest);
             this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.iconPictureBox1);
-            this.panelMenu.Controls.Add(this.LogoutBtn);
             this.panelMenu.Controls.Add(this.btnRooms);
             this.panelMenu.Controls.Add(this.btnPrescription);
-            this.panelMenu.Controls.Add(this.btnStaff);
+            this.panelMenu.Controls.Add(this.btnAppoinment);
             this.panelMenu.Controls.Add(this.btnPatient);
             this.panelMenu.Controls.Add(this.btnDoctors);
             this.panelMenu.Controls.Add(this.btnDashboard);
@@ -528,28 +476,28 @@
             this.btnPrescription.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrescription.UseVisualStyleBackColor = false;
             // 
-            // btnStaff
+            // btnAppoinment
             // 
-            this.btnStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStaff.FlatAppearance.BorderSize = 0;
-            this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStaff.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnStaff.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.btnStaff.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnStaff.IconSize = 40;
-            this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStaff.Location = new System.Drawing.Point(0, 234);
-            this.btnStaff.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnStaff.Size = new System.Drawing.Size(347, 78);
-            this.btnStaff.TabIndex = 4;
-            this.btnStaff.Text = "Staff";
-            this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnAppoinment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.btnAppoinment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAppoinment.FlatAppearance.BorderSize = 0;
+            this.btnAppoinment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAppoinment.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAppoinment.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.btnAppoinment.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnAppoinment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAppoinment.IconSize = 40;
+            this.btnAppoinment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAppoinment.Location = new System.Drawing.Point(0, 234);
+            this.btnAppoinment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAppoinment.Name = "btnAppoinment";
+            this.btnAppoinment.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnAppoinment.Size = new System.Drawing.Size(347, 78);
+            this.btnAppoinment.TabIndex = 4;
+            this.btnAppoinment.Text = "Appoinments";
+            this.btnAppoinment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAppoinment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAppoinment.UseVisualStyleBackColor = false;
             // 
             // btnPatient
             // 
@@ -620,6 +568,53 @@
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.panel8.Controls.Add(this.RoomAvailablelbl);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.pictureBox6);
+            this.panel8.Location = new System.Drawing.Point(808, 246);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(317, 176);
+            this.panel8.TabIndex = 23;
+            // 
+            // RoomAvailablelbl
+            // 
+            this.RoomAvailablelbl.AutoSize = true;
+            this.RoomAvailablelbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomAvailablelbl.ForeColor = System.Drawing.Color.White;
+            this.RoomAvailablelbl.Location = new System.Drawing.Point(135, 120);
+            this.RoomAvailablelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RoomAvailablelbl.Name = "RoomAvailablelbl";
+            this.RoomAvailablelbl.Size = new System.Drawing.Size(51, 37);
+            this.RoomAvailablelbl.TabIndex = 13;
+            this.RoomAvailablelbl.Text = "85";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(20, 67);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(278, 38);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Available Rooms";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(126, 17);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(58, 49);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 13;
+            this.pictureBox6.TabStop = false;
+            // 
             // StaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
@@ -655,17 +650,16 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton btnLaboratoryTest;
         private FontAwesome.Sharp.IconButton btnLogout;
-        private FontAwesome.Sharp.IconButton LogoutBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Prescriptionlbl;
         private System.Windows.Forms.Label label2;
@@ -684,20 +678,23 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label StaffNumlbl;
+        private System.Windows.Forms.Label AppoinmentsNumlbl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label PatNumlbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton btnRooms;
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton btnPrescription;
-        private FontAwesome.Sharp.IconButton btnStaff;
+        private FontAwesome.Sharp.IconButton btnAppoinment;
         private FontAwesome.Sharp.IconButton btnPatient;
         private FontAwesome.Sharp.IconButton btnDoctors;
         private FontAwesome.Sharp.IconButton btnDashboard;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label RoomAvailablelbl;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
