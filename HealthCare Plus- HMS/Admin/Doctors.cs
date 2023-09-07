@@ -65,25 +65,28 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            Con.Open();
-            SqlCommand checkRoomCmd = new SqlCommand("select count(*) from DoctorTbl where RoomId=@DR", Con);
-            checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
-            int roomCount = Convert.ToInt32(checkRoomCmd.ExecuteScalar());
-            Con.Close();
-
-            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "" || roomCount > 0)
+            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "")
             {
-                // Step 1: Notify if all rooms are booked
-                if (roomCount > 0)
-                    MessageBox.Show("The selected room is already assigned to another doctor.");
-                else
-                    MessageBox.Show("Missing Information");
+                MessageBox.Show("Missing Information");
             }
             else
             {
                 try
                 {
                     Con.Open();
+                    SqlCommand checkRoomCmd = new SqlCommand("Select * from DoctorTbl where RoomId=@DR", Con);
+                    checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    SqlDataReader reader = checkRoomCmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        MessageBox.Show("This room is already assigned to another doctor.");
+                        Con.Close();
+                        return;
+                    }
+
+                    reader.Close();
+
                     SqlCommand cmd = new SqlCommand("insert into DoctorTbl(DocName, DocAdd, DocGen, DocPhone, DocDOB, DocSpec, DocExp, DocPass, RoomId)values(@DN, @DA, @DG, @DP, @DD, @DS, @DE, @DPA, @DR)", Con);
                     cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
                     cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
@@ -99,7 +102,6 @@ namespace HealthCare_Plus__HMS.Admin
                     Con.Close();
                     DisplayDoc();
                     Clear();
-                    RoomNumCb.SelectedIndex = -1;
                 }
                 catch (Exception Ex)
                 {
@@ -107,20 +109,6 @@ namespace HealthCare_Plus__HMS.Admin
                 }
             }
         }
-
-        private void RefreshRoomComboBox()
-{
-    Con.Open();
-    SqlCommand cmd = new SqlCommand("Select RoomId from RoomTbl", Con);
-    SqlDataReader rdr;
-    rdr = cmd.ExecuteReader();
-    DataTable dt = new DataTable();
-    dt.Columns.Add("RoomId", typeof(int));
-    dt.Load(rdr);
-    RoomNumCb.ValueMember = "RoomId";
-    RoomNumCb.DataSource = dt;
-    Con.Close();
-}
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
@@ -133,6 +121,20 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
+                    SqlCommand checkRoomCmd = new SqlCommand("Select * from DoctorTbl where RoomId=@DR AND DocId <> @DKey", Con);
+                    checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    checkRoomCmd.Parameters.AddWithValue("@DKey", Key);
+                    SqlDataReader reader = checkRoomCmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        MessageBox.Show("This room is already assigned to another doctor.");
+                        Con.Close();
+                        return;
+                    }
+
+                    reader.Close();
+
                     SqlCommand cmd = new SqlCommand("update DoctorTbl set DocName=@DN, DocAdd=@DA, DocGen=@DG, DocPhone=@DP, DocDOB=@DD, DocSpec=@DS, DocExp=@DE, DocPass=@DPA, RoomId=@DR where DocId=@DKey", Con);
                     cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
                     cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
