@@ -209,5 +209,12 @@ namespace HealthCare_Plus__HMS.Staff
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Search_Doctor());
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login obj = new Login();
+            obj.Show();
+            this.Hide();
+        }
     }
 }
