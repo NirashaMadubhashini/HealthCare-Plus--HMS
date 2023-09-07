@@ -69,7 +69,6 @@
             // 
             // MedTb
             // 
-            this.MedTb.Enabled = false;
             this.MedTb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MedTb.ForeColor = System.Drawing.Color.Black;
             this.MedTb.Location = new System.Drawing.Point(269, 299);
