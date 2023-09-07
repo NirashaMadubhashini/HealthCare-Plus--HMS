@@ -38,10 +38,11 @@ namespace HealthCare_Plus__HMS.Staff
         {
             string docName = SerachByNameTb.Text; // Get the text from the SearchByName text box
             string docSpec = SerachBySpecTb.Text; // Get the text from the SearchBySpec text box
+            DateTime? docDOB = DocAvailableDate.Checked ? DocAvailableDate.Value.Date : (DateTime?)null; // Get the selected date from the DateTimePicker
 
             if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec))
             {
-                MessageBox.Show("Please enter a name or specialization to search.", "Input Error");
+                MessageBox.Show("Please enter a name, specialization, or date to search.", "Input Error");
                 return;
             }
 
@@ -62,6 +63,12 @@ namespace HealthCare_Plus__HMS.Staff
             {
                 conditions.Add("DocSpec LIKE @DocSpec");
                 cmd.Parameters.AddWithValue("@DocSpec", "%" + docSpec + "%");
+            }
+
+            if (docDOB != null)
+            {
+                conditions.Add("DocDOB = @DocDOB");
+                cmd.Parameters.AddWithValue("@DocDOB", docDOB);
             }
 
             queryBuilder.Append(string.Join(" AND ", conditions));
@@ -85,10 +92,11 @@ namespace HealthCare_Plus__HMS.Staff
 
             Con.Close();  // Close the connection
 
-            // Clear the text fields and combo boxes
+          
             SerachByNameTb.Text = string.Empty;
             SerachBySpecTb.Text = string.Empty;
-            // ... (clear any other text fields or combo boxes you have)
+            DocAvailableDate.Value = DateTime.Now; // Reset the DateTimePicker to the current date
+            DocAvailableDate.Checked = false; // Uncheck the DateTimePicker
         }
 
 
