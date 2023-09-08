@@ -67,57 +67,58 @@ namespace HealthCare_Plus__HMS.Admin
             public static Color color8 = Color.FromArgb(6, 59, 130);
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+/*        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");*/
+      SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         private void CountPatients()
         {
-            Con.Open();
+            /*Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             PatNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            Con.Close();*/
         }
 
         private void CountDoctors()
         {
-            Con.Open();
+           /* Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from DoctorTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             DocNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            Con.Close();*/
         }
 
         private void CountStaffs()
         {
-            Con.Open();
+          /*  Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from StaffTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             StaffNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            Con.Close();*/
         }
 
            private void CountPriscription()
                 {
-                    Con.Open();
+                  /*  Con.Open();
                     SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PrescriptionTbl", Con);
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
                     Prescriptionlbl.Text = dt.Rows[0][0].ToString();
-                    Con.Close();
+                    Con.Close();*/
                 }
 
         private void CountHIV()
         {
-            string Status = "Positive";
+           /* string Status = "Positive";
             Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl where PatHIV = '" + Status + "'", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             HIVlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            Con.Close();*/
         }
 
 

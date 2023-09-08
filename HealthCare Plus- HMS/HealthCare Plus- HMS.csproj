@@ -127,6 +127,12 @@
     <Compile Include="Staff\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff\RoomBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\RoomBooking.Designer.cs">
+      <DependentUpon>RoomBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff\Search Doctor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\RoomBooking.resx">
+      <DependentUpon>RoomBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Search Doctor.resx">
       <DependentUpon>Search Doctor.cs</DependentUpon>

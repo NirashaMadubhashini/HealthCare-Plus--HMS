@@ -21,7 +21,7 @@ namespace HealthCare_Plus__HMS
             InitializeComponent();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         public static string Role;
         private void iconPictureBoxMin_Click(object sender, EventArgs e)
         {
@@ -33,93 +33,79 @@ namespace HealthCare_Plus__HMS
             Application.Exit();
         }
 
-        private void RoleCb_SelectedIndexChanged(object sender, EventArgs e)
+        private void roleCb_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Resetlbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void resetlbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            RoleCb.SelectedIndex = 0;
-            UnameTb.Text = "";
-            PassTb.Text = "";
+            roleCb.SelectedIndex = 0;
+            unameTb.Text = "";
+            passTb.Text = "";
+
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private void loginBtn_Click(object sender, EventArgs e)
         {
-            if (RoleCb.SelectedIndex == -1)
+         
+            if (string.IsNullOrEmpty(unameTb.Text) || string.IsNullOrEmpty(passTb.Text) || roleCb.SelectedIndex == -1)
             {
-                MessageBox.Show("Select Your Position");
+                MessageBox.Show("Please fill in all fields.");
+                return;
             }
-            else if (RoleCb.SelectedIndex == 0)
+
+            try
             {
-                if (UnameTb.Text == "" || PassTb.Text == "")
+                Con.Open();
+
+                string query = "SELECT userRole FROM UserTbl WHERE userName=@userName AND userPassword=@userPassword";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", unameTb.Text);
+                cmd.Parameters.AddWithValue("@userPassword", passTb.Text);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    MessageBox.Show("Enter Both Admin Name and Password");
-                }
-                else if (UnameTb.Text == "Admin" && PassTb.Text == "123")
-                {
-                    Role = "Admin";
-                    AdminDashboard obj = new AdminDashboard();
-                    obj.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong Admin UserName and Password");
-                }
-            }
-            else if (RoleCb.SelectedIndex == 1)
-            {
-                if (UnameTb.Text == "" || PassTb.Text == "")
-                {
-                    MessageBox.Show("Enter Both Doctor Name and Password");
-                }
-                else
-                {
-                    Con.Open();
-                    SqlDataAdapter sda = new SqlDataAdapter("Select Count (*) from DoctorTbl where DocName= '" + UnameTb.Text + " ' and  DocPass='" + PassTb.Text + "'", Con);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    if (dt.Rows[0][0].ToString() == "1")
+                    string dbUserRole = reader["userRole"].ToString();
+                    if (dbUserRole == roleCb.SelectedItem.ToString())
                     {
-                        Role = "Doctor";
-                        DoctorDashboard obj = new DoctorDashboard();
-                        obj.Show();
-                        this.Hide();
+                        // Correct Role and Credentials
+                        switch (dbUserRole)
+                        {
+                            case "Admin":
+                                AdminDashboard adminDashboard = new AdminDashboard();
+                                adminDashboard.Show();
+                                this.Hide();
+                                break;
+                            case "Doctor":
+                                DoctorDashboard doctorDashboard = new DoctorDashboard();
+                                doctorDashboard.Show();
+                                this.Hide();
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Role selected.");
+                                break;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Doctor Not Found");
+                        MessageBox.Show("Role mismatch. Please select the correct role.");
                     }
-                    Con.Close();
-                }
-            }
-            else
-            {
-                if (UnameTb.Text == "" || PassTb.Text == "")
-                {
-                    MessageBox.Show("Enter Both Staff Member Name and Password");
                 }
                 else
                 {
-                    Con.Open();
-                    SqlDataAdapter sda = new SqlDataAdapter("Select Count (*) from StaffTbl where StaffName= '" + UnameTb.Text + " ' and  StaffPass='" + PassTb.Text + "'", Con);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    if (dt.Rows[0][0].ToString() == "1")
-                    {
-                        Role = "Staff";
-                        StaffDashboard obj = new StaffDashboard();
-                        obj.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Staff Member Not Found");
-                    }
-                    Con.Close();
+                    MessageBox.Show("Invalid Credentials. Please try again.");
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
             }
         }
     }

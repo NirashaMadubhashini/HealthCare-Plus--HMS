@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Resetlbl = new System.Windows.Forms.LinkLabel();
+            this.resetlbl = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,10 +43,10 @@
             this.iconPictureBoxMin = new FontAwesome.Sharp.IconPictureBox();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.LoginBtn = new System.Windows.Forms.Button();
-            this.PassTb = new System.Windows.Forms.TextBox();
-            this.UnameTb = new System.Windows.Forms.TextBox();
-            this.RoleCb = new System.Windows.Forms.ComboBox();
+            this.loginBtn = new System.Windows.Forms.Button();
+            this.passTb = new System.Windows.Forms.TextBox();
+            this.unameTb = new System.Windows.Forms.TextBox();
+            this.roleCb = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,21 +70,21 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 3000;
             // 
-            // Resetlbl
+            // resetlbl
             // 
-            this.Resetlbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.Resetlbl.AutoSize = true;
-            this.Resetlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Resetlbl.ForeColor = System.Drawing.Color.Black;
-            this.Resetlbl.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.Resetlbl.LinkColor = System.Drawing.Color.Black;
-            this.Resetlbl.Location = new System.Drawing.Point(863, 597);
-            this.Resetlbl.Name = "Resetlbl";
-            this.Resetlbl.Size = new System.Drawing.Size(62, 25);
-            this.Resetlbl.TabIndex = 11;
-            this.Resetlbl.TabStop = true;
-            this.Resetlbl.Text = "Reset";
-            this.Resetlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Resetlbl_LinkClicked);
+            this.resetlbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.resetlbl.AutoSize = true;
+            this.resetlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetlbl.ForeColor = System.Drawing.Color.Black;
+            this.resetlbl.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.resetlbl.LinkColor = System.Drawing.Color.Black;
+            this.resetlbl.Location = new System.Drawing.Point(863, 597);
+            this.resetlbl.Name = "resetlbl";
+            this.resetlbl.Size = new System.Drawing.Size(62, 25);
+            this.resetlbl.TabIndex = 11;
+            this.resetlbl.TabStop = true;
+            this.resetlbl.Text = "Reset";
+            this.resetlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.resetlbl_LinkClicked);
             // 
             // pictureBox3
             // 
@@ -215,13 +215,13 @@
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.White;
-            this.pnlLogin.Controls.Add(this.LoginBtn);
-            this.pnlLogin.Controls.Add(this.PassTb);
-            this.pnlLogin.Controls.Add(this.UnameTb);
-            this.pnlLogin.Controls.Add(this.RoleCb);
+            this.pnlLogin.Controls.Add(this.loginBtn);
+            this.pnlLogin.Controls.Add(this.passTb);
+            this.pnlLogin.Controls.Add(this.unameTb);
+            this.pnlLogin.Controls.Add(this.roleCb);
             this.pnlLogin.Controls.Add(this.pictureBox4);
             this.pnlLogin.Controls.Add(this.label6);
-            this.pnlLogin.Controls.Add(this.Resetlbl);
+            this.pnlLogin.Controls.Add(this.resetlbl);
             this.pnlLogin.Controls.Add(this.pictureBox3);
             this.pnlLogin.Controls.Add(this.pictureBox2);
             this.pnlLogin.Controls.Add(this.label5);
@@ -235,58 +235,58 @@
             this.pnlLogin.Size = new System.Drawing.Size(1184, 760);
             this.pnlLogin.TabIndex = 5;
             // 
-            // LoginBtn
+            // loginBtn
             // 
-            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoginBtn.FlatAppearance.BorderSize = 10;
-            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LoginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginBtn.ForeColor = System.Drawing.Color.White;
-            this.LoginBtn.Location = new System.Drawing.Point(797, 539);
-            this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(190, 45);
-            this.LoginBtn.TabIndex = 15;
-            this.LoginBtn.Text = "Login";
-            this.LoginBtn.UseVisualStyleBackColor = false;
-            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBtn.FlatAppearance.BorderSize = 10;
+            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Location = new System.Drawing.Point(797, 539);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(190, 45);
+            this.loginBtn.TabIndex = 15;
+            this.loginBtn.Text = "Login";
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // PassTb
+            // passTb
             // 
-            this.PassTb.BackColor = System.Drawing.Color.White;
-            this.PassTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.PassTb.Location = new System.Drawing.Point(731, 459);
-            this.PassTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PassTb.Name = "PassTb";
-            this.PassTb.Size = new System.Drawing.Size(339, 47);
-            this.PassTb.TabIndex = 2;
+            this.passTb.BackColor = System.Drawing.Color.White;
+            this.passTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.passTb.Location = new System.Drawing.Point(731, 459);
+            this.passTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passTb.Name = "passTb";
+            this.passTb.Size = new System.Drawing.Size(339, 47);
+            this.passTb.TabIndex = 2;
             // 
-            // UnameTb
+            // unameTb
             // 
-            this.UnameTb.BackColor = System.Drawing.Color.White;
-            this.UnameTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UnameTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.UnameTb.Location = new System.Drawing.Point(731, 377);
-            this.UnameTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UnameTb.Name = "UnameTb";
-            this.UnameTb.Size = new System.Drawing.Size(339, 47);
-            this.UnameTb.TabIndex = 2;
+            this.unameTb.BackColor = System.Drawing.Color.White;
+            this.unameTb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unameTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.unameTb.Location = new System.Drawing.Point(731, 377);
+            this.unameTb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.unameTb.Name = "unameTb";
+            this.unameTb.Size = new System.Drawing.Size(339, 47);
+            this.unameTb.TabIndex = 2;
             // 
-            // RoleCb
+            // roleCb
             // 
-            this.RoleCb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoleCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.RoleCb.FormattingEnabled = true;
-            this.RoleCb.Items.AddRange(new object[] {
+            this.roleCb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.roleCb.FormattingEnabled = true;
+            this.roleCb.Items.AddRange(new object[] {
             "Admin",
             "Doctor",
             "Staff Member"});
-            this.RoleCb.Location = new System.Drawing.Point(729, 300);
-            this.RoleCb.Name = "RoleCb";
-            this.RoleCb.Size = new System.Drawing.Size(339, 47);
-            this.RoleCb.TabIndex = 14;
-            this.RoleCb.SelectedIndexChanged += new System.EventHandler(this.RoleCb_SelectedIndexChanged);
+            this.roleCb.Location = new System.Drawing.Point(729, 300);
+            this.roleCb.Name = "roleCb";
+            this.roleCb.Size = new System.Drawing.Size(339, 47);
+            this.roleCb.TabIndex = 14;
+            this.roleCb.SelectedIndexChanged += new System.EventHandler(this.roleCb_SelectedIndexChanged);
             // 
             // pictureBox4
             // 
@@ -376,7 +376,7 @@
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.LinkLabel Resetlbl;
+        private System.Windows.Forms.LinkLabel resetlbl;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
@@ -385,15 +385,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.ComboBox RoleCb;
+        private System.Windows.Forms.ComboBox roleCb;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox btnHome;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxMin;
-        private System.Windows.Forms.Button LoginBtn;
-        private System.Windows.Forms.TextBox PassTb;
-        private System.Windows.Forms.TextBox UnameTb;
+        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.TextBox passTb;
+        private System.Windows.Forms.TextBox unameTb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel pnlLogo;
