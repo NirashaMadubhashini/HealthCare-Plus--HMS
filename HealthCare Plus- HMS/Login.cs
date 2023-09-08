@@ -108,5 +108,10 @@ namespace HealthCare_Plus__HMS
                 Con.Close();
             }
         }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

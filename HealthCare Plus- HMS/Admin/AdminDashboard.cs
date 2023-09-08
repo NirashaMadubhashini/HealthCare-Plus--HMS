@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 
 namespace HealthCare_Plus__HMS.Admin
@@ -33,6 +34,11 @@ namespace HealthCare_Plus__HMS.Admin
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
 
+            Timer timer = new Timer();
+            timer.Interval = 1000; // Set the timer interval to 1 second
+            timer.Tick += new EventHandler(Timer_Tick); // Add the Tick event handler
+            timer.Start(); // Start the timer
+
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -43,6 +49,11 @@ namespace HealthCare_Plus__HMS.Admin
             {
 
             }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString("F"); // "F" format specifier displays the full date and time
         }
 
         private void UpdateDashboardStats()
@@ -279,6 +290,46 @@ namespace HealthCare_Plus__HMS.Admin
         }
 
         private void HIVlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
