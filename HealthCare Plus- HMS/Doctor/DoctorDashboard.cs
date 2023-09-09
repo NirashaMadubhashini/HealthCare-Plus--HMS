@@ -32,6 +32,12 @@ namespace HealthCare_Plus__HMS.Doctor
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
 
+            Timer timer = new Timer();
+            timer.Interval = 1000; // Set the timer interval to 1 second
+            timer.Tick += new EventHandler(Timer_Tick); // Add the Tick event handler
+            timer.Start(); // Start the timer
+
+
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -42,6 +48,11 @@ namespace HealthCare_Plus__HMS.Doctor
             {
 
             }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString("F"); // "F" format specifier displays the full date and time
         }
 
         private void UpdateDashboardStats()
@@ -66,7 +77,10 @@ namespace HealthCare_Plus__HMS.Doctor
             public static Color color8 = Color.FromArgb(6, 59, 130);
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+/*        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");*/
+       SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+
+
 
         /*        private void CountPatients()
                 {
@@ -127,7 +141,7 @@ namespace HealthCare_Plus__HMS.Doctor
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
+                currentBtn.BackColor = Color.FromArgb(158, 158, 158);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -147,10 +161,10 @@ namespace HealthCare_Plus__HMS.Doctor
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.BackColor = Color.FromArgb(250, 250, 250);
+                currentBtn.ForeColor = Color.Black;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.Black;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -217,6 +231,11 @@ namespace HealthCare_Plus__HMS.Doctor
         }
 
         private void panelShadow_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
         {
 
         }

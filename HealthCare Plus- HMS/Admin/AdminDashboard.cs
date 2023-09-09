@@ -142,7 +142,7 @@ namespace HealthCare_Plus__HMS.Admin
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
+                currentBtn.BackColor = Color.FromArgb(158, 158, 158);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -162,10 +162,10 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.BackColor = Color.FromArgb(250, 250, 250);
+                currentBtn.ForeColor = Color.Black;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.Black;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -330,6 +330,11 @@ namespace HealthCare_Plus__HMS.Admin
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelShadow_Paint(object sender, PaintEventArgs e)
         {
 
         }
