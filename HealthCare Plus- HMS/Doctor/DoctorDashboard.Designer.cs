@@ -30,13 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorDashboard));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnLaboratoryTest = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.btnRooms = new FontAwesome.Sharp.IconButton();
-            this.btnPrescription = new FontAwesome.Sharp.IconButton();
             this.btnStaff = new FontAwesome.Sharp.IconButton();
-            this.btnPatient = new FontAwesome.Sharp.IconButton();
-            this.btnDoctors = new FontAwesome.Sharp.IconButton();
+            this.btnAppointment = new FontAwesome.Sharp.IconButton();
+            this.btnProfile = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
@@ -45,34 +42,14 @@
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.HIVlbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Prescriptionlbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.StaffNumlbl = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.PatNumlbl = new System.Windows.Forms.Label();
+            this.patientRecordsNumlbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.DocNumlbl = new System.Windows.Forms.Label();
+            this.AppoinmentNumlbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
@@ -81,16 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
@@ -101,13 +68,10 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMenu.Controls.Add(this.btnLaboratoryTest);
             this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.btnRooms);
-            this.panelMenu.Controls.Add(this.btnPrescription);
             this.panelMenu.Controls.Add(this.btnStaff);
-            this.panelMenu.Controls.Add(this.btnPatient);
-            this.panelMenu.Controls.Add(this.btnDoctors);
+            this.panelMenu.Controls.Add(this.btnAppointment);
+            this.panelMenu.Controls.Add(this.btnProfile);
             this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 98);
@@ -115,29 +79,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(347, 729);
             this.panelMenu.TabIndex = 8;
-            // 
-            // btnLaboratoryTest
-            // 
-            this.btnLaboratoryTest.BackColor = System.Drawing.Color.White;
-            this.btnLaboratoryTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLaboratoryTest.FlatAppearance.BorderSize = 0;
-            this.btnLaboratoryTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaboratoryTest.ForeColor = System.Drawing.Color.Black;
-            this.btnLaboratoryTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
-            this.btnLaboratoryTest.IconColor = System.Drawing.Color.Black;
-            this.btnLaboratoryTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLaboratoryTest.IconSize = 40;
-            this.btnLaboratoryTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLaboratoryTest.Location = new System.Drawing.Point(0, 468);
-            this.btnLaboratoryTest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLaboratoryTest.Name = "btnLaboratoryTest";
-            this.btnLaboratoryTest.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnLaboratoryTest.Size = new System.Drawing.Size(345, 78);
-            this.btnLaboratoryTest.TabIndex = 8;
-            this.btnLaboratoryTest.Text = "Laboratory Test";
-            this.btnLaboratoryTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLaboratoryTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLaboratoryTest.UseVisualStyleBackColor = false;
             // 
             // btnLogout
             // 
@@ -163,53 +104,6 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnRooms
-            // 
-            this.btnRooms.BackColor = System.Drawing.Color.White;
-            this.btnRooms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRooms.FlatAppearance.BorderSize = 0;
-            this.btnRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRooms.ForeColor = System.Drawing.Color.Black;
-            this.btnRooms.IconChar = FontAwesome.Sharp.IconChar.Bed;
-            this.btnRooms.IconColor = System.Drawing.Color.Black;
-            this.btnRooms.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRooms.IconSize = 40;
-            this.btnRooms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRooms.Location = new System.Drawing.Point(0, 390);
-            this.btnRooms.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRooms.Name = "btnRooms";
-            this.btnRooms.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnRooms.Size = new System.Drawing.Size(345, 78);
-            this.btnRooms.TabIndex = 6;
-            this.btnRooms.Text = "Rooms";
-            this.btnRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRooms.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRooms.UseVisualStyleBackColor = false;
-            // 
-            // btnPrescription
-            // 
-            this.btnPrescription.BackColor = System.Drawing.Color.White;
-            this.btnPrescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrescription.FlatAppearance.BorderSize = 0;
-            this.btnPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrescription.ForeColor = System.Drawing.Color.Black;
-            this.btnPrescription.IconChar = FontAwesome.Sharp.IconChar.Medkit;
-            this.btnPrescription.IconColor = System.Drawing.Color.Black;
-            this.btnPrescription.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrescription.IconSize = 40;
-            this.btnPrescription.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrescription.Location = new System.Drawing.Point(0, 312);
-            this.btnPrescription.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnPrescription.Name = "btnPrescription";
-            this.btnPrescription.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnPrescription.Size = new System.Drawing.Size(345, 78);
-            this.btnPrescription.TabIndex = 5;
-            this.btnPrescription.Text = "Prescription";
-            this.btnPrescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrescription.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrescription.UseVisualStyleBackColor = false;
-            this.btnPrescription.Click += new System.EventHandler(this.btnPrescription_Click);
-            // 
             // btnStaff
             // 
             this.btnStaff.BackColor = System.Drawing.Color.White;
@@ -217,67 +111,68 @@
             this.btnStaff.FlatAppearance.BorderSize = 0;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStaff.ForeColor = System.Drawing.Color.Black;
-            this.btnStaff.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.btnStaff.IconChar = FontAwesome.Sharp.IconChar.HospitalUser;
             this.btnStaff.IconColor = System.Drawing.Color.Black;
             this.btnStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStaff.IconSize = 40;
             this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStaff.Location = new System.Drawing.Point(0, 234);
+            this.btnStaff.Location = new System.Drawing.Point(0, 366);
             this.btnStaff.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnStaff.Size = new System.Drawing.Size(345, 78);
+            this.btnStaff.Size = new System.Drawing.Size(345, 122);
             this.btnStaff.TabIndex = 4;
-            this.btnStaff.Text = "Staff";
+            this.btnStaff.Text = "Patient Records";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStaff.UseVisualStyleBackColor = false;
             // 
-            // btnPatient
+            // btnAppointment
             // 
-            this.btnPatient.BackColor = System.Drawing.Color.White;
-            this.btnPatient.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPatient.FlatAppearance.BorderSize = 0;
-            this.btnPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPatient.ForeColor = System.Drawing.Color.Black;
-            this.btnPatient.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnPatient.IconColor = System.Drawing.Color.Black;
-            this.btnPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPatient.IconSize = 40;
-            this.btnPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatient.Location = new System.Drawing.Point(0, 156);
-            this.btnPatient.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnPatient.Name = "btnPatient";
-            this.btnPatient.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnPatient.Size = new System.Drawing.Size(345, 78);
-            this.btnPatient.TabIndex = 3;
-            this.btnPatient.Text = "Patient";
-            this.btnPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPatient.UseVisualStyleBackColor = false;
+            this.btnAppointment.BackColor = System.Drawing.Color.White;
+            this.btnAppointment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAppointment.FlatAppearance.BorderSize = 0;
+            this.btnAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAppointment.ForeColor = System.Drawing.Color.Black;
+            this.btnAppointment.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.btnAppointment.IconColor = System.Drawing.Color.Black;
+            this.btnAppointment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAppointment.IconSize = 40;
+            this.btnAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAppointment.Location = new System.Drawing.Point(0, 244);
+            this.btnAppointment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAppointment.Name = "btnAppointment";
+            this.btnAppointment.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnAppointment.Size = new System.Drawing.Size(345, 122);
+            this.btnAppointment.TabIndex = 3;
+            this.btnAppointment.Text = "Appointment";
+            this.btnAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAppointment.UseVisualStyleBackColor = false;
             // 
-            // btnDoctors
+            // btnProfile
             // 
-            this.btnDoctors.BackColor = System.Drawing.Color.White;
-            this.btnDoctors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDoctors.FlatAppearance.BorderSize = 0;
-            this.btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoctors.ForeColor = System.Drawing.Color.Black;
-            this.btnDoctors.IconChar = FontAwesome.Sharp.IconChar.UserMd;
-            this.btnDoctors.IconColor = System.Drawing.Color.Black;
-            this.btnDoctors.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDoctors.IconSize = 40;
-            this.btnDoctors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoctors.Location = new System.Drawing.Point(0, 78);
-            this.btnDoctors.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnDoctors.Name = "btnDoctors";
-            this.btnDoctors.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnDoctors.Size = new System.Drawing.Size(345, 78);
-            this.btnDoctors.TabIndex = 2;
-            this.btnDoctors.Text = "Doctors";
-            this.btnDoctors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoctors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDoctors.UseVisualStyleBackColor = false;
+            this.btnProfile.BackColor = System.Drawing.Color.White;
+            this.btnProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProfile.FlatAppearance.BorderSize = 0;
+            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfile.ForeColor = System.Drawing.Color.Black;
+            this.btnProfile.IconChar = FontAwesome.Sharp.IconChar.UserMd;
+            this.btnProfile.IconColor = System.Drawing.Color.Black;
+            this.btnProfile.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProfile.IconSize = 40;
+            this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.Location = new System.Drawing.Point(0, 122);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnProfile.Size = new System.Drawing.Size(345, 122);
+            this.btnProfile.TabIndex = 2;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProfile.UseVisualStyleBackColor = false;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnDashboard
             // 
@@ -295,7 +190,7 @@
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(345, 78);
+            this.btnDashboard.Size = new System.Drawing.Size(345, 122);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,15 +212,10 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
-            this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Controls.Add(this.label1);
-            this.panelDesktop.Controls.Add(this.panel3);
             this.panelDesktop.Controls.Add(this.panel4);
-            this.panelDesktop.Controls.Add(this.panel2);
             this.panelDesktop.Controls.Add(this.panel5);
             this.panelDesktop.Controls.Add(this.lblDateTime);
-            this.panelDesktop.Controls.Add(this.panel6);
-            this.panelDesktop.Controls.Add(this.panel1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(347, 98);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -407,150 +297,6 @@
             this.btnHome.TabIndex = 25;
             this.btnHome.TabStop = false;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.HIVlbl);
-            this.panel7.Controls.Add(this.label12);
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(778, 229);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(292, 96);
-            this.panel7.TabIndex = 29;
-            // 
-            // HIVlbl
-            // 
-            this.HIVlbl.AutoSize = true;
-            this.HIVlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HIVlbl.ForeColor = System.Drawing.Color.Black;
-            this.HIVlbl.Location = new System.Drawing.Point(206, 45);
-            this.HIVlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.HIVlbl.Name = "HIVlbl";
-            this.HIVlbl.Size = new System.Drawing.Size(51, 37);
-            this.HIVlbl.TabIndex = 13;
-            this.HIVlbl.Text = "50";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(185, 12);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 30);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Reports";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(14, 15);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 13;
-            this.pictureBox7.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(778, 346);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(292, 96);
-            this.panel3.TabIndex = 27;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(206, 47);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 37);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "85";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(152, 17);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 30);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Resources";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(8, 15);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(150, 460);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(339, 96);
-            this.panel2.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(175, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 37);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "50";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(99, 12);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 30);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Room and Theater";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(13, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblDateTime
             // 
             this.lblDateTime.AutoSize = true;
@@ -573,146 +319,50 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Welcome To The Admin Dashboard";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.Prescriptionlbl);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(644, 460);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 96);
-            this.panel1.TabIndex = 28;
-            // 
-            // Prescriptionlbl
-            // 
-            this.Prescriptionlbl.AutoSize = true;
-            this.Prescriptionlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Prescriptionlbl.ForeColor = System.Drawing.Color.Black;
-            this.Prescriptionlbl.Location = new System.Drawing.Point(190, 42);
-            this.Prescriptionlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Prescriptionlbl.Name = "Prescriptionlbl";
-            this.Prescriptionlbl.Size = new System.Drawing.Size(51, 37);
-            this.Prescriptionlbl.TabIndex = 13;
-            this.Prescriptionlbl.Text = "50";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(101, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 30);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Billing and Invoicing";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.StaffNumlbl);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Location = new System.Drawing.Point(424, 229);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(286, 96);
-            this.panel6.TabIndex = 25;
-            // 
-            // StaffNumlbl
-            // 
-            this.StaffNumlbl.AutoSize = true;
-            this.StaffNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffNumlbl.ForeColor = System.Drawing.Color.Black;
-            this.StaffNumlbl.Location = new System.Drawing.Point(212, 45);
-            this.StaffNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.StaffNumlbl.Name = "StaffNumlbl";
-            this.StaffNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.StaffNumlbl.TabIndex = 13;
-            this.StaffNumlbl.Text = "50";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(212, 12);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 30);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Staff";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(13, 15);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.PatNumlbl);
+            this.panel5.Controls.Add(this.patientRecordsNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(73, 346);
+            this.panel5.Location = new System.Drawing.Point(641, 228);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(286, 96);
+            this.panel5.Size = new System.Drawing.Size(354, 148);
             this.panel5.TabIndex = 26;
             // 
-            // PatNumlbl
+            // patientRecordsNumlbl
             // 
-            this.PatNumlbl.AutoSize = true;
-            this.PatNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatNumlbl.ForeColor = System.Drawing.Color.Black;
-            this.PatNumlbl.Location = new System.Drawing.Point(197, 47);
-            this.PatNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.PatNumlbl.Name = "PatNumlbl";
-            this.PatNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.PatNumlbl.TabIndex = 13;
-            this.PatNumlbl.Text = "85";
+            this.patientRecordsNumlbl.AutoSize = true;
+            this.patientRecordsNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientRecordsNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.patientRecordsNumlbl.Location = new System.Drawing.Point(245, 69);
+            this.patientRecordsNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.patientRecordsNumlbl.Name = "patientRecordsNumlbl";
+            this.patientRecordsNumlbl.Size = new System.Drawing.Size(51, 37);
+            this.patientRecordsNumlbl.TabIndex = 13;
+            this.patientRecordsNumlbl.Text = "85";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(165, 17);
+            this.label3.Location = new System.Drawing.Point(147, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 30);
+            this.label3.Size = new System.Drawing.Size(199, 30);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Patients";
+            this.label3.Text = "Patient Records";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(13, 17);
+            this.pictureBox4.Location = new System.Drawing.Point(15, 28);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
+            this.pictureBox4.Size = new System.Drawing.Size(105, 95);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
@@ -721,46 +371,46 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.DocNumlbl);
+            this.panel4.Controls.Add(this.AppoinmentNumlbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(73, 229);
+            this.panel4.Location = new System.Drawing.Point(189, 228);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(286, 96);
+            this.panel4.Size = new System.Drawing.Size(354, 148);
             this.panel4.TabIndex = 24;
             // 
-            // DocNumlbl
+            // AppoinmentNumlbl
             // 
-            this.DocNumlbl.AutoSize = true;
-            this.DocNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocNumlbl.ForeColor = System.Drawing.Color.Black;
-            this.DocNumlbl.Location = new System.Drawing.Point(197, 45);
-            this.DocNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.DocNumlbl.Name = "DocNumlbl";
-            this.DocNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.DocNumlbl.TabIndex = 13;
-            this.DocNumlbl.Text = "45";
+            this.AppoinmentNumlbl.AutoSize = true;
+            this.AppoinmentNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppoinmentNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.AppoinmentNumlbl.Location = new System.Drawing.Point(255, 69);
+            this.AppoinmentNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AppoinmentNumlbl.Name = "AppoinmentNumlbl";
+            this.AppoinmentNumlbl.Size = new System.Drawing.Size(51, 37);
+            this.AppoinmentNumlbl.TabIndex = 13;
+            this.AppoinmentNumlbl.Text = "45";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(165, 12);
+            this.label5.Location = new System.Drawing.Point(176, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 30);
+            this.label5.Size = new System.Drawing.Size(172, 30);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Doctors";
+            this.label5.Text = "Appoinments";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(13, 15);
+            this.pictureBox8.Location = new System.Drawing.Point(14, 28);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(68, 62);
+            this.pictureBox8.Size = new System.Drawing.Size(105, 95);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 13;
             this.pictureBox8.TabStop = false;
@@ -789,21 +439,6 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -816,13 +451,10 @@
 
         #endregion
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton btnLaboratoryTest;
         private FontAwesome.Sharp.IconButton btnLogout;
-        private FontAwesome.Sharp.IconButton btnRooms;
-        private FontAwesome.Sharp.IconButton btnPrescription;
         private FontAwesome.Sharp.IconButton btnStaff;
-        private FontAwesome.Sharp.IconButton btnPatient;
-        private FontAwesome.Sharp.IconButton btnDoctors;
+        private FontAwesome.Sharp.IconButton btnAppointment;
+        private FontAwesome.Sharp.IconButton btnProfile;
         private FontAwesome.Sharp.IconButton btnDashboard;
         private System.Windows.Forms.Panel panelShadow;
         private System.Windows.Forms.Panel panelDesktop;
@@ -831,35 +463,15 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.PictureBox btnHome;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label HIVlbl;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label DocNumlbl;
+        private System.Windows.Forms.Label AppoinmentNumlbl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label PatNumlbl;
+        private System.Windows.Forms.Label patientRecordsNumlbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label StaffNumlbl;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label Prescriptionlbl;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

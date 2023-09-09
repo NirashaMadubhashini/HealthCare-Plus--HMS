@@ -239,5 +239,10 @@ namespace HealthCare_Plus__HMS.Doctor
         {
 
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
