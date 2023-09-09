@@ -453,6 +453,7 @@
             this.btnMedication.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMedication.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMedication.UseVisualStyleBackColor = false;
+            this.btnMedication.Click += new System.EventHandler(this.btnMedication_Click);
             // 
             // btnDoctor
             // 
@@ -476,6 +477,7 @@
             this.btnDoctor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoctor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoctor.UseVisualStyleBackColor = false;
+            this.btnDoctor.Click += new System.EventHandler(this.btnDoctor_Click);
             // 
             // btnPatientRecords
             // 

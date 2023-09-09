@@ -149,6 +149,12 @@
     <Compile Include="Doctor\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="HospitalStaff\Medication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HospitalStaff\Medication.Designer.cs">
+      <DependentUpon>Medication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +174,6 @@
     </Compile>
     <Compile Include="HospitalStaff\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HospitalStaff\RoomBooking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HospitalStaff\RoomBooking.Designer.cs">
-      <DependentUpon>RoomBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="HospitalStaff\Search Doctor.cs">
       <SubType>Form</SubType>
@@ -232,6 +232,9 @@
     <EmbeddedResource Include="Doctor\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HospitalStaff\Medication.resx">
+      <DependentUpon>Medication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,9 +252,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HospitalStaff\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HospitalStaff\RoomBooking.resx">
-      <DependentUpon>RoomBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HospitalStaff\Search Doctor.resx">
       <DependentUpon>Search Doctor.cs</DependentUpon>

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HealthCare_Plus__HMS.Staff
+namespace HealthCare_Plus__HMS.HospitalStaff
 {
-    public partial class RoomBooking : Form
+    public partial class Medication : Form
     {
-        public RoomBooking()
+        public Medication()
         {
             InitializeComponent();
         }

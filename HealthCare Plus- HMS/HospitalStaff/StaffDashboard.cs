@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using HealthCare_Plus__HMS.Admin;
 using HealthCare_Plus__HMS.Doctor;
+using HealthCare_Plus__HMS.HospitalStaff;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -207,7 +208,7 @@ namespace HealthCare_Plus__HMS.Staff
         private void btnDoctors_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Search_Doctor());
+            OpenChildForm(new Appoinments());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -221,6 +222,18 @@ namespace HealthCare_Plus__HMS.Staff
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Patients());
+        }
+
+        private void btnDoctor_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Search_Doctor());
+        }
+
+        private void btnMedication_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Medication());
         }
     }
 }
