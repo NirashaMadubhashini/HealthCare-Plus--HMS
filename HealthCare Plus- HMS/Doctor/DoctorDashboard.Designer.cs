@@ -116,11 +116,11 @@
             this.btnStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStaff.IconSize = 40;
             this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStaff.Location = new System.Drawing.Point(0, 366);
+            this.btnStaff.Location = new System.Drawing.Point(0, 294);
             this.btnStaff.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnStaff.Size = new System.Drawing.Size(345, 122);
+            this.btnStaff.Size = new System.Drawing.Size(345, 98);
             this.btnStaff.TabIndex = 4;
             this.btnStaff.Text = "Patient Records";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -139,11 +139,11 @@
             this.btnAppointment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAppointment.IconSize = 40;
             this.btnAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppointment.Location = new System.Drawing.Point(0, 244);
+            this.btnAppointment.Location = new System.Drawing.Point(0, 196);
             this.btnAppointment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAppointment.Name = "btnAppointment";
             this.btnAppointment.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnAppointment.Size = new System.Drawing.Size(345, 122);
+            this.btnAppointment.Size = new System.Drawing.Size(345, 98);
             this.btnAppointment.TabIndex = 3;
             this.btnAppointment.Text = "Appointment";
             this.btnAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,11 +162,11 @@
             this.btnProfile.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProfile.IconSize = 40;
             this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProfile.Location = new System.Drawing.Point(0, 122);
+            this.btnProfile.Location = new System.Drawing.Point(0, 98);
             this.btnProfile.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnProfile.Size = new System.Drawing.Size(345, 122);
+            this.btnProfile.Size = new System.Drawing.Size(345, 98);
             this.btnProfile.TabIndex = 2;
             this.btnProfile.Text = "Profile";
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,7 +190,7 @@
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(345, 122);
+            this.btnDashboard.Size = new System.Drawing.Size(345, 98);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,9 +231,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label1.Location = new System.Drawing.Point(250, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(703, 47);
+            this.label1.Size = new System.Drawing.Size(706, 47);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Welcome To The Admin Dashboard";
+            this.label1.Text = "Welcome To The Doctor Dashboard";
             // 
             // panel4
             // 
