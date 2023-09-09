@@ -150,9 +150,9 @@ namespace HealthCare_Plus__HMS.Staff
             if (currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(25, 144, 234);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.ForeColor = Color.FromArgb(7, 76, 119);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.FromArgb(7, 76, 119);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }

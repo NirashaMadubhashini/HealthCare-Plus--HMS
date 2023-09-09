@@ -32,9 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.PictureBox();
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBoxMin = new FontAwesome.Sharp.IconPictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
             this.passTb = new System.Windows.Forms.TextBox();
             this.unameTb = new System.Windows.Forms.TextBox();
             this.roleCb = new System.Windows.Forms.ComboBox();
@@ -50,9 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.PictureBox();
-            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.pnlLogin.SuspendLayout();
@@ -61,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -83,13 +83,25 @@
             this.panel1.Size = new System.Drawing.Size(1184, 98);
             this.panel1.TabIndex = 3;
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.White;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(231, 98);
+            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHome.TabIndex = 26;
+            this.btnHome.TabStop = false;
+            // 
             // iconPictureBoxClose
             // 
             this.iconPictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBoxClose.BackColor = System.Drawing.Color.White;
-            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxClose.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconPictureBoxClose.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBoxClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxClose.IconSize = 31;
             this.iconPictureBoxClose.Location = new System.Drawing.Point(1138, 15);
@@ -104,9 +116,9 @@
             // 
             this.iconPictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBoxMin.BackColor = System.Drawing.Color.White;
-            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxMin.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.iconPictureBoxMin.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBoxMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxMin.IconSize = 31;
             this.iconPictureBoxMin.Location = new System.Drawing.Point(1090, 15);
@@ -137,6 +149,22 @@
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(1184, 760);
             this.pnlLogin.TabIndex = 5;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BorderRadius = 8;
+            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Location = new System.Drawing.Point(819, 481);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(180, 45);
+            this.loginBtn.TabIndex = 16;
+            this.loginBtn.Text = "Login";
             // 
             // passTb
             // 
@@ -201,13 +229,13 @@
             // 
             this.resetlbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             this.resetlbl.AutoSize = true;
-            this.resetlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetlbl.ForeColor = System.Drawing.Color.Black;
+            this.resetlbl.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.resetlbl.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.resetlbl.LinkColor = System.Drawing.Color.Black;
-            this.resetlbl.Location = new System.Drawing.Point(885, 529);
+            this.resetlbl.Location = new System.Drawing.Point(879, 539);
             this.resetlbl.Name = "resetlbl";
-            this.resetlbl.Size = new System.Drawing.Size(62, 25);
+            this.resetlbl.Size = new System.Drawing.Size(63, 23);
             this.resetlbl.TabIndex = 11;
             this.resetlbl.TabStop = true;
             this.resetlbl.Text = "Reset";
@@ -272,7 +300,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label1.Location = new System.Drawing.Point(112, 419);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(297, 36);
@@ -283,7 +311,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label7.Location = new System.Drawing.Point(94, 91);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(340, 47);
@@ -308,40 +336,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label3.Location = new System.Drawing.Point(67, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(395, 47);
             this.label3.TabIndex = 13;
             this.label3.Text = "Health Care Center";
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.White;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(0, 0);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(231, 98);
-            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHome.TabIndex = 26;
-            this.btnHome.TabStop = false;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BorderRadius = 8;
-            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.loginBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.Location = new System.Drawing.Point(819, 481);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(180, 45);
-            this.loginBtn.TabIndex = 16;
-            this.loginBtn.Text = "Login";
             // 
             // Login
             // 
@@ -357,6 +357,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).EndInit();
             this.pnlLogin.ResumeLayout(false);
@@ -367,7 +368,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.ResumeLayout(false);
 
         }

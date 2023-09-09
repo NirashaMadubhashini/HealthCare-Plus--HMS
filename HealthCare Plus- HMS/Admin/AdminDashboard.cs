@@ -163,9 +163,9 @@ namespace HealthCare_Plus__HMS.Admin
             if (currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(250, 250, 250);
-                currentBtn.ForeColor = Color.Black;
+                currentBtn.ForeColor = Color.FromArgb(7, 76, 119);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Black;
+                currentBtn.IconColor = Color.FromArgb(7, 76, 119);
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
