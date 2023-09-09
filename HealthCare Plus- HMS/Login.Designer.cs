@@ -34,9 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBoxMin = new FontAwesome.Sharp.IconPictureBox();
-            this.btnHome = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.loginBtn = new System.Windows.Forms.Button();
             this.passTb = new System.Windows.Forms.TextBox();
             this.unameTb = new System.Windows.Forms.TextBox();
             this.roleCb = new System.Windows.Forms.ComboBox();
@@ -52,16 +50,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.PictureBox();
+            this.loginBtn = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -72,9 +72,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.iconPictureBoxClose);
             this.panel1.Controls.Add(this.iconPictureBoxMin);
-            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -117,18 +117,6 @@
             this.iconPictureBoxMin.TabStop = false;
             this.iconPictureBoxMin.Click += new System.EventHandler(this.iconPictureBoxMin_Click);
             // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.White;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(0, 0);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(178, 98);
-            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHome.TabIndex = 14;
-            this.btnHome.TabStop = false;
-            // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.White;
@@ -149,22 +137,6 @@
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(1184, 760);
             this.pnlLogin.TabIndex = 5;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginBtn.FlatAppearance.BorderSize = 10;
-            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.Location = new System.Drawing.Point(819, 471);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(190, 45);
-            this.loginBtn.TabIndex = 15;
-            this.loginBtn.Text = "Login";
-            this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // passTb
             // 
@@ -343,6 +315,34 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Health Care Center";
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.White;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(231, 98);
+            this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHome.TabIndex = 26;
+            this.btnHome.TabStop = false;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BorderRadius = 8;
+            this.loginBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.Location = new System.Drawing.Point(819, 481);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(180, 45);
+            this.loginBtn.TabIndex = 16;
+            this.loginBtn.Text = "Login";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -359,7 +359,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -368,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,7 +378,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxMin;
         private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.TextBox passTb;
         private System.Windows.Forms.TextBox unameTb;
         private System.Windows.Forms.ComboBox roleCb;
@@ -393,7 +392,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.PictureBox btnHome;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox btnHome;
+        private Guna.UI2.WinForms.Guna2Button loginBtn;
     }
 }
