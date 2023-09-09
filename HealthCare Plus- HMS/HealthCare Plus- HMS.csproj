@@ -89,6 +89,12 @@
     <Compile Include="Admin\Prescriptions.Designer.cs">
       <DependentUpon>Prescriptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Rooms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Prescriptions.resx">
       <DependentUpon>Prescriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Rooms.resx">
       <DependentUpon>Rooms.cs</DependentUpon>

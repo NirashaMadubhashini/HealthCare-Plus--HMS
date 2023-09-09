@@ -261,6 +261,11 @@ namespace HealthCare_Plus__HMS.Admin
             ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new LabTests());
         }
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color7);
+            OpenChildForm(new Reports());
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -338,5 +343,6 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
     }
 }
