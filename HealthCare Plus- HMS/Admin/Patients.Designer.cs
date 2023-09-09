@@ -28,30 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RefreshBtn = new System.Windows.Forms.Button();
             this.PatientsLoadDGV = new System.Windows.Forms.DataGridView();
-            this.SearchBtn = new System.Windows.Forms.Button();
             this.SerachByNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsLoadDGV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.RefreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RefreshBtn.FlatAppearance.BorderSize = 10;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RefreshBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshBtn.ForeColor = System.Drawing.Color.White;
-            this.RefreshBtn.Location = new System.Drawing.Point(974, 126);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(145, 38);
-            this.RefreshBtn.TabIndex = 102;
-            this.RefreshBtn.Text = "Refresh";
-            this.RefreshBtn.UseVisualStyleBackColor = false;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // PatientsLoadDGV
             // 
@@ -66,23 +49,6 @@
             this.PatientsLoadDGV.RowTemplate.Height = 28;
             this.PatientsLoadDGV.Size = new System.Drawing.Size(1089, 475);
             this.PatientsLoadDGV.TabIndex = 97;
-            // 
-            // SearchBtn
-            // 
-            this.SearchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.SearchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchBtn.FlatAppearance.BorderSize = 10;
-            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SearchBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(809, 126);
-            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(145, 38);
-            this.SearchBtn.TabIndex = 96;
-            this.SearchBtn.Text = "Search";
-            this.SearchBtn.UseVisualStyleBackColor = false;
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // SerachByNameTb
             // 
@@ -106,15 +72,49 @@
             this.label9.TabIndex = 94;
             this.label9.Text = "Search Here By Name";
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(939, 141);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 104;
+            this.refreshBtn.Text = "Refresh";
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.BackColor = System.Drawing.Color.White;
+            this.searchBtn.BorderRadius = 8;
+            this.searchBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(753, 141);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(180, 45);
+            this.searchBtn.TabIndex = 103;
+            this.searchBtn.Text = "Search";
+            // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.RefreshBtn);
+            this.Controls.Add(this.refreshBtn);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.PatientsLoadDGV);
-            this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.SerachByNameTb);
             this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -129,11 +129,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button RefreshBtn;
         private System.Windows.Forms.DataGridView PatientsLoadDGV;
-        private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.TextBox SerachByNameTb;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
+        private Guna.UI2.WinForms.Guna2Button searchBtn;
     }
 }

@@ -28,32 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RefreshBtn = new System.Windows.Forms.Button();
             this.PrescriptionLoadDGV = new System.Windows.Forms.DataGridView();
-            this.SearchBtn = new System.Windows.Forms.Button();
             this.DocNameSearchTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.PatNameSearchTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionLoadDGV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.RefreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RefreshBtn.FlatAppearance.BorderSize = 10;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RefreshBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshBtn.ForeColor = System.Drawing.Color.White;
-            this.RefreshBtn.Location = new System.Drawing.Point(974, 124);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(145, 38);
-            this.RefreshBtn.TabIndex = 107;
-            this.RefreshBtn.Text = "Refresh";
-            this.RefreshBtn.UseVisualStyleBackColor = false;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // PrescriptionLoadDGV
             // 
@@ -68,23 +51,6 @@
             this.PrescriptionLoadDGV.RowTemplate.Height = 28;
             this.PrescriptionLoadDGV.Size = new System.Drawing.Size(1089, 475);
             this.PrescriptionLoadDGV.TabIndex = 106;
-            // 
-            // SearchBtn
-            // 
-            this.SearchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.SearchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchBtn.FlatAppearance.BorderSize = 10;
-            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SearchBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(809, 124);
-            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(145, 38);
-            this.SearchBtn.TabIndex = 105;
-            this.SearchBtn.Text = "Search";
-            this.SearchBtn.UseVisualStyleBackColor = false;
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // DocNameSearchTb
             // 
@@ -132,17 +98,51 @@
             this.label1.TabIndex = 108;
             this.label1.Text = "Search Here By Patient Name";
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.White;
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(942, 142);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 111;
+            this.guna2Button1.Text = "Refresh";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BackColor = System.Drawing.Color.White;
+            this.guna2Button2.BorderRadius = 8;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(756, 142);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button2.TabIndex = 110;
+            this.guna2Button2.Text = "Search";
+            // 
             // Prescriptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.PatNameSearchTb);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.PrescriptionLoadDGV);
-            this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.DocNameSearchTb);
             this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -157,13 +157,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button RefreshBtn;
         private System.Windows.Forms.DataGridView PrescriptionLoadDGV;
-        private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.TextBox DocNameSearchTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox PatNameSearchTb;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

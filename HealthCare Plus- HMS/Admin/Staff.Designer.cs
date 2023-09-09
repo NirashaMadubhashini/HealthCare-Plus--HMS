@@ -30,9 +30,6 @@
         {
             this.RPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.DelBtn = new System.Windows.Forms.Button();
-            this.EditBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.StaffDGV = new System.Windows.Forms.DataGridView();
             this.RPhoneTb = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -40,6 +37,9 @@
             this.RNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.RAddressTb = new System.Windows.Forms.TextBox();
+            this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.StaffDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,57 +64,6 @@
             this.label2.Size = new System.Drawing.Size(114, 25);
             this.label2.TabIndex = 47;
             this.label2.Text = "Password";
-            // 
-            // DelBtn
-            // 
-            this.DelBtn.BackColor = System.Drawing.Color.Red;
-            this.DelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DelBtn.FlatAppearance.BorderSize = 10;
-            this.DelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.DelBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DelBtn.ForeColor = System.Drawing.Color.White;
-            this.DelBtn.Location = new System.Drawing.Point(968, 205);
-            this.DelBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.DelBtn.Name = "DelBtn";
-            this.DelBtn.Size = new System.Drawing.Size(145, 38);
-            this.DelBtn.TabIndex = 46;
-            this.DelBtn.Text = "Delete";
-            this.DelBtn.UseVisualStyleBackColor = false;
-            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
-            // 
-            // EditBtn
-            // 
-            this.EditBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.EditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditBtn.FlatAppearance.BorderSize = 10;
-            this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.EditBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditBtn.ForeColor = System.Drawing.Color.White;
-            this.EditBtn.Location = new System.Drawing.Point(804, 205);
-            this.EditBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(145, 38);
-            this.EditBtn.TabIndex = 45;
-            this.EditBtn.Text = "Update";
-            this.EditBtn.UseVisualStyleBackColor = false;
-            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.FlatAppearance.BorderSize = 10;
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(640, 205);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(145, 38);
-            this.AddBtn.TabIndex = 44;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // StaffDGV
             // 
@@ -197,18 +146,69 @@
             this.RAddressTb.Size = new System.Drawing.Size(259, 42);
             this.RAddressTb.TabIndex = 49;
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.BackColor = System.Drawing.Color.White;
+            this.deleteBtn.BorderRadius = 8;
+            this.deleteBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteBtn.FillColor = System.Drawing.Color.Red;
+            this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteBtn.Location = new System.Drawing.Point(933, 209);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(180, 45);
+            this.deleteBtn.TabIndex = 72;
+            this.deleteBtn.Text = "Delete";
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.BackColor = System.Drawing.Color.White;
+            this.updateBtn.BorderRadius = 8;
+            this.updateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.updateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.updateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.updateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.ForeColor = System.Drawing.Color.White;
+            this.updateBtn.Location = new System.Drawing.Point(747, 209);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(180, 45);
+            this.updateBtn.TabIndex = 71;
+            this.updateBtn.Text = "Update";
+            // 
+            // addBtn
+            // 
+            this.addBtn.BackColor = System.Drawing.Color.White;
+            this.addBtn.BorderRadius = 8;
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.addBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(561, 209);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(180, 45);
+            this.addBtn.TabIndex = 70;
+            this.addBtn.Text = "Add";
+            // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.RAddressTb);
             this.Controls.Add(this.RPassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.DelBtn);
-            this.Controls.Add(this.EditBtn);
-            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.StaffDGV);
             this.Controls.Add(this.RPhoneTb);
             this.Controls.Add(this.label11);
@@ -230,9 +230,6 @@
 
         private System.Windows.Forms.TextBox RPassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button DelBtn;
-        private System.Windows.Forms.Button EditBtn;
-        private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridView StaffDGV;
         private System.Windows.Forms.TextBox RPhoneTb;
         private System.Windows.Forms.Label label11;
@@ -240,5 +237,8 @@
         private System.Windows.Forms.TextBox RNameTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox RAddressTb;
+        private Guna.UI2.WinForms.Guna2Button deleteBtn;
+        private Guna.UI2.WinForms.Guna2Button updateBtn;
+        private Guna.UI2.WinForms.Guna2Button addBtn;
     }
 }

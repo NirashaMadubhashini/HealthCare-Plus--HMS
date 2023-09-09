@@ -41,8 +41,6 @@
             this.TestNameTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DocIdCb = new System.Windows.Forms.ComboBox();
-            this.PrintBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.PatIdCb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.PatNameTb = new System.Windows.Forms.TextBox();
@@ -52,6 +50,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,40 +196,6 @@
             this.DocIdCb.TabIndex = 80;
             this.DocIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
-            // PrintBtn
-            // 
-            this.PrintBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.PrintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PrintBtn.FlatAppearance.BorderSize = 10;
-            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PrintBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintBtn.ForeColor = System.Drawing.Color.White;
-            this.PrintBtn.Location = new System.Drawing.Point(489, 362);
-            this.PrintBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(145, 38);
-            this.PrintBtn.TabIndex = 79;
-            this.PrintBtn.Text = "Print";
-            this.PrintBtn.UseVisualStyleBackColor = false;
-            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.FlatAppearance.BorderSize = 10;
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(327, 362);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(145, 38);
-            this.AddBtn.TabIndex = 78;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
             // PatIdCb
             // 
             this.PatIdCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,12 +293,48 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // printBtn
+            // 
+            this.printBtn.BackColor = System.Drawing.Color.White;
+            this.printBtn.BorderRadius = 8;
+            this.printBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.printBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.printBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.printBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.printBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printBtn.ForeColor = System.Drawing.Color.White;
+            this.printBtn.Location = new System.Drawing.Point(460, 355);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(180, 45);
+            this.printBtn.TabIndex = 93;
+            this.printBtn.Text = "Print";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.White;
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(274, 355);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 92;
+            this.guna2Button1.Text = "Add";
+            // 
             // AddPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.printBtn);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.MedTb);
             this.Controls.Add(this.PrescriptionDGV);
@@ -345,8 +347,6 @@
             this.Controls.Add(this.TestNameTb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DocIdCb);
-            this.Controls.Add(this.PrintBtn);
-            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.PatIdCb);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.PatNameTb);
@@ -379,8 +379,6 @@
         private System.Windows.Forms.TextBox TestNameTb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox DocIdCb;
-        private System.Windows.Forms.Button PrintBtn;
-        private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox PatIdCb;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox PatNameTb;
@@ -390,5 +388,7 @@
         private System.Windows.Forms.Label label8;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private Guna.UI2.WinForms.Guna2Button printBtn;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

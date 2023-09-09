@@ -36,8 +36,6 @@
             this.AppionmentFrm = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DocNameCb = new System.Windows.Forms.ComboBox();
-            this.PrintBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.RoomNumCb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.PatNameTb = new System.Windows.Forms.TextBox();
@@ -47,6 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.AppointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.printBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.AppoinmentDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,38 +121,6 @@
             this.DocNameCb.Name = "DocNameCb";
             this.DocNameCb.Size = new System.Drawing.Size(256, 33);
             this.DocNameCb.TabIndex = 101;
-            // 
-            // PrintBtn
-            // 
-            this.PrintBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.PrintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PrintBtn.FlatAppearance.BorderSize = 10;
-            this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PrintBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintBtn.ForeColor = System.Drawing.Color.White;
-            this.PrintBtn.Location = new System.Drawing.Point(489, 362);
-            this.PrintBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(145, 38);
-            this.PrintBtn.TabIndex = 100;
-            this.PrintBtn.Text = "Print";
-            this.PrintBtn.UseVisualStyleBackColor = false;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.FlatAppearance.BorderSize = 10;
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(327, 362);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(145, 38);
-            this.AddBtn.TabIndex = 99;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = false;
             // 
             // RoomNumCb
             // 
@@ -255,11 +223,48 @@
             this.AppointmentDate.Size = new System.Drawing.Size(259, 42);
             this.AppointmentDate.TabIndex = 115;
             // 
+            // printBtn
+            // 
+            this.printBtn.BackColor = System.Drawing.Color.White;
+            this.printBtn.BorderRadius = 8;
+            this.printBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.printBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.printBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.printBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.printBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printBtn.ForeColor = System.Drawing.Color.White;
+            this.printBtn.Location = new System.Drawing.Point(463, 355);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(180, 45);
+            this.printBtn.TabIndex = 118;
+            this.printBtn.Text = "Print";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.White;
+            this.guna2Button1.BorderRadius = 8;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(277, 355);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 117;
+            this.guna2Button1.Text = "Add";
+            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.printBtn);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.AppointmentDate);
             this.Controls.Add(this.PatIdCb);
@@ -269,8 +274,6 @@
             this.Controls.Add(this.AppionmentFrm);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DocNameCb);
-            this.Controls.Add(this.PrintBtn);
-            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.RoomNumCb);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.PatNameTb);
@@ -296,8 +299,6 @@
         private System.Windows.Forms.RichTextBox AppionmentFrm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox DocNameCb;
-        private System.Windows.Forms.Button PrintBtn;
-        private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox RoomNumCb;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox PatNameTb;
@@ -307,5 +308,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker AppointmentDate;
+        private Guna.UI2.WinForms.Guna2Button printBtn;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
