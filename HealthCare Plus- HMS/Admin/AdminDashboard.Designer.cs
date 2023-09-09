@@ -113,9 +113,9 @@
             // 
             this.iconPictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBoxClose.BackColor = System.Drawing.Color.White;
-            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBoxClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxClose.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconPictureBoxClose.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBoxClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxClose.IconSize = 31;
             this.iconPictureBoxClose.Location = new System.Drawing.Point(1451, 22);
@@ -130,9 +130,9 @@
             // 
             this.iconPictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBoxMin.BackColor = System.Drawing.Color.White;
-            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBoxMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxMin.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.iconPictureBoxMin.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBoxMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconPictureBoxMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxMin.IconSize = 31;
             this.iconPictureBoxMin.Location = new System.Drawing.Point(1403, 22);
@@ -176,9 +176,9 @@
             this.btnRooms.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRooms.FlatAppearance.BorderSize = 0;
             this.btnRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRooms.ForeColor = System.Drawing.Color.Black;
+            this.btnRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnRooms.IconChar = FontAwesome.Sharp.IconChar.Bed;
-            this.btnRooms.IconColor = System.Drawing.Color.Black;
+            this.btnRooms.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnRooms.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRooms.IconSize = 40;
             this.btnRooms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -200,9 +200,9 @@
             this.btnPrescription.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPrescription.FlatAppearance.BorderSize = 0;
             this.btnPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrescription.ForeColor = System.Drawing.Color.Black;
+            this.btnPrescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnPrescription.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
-            this.btnPrescription.IconColor = System.Drawing.Color.Black;
+            this.btnPrescription.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnPrescription.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrescription.IconSize = 40;
             this.btnPrescription.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,9 +224,9 @@
             this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStaff.FlatAppearance.BorderSize = 0;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStaff.ForeColor = System.Drawing.Color.Black;
+            this.btnStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnStaff.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.btnStaff.IconColor = System.Drawing.Color.Black;
+            this.btnStaff.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnStaff.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStaff.IconSize = 40;
             this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -248,9 +248,9 @@
             this.btnPatient.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPatient.FlatAppearance.BorderSize = 0;
             this.btnPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPatient.ForeColor = System.Drawing.Color.Black;
+            this.btnPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnPatient.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnPatient.IconColor = System.Drawing.Color.Black;
+            this.btnPatient.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPatient.IconSize = 40;
             this.btnPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -272,9 +272,9 @@
             this.btnDoctors.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDoctors.FlatAppearance.BorderSize = 0;
             this.btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoctors.ForeColor = System.Drawing.Color.Black;
+            this.btnDoctors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnDoctors.IconChar = FontAwesome.Sharp.IconChar.UserMd;
-            this.btnDoctors.IconColor = System.Drawing.Color.Black;
+            this.btnDoctors.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnDoctors.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDoctors.IconSize = 40;
             this.btnDoctors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -296,9 +296,9 @@
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
+            this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnDashboard.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.btnDashboard.IconColor = System.Drawing.Color.Black;
+            this.btnDashboard.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDashboard.IconSize = 40;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -351,7 +351,7 @@
             // 
             this.HIVlbl.AutoSize = true;
             this.HIVlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HIVlbl.ForeColor = System.Drawing.Color.Black;
+            this.HIVlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.HIVlbl.Location = new System.Drawing.Point(206, 45);
             this.HIVlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HIVlbl.Name = "HIVlbl";
@@ -363,7 +363,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label12.Location = new System.Drawing.Point(185, 12);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
@@ -401,7 +401,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label8.Location = new System.Drawing.Point(206, 47);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -413,7 +413,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label10.Location = new System.Drawing.Point(152, 17);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
@@ -450,7 +450,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label4.Location = new System.Drawing.Point(175, 42);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -462,7 +462,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label6.Location = new System.Drawing.Point(99, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -485,7 +485,7 @@
             // 
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime.ForeColor = System.Drawing.Color.Black;
+            this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.lblDateTime.Location = new System.Drawing.Point(303, 128);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(560, 34);
@@ -496,7 +496,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label1.Location = new System.Drawing.Point(241, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(703, 47);
@@ -521,7 +521,7 @@
             // 
             this.Prescriptionlbl.AutoSize = true;
             this.Prescriptionlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Prescriptionlbl.ForeColor = System.Drawing.Color.Black;
+            this.Prescriptionlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.Prescriptionlbl.Location = new System.Drawing.Point(190, 42);
             this.Prescriptionlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Prescriptionlbl.Name = "Prescriptionlbl";
@@ -534,7 +534,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label2.Location = new System.Drawing.Point(101, 12);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -571,7 +571,7 @@
             // 
             this.StaffNumlbl.AutoSize = true;
             this.StaffNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.StaffNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.StaffNumlbl.Location = new System.Drawing.Point(212, 45);
             this.StaffNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StaffNumlbl.Name = "StaffNumlbl";
@@ -584,7 +584,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label7.Location = new System.Drawing.Point(212, 12);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -621,7 +621,7 @@
             // 
             this.PatNumlbl.AutoSize = true;
             this.PatNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.PatNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.PatNumlbl.Location = new System.Drawing.Point(197, 47);
             this.PatNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PatNumlbl.Name = "PatNumlbl";
@@ -634,7 +634,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label3.Location = new System.Drawing.Point(165, 17);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -671,7 +671,7 @@
             // 
             this.DocNumlbl.AutoSize = true;
             this.DocNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocNumlbl.ForeColor = System.Drawing.Color.Black;
+            this.DocNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.DocNumlbl.Location = new System.Drawing.Point(197, 45);
             this.DocNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DocNumlbl.Name = "DocNumlbl";
@@ -684,7 +684,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.label5.Location = new System.Drawing.Point(165, 12);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -729,9 +729,9 @@
             this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Black;
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.File;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 40;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -752,9 +752,9 @@
             this.btnLaboratoryTest.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLaboratoryTest.FlatAppearance.BorderSize = 0;
             this.btnLaboratoryTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaboratoryTest.ForeColor = System.Drawing.Color.Black;
+            this.btnLaboratoryTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnLaboratoryTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
-            this.btnLaboratoryTest.IconColor = System.Drawing.Color.Black;
+            this.btnLaboratoryTest.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnLaboratoryTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLaboratoryTest.IconSize = 40;
             this.btnLaboratoryTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -776,9 +776,9 @@
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.btnLogout.IconColor = System.Drawing.Color.Black;
+            this.btnLogout.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.IconSize = 40;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
