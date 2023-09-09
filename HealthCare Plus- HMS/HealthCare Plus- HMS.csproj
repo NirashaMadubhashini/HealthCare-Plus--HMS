@@ -125,11 +125,29 @@
     <Compile Include="Doctor\AddPrescription.Designer.cs">
       <DependentUpon>AddPrescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\Appoinments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\Appoinments.Designer.cs">
+      <DependentUpon>Appoinments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\DoctorDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Doctor\DoctorDashboard.Designer.cs">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\PatientRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\PatientRecords.Designer.cs">
+      <DependentUpon>PatientRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -202,8 +220,17 @@
     <EmbeddedResource Include="Doctor\AddPrescription.resx">
       <DependentUpon>AddPrescription.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\Appoinments.resx">
+      <DependentUpon>Appoinments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\PatientRecords.resx">
+      <DependentUpon>PatientRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -20,7 +20,7 @@ namespace HealthCare_Plus__HMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BillingStaffDashboard());
+            Application.Run(new DoctorDashboard());
         }
     }
 }
