@@ -83,6 +83,7 @@
             this.iconPictureBoxClose.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxClose.TabIndex = 4;
             this.iconPictureBoxClose.TabStop = false;
+            this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
             // 
             // iconPictureBoxMin
             // 
@@ -99,6 +100,7 @@
             this.iconPictureBoxMin.Size = new System.Drawing.Size(31, 36);
             this.iconPictureBoxMin.TabIndex = 2;
             this.iconPictureBoxMin.TabStop = false;
+            this.iconPictureBoxMin.Click += new System.EventHandler(this.iconPictureBoxMin_Click);
             // 
             // lblTitleChildForm
             // 
@@ -242,6 +244,7 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnBilling
             // 
@@ -265,6 +268,7 @@
             this.btnBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBilling.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBilling.UseVisualStyleBackColor = false;
+            this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // btnDashboard
             // 
@@ -288,6 +292,7 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panelMenu
             // 
