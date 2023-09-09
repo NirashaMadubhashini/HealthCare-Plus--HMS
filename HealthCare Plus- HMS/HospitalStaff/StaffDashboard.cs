@@ -129,7 +129,7 @@ namespace HealthCare_Plus__HMS.Staff
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
+                currentBtn.BackColor = Color.FromArgb(158, 158, 158);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -149,7 +149,7 @@ namespace HealthCare_Plus__HMS.Staff
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(25, 144, 234);
+                currentBtn.BackColor = Color.FromArgb(250, 250, 250);
                 currentBtn.ForeColor = Color.FromArgb(7, 76, 119);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.FromArgb(7, 76, 119);
