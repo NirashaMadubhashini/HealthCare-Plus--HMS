@@ -18,6 +18,8 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             loadTbl();
+            staffDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(StaffDGV_DataBindingComplete);
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
@@ -37,6 +39,17 @@ namespace HealthCare_Plus__HMS.Admin
                         var ds = new DataSet();
                         sda.Fill(ds);
                         staffDGV.DataSource = ds.Tables[0];
+
+                        // Change the column names
+                        staffDGV.Columns["user_id"].HeaderText = "User ID";
+                        staffDGV.Columns["userName"].HeaderText = "User Name";
+                        staffDGV.Columns["userPassword"].HeaderText = "Password";
+                        staffDGV.Columns["userRole"].HeaderText = "Role";
+                        staffDGV.Columns["userEmail"].HeaderText = "Email";
+                        staffDGV.Columns["userContact"].HeaderText = "Contact";
+                        staffDGV.Columns["userDateCreated"].HeaderText = "Date Created";
+                        staffDGV.Columns["userLastLogin"].HeaderText = "Last Login";
+
                         staffDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     }
                 }
@@ -46,6 +59,7 @@ namespace HealthCare_Plus__HMS.Admin
                 MessageBox.Show(Ex.Message);
             }
         }
+
 
 
         private void Clear()
@@ -219,7 +233,13 @@ namespace HealthCare_Plus__HMS.Admin
                 Clear();
             }
         }
-
+        private void StaffDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in staffDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void StaffDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;  // Exit if the row index is not valid

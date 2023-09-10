@@ -159,9 +159,9 @@
             this.deleteBtn.FillColor = System.Drawing.Color.Red;
             this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(978, 226);
+            this.deleteBtn.Location = new System.Drawing.Point(942, 195);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(151, 45);
+            this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 72;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -177,9 +177,9 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(978, 163);
+            this.updateBtn.Location = new System.Drawing.Point(942, 133);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(151, 45);
+            this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 71;
             this.updateBtn.Text = "Update";
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
@@ -195,9 +195,9 @@
             this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(978, 100);
+            this.addBtn.Location = new System.Drawing.Point(942, 70);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(151, 45);
+            this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 70;
             this.addBtn.Text = "Add";
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
