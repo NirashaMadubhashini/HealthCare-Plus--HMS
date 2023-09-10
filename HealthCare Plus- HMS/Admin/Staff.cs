@@ -276,7 +276,9 @@ namespace HealthCare_Plus__HMS.Admin
             roleCb.Items.Add("Receptionist");
         }
 
+        private void roleCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

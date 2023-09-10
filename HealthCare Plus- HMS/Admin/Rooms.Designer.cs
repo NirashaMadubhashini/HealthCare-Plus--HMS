@@ -64,7 +64,6 @@
             // 
             // roomNoteTb
             // 
-            this.roomNoteTb.Enabled = false;
             this.roomNoteTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomNoteTb.ForeColor = System.Drawing.Color.Black;
             this.roomNoteTb.Location = new System.Drawing.Point(330, 168);
@@ -76,7 +75,6 @@
             // 
             // roomNumTb
             // 
-            this.roomNumTb.Enabled = false;
             this.roomNumTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomNumTb.ForeColor = System.Drawing.Color.Black;
             this.roomNumTb.Location = new System.Drawing.Point(90, 71);
@@ -89,12 +87,16 @@
             // 
             this.roomFloorCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomFloorCb.FormattingEnabled = true;
+            this.roomFloorCb.Items.AddRange(new object[] {
+            "1st Floor",
+            "2nd Floor            ",
+            "3rd Floor",
+            "4th Floor"});
             this.roomFloorCb.Location = new System.Drawing.Point(329, 71);
             this.roomFloorCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.roomFloorCb.Name = "roomFloorCb";
             this.roomFloorCb.Size = new System.Drawing.Size(211, 42);
             this.roomFloorCb.TabIndex = 61;
-            this.roomFloorCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -113,8 +115,8 @@
             this.statusCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusCb.FormattingEnabled = true;
             this.statusCb.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
+            "Occupied",
+            "Available"});
             this.statusCb.Location = new System.Drawing.Point(92, 168);
             this.statusCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.statusCb.Name = "statusCb";
@@ -212,6 +214,10 @@
             // 
             this.roomTypeCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomTypeCb.FormattingEnabled = true;
+            this.roomTypeCb.Items.AddRange(new object[] {
+            "Regular",
+            "ICU",
+            "OperationTheater"});
             this.roomTypeCb.Location = new System.Drawing.Point(566, 71);
             this.roomTypeCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.roomTypeCb.Name = "roomTypeCb";
@@ -234,9 +240,6 @@
             // 
             this.patIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patIdCb.FormattingEnabled = true;
-            this.patIdCb.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
             this.patIdCb.Location = new System.Drawing.Point(567, 168);
             this.patIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.patIdCb.Name = "patIdCb";
@@ -282,6 +285,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Rooms";
             this.Text = "Rooms";
+            this.Load += new System.EventHandler(this.Rooms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roomDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

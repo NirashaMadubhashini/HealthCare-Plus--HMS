@@ -92,6 +92,7 @@
             this.resourceNameTb.Name = "resourceNameTb";
             this.resourceNameTb.Size = new System.Drawing.Size(263, 42);
             this.resourceNameTb.TabIndex = 49;
+            this.resourceNameTb.TextChanged += new System.EventHandler(this.resourceNameTb_TextChanged);
             // 
             // label8
             // 
@@ -144,6 +145,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 69;
             this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // updateBtn
             // 
@@ -161,6 +163,7 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 68;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // addBtn
             // 
@@ -178,6 +181,7 @@
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 67;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
             // resourceQuantityTb
             // 
@@ -201,7 +205,7 @@
             this.label1.TabIndex = 70;
             this.label1.Text = "Quantity Available";
             // 
-            // LabTests
+            // MedicalResources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,7 +226,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "LabTests";
+            this.Name = "MedicalResources";
             this.Text = "LabTests";
             ((System.ComponentModel.ISupportInitialize)(this.medResourcesDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

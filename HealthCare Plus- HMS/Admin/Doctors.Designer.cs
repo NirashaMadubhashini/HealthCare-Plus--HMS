@@ -29,27 +29,23 @@
         private void InitializeComponent()
         {
             this.doctorDGV = new System.Windows.Forms.DataGridView();
-            this.docPassWordTb = new System.Windows.Forms.TextBox();
+            this.docRoomTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.docExpTb = new System.Windows.Forms.TextBox();
+            this.docEmailTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.docSpecCb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.docDateCb = new System.Windows.Forms.DateTimePicker();
-            this.docGenCb = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.docNameCb = new System.Windows.Forms.ComboBox();
             this.docPhoneTb = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.docNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.docAddTb = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.docRoomNumCb = new System.Windows.Forms.ComboBox();
+            this.docIdTb = new System.Windows.Forms.TextBox();
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.docexperienceTb = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.doctorDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,49 +64,50 @@
             this.doctorDGV.TabIndex = 60;
             this.doctorDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorDGV_CellContentClick);
             // 
-            // docPassWordTb
+            // docRoomTb
             // 
-            this.docPassWordTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docPassWordTb.ForeColor = System.Drawing.Color.Black;
-            this.docPassWordTb.Location = new System.Drawing.Point(315, 260);
-            this.docPassWordTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docPassWordTb.Name = "docPassWordTb";
-            this.docPassWordTb.Size = new System.Drawing.Size(259, 42);
-            this.docPassWordTb.TabIndex = 59;
+            this.docRoomTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docRoomTb.ForeColor = System.Drawing.Color.Black;
+            this.docRoomTb.Location = new System.Drawing.Point(609, 153);
+            this.docRoomTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docRoomTb.Name = "docRoomTb";
+            this.docRoomTb.Size = new System.Drawing.Size(259, 42);
+            this.docRoomTb.TabIndex = 59;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(315, 231);
+            this.label3.Location = new System.Drawing.Point(609, 124);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 25);
+            this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 58;
-            this.label3.Text = "Password";
+            this.label3.Text = "Room/Location";
             // 
-            // docExpTb
+            // docEmailTb
             // 
-            this.docExpTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docExpTb.ForeColor = System.Drawing.Color.Black;
-            this.docExpTb.Location = new System.Drawing.Point(32, 260);
-            this.docExpTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docExpTb.Name = "docExpTb";
-            this.docExpTb.Size = new System.Drawing.Size(258, 42);
-            this.docExpTb.TabIndex = 57;
+            this.docEmailTb.Enabled = false;
+            this.docEmailTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docEmailTb.ForeColor = System.Drawing.Color.Black;
+            this.docEmailTb.Location = new System.Drawing.Point(30, 153);
+            this.docEmailTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docEmailTb.Name = "docEmailTb";
+            this.docEmailTb.Size = new System.Drawing.Size(258, 42);
+            this.docEmailTb.TabIndex = 57;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(28, 231);
+            this.label2.Location = new System.Drawing.Point(26, 124);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
+            this.label2.Size = new System.Drawing.Size(78, 25);
             this.label2.TabIndex = 56;
-            this.label2.Text = "Experience";
+            this.label2.Text = "E-mail";
             // 
             // docSpecCb
             // 
@@ -123,75 +120,45 @@
             "Ophtalmo",
             "Dermato",
             "Generalist"});
-            this.docSpecCb.Location = new System.Drawing.Point(612, 161);
+            this.docSpecCb.Location = new System.Drawing.Point(315, 152);
             this.docSpecCb.Margin = new System.Windows.Forms.Padding(2);
             this.docSpecCb.Name = "docSpecCb";
             this.docSpecCb.Size = new System.Drawing.Size(252, 42);
             this.docSpecCb.TabIndex = 52;
+            this.docSpecCb.SelectedIndexChanged += new System.EventHandler(this.docSpecCb_SelectedIndexChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(607, 133);
+            this.label22.Location = new System.Drawing.Point(310, 124);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(158, 25);
             this.label22.TabIndex = 51;
             this.label22.Text = "Specialisation";
             // 
-            // label13
+            // docNameCb
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(315, 133);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 25);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "DOB";
-            // 
-            // docDateCb
-            // 
-            this.docDateCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docDateCb.Location = new System.Drawing.Point(315, 160);
-            this.docDateCb.Margin = new System.Windows.Forms.Padding(2);
-            this.docDateCb.Name = "docDateCb";
-            this.docDateCb.Size = new System.Drawing.Size(259, 42);
-            this.docDateCb.TabIndex = 49;
-            // 
-            // docGenCb
-            // 
-            this.docGenCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docGenCb.FormattingEnabled = true;
-            this.docGenCb.Items.AddRange(new object[] {
+            this.docNameCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docNameCb.FormattingEnabled = true;
+            this.docNameCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.docGenCb.Location = new System.Drawing.Point(611, 70);
-            this.docGenCb.Margin = new System.Windows.Forms.Padding(2);
-            this.docGenCb.Name = "docGenCb";
-            this.docGenCb.Size = new System.Drawing.Size(253, 42);
-            this.docGenCb.TabIndex = 48;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(607, 41);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 25);
-            this.label12.TabIndex = 47;
-            this.label12.Text = "Gender";
+            this.docNameCb.Location = new System.Drawing.Point(31, 73);
+            this.docNameCb.Margin = new System.Windows.Forms.Padding(2);
+            this.docNameCb.Name = "docNameCb";
+            this.docNameCb.Size = new System.Drawing.Size(253, 42);
+            this.docNameCb.TabIndex = 48;
+            this.docNameCb.SelectedIndexChanged += new System.EventHandler(this.docNameCb_SelectedIndexChanged);
             // 
             // docPhoneTb
             // 
+            this.docPhoneTb.Enabled = false;
             this.docPhoneTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docPhoneTb.ForeColor = System.Drawing.Color.Black;
-            this.docPhoneTb.Location = new System.Drawing.Point(31, 160);
+            this.docPhoneTb.Location = new System.Drawing.Point(611, 68);
             this.docPhoneTb.Margin = new System.Windows.Forms.Padding(2);
             this.docPhoneTb.Name = "docPhoneTb";
             this.docPhoneTb.Size = new System.Drawing.Size(259, 42);
@@ -202,7 +169,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(27, 133);
+            this.label11.Location = new System.Drawing.Point(607, 41);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(138, 25);
@@ -217,19 +184,9 @@
             this.label10.Location = new System.Drawing.Point(315, 41);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 25);
+            this.label10.Size = new System.Drawing.Size(112, 25);
             this.label10.TabIndex = 43;
-            this.label10.Text = "Address";
-            // 
-            // docNameTb
-            // 
-            this.docNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docNameTb.ForeColor = System.Drawing.Color.Black;
-            this.docNameTb.Location = new System.Drawing.Point(31, 70);
-            this.docNameTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docNameTb.Name = "docNameTb";
-            this.docNameTb.Size = new System.Drawing.Size(259, 42);
-            this.docNameTb.TabIndex = 42;
+            this.label10.Text = "Doctor Id";
             // 
             // label9
             // 
@@ -243,38 +200,16 @@
             this.label9.TabIndex = 41;
             this.label9.Text = "Doctor Name";
             // 
-            // docAddTb
+            // docIdTb
             // 
-            this.docAddTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docAddTb.ForeColor = System.Drawing.Color.Black;
-            this.docAddTb.Location = new System.Drawing.Point(315, 70);
-            this.docAddTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docAddTb.Name = "docAddTb";
-            this.docAddTb.Size = new System.Drawing.Size(259, 42);
-            this.docAddTb.TabIndex = 61;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(606, 231);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Room No.";
-            // 
-            // docRoomNumCb
-            // 
-            this.docRoomNumCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docRoomNumCb.FormattingEnabled = true;
-            this.docRoomNumCb.Location = new System.Drawing.Point(612, 258);
-            this.docRoomNumCb.Margin = new System.Windows.Forms.Padding(2);
-            this.docRoomNumCb.Name = "docRoomNumCb";
-            this.docRoomNumCb.Size = new System.Drawing.Size(252, 42);
-            this.docRoomNumCb.TabIndex = 63;
-            this.docRoomNumCb.SelectedIndexChanged += new System.EventHandler(this.RoomNumCb_SelectedIndexChanged);
+            this.docIdTb.Enabled = false;
+            this.docIdTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docIdTb.ForeColor = System.Drawing.Color.Black;
+            this.docIdTb.Location = new System.Drawing.Point(315, 70);
+            this.docIdTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docIdTb.Name = "docIdTb";
+            this.docIdTb.Size = new System.Drawing.Size(259, 42);
+            this.docIdTb.TabIndex = 61;
             // 
             // addBtn
             // 
@@ -292,6 +227,7 @@
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 64;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
             // updateBtn
             // 
@@ -309,6 +245,7 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 65;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // deleteBtn
             // 
@@ -326,6 +263,30 @@
             this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 66;
             this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // docexperienceTb
+            // 
+            this.docexperienceTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docexperienceTb.ForeColor = System.Drawing.Color.Black;
+            this.docexperienceTb.Location = new System.Drawing.Point(32, 244);
+            this.docexperienceTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docexperienceTb.Multiline = true;
+            this.docexperienceTb.Name = "docexperienceTb";
+            this.docexperienceTb.Size = new System.Drawing.Size(535, 71);
+            this.docexperienceTb.TabIndex = 68;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(28, 215);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(291, 25);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "Experience/ Qualifications";
             // 
             // Doctors
             // 
@@ -333,33 +294,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.docexperienceTb);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.docRoomNumCb);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.docAddTb);
+            this.Controls.Add(this.docIdTb);
             this.Controls.Add(this.doctorDGV);
-            this.Controls.Add(this.docPassWordTb);
+            this.Controls.Add(this.docRoomTb);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.docExpTb);
+            this.Controls.Add(this.docEmailTb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.docSpecCb);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.docDateCb);
-            this.Controls.Add(this.docGenCb);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.docNameCb);
             this.Controls.Add(this.docPhoneTb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.docNameTb);
             this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Doctors";
             this.Text = "Doctors";
+            this.Load += new System.EventHandler(this.Doctors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.doctorDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -369,26 +327,22 @@
         #endregion
 
         private System.Windows.Forms.DataGridView doctorDGV;
-        private System.Windows.Forms.TextBox docPassWordTb;
+        private System.Windows.Forms.TextBox docRoomTb;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox docExpTb;
+        private System.Windows.Forms.TextBox docEmailTb;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox docSpecCb;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker docDateCb;
-        private System.Windows.Forms.ComboBox docGenCb;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox docNameCb;
         private System.Windows.Forms.TextBox docPhoneTb;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox docNameTb;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox docAddTb;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox docRoomNumCb;
+        private System.Windows.Forms.TextBox docIdTb;
         private Guna.UI2.WinForms.Guna2Button addBtn;
         private Guna.UI2.WinForms.Guna2Button updateBtn;
         private Guna.UI2.WinForms.Guna2Button deleteBtn;
+        private System.Windows.Forms.TextBox docexperienceTb;
+        private System.Windows.Forms.Label label1;
     }
 }

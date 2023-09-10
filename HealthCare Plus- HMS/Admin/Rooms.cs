@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 using System.Windows.Forms;
 
 namespace HealthCare_Plus__HMS.Admin
@@ -17,10 +18,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             DisplayRoom();
-            GetDocId();
-            GetDocName();
             GetPatId();
-            GetPatName();
             ClearAllFields();  // Clears all fields
         }
 
@@ -64,34 +62,6 @@ namespace HealthCare_Plus__HMS.Admin
             Key = 0;*/
         }
 
-        private void GetDocId()
-        {
-           /* Con.Open();
-            SqlCommand cmd = new SqlCommand("Select DocId from DoctorTbl", Con);
-            SqlDataReader rdr;
-            rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("DocId", typeof(int));
-            dt.Load(rdr);
-            DocIdCb.ValueMember = "DocId";
-            DocIdCb.DataSource = dt;
-            Con.Close();*/
-        }
-
-        private void GetDocName()
-        {
-            /*Con.Open();
-            string Query = "Select * from DoctorTbl where DocId = " + DocIdCb.SelectedValue.ToString() + "";
-            SqlCommand cmd = new SqlCommand(Query, Con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                roomNumTb.Text = dr["DocName"].ToString();
-            }
-            Con.Close();*/
-        }
 
         private void GetPatId()
         {
@@ -107,20 +77,6 @@ namespace HealthCare_Plus__HMS.Admin
             Con.Close();
         }
 
-        private void GetPatName()
-        {
-            Con.Open();
-            string Query = "Select * from PatientTbl where PatId = " + roomFloorCb.SelectedValue.ToString() + "";
-            SqlCommand cmd = new SqlCommand(Query, Con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                roomNoteTb.Text = dr["PatName"].ToString();
-            }
-            Con.Close();
-        }
         private void AddBtn_Click(object sender, EventArgs e)
         {
            /* if (roomNumTb.Text == "" || roomNoteTb.Text == "" || statusCb.Text == "")
@@ -154,12 +110,12 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void DocIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GetDocName();
+           
         }
 
         private void PatIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GetPatName();
+            
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -248,6 +204,26 @@ namespace HealthCare_Plus__HMS.Admin
                     Key = Convert.ToInt32(row.Cells["RoomId"].Value?.ToString() ?? "0");
                 }
             }*/
+        }
+
+        private void roomFloorCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rooms_Load(object sender, EventArgs e)
+        {
+           /* roomFloorCb.Items.Add("1st Floor");
+            roomFloorCb.Items.Add("2nd Floor");
+            roomFloorCb.Items.Add("3rd Floor");
+            roomFloorCb.Items.Add("4th Floor");
+
+            roomTypeCb.Items.Add("Regular");
+            roomTypeCb.Items.Add("ICU");
+            roomTypeCb.Items.Add("OperationTheater");
+
+            statusCb.Items.Add("Occupied");
+            statusCb.Items.Add("Available");*/
         }
     }
 }

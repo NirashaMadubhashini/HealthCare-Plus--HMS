@@ -17,20 +17,27 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             DisplayTest();
+            medResourcesDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(LabTestDGV_DataBindingComplete);
+
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
         private void DisplayTest()
         {
             Con.Open();
-            string Query = "Select * from TestTbl";
+            string Query = "Select * from MedicalResourceTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             medResourcesDGV.DataSource = ds.Tables[0];
             medResourcesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            medResourcesDGV.Columns["resourceName"].HeaderText = "Name";
+            medResourcesDGV.Columns["resourceDescription"].HeaderText = "Description";
+            medResourcesDGV.Columns["resourceQuantityAvailable"].HeaderText = "Quantity Available";
+            medResourcesDGV.Columns["resource_id"].HeaderText = "Resource ID";
             Con.Close();
         }
 
@@ -38,12 +45,13 @@ namespace HealthCare_Plus__HMS.Admin
         {
             resourceNameTb.Text = "";
             resourceDescriptionTb.Text = "";
+            resourceQuantityTb.Text = "";
             Key = 0;
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private void addBtn_Click_1(object sender, EventArgs e)
         {
-            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "")
+            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "" || resourceQuantityTb.Text == "")
 
             {
                 MessageBox.Show("Missing Information");
@@ -53,11 +61,12 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into TestTbl(TestName,TestCost)values(@TN,@TC)", Con);
-                    cmd.Parameters.AddWithValue("@TN", resourceNameTb.Text);
-                    cmd.Parameters.AddWithValue("@TC", resourceDescriptionTb.Text);
+                    SqlCommand cmd = new SqlCommand("insert into MedicalResourceTbl(resourceName,resourceDescription,resourceQuantityAvailable)values(@RN,@RD,@RQ)", Con);
+                    cmd.Parameters.AddWithValue("@RN", resourceNameTb.Text);
+                    cmd.Parameters.AddWithValue("@RD", resourceDescriptionTb.Text);
+                    cmd.Parameters.AddWithValue("@RQ", resourceQuantityTb.Text);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Test Added");
+                    MessageBox.Show("Resource Added");
                     Con.Close();
                     DisplayTest();
                     Clear();
@@ -69,9 +78,9 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
-        private void EditBtn_Click(object sender, EventArgs e)
+        private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "")
+            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "" || resourceQuantityTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -80,12 +89,13 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("update TestTbl set TestName=@TN, TestCost=@TC  where TestNum=@TKey", Con);
-                    cmd.Parameters.AddWithValue("@TN", resourceNameTb.Text);
-                    cmd.Parameters.AddWithValue("@TC", resourceDescriptionTb.Text);
-                    cmd.Parameters.AddWithValue("@TKey", Key);
+                    SqlCommand cmd = new SqlCommand("update MedicalResourceTbl  set resourceName=@RN,  resourceDescription=@RD,  resourceQuantityAvailable=@RQ  where  resource_id=@RKey", Con);
+                    cmd.Parameters.AddWithValue("@RN", resourceNameTb.Text);
+                    cmd.Parameters.AddWithValue("@RD", resourceDescriptionTb.Text);
+                    cmd.Parameters.AddWithValue("@RQ", resourceQuantityTb.Text);
+                    cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Test Updated");
+                    MessageBox.Show("Resource Updated");
                     Con.Close();
                     DisplayTest();
                     Clear();
@@ -97,21 +107,21 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
-        private void DelBtn_Click(object sender, EventArgs e)
+        private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (Key == 0)
             {
-                MessageBox.Show("Select the Lab Test");
+                MessageBox.Show("Select the Resource");
             }
             else
             {
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from TestTbl where TestNum = @TKey", Con); // Fixed typo and added '='
-                    cmd.Parameters.AddWithValue("@TKey", Key);
+                    SqlCommand cmd = new SqlCommand("Delete from MedicalResourceTbl where resource_id = @RKey", Con); // Fixed typo and added '='
+                    cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Test Deleted");
+                    MessageBox.Show("Resource Deleted");
                     Con.Close();
                     DisplayTest();
                     Clear();
@@ -123,14 +133,22 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
+        private void LabTestDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in medResourcesDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void LabTestDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)  // Check if row index is valid
             {
                 DataGridViewRow row = medResourcesDGV.Rows[e.RowIndex];
 
-                resourceNameTb.Text = row.Cells["TestName"].Value?.ToString() ?? ""; // Using column name for clarity
-                resourceDescriptionTb.Text = row.Cells["TestCost"].Value?.ToString() ?? "";
+                resourceNameTb.Text = row.Cells["resourceName"].Value?.ToString() ?? ""; // Using column name for clarity
+                resourceDescriptionTb.Text = row.Cells["resourceDescription"].Value?.ToString() ?? "";
+                resourceQuantityTb.Text = row.Cells["resourceQuantityAvailable"].Value?.ToString() ?? "";
 
                 if (string.IsNullOrEmpty(resourceNameTb.Text))
                 {
@@ -138,9 +156,15 @@ namespace HealthCare_Plus__HMS.Admin
                 }
                 else
                 {
-                    Key = Convert.ToInt32(row.Cells["TestNum"].Value?.ToString() ?? "0");  // Use StaffId or appropriate unique key field
+                    Key = Convert.ToInt32(row.Cells["resource_id"].Value?.ToString() ?? "0");  // Use StaffId or appropriate unique key field
                 }
             }
         }
+
+        private void resourceNameTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

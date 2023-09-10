@@ -212,6 +212,7 @@
             this.roleCb.Name = "roleCb";
             this.roleCb.Size = new System.Drawing.Size(356, 42);
             this.roleCb.TabIndex = 73;
+            this.roleCb.SelectedIndexChanged += new System.EventHandler(this.roleCb_SelectedIndexChanged);
             // 
             // label1
             // 

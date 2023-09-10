@@ -31,24 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentBooking));
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.PatContactTb = new System.Windows.Forms.TextBox();
-            this.AppoinmentDGV = new System.Windows.Forms.DataGridView();
-            this.AppionmentFrm = new System.Windows.Forms.RichTextBox();
+            this.patContactTb = new System.Windows.Forms.TextBox();
+            this.appoinmentDGV = new System.Windows.Forms.DataGridView();
+            this.appionmentFrm = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.DocNameCb = new System.Windows.Forms.ComboBox();
-            this.RoomNumCb = new System.Windows.Forms.ComboBox();
+            this.docNameCb = new System.Windows.Forms.ComboBox();
+            this.roomNumCb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.PatNameTb = new System.Windows.Forms.TextBox();
+            this.patNameTb = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.PatIdCb = new System.Windows.Forms.ComboBox();
+            this.patIdCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.AppointmentDate = new System.Windows.Forms.DateTimePicker();
-            this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.appointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.sheduleBtn = new Guna.UI2.WinForms.Guna2Button();
             this.cancelBtn = new Guna.UI2.WinForms.Guna2Button();
             this.reSheduleBtn = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.AppoinmentDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appoinmentDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // printDocument1
@@ -66,40 +66,40 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // PatContactTb
+            // patContactTb
             // 
-            this.PatContactTb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatContactTb.ForeColor = System.Drawing.Color.Black;
-            this.PatContactTb.Location = new System.Drawing.Point(529, 144);
-            this.PatContactTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PatContactTb.Name = "PatContactTb";
-            this.PatContactTb.Size = new System.Drawing.Size(196, 34);
-            this.PatContactTb.TabIndex = 111;
+            this.patContactTb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patContactTb.ForeColor = System.Drawing.Color.Black;
+            this.patContactTb.Location = new System.Drawing.Point(529, 144);
+            this.patContactTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patContactTb.Name = "patContactTb";
+            this.patContactTb.Size = new System.Drawing.Size(196, 34);
+            this.patContactTb.TabIndex = 111;
             // 
-            // AppoinmentDGV
+            // appoinmentDGV
             // 
-            this.AppoinmentDGV.BackgroundColor = System.Drawing.Color.White;
-            this.AppoinmentDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.AppoinmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppoinmentDGV.GridColor = System.Drawing.Color.White;
-            this.AppoinmentDGV.Location = new System.Drawing.Point(37, 420);
-            this.AppoinmentDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AppoinmentDGV.Name = "AppoinmentDGV";
-            this.AppoinmentDGV.RowHeadersWidth = 62;
-            this.AppoinmentDGV.RowTemplate.Height = 28;
-            this.AppoinmentDGV.Size = new System.Drawing.Size(1088, 278);
-            this.AppoinmentDGV.TabIndex = 110;
+            this.appoinmentDGV.BackgroundColor = System.Drawing.Color.White;
+            this.appoinmentDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.appoinmentDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appoinmentDGV.GridColor = System.Drawing.Color.White;
+            this.appoinmentDGV.Location = new System.Drawing.Point(37, 420);
+            this.appoinmentDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.appoinmentDGV.Name = "appoinmentDGV";
+            this.appoinmentDGV.RowHeadersWidth = 62;
+            this.appoinmentDGV.RowTemplate.Height = 28;
+            this.appoinmentDGV.Size = new System.Drawing.Size(1088, 278);
+            this.appoinmentDGV.TabIndex = 110;
             // 
-            // AppionmentFrm
+            // appionmentFrm
             // 
-            this.AppionmentFrm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AppionmentFrm.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppionmentFrm.Location = new System.Drawing.Point(37, 33);
-            this.AppionmentFrm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AppionmentFrm.Name = "AppionmentFrm";
-            this.AppionmentFrm.Size = new System.Drawing.Size(474, 367);
-            this.AppionmentFrm.TabIndex = 109;
-            this.AppionmentFrm.Text = "";
+            this.appionmentFrm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.appionmentFrm.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appionmentFrm.Location = new System.Drawing.Point(37, 33);
+            this.appionmentFrm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.appionmentFrm.Name = "appionmentFrm";
+            this.appionmentFrm.Size = new System.Drawing.Size(474, 367);
+            this.appionmentFrm.TabIndex = 109;
+            this.appionmentFrm.Text = "";
             // 
             // label4
             // 
@@ -113,25 +113,25 @@
             this.label4.TabIndex = 106;
             this.label4.Text = "Contact Number";
             // 
-            // DocNameCb
+            // docNameCb
             // 
-            this.DocNameCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocNameCb.FormattingEnabled = true;
-            this.DocNameCb.Location = new System.Drawing.Point(531, 229);
-            this.DocNameCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.DocNameCb.Name = "DocNameCb";
-            this.DocNameCb.Size = new System.Drawing.Size(193, 33);
-            this.DocNameCb.TabIndex = 101;
+            this.docNameCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docNameCb.FormattingEnabled = true;
+            this.docNameCb.Location = new System.Drawing.Point(531, 229);
+            this.docNameCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.docNameCb.Name = "docNameCb";
+            this.docNameCb.Size = new System.Drawing.Size(193, 33);
+            this.docNameCb.TabIndex = 101;
             // 
-            // RoomNumCb
+            // roomNumCb
             // 
-            this.RoomNumCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomNumCb.FormattingEnabled = true;
-            this.RoomNumCb.Location = new System.Drawing.Point(739, 229);
-            this.RoomNumCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.RoomNumCb.Name = "RoomNumCb";
-            this.RoomNumCb.Size = new System.Drawing.Size(196, 33);
-            this.RoomNumCb.TabIndex = 98;
+            this.roomNumCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomNumCb.FormattingEnabled = true;
+            this.roomNumCb.Location = new System.Drawing.Point(739, 229);
+            this.roomNumCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.roomNumCb.Name = "roomNumCb";
+            this.roomNumCb.Size = new System.Drawing.Size(196, 33);
+            this.roomNumCb.TabIndex = 98;
             // 
             // label12
             // 
@@ -145,16 +145,16 @@
             this.label12.TabIndex = 97;
             this.label12.Text = "Room Number";
             // 
-            // PatNameTb
+            // patNameTb
             // 
-            this.PatNameTb.Enabled = false;
-            this.PatNameTb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatNameTb.ForeColor = System.Drawing.Color.Black;
-            this.PatNameTb.Location = new System.Drawing.Point(739, 61);
-            this.PatNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PatNameTb.Name = "PatNameTb";
-            this.PatNameTb.Size = new System.Drawing.Size(196, 34);
-            this.PatNameTb.TabIndex = 96;
+            this.patNameTb.Enabled = false;
+            this.patNameTb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patNameTb.ForeColor = System.Drawing.Color.Black;
+            this.patNameTb.Location = new System.Drawing.Point(739, 61);
+            this.patNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patNameTb.Name = "patNameTb";
+            this.patNameTb.Size = new System.Drawing.Size(196, 34);
+            this.patNameTb.TabIndex = 96;
             // 
             // label11
             // 
@@ -180,16 +180,16 @@
             this.label9.TabIndex = 93;
             this.label9.Text = "Doctor Name";
             // 
-            // PatIdCb
+            // patIdCb
             // 
-            this.PatIdCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatIdCb.FormattingEnabled = true;
-            this.PatIdCb.Location = new System.Drawing.Point(531, 62);
-            this.PatIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PatIdCb.Name = "PatIdCb";
-            this.PatIdCb.Size = new System.Drawing.Size(193, 33);
-            this.PatIdCb.TabIndex = 114;
-            this.PatIdCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
+            this.patIdCb.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patIdCb.FormattingEnabled = true;
+            this.patIdCb.Location = new System.Drawing.Point(531, 62);
+            this.patIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patIdCb.Name = "patIdCb";
+            this.patIdCb.Size = new System.Drawing.Size(193, 33);
+            this.patIdCb.TabIndex = 114;
+            this.patIdCb.SelectionChangeCommitted += new System.EventHandler(this.PatIdCb_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -215,31 +215,31 @@
             this.label13.TabIndex = 116;
             this.label13.Text = "Date";
             // 
-            // AppointmentDate
+            // appointmentDate
             // 
-            this.AppointmentDate.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppointmentDate.Location = new System.Drawing.Point(744, 143);
-            this.AppointmentDate.Margin = new System.Windows.Forms.Padding(2);
-            this.AppointmentDate.Name = "AppointmentDate";
-            this.AppointmentDate.Size = new System.Drawing.Size(196, 42);
-            this.AppointmentDate.TabIndex = 115;
+            this.appointmentDate.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentDate.Location = new System.Drawing.Point(744, 143);
+            this.appointmentDate.Margin = new System.Windows.Forms.Padding(2);
+            this.appointmentDate.Name = "appointmentDate";
+            this.appointmentDate.Size = new System.Drawing.Size(196, 42);
+            this.appointmentDate.TabIndex = 115;
             // 
-            // viewBtn
+            // sheduleBtn
             // 
-            this.viewBtn.BackColor = System.Drawing.Color.White;
-            this.viewBtn.BorderRadius = 8;
-            this.viewBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.viewBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.viewBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.viewBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBtn.ForeColor = System.Drawing.Color.White;
-            this.viewBtn.Location = new System.Drawing.Point(972, 116);
-            this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(180, 45);
-            this.viewBtn.TabIndex = 121;
-            this.viewBtn.Text = "Schedule";
+            this.sheduleBtn.BackColor = System.Drawing.Color.White;
+            this.sheduleBtn.BorderRadius = 8;
+            this.sheduleBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.sheduleBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.sheduleBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.sheduleBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.sheduleBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.sheduleBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sheduleBtn.ForeColor = System.Drawing.Color.White;
+            this.sheduleBtn.Location = new System.Drawing.Point(972, 116);
+            this.sheduleBtn.Name = "sheduleBtn";
+            this.sheduleBtn.Size = new System.Drawing.Size(180, 45);
+            this.sheduleBtn.TabIndex = 121;
+            this.sheduleBtn.Text = "Schedule";
             // 
             // cancelBtn
             // 
@@ -275,35 +275,35 @@
             this.reSheduleBtn.TabIndex = 119;
             this.reSheduleBtn.Text = "Re-Shedule";
             // 
-            // Appointments
+            // AppointmentBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.viewBtn);
+            this.Controls.Add(this.sheduleBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.reSheduleBtn);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.AppointmentDate);
-            this.Controls.Add(this.PatIdCb);
+            this.Controls.Add(this.appointmentDate);
+            this.Controls.Add(this.patIdCb);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.PatContactTb);
-            this.Controls.Add(this.AppoinmentDGV);
-            this.Controls.Add(this.AppionmentFrm);
+            this.Controls.Add(this.patContactTb);
+            this.Controls.Add(this.appoinmentDGV);
+            this.Controls.Add(this.appionmentFrm);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DocNameCb);
-            this.Controls.Add(this.RoomNumCb);
+            this.Controls.Add(this.docNameCb);
+            this.Controls.Add(this.roomNumCb);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.PatNameTb);
+            this.Controls.Add(this.patNameTb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "Appointments";
+            this.Name = "AppointmentBooking";
             this.Text = "Appointments";
-            ((System.ComponentModel.ISupportInitialize)(this.AppoinmentDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appoinmentDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,21 +313,21 @@
 
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.TextBox PatContactTb;
-        private System.Windows.Forms.DataGridView AppoinmentDGV;
-        private System.Windows.Forms.RichTextBox AppionmentFrm;
+        private System.Windows.Forms.TextBox patContactTb;
+        private System.Windows.Forms.DataGridView appoinmentDGV;
+        private System.Windows.Forms.RichTextBox appionmentFrm;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox DocNameCb;
-        private System.Windows.Forms.ComboBox RoomNumCb;
+        private System.Windows.Forms.ComboBox docNameCb;
+        private System.Windows.Forms.ComboBox roomNumCb;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox PatNameTb;
+        private System.Windows.Forms.TextBox patNameTb;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox PatIdCb;
+        private System.Windows.Forms.ComboBox patIdCb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker AppointmentDate;
-        private Guna.UI2.WinForms.Guna2Button viewBtn;
+        private System.Windows.Forms.DateTimePicker appointmentDate;
+        private Guna.UI2.WinForms.Guna2Button sheduleBtn;
         private Guna.UI2.WinForms.Guna2Button cancelBtn;
         private Guna.UI2.WinForms.Guna2Button reSheduleBtn;
     }
