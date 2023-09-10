@@ -98,7 +98,8 @@ namespace HealthCare_Plus__HMS.Admin
                 SqlCommand cmd = new SqlCommand("INSERT INTO UserTbl(userName,userPassword, userRole, userEmail, userContact,userLastLogin) VALUES(@SN, @SPA, @SR, @SE, @SP,@SL)", Con);
                 cmd.Parameters.AddWithValue("@SN",nameTb.Text);
                 cmd.Parameters.AddWithValue("@SPA",passwordTb.Text); // This should ideally be hashed and salted
-                cmd.Parameters.AddWithValue("@SR", roleCb.SelectedItem.ToString());
+/*                cmd.Parameters.AddWithValue("@SR", roleCb.SelectedItem.ToString());
+*/                cmd.Parameters.AddWithValue("@SR", roleCb.Text);
                 cmd.Parameters.AddWithValue("@SE", emailTb.Text);
                 cmd.Parameters.AddWithValue("@SP", contactTb.Text);
                 cmd.Parameters.AddWithValue("@SL", DateTime.Now); // Set userLastLogin to current date and time
@@ -162,7 +163,8 @@ namespace HealthCare_Plus__HMS.Admin
                 cmd.Parameters.AddWithValue("@SP", contactTb.Text);
                 cmd.Parameters.AddWithValue("@SPA", passwordTb.Text);
                 cmd.Parameters.AddWithValue("@SE", emailTb.Text);
-                cmd.Parameters.AddWithValue("@SR", roleCb.SelectedItem.ToString());
+               /* cmd.Parameters.AddWithValue("@SR", roleCb.SelectedItem.ToString());*/
+                cmd.Parameters.AddWithValue("@SR", roleCb.Text);
                 cmd.Parameters.AddWithValue("@SL", DateTime.Now); // Update userLastLogin to current date and time
                 cmd.Parameters.AddWithValue("@SKey", Key);
 
@@ -248,7 +250,10 @@ namespace HealthCare_Plus__HMS.Admin
         }
         private void Staff_Load(object sender, EventArgs e)
         {
-
+            roleCb.Items.Add("Doctor");
+            roleCb.Items.Add("Admin");
+            roleCb.Items.Add("Nurse");
+            roleCb.Items.Add("Receptionist");
         }
 
 
