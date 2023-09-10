@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace HealthCare_Plus__HMS.Admin
 {
-    public partial class LabTests : Form
+    public partial class MedicalResources : Form
     {
-        public LabTests()
+        public MedicalResources()
         {
             InitializeComponent();
             DisplayTest();
@@ -29,21 +29,21 @@ namespace HealthCare_Plus__HMS.Admin
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            LabTestDGV.DataSource = ds.Tables[0];
-            LabTestDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            medResourcesDGV.DataSource = ds.Tables[0];
+            medResourcesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Con.Close();
         }
 
         private void Clear()
         {
-            LabTestTb.Text = "";
-            LabCostTb.Text = "";
+            resourceNameTb.Text = "";
+            resourceDescriptionTb.Text = "";
             Key = 0;
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (LabTestTb.Text == "" || LabCostTb.Text == "")
+            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "")
 
             {
                 MessageBox.Show("Missing Information");
@@ -54,8 +54,8 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("insert into TestTbl(TestName,TestCost)values(@TN,@TC)", Con);
-                    cmd.Parameters.AddWithValue("@TN", LabTestTb.Text);
-                    cmd.Parameters.AddWithValue("@TC", LabCostTb.Text);
+                    cmd.Parameters.AddWithValue("@TN", resourceNameTb.Text);
+                    cmd.Parameters.AddWithValue("@TC", resourceDescriptionTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Test Added");
                     Con.Close();
@@ -71,7 +71,7 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            if (LabTestTb.Text == "" || LabCostTb.Text == "")
+            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -81,8 +81,8 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("update TestTbl set TestName=@TN, TestCost=@TC  where TestNum=@TKey", Con);
-                    cmd.Parameters.AddWithValue("@TN", LabTestTb.Text);
-                    cmd.Parameters.AddWithValue("@TC", LabCostTb.Text);
+                    cmd.Parameters.AddWithValue("@TN", resourceNameTb.Text);
+                    cmd.Parameters.AddWithValue("@TC", resourceDescriptionTb.Text);
                     cmd.Parameters.AddWithValue("@TKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Test Updated");
@@ -127,12 +127,12 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (e.RowIndex >= 0)  // Check if row index is valid
             {
-                DataGridViewRow row = LabTestDGV.Rows[e.RowIndex];
+                DataGridViewRow row = medResourcesDGV.Rows[e.RowIndex];
 
-                LabTestTb.Text = row.Cells["TestName"].Value?.ToString() ?? ""; // Using column name for clarity
-                LabCostTb.Text = row.Cells["TestCost"].Value?.ToString() ?? "";
+                resourceNameTb.Text = row.Cells["TestName"].Value?.ToString() ?? ""; // Using column name for clarity
+                resourceDescriptionTb.Text = row.Cells["TestCost"].Value?.ToString() ?? "";
 
-                if (string.IsNullOrEmpty(LabTestTb.Text))
+                if (string.IsNullOrEmpty(resourceNameTb.Text))
                 {
                     Key = 0;
                 }

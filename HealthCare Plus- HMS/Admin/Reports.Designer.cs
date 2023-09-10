@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
-            this.DocSpecCb = new System.Windows.Forms.ComboBox();
+            this.payRollCb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.printBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.PrescriptionDGV = new System.Windows.Forms.DataGridView();
-            this.PrescSumTxt = new System.Windows.Forms.RichTextBox();
+            this.reportDGV = new System.Windows.Forms.DataGridView();
+            this.reportTxt = new System.Windows.Forms.RichTextBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // DocSpecCb
+            // payRollCb
             // 
-            this.DocSpecCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocSpecCb.FormattingEnabled = true;
-            this.DocSpecCb.Items.AddRange(new object[] {
+            this.payRollCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payRollCb.FormattingEnabled = true;
+            this.payRollCb.Items.AddRange(new object[] {
             "Total Income",
             "Patient Reports",
             "Resource Allocation"});
-            this.DocSpecCb.Location = new System.Drawing.Point(61, 85);
-            this.DocSpecCb.Margin = new System.Windows.Forms.Padding(2);
-            this.DocSpecCb.Name = "DocSpecCb";
-            this.DocSpecCb.Size = new System.Drawing.Size(258, 42);
-            this.DocSpecCb.TabIndex = 54;
+            this.payRollCb.Location = new System.Drawing.Point(854, 54);
+            this.payRollCb.Margin = new System.Windows.Forms.Padding(2);
+            this.payRollCb.Name = "payRollCb";
+            this.payRollCb.Size = new System.Drawing.Size(279, 42);
+            this.payRollCb.TabIndex = 54;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(57, 57);
+            this.label22.Location = new System.Drawing.Point(850, 26);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(86, 25);
@@ -78,65 +78,65 @@
             this.printBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printBtn.ForeColor = System.Drawing.Color.White;
-            this.printBtn.Location = new System.Drawing.Point(247, 160);
+            this.printBtn.Location = new System.Drawing.Point(941, 203);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(180, 45);
             this.printBtn.TabIndex = 98;
             this.printBtn.Text = "Print";
             // 
-            // guna2Button1
+            // addBtn
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.White;
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(61, 160);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 97;
-            this.guna2Button1.Text = "Add";
+            this.addBtn.BackColor = System.Drawing.Color.White;
+            this.addBtn.BorderRadius = 8;
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
+            this.addBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(941, 141);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(180, 45);
+            this.addBtn.TabIndex = 97;
+            this.addBtn.Text = "Add";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(744, 25);
+            this.label6.Location = new System.Drawing.Point(302, 25);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 26);
             this.label6.TabIndex = 96;
             this.label6.Text = "REPORT";
             // 
-            // PrescriptionDGV
+            // reportDGV
             // 
-            this.PrescriptionDGV.BackgroundColor = System.Drawing.Color.White;
-            this.PrescriptionDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PrescriptionDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PrescriptionDGV.GridColor = System.Drawing.Color.White;
-            this.PrescriptionDGV.Location = new System.Drawing.Point(33, 420);
-            this.PrescriptionDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PrescriptionDGV.Name = "PrescriptionDGV";
-            this.PrescriptionDGV.RowHeadersWidth = 62;
-            this.PrescriptionDGV.RowTemplate.Height = 28;
-            this.PrescriptionDGV.Size = new System.Drawing.Size(1088, 278);
-            this.PrescriptionDGV.TabIndex = 95;
+            this.reportDGV.BackgroundColor = System.Drawing.Color.White;
+            this.reportDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.reportDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportDGV.GridColor = System.Drawing.Color.White;
+            this.reportDGV.Location = new System.Drawing.Point(33, 420);
+            this.reportDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.reportDGV.Name = "reportDGV";
+            this.reportDGV.RowHeadersWidth = 62;
+            this.reportDGV.RowTemplate.Height = 28;
+            this.reportDGV.Size = new System.Drawing.Size(1088, 278);
+            this.reportDGV.TabIndex = 95;
             // 
-            // PrescSumTxt
+            // reportTxt
             // 
-            this.PrescSumTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PrescSumTxt.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrescSumTxt.Location = new System.Drawing.Point(475, 64);
-            this.PrescSumTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.PrescSumTxt.Name = "PrescSumTxt";
-            this.PrescSumTxt.Size = new System.Drawing.Size(646, 336);
-            this.PrescSumTxt.TabIndex = 94;
-            this.PrescSumTxt.Text = "";
+            this.reportTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.reportTxt.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportTxt.Location = new System.Drawing.Point(33, 64);
+            this.reportTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.reportTxt.Name = "reportTxt";
+            this.reportTxt.Size = new System.Drawing.Size(646, 336);
+            this.reportTxt.TabIndex = 94;
+            this.reportTxt.Text = "";
             // 
             // printPreviewDialog1
             // 
@@ -156,18 +156,18 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
             this.Controls.Add(this.printBtn);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.PrescriptionDGV);
-            this.Controls.Add(this.PrescSumTxt);
-            this.Controls.Add(this.DocSpecCb);
+            this.Controls.Add(this.reportDGV);
+            this.Controls.Add(this.reportTxt);
+            this.Controls.Add(this.payRollCb);
             this.Controls.Add(this.label22);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Reports";
             this.Text = "Reports";
-            ((System.ComponentModel.ISupportInitialize)(this.PrescriptionDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,13 +175,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox DocSpecCb;
+        private System.Windows.Forms.ComboBox payRollCb;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2Button printBtn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button addBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView PrescriptionDGV;
-        private System.Windows.Forms.RichTextBox PrescSumTxt;
+        private System.Windows.Forms.DataGridView reportDGV;
+        private System.Windows.Forms.RichTextBox reportTxt;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
     }

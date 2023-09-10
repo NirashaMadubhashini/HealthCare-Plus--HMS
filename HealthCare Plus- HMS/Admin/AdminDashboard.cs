@@ -247,7 +247,7 @@ namespace HealthCare_Plus__HMS.Admin
         private void btnPrescription_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new Prescriptions());
+            OpenChildForm(new BillingandInvoicing());
         }
 
         private void btnRooms_Click(object sender, EventArgs e)
@@ -259,7 +259,7 @@ namespace HealthCare_Plus__HMS.Admin
         private void btnLaboratoryTest_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
-            OpenChildForm(new LabTests());
+            OpenChildForm(new MedicalResources());
         }
         private void btnReport_Click(object sender, EventArgs e)
         {

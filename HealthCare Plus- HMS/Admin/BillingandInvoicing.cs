@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace HealthCare_Plus__HMS.Admin
 {
-    public partial class Prescriptions : Form
+    public partial class BillingandInvoicing : Form
     {
-        public Prescriptions()
+        public BillingandInvoicing()
         {
             InitializeComponent();
             DisplaySearchPrescription();
@@ -29,15 +29,15 @@ namespace HealthCare_Plus__HMS.Admin
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            PrescriptionLoadDGV.DataSource = ds.Tables[0];
-            PrescriptionLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+           billDGV.DataSource = ds.Tables[0];
+            billDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Con.Close();
         }
 
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            try
+          /*  try
             {
                 Con.Open();
                 StringBuilder queryBuilder = new StringBuilder("SELECT * FROM PrescriptionTbl WHERE ");
@@ -94,7 +94,7 @@ namespace HealthCare_Plus__HMS.Admin
             finally
             {
                 Con.Close();
-            }
+            }*/
         }
 
 

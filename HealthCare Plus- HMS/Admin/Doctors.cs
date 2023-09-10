@@ -18,7 +18,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             DisplayDoc();
-            DoctorDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorDGV_DataBindingComplete);
+            doctorDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorDGV_DataBindingComplete);
             GetRoomNum();
 
         }
@@ -31,22 +31,22 @@ namespace HealthCare_Plus__HMS.Admin
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            DoctorDGV.DataSource = ds.Tables[0];
+            doctorDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
 
         int Key = 0;
         private void Clear()
         {
-            DNameTb.Text = "";
-            DocAddTb.Text = "";
-            DocGenCb.SelectedIndex = -1;
-            DocPhoneTb.Text = "";
-            DocDOB.Text = "";
-            DocSpecCb.SelectedIndex = -1;
-            DocExpTb.Text = "";
-            DocPassWordTb.Text = "";
-            RoomNumCb.SelectedIndex = -1;
+            docNameTb.Text = "";
+            docAddTb.Text = "";
+            docGenCb.SelectedIndex = -1;
+            docPhoneTb.Text = "";
+            docDateCb.Text = "";
+            docSpecCb.SelectedIndex = -1;
+            docExpTb.Text = "";
+            docPassWordTb.Text = "";
+            docRoomNumCb.SelectedIndex = -1;
             Key = 0;
         }
         private void GetRoomNum()
@@ -58,14 +58,14 @@ namespace HealthCare_Plus__HMS.Admin
             DataTable dt = new DataTable();
             dt.Columns.Add("RoomId", typeof(int));
             dt.Load(rdr);
-            RoomNumCb.ValueMember = "RoomId";
-            RoomNumCb.DataSource = dt;
+            docRoomNumCb.ValueMember = "RoomId";
+            docRoomNumCb.DataSource = dt;
             Con.Close();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "")
+            if (docNameTb.Text == "" || docAddTb.Text == "" || docGenCb.SelectedIndex == -1 || docPhoneTb.Text == "" || docSpecCb.SelectedIndex == -1 || docPassWordTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -75,7 +75,7 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     Con.Open();
                     SqlCommand checkRoomCmd = new SqlCommand("Select * from DoctorTbl where RoomId=@DR", Con);
-                    checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    checkRoomCmd.Parameters.AddWithValue("@DR", docRoomNumCb.SelectedValue);
                     SqlDataReader reader = checkRoomCmd.ExecuteReader();
 
                     if (reader.HasRows)
@@ -88,15 +88,15 @@ namespace HealthCare_Plus__HMS.Admin
                     reader.Close();
 
                     SqlCommand cmd = new SqlCommand("insert into DoctorTbl(DocName, DocAdd, DocGen, DocPhone, DocDOB, DocSpec, DocExp, DocPass, RoomId)values(@DN, @DA, @DG, @DP, @DD, @DS, @DE, @DPA, @DR)", Con);
-                    cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
-                    cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
-                    cmd.Parameters.AddWithValue("@DG", DocGenCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@DP", DocPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@DD", DocDOB.Value.Date);
-                    cmd.Parameters.AddWithValue("@DS", DocSpecCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@DE", DocExpTb.Text);
-                    cmd.Parameters.AddWithValue("@DPA", DocPassWordTb.Text);
-                    cmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    cmd.Parameters.AddWithValue("@DN", docNameTb.Text);
+                    cmd.Parameters.AddWithValue("@DA", docAddTb.Text);
+                    cmd.Parameters.AddWithValue("@DG", docGenCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@DP", docPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@DD", docDateCb.Value.Date);
+                    cmd.Parameters.AddWithValue("@DS", docSpecCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@DE", docExpTb.Text);
+                    cmd.Parameters.AddWithValue("@DPA", docPassWordTb.Text);
+                    cmd.Parameters.AddWithValue("@DR", docRoomNumCb.SelectedValue);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Doctor Added");
                     Con.Close();
@@ -112,7 +112,7 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            if (DNameTb.Text == "" || DocAddTb.Text == "" || DocGenCb.SelectedIndex == -1 || DocPhoneTb.Text == "" || DocSpecCb.SelectedIndex == -1 || DocPassWordTb.Text == "")
+            if (docNameTb.Text == "" || docAddTb.Text == "" || docGenCb.SelectedIndex == -1 || docPhoneTb.Text == "" || docSpecCb.SelectedIndex == -1 || docPassWordTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -122,7 +122,7 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     Con.Open();
                     SqlCommand checkRoomCmd = new SqlCommand("Select * from DoctorTbl where RoomId=@DR AND DocId <> @DKey", Con);
-                    checkRoomCmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    checkRoomCmd.Parameters.AddWithValue("@DR", docRoomNumCb.SelectedValue);
                     checkRoomCmd.Parameters.AddWithValue("@DKey", Key);
                     SqlDataReader reader = checkRoomCmd.ExecuteReader();
 
@@ -136,15 +136,15 @@ namespace HealthCare_Plus__HMS.Admin
                     reader.Close();
 
                     SqlCommand cmd = new SqlCommand("update DoctorTbl set DocName=@DN, DocAdd=@DA, DocGen=@DG, DocPhone=@DP, DocDOB=@DD, DocSpec=@DS, DocExp=@DE, DocPass=@DPA, RoomId=@DR where DocId=@DKey", Con);
-                    cmd.Parameters.AddWithValue("@DN", DNameTb.Text);
-                    cmd.Parameters.AddWithValue("@DA", DocAddTb.Text);
-                    cmd.Parameters.AddWithValue("@DG", DocGenCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@DP", DocPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@DD", DocDOB.Value.Date);
-                    cmd.Parameters.AddWithValue("@DS", DocSpecCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@DE", DocExpTb.Text);
-                    cmd.Parameters.AddWithValue("@DPA", DocPassWordTb.Text);
-                    cmd.Parameters.AddWithValue("@DR", RoomNumCb.SelectedValue);
+                    cmd.Parameters.AddWithValue("@DN", docNameTb.Text);
+                    cmd.Parameters.AddWithValue("@DA", docAddTb.Text);
+                    cmd.Parameters.AddWithValue("@DG", docGenCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@DP", docPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@DD", docDateCb.Value.Date);
+                    cmd.Parameters.AddWithValue("@DS", docSpecCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@DE", docExpTb.Text);
+                    cmd.Parameters.AddWithValue("@DPA", docPassWordTb.Text);
+                    cmd.Parameters.AddWithValue("@DR", docRoomNumCb.SelectedValue);
                     cmd.Parameters.AddWithValue("@DKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Doctor Updated");
@@ -187,7 +187,7 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void DoctorDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            foreach (DataGridViewColumn column in DoctorDGV.Columns)
+            foreach (DataGridViewColumn column in doctorDGV.Columns)
             {
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
@@ -197,27 +197,27 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (e.RowIndex >= 0)  // Check if row index is valid
             {
-                DataGridViewRow row = DoctorDGV.Rows[e.RowIndex]; // Get the selected row
+                DataGridViewRow row = doctorDGV.Rows[e.RowIndex]; // Get the selected row
 
                 // Populate text fields with data from the row
-                DNameTb.Text = row.Cells["DocName"].Value?.ToString() ?? "";
-                DocAddTb.Text = row.Cells["DocAdd"].Value?.ToString() ?? "";
-                DocGenCb.SelectedItem = row.Cells["DocGen"].Value?.ToString() ?? "";
-                DocPhoneTb.Text = row.Cells["DocPhone"].Value?.ToString() ?? "";
-                RoomNumCb.SelectedValue = row.Cells["RoomId"].Value;
+                docNameTb.Text = row.Cells["DocName"].Value?.ToString() ?? "";
+                docAddTb.Text = row.Cells["DocAdd"].Value?.ToString() ?? "";
+                docGenCb.SelectedItem = row.Cells["DocGen"].Value?.ToString() ?? "";
+                docPhoneTb.Text = row.Cells["DocPhone"].Value?.ToString() ?? "";
+                docRoomNumCb.SelectedValue = row.Cells["RoomId"].Value;
 
                 // Use the DateTimePicker's Value property to set its value
                 if (DateTime.TryParse(row.Cells["DocDOB"].Value?.ToString(), out DateTime result))
                 {
-                    DocDOB.Value = result;
+                    docDateCb.Value = result;
                 }
 
-                DocSpecCb.SelectedItem = row.Cells["DocSpec"].Value?.ToString() ?? "";
-                DocExpTb.Text = row.Cells["DocExp"].Value?.ToString() ?? "";
-                DocPassWordTb.Text = row.Cells["DocPass"].Value?.ToString() ?? "";
+                docSpecCb.SelectedItem = row.Cells["DocSpec"].Value?.ToString() ?? "";
+                docExpTb.Text = row.Cells["DocExp"].Value?.ToString() ?? "";
+                docPassWordTb.Text = row.Cells["DocPass"].Value?.ToString() ?? "";
 
                 // Update the Key variable, which seems to be used for editing and deleting records
-                if (string.IsNullOrEmpty(DNameTb.Text))
+                if (string.IsNullOrEmpty(docNameTb.Text))
                 {
                     Key = 0;
                 }

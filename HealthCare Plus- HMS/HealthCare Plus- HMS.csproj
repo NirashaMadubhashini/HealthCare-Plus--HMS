@@ -71,11 +71,11 @@
     <Compile Include="Admin\Doctors.Designer.cs">
       <DependentUpon>Doctors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\LabTests.cs">
+    <Compile Include="Admin\MedicalResources.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\LabTests.Designer.cs">
-      <DependentUpon>LabTests.cs</DependentUpon>
+    <Compile Include="Admin\MedicalResources.Designer.cs">
+      <DependentUpon>MedicalResources.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Patients.cs">
       <SubType>Form</SubType>
@@ -83,11 +83,11 @@
     <Compile Include="Admin\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Prescriptions.cs">
+    <Compile Include="Admin\BillingandInvoicing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Prescriptions.Designer.cs">
-      <DependentUpon>Prescriptions.cs</DependentUpon>
+    <Compile Include="Admin\BillingandInvoicing.Designer.cs">
+      <DependentUpon>BillingandInvoicing.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Reports.cs">
       <SubType>Form</SubType>
@@ -193,14 +193,14 @@
     <EmbeddedResource Include="Admin\Doctors.resx">
       <DependentUpon>Doctors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\LabTests.resx">
-      <DependentUpon>LabTests.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\MedicalResources.resx">
+      <DependentUpon>MedicalResources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Prescriptions.resx">
-      <DependentUpon>Prescriptions.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\BillingandInvoicing.resx">
+      <DependentUpon>BillingandInvoicing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>

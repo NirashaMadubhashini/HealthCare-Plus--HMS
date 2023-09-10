@@ -24,15 +24,15 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void DisplaySearchPat()
         {
-            Con.Open();
+           /* Con.Open();
             string Query = "Select * from PatientTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            PatientsLoadDGV.DataSource = ds.Tables[0];
-            PatientsLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Con.Close();
+            patientsLoadDGV.DataSource = ds.Tables[0];
+            patientsLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Con.Close();*/
         }
 
         private void PatNameTb_TextChanged(object sender, EventArgs e)
@@ -42,16 +42,16 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 Con.Open();
                 string query = "SELECT * FROM PatientTbl WHERE PatName LIKE @PatName";
                 SqlDataAdapter sda = new SqlDataAdapter(query, Con);
-                sda.SelectCommand.Parameters.AddWithValue("@PatName", "%" + SerachByNameTb.Text + "%");
+                sda.SelectCommand.Parameters.AddWithValue("@PatName", "%" + serachByNameTb.Text + "%");
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
-                PatientsLoadDGV.DataSource = ds.Tables[0];
-                PatientsLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                patientsLoadDGV.DataSource = ds.Tables[0];
+                patientsLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace HealthCare_Plus__HMS.Admin
             finally
             {
                 Con.Close();
-            }
+            }*/
         }
 
 
