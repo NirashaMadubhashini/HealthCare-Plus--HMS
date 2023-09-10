@@ -63,7 +63,7 @@
             this.deleteBtn.FillColor = System.Drawing.Color.Red;
             this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(945, 272);
+            this.deleteBtn.Location = new System.Drawing.Point(945, 126);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 88;
@@ -80,7 +80,7 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(759, 272);
+            this.updateBtn.Location = new System.Drawing.Point(945, 69);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 87;
@@ -90,7 +90,7 @@
             // 
             this.RoomNumCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoomNumCb.FormattingEnabled = true;
-            this.RoomNumCb.Location = new System.Drawing.Point(34, 262);
+            this.RoomNumCb.Location = new System.Drawing.Point(604, 251);
             this.RoomNumCb.Margin = new System.Windows.Forms.Padding(2);
             this.RoomNumCb.Name = "RoomNumCb";
             this.RoomNumCb.Size = new System.Drawing.Size(258, 42);
@@ -101,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(29, 235);
+            this.label1.Location = new System.Drawing.Point(599, 224);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 25);
@@ -136,10 +136,10 @@
             // 
             this.DocPassWordTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DocPassWordTb.ForeColor = System.Drawing.Color.Black;
-            this.DocPassWordTb.Location = new System.Drawing.Point(869, 161);
+            this.DocPassWordTb.Location = new System.Drawing.Point(322, 253);
             this.DocPassWordTb.Margin = new System.Windows.Forms.Padding(2);
             this.DocPassWordTb.Name = "DocPassWordTb";
-            this.DocPassWordTb.Size = new System.Drawing.Size(256, 42);
+            this.DocPassWordTb.Size = new System.Drawing.Size(260, 42);
             this.DocPassWordTb.TabIndex = 81;
             // 
             // label3
@@ -147,7 +147,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(865, 132);
+            this.label3.Location = new System.Drawing.Point(318, 224);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 25);
@@ -158,10 +158,10 @@
             // 
             this.DocExpTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DocExpTb.ForeColor = System.Drawing.Color.Black;
-            this.DocExpTb.Location = new System.Drawing.Point(614, 161);
+            this.DocExpTb.Location = new System.Drawing.Point(35, 253);
             this.DocExpTb.Margin = new System.Windows.Forms.Padding(2);
             this.DocExpTb.Name = "DocExpTb";
-            this.DocExpTb.Size = new System.Drawing.Size(218, 42);
+            this.DocExpTb.Size = new System.Drawing.Size(259, 42);
             this.DocExpTb.TabIndex = 79;
             // 
             // label2
@@ -169,7 +169,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(610, 132);
+            this.label2.Location = new System.Drawing.Point(31, 224);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 25);
@@ -187,7 +187,7 @@
             "Ophtalmo",
             "Dermato",
             "Generalist"});
-            this.DocSpecCb.Location = new System.Drawing.Point(322, 160);
+            this.DocSpecCb.Location = new System.Drawing.Point(604, 157);
             this.DocSpecCb.Margin = new System.Windows.Forms.Padding(2);
             this.DocSpecCb.Name = "DocSpecCb";
             this.DocSpecCb.Size = new System.Drawing.Size(258, 42);
@@ -198,7 +198,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(318, 132);
+            this.label22.Location = new System.Drawing.Point(599, 130);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(158, 25);
@@ -210,7 +210,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(31, 132);
+            this.label13.Location = new System.Drawing.Point(318, 131);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 25);
@@ -220,10 +220,10 @@
             // DocDOB
             // 
             this.DocDOB.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocDOB.Location = new System.Drawing.Point(31, 159);
+            this.DocDOB.Location = new System.Drawing.Point(318, 158);
             this.DocDOB.Margin = new System.Windows.Forms.Padding(2);
             this.DocDOB.Name = "DocDOB";
-            this.DocDOB.Size = new System.Drawing.Size(259, 42);
+            this.DocDOB.Size = new System.Drawing.Size(263, 42);
             this.DocDOB.TabIndex = 74;
             // 
             // DocGenCb
@@ -233,10 +233,10 @@
             this.DocGenCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.DocGenCb.Location = new System.Drawing.Point(614, 69);
+            this.DocGenCb.Location = new System.Drawing.Point(604, 69);
             this.DocGenCb.Margin = new System.Windows.Forms.Padding(2);
             this.DocGenCb.Name = "DocGenCb";
-            this.DocGenCb.Size = new System.Drawing.Size(218, 42);
+            this.DocGenCb.Size = new System.Drawing.Size(258, 42);
             this.DocGenCb.TabIndex = 73;
             // 
             // label12
@@ -244,7 +244,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(610, 40);
+            this.label12.Location = new System.Drawing.Point(599, 40);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 25);
@@ -255,7 +255,7 @@
             // 
             this.DocPhoneTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DocPhoneTb.ForeColor = System.Drawing.Color.Black;
-            this.DocPhoneTb.Location = new System.Drawing.Point(866, 67);
+            this.DocPhoneTb.Location = new System.Drawing.Point(35, 158);
             this.DocPhoneTb.Margin = new System.Windows.Forms.Padding(2);
             this.DocPhoneTb.Name = "DocPhoneTb";
             this.DocPhoneTb.Size = new System.Drawing.Size(259, 42);
@@ -266,7 +266,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(862, 40);
+            this.label11.Location = new System.Drawing.Point(31, 131);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(138, 25);
@@ -292,7 +292,7 @@
             this.DNameTb.Location = new System.Drawing.Point(34, 69);
             this.DNameTb.Margin = new System.Windows.Forms.Padding(2);
             this.DNameTb.Name = "DNameTb";
-            this.DNameTb.Size = new System.Drawing.Size(259, 42);
+            this.DNameTb.Size = new System.Drawing.Size(260, 42);
             this.DNameTb.TabIndex = 68;
             // 
             // label9
