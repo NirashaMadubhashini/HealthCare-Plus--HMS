@@ -49,10 +49,10 @@
             // 
             this.emailTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTb.ForeColor = System.Drawing.Color.Black;
-            this.emailTb.Location = new System.Drawing.Point(911, 80);
+            this.emailTb.Location = new System.Drawing.Point(51, 355);
             this.emailTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.emailTb.Name = "emailTb";
-            this.emailTb.Size = new System.Drawing.Size(202, 42);
+            this.emailTb.Size = new System.Drawing.Size(381, 42);
             this.emailTb.TabIndex = 48;
             // 
             // label2
@@ -60,7 +60,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(908, 50);
+            this.label2.Location = new System.Drawing.Point(47, 326);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 25);
@@ -73,12 +73,12 @@
             this.staffDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.staffDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.staffDGV.GridColor = System.Drawing.Color.White;
-            this.staffDGV.Location = new System.Drawing.Point(52, 273);
+            this.staffDGV.Location = new System.Drawing.Point(503, 61);
             this.staffDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.staffDGV.Name = "staffDGV";
             this.staffDGV.RowHeadersWidth = 62;
             this.staffDGV.RowTemplate.Height = 28;
-            this.staffDGV.Size = new System.Drawing.Size(1061, 407);
+            this.staffDGV.Size = new System.Drawing.Size(605, 606);
             this.staffDGV.TabIndex = 43;
             this.staffDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffDGV_CellContentClick);
             // 
@@ -86,10 +86,10 @@
             // 
             this.passwordTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTb.ForeColor = System.Drawing.Color.Black;
-            this.passwordTb.Location = new System.Drawing.Point(624, 79);
+            this.passwordTb.Location = new System.Drawing.Point(51, 262);
             this.passwordTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.passwordTb.Name = "passwordTb";
-            this.passwordTb.Size = new System.Drawing.Size(259, 42);
+            this.passwordTb.Size = new System.Drawing.Size(381, 42);
             this.passwordTb.TabIndex = 42;
             // 
             // label11
@@ -97,7 +97,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(620, 50);
+            this.label11.Location = new System.Drawing.Point(47, 233);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 25);
@@ -109,7 +109,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(334, 50);
+            this.label10.Location = new System.Drawing.Point(47, 139);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(138, 25);
@@ -123,7 +123,7 @@
             this.nameTb.Location = new System.Drawing.Point(52, 79);
             this.nameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.nameTb.Name = "nameTb";
-            this.nameTb.Size = new System.Drawing.Size(259, 42);
+            this.nameTb.Size = new System.Drawing.Size(381, 42);
             this.nameTb.TabIndex = 38;
             // 
             // label9
@@ -142,10 +142,10 @@
             // 
             this.contactTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactTb.ForeColor = System.Drawing.Color.Black;
-            this.contactTb.Location = new System.Drawing.Point(338, 79);
+            this.contactTb.Location = new System.Drawing.Point(51, 168);
             this.contactTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.contactTb.Name = "contactTb";
-            this.contactTb.Size = new System.Drawing.Size(259, 42);
+            this.contactTb.Size = new System.Drawing.Size(381, 42);
             this.contactTb.TabIndex = 49;
             // 
             // deleteBtn
@@ -159,9 +159,9 @@
             this.deleteBtn.FillColor = System.Drawing.Color.Red;
             this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(933, 209);
+            this.deleteBtn.Location = new System.Drawing.Point(329, 517);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(180, 45);
+            this.deleteBtn.Size = new System.Drawing.Size(151, 45);
             this.deleteBtn.TabIndex = 72;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -177,9 +177,9 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(747, 209);
+            this.updateBtn.Location = new System.Drawing.Point(172, 517);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(180, 45);
+            this.updateBtn.Size = new System.Drawing.Size(151, 45);
             this.updateBtn.TabIndex = 71;
             this.updateBtn.Text = "Update";
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
@@ -195,9 +195,9 @@
             this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(561, 209);
+            this.addBtn.Location = new System.Drawing.Point(15, 517);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(180, 45);
+            this.addBtn.Size = new System.Drawing.Size(151, 45);
             this.addBtn.TabIndex = 70;
             this.addBtn.Text = "Add";
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
@@ -211,10 +211,10 @@
             "Admin",
             "Doctor",
             "Staff Member"});
-            this.roleCb.Location = new System.Drawing.Point(51, 164);
+            this.roleCb.Location = new System.Drawing.Point(51, 441);
             this.roleCb.Margin = new System.Windows.Forms.Padding(2);
             this.roleCb.Name = "roleCb";
-            this.roleCb.Size = new System.Drawing.Size(260, 42);
+            this.roleCb.Size = new System.Drawing.Size(382, 42);
             this.roleCb.TabIndex = 73;
             // 
             // label1
@@ -222,7 +222,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(47, 137);
+            this.label1.Location = new System.Drawing.Point(47, 414);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 25);
