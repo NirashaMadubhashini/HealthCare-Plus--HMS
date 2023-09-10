@@ -113,5 +113,15 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
+        private void billDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void billTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

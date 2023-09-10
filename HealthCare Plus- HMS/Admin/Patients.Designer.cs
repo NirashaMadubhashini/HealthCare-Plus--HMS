@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.patLastNameTb = new System.Windows.Forms.TextBox();
@@ -49,23 +49,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.patDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // viewBtn
+            // refreshBtn
             // 
-            this.viewBtn.BackColor = System.Drawing.Color.White;
-            this.viewBtn.BorderRadius = 8;
-            this.viewBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.viewBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.viewBtn.FillColor = System.Drawing.Color.Gray;
-            this.viewBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBtn.ForeColor = System.Drawing.Color.White;
-            this.viewBtn.Location = new System.Drawing.Point(945, 194);
-            this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(180, 45);
-            this.viewBtn.TabIndex = 88;
-            this.viewBtn.Text = "View";
-            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.Gray;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(945, 194);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 88;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.viewBtn_Click);
             // 
             // updateBtn
             // 
@@ -126,6 +126,7 @@
             this.patDGV.RowTemplate.Height = 28;
             this.patDGV.Size = new System.Drawing.Size(1089, 326);
             this.patDGV.TabIndex = 82;
+            this.patDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patDGV_CellContentClick);
             // 
             // patMedHistoryTb
             // 
@@ -282,7 +283,7 @@
             this.ClientSize = new System.Drawing.Size(1155, 719);
             this.Controls.Add(this.patAddressTb);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.viewBtn);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.patLastNameTb);
@@ -311,7 +312,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button viewBtn;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
         private Guna.UI2.WinForms.Guna2Button updateBtn;
         private Guna.UI2.WinForms.Guna2Button addBtn;
         private System.Windows.Forms.TextBox patLastNameTb;

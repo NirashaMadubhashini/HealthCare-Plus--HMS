@@ -139,6 +139,7 @@
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 106;
             this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click_1);
             // 
             // searchBtn
             // 

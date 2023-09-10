@@ -130,5 +130,10 @@ namespace HealthCare_Plus__HMS.Staff
         {
             DisplaySearchDoc();
         }
+
+        private void refreshBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

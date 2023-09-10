@@ -101,6 +101,7 @@
             this.billDGV.RowTemplate.Height = 28;
             this.billDGV.Size = new System.Drawing.Size(1088, 278);
             this.billDGV.TabIndex = 102;
+            this.billDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billDGV_CellContentClick);
             // 
             // billTxt
             // 
@@ -112,6 +113,7 @@
             this.billTxt.Size = new System.Drawing.Size(646, 336);
             this.billTxt.TabIndex = 101;
             this.billTxt.Text = "";
+            this.billTxt.TextChanged += new System.EventHandler(this.billTxt_TextChanged);
             // 
             // payRollCb
             // 
