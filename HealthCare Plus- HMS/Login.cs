@@ -113,5 +113,10 @@ namespace HealthCare_Plus__HMS
         {
 
         }
+
+        private void pnlLogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

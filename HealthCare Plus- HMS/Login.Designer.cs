@@ -331,6 +331,7 @@
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(520, 662);
             this.pnlLogo.TabIndex = 4;
+            this.pnlLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogo_Paint);
             // 
             // label3
             // 
