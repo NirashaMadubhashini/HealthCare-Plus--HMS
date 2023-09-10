@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label13 = new System.Windows.Forms.Label();
-            this.DocAvailableDate = new System.Windows.Forms.DateTimePicker();
-            this.SerachBySpecTb = new System.Windows.Forms.TextBox();
+            this.docAvailableDate = new System.Windows.Forms.DateTimePicker();
+            this.serachBySpecTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DoctorLoadDGV = new System.Windows.Forms.DataGridView();
-            this.SerachByNameTb = new System.Windows.Forms.TextBox();
+            this.serachByNameTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -45,33 +45,33 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(804, 40);
+            this.label13.Location = new System.Drawing.Point(31, 130);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(233, 25);
             this.label13.TabIndex = 92;
             this.label13.Text = "Search Here By Date";
             // 
-            // DocAvailableDate
+            // docAvailableDate
             // 
-            this.DocAvailableDate.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocAvailableDate.Location = new System.Drawing.Point(804, 67);
-            this.DocAvailableDate.Margin = new System.Windows.Forms.Padding(2);
-            this.DocAvailableDate.Name = "DocAvailableDate";
-            this.DocAvailableDate.Size = new System.Drawing.Size(318, 42);
-            this.DocAvailableDate.TabIndex = 91;
-            this.DocAvailableDate.ValueChanged += new System.EventHandler(this.DocAvailableDate_ValueChanged);
+            this.docAvailableDate.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docAvailableDate.Location = new System.Drawing.Point(31, 157);
+            this.docAvailableDate.Margin = new System.Windows.Forms.Padding(2);
+            this.docAvailableDate.Name = "docAvailableDate";
+            this.docAvailableDate.Size = new System.Drawing.Size(318, 42);
+            this.docAvailableDate.TabIndex = 91;
+            this.docAvailableDate.ValueChanged += new System.EventHandler(this.DocAvailableDate_ValueChanged);
             // 
-            // SerachBySpecTb
+            // serachBySpecTb
             // 
-            this.SerachBySpecTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SerachBySpecTb.ForeColor = System.Drawing.Color.Black;
-            this.SerachBySpecTb.Location = new System.Drawing.Point(421, 67);
-            this.SerachBySpecTb.Margin = new System.Windows.Forms.Padding(2);
-            this.SerachBySpecTb.Name = "SerachBySpecTb";
-            this.SerachBySpecTb.Size = new System.Drawing.Size(318, 42);
-            this.SerachBySpecTb.TabIndex = 90;
-            this.SerachBySpecTb.TextChanged += new System.EventHandler(this.SerachBySpecTb_TextChanged);
+            this.serachBySpecTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serachBySpecTb.ForeColor = System.Drawing.Color.Black;
+            this.serachBySpecTb.Location = new System.Drawing.Point(421, 67);
+            this.serachBySpecTb.Margin = new System.Windows.Forms.Padding(2);
+            this.serachBySpecTb.Name = "serachBySpecTb";
+            this.serachBySpecTb.Size = new System.Drawing.Size(318, 42);
+            this.serachBySpecTb.TabIndex = 90;
+            this.serachBySpecTb.TextChanged += new System.EventHandler(this.SerachBySpecTb_TextChanged);
             // 
             // label1
             // 
@@ -100,16 +100,16 @@
             this.DoctorLoadDGV.TabIndex = 88;
             this.DoctorLoadDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorLoadDGV_CellContentClick);
             // 
-            // SerachByNameTb
+            // serachByNameTb
             // 
-            this.SerachByNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SerachByNameTb.ForeColor = System.Drawing.Color.Black;
-            this.SerachByNameTb.Location = new System.Drawing.Point(36, 70);
-            this.SerachByNameTb.Margin = new System.Windows.Forms.Padding(2);
-            this.SerachByNameTb.Name = "SerachByNameTb";
-            this.SerachByNameTb.Size = new System.Drawing.Size(318, 42);
-            this.SerachByNameTb.TabIndex = 86;
-            this.SerachByNameTb.TextChanged += new System.EventHandler(this.SerachByNameTb_TextChanged);
+            this.serachByNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serachByNameTb.ForeColor = System.Drawing.Color.Black;
+            this.serachByNameTb.Location = new System.Drawing.Point(36, 70);
+            this.serachByNameTb.Margin = new System.Windows.Forms.Padding(2);
+            this.serachByNameTb.Name = "serachByNameTb";
+            this.serachByNameTb.Size = new System.Drawing.Size(318, 42);
+            this.serachByNameTb.TabIndex = 86;
+            this.serachByNameTb.TextChanged += new System.EventHandler(this.SerachByNameTb_TextChanged);
             // 
             // label9
             // 
@@ -134,7 +134,7 @@
             this.refreshBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(944, 170);
+            this.refreshBtn.Location = new System.Drawing.Point(945, 115);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 106;
@@ -151,7 +151,7 @@
             this.searchBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(758, 170);
+            this.searchBtn.Location = new System.Drawing.Point(944, 64);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(180, 45);
             this.searchBtn.TabIndex = 105;
@@ -166,11 +166,11 @@
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.DocAvailableDate);
-            this.Controls.Add(this.SerachBySpecTb);
+            this.Controls.Add(this.docAvailableDate);
+            this.Controls.Add(this.serachBySpecTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DoctorLoadDGV);
-            this.Controls.Add(this.SerachByNameTb);
+            this.Controls.Add(this.serachByNameTb);
             this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -186,11 +186,11 @@
         #endregion
 
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker DocAvailableDate;
-        private System.Windows.Forms.TextBox SerachBySpecTb;
+        private System.Windows.Forms.DateTimePicker docAvailableDate;
+        private System.Windows.Forms.TextBox serachBySpecTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DoctorLoadDGV;
-        private System.Windows.Forms.TextBox SerachByNameTb;
+        private System.Windows.Forms.TextBox serachByNameTb;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Button refreshBtn;
         private Guna.UI2.WinForms.Guna2Button searchBtn;

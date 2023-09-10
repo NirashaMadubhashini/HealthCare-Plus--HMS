@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HealthCare_Plus__HMS.Staff
 {
-    public partial class Appointments : Form
+    public partial class AppointmentBooking : Form
     {
-        public Appointments()
+        public AppointmentBooking()
         {
             InitializeComponent();
         }

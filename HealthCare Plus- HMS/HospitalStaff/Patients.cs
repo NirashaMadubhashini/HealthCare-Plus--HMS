@@ -29,20 +29,20 @@ namespace HealthCare_Plus__HMS.Staff
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            PatientsDGV.DataSource = ds.Tables[0];
-            PatientsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            patientsDGV.DataSource = ds.Tables[0];
+            patientsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Con.Close();
         }
 
         private void Clear()
         {
-            PatNameTb.Text = "";
-            PatAddTb.Text = "";
-            PatGenCb.SelectedIndex = 0;
-            PatPhoneTb.Text = "";
-            PatDOB.Text = "";
-            PatHIVCb.SelectedIndex = 0;
-            PatAlTb.Text = "";
+            patNameTb.Text = "";
+            patAddTb.Text = "";
+            patGenCb.SelectedIndex = 0;
+            patPhoneTb.Text = "";
+            patDOB.Text = "";
+            patHIVCb.SelectedIndex = 0;
+            patAlTb.Text = "";
             Key = 0;
         }
         private void PatNameTb_TextChanged(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (PatNameTb.Text == "" || PatAddTb.Text == "" || PatGenCb.SelectedIndex == -1 || PatPhoneTb.Text == "" || PatHIVCb.SelectedIndex == -1 || PatAlTb.Text == "")
+            if (patNameTb.Text == "" || patAddTb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patHIVCb.SelectedIndex == -1 || patAlTb.Text == "")
 
             {
                 MessageBox.Show("Missing Information");
@@ -63,13 +63,13 @@ namespace HealthCare_Plus__HMS.Staff
                 {
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("insert into PatientTbl(PatName,PatAdd,PatGen,PatPhone,PatDOB,PatHIV,PatAll)values(@PN,@PA,@PG,@PP,@PD,@PH,@PAL)", Con);
-                    cmd.Parameters.AddWithValue("@PN", PatNameTb.Text);
-                    cmd.Parameters.AddWithValue("@PA", PatAddTb.Text);
-                    cmd.Parameters.AddWithValue("@PG", PatGenCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@PP", PatPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@PD", PatDOB.Value.Date);
-                    cmd.Parameters.AddWithValue("@PH", PatHIVCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@PAL", PatAlTb.Text);
+                    cmd.Parameters.AddWithValue("@PN", patNameTb.Text);
+                    cmd.Parameters.AddWithValue("@PA", patAddTb.Text);
+                    cmd.Parameters.AddWithValue("@PG", patGenCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PP", patPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@PD", patDOB.Value.Date);
+                    cmd.Parameters.AddWithValue("@PH", patHIVCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PAL", patAlTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Patient Added");
                     Con.Close();
@@ -85,7 +85,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            if (PatNameTb.Text == "" || PatAddTb.Text == "" || PatGenCb.SelectedIndex == -1 || PatPhoneTb.Text == "" || PatHIVCb.SelectedIndex == -1 || PatAlTb.Text == "")
+            if (patNameTb.Text == "" || patAddTb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patHIVCb.SelectedIndex == -1 || patAlTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -95,13 +95,13 @@ namespace HealthCare_Plus__HMS.Staff
                 {
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("update PatientTbl set PatName=@PN, PatAdd=@PA, PatGen=@PG, PatPhone=@PP, PatDOB=@PD, PatHIV=@PH, PatAll=@PAL where PatId=@PKey", Con);
-                    cmd.Parameters.AddWithValue("@PN", PatNameTb.Text);
-                    cmd.Parameters.AddWithValue("@PA", PatAddTb.Text);
-                    cmd.Parameters.AddWithValue("@PG", PatGenCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@PP", PatPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@PD", PatDOB.Value.Date);
-                    cmd.Parameters.AddWithValue("@PH", PatHIVCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@PAL", PatAlTb.Text);
+                    cmd.Parameters.AddWithValue("@PN", patNameTb.Text);
+                    cmd.Parameters.AddWithValue("@PA", patAddTb.Text);
+                    cmd.Parameters.AddWithValue("@PG", patGenCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PP", patPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@PD", patDOB.Value.Date);
+                    cmd.Parameters.AddWithValue("@PH", patHIVCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PAL", patAlTb.Text);
                     cmd.Parameters.AddWithValue("@PKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Patient Updated");
@@ -146,21 +146,21 @@ namespace HealthCare_Plus__HMS.Staff
         {
             if (e.RowIndex >= 0)  // Check if row index is valid
             {
-                DataGridViewRow row = PatientsDGV.Rows[e.RowIndex];
+                DataGridViewRow row = patientsDGV.Rows[e.RowIndex];
 
-                PatNameTb.Text = row.Cells["PatName"].Value?.ToString() ?? "";
-                PatAddTb.Text = row.Cells["PatAdd"].Value?.ToString() ?? "";
-                PatGenCb.SelectedItem = row.Cells["PatGen"].Value?.ToString() ?? "";
-                PatPhoneTb.Text = row.Cells["PatPhone"].Value?.ToString() ?? "";
+                patNameTb.Text = row.Cells["PatName"].Value?.ToString() ?? "";
+                patAddTb.Text = row.Cells["PatAdd"].Value?.ToString() ?? "";
+                patGenCb.SelectedItem = row.Cells["PatGen"].Value?.ToString() ?? "";
+                patPhoneTb.Text = row.Cells["PatPhone"].Value?.ToString() ?? "";
                 // Use the DateTimePicker's Value property to set its value
                 if (DateTime.TryParse(row.Cells["PatDOB"].Value?.ToString(), out DateTime result))
                 {
-                    PatDOB.Value = result;
+                    patDOB.Value = result;
                 }
-                PatHIVCb.SelectedItem = row.Cells["PatHIV"].Value?.ToString() ?? "";
-                PatAlTb.Text = row.Cells["PatAll"].Value?.ToString() ?? "";
+                patHIVCb.SelectedItem = row.Cells["PatHIV"].Value?.ToString() ?? "";
+                patAlTb.Text = row.Cells["PatAll"].Value?.ToString() ?? "";
 
-                if (string.IsNullOrEmpty(PatNameTb.Text))
+                if (string.IsNullOrEmpty(patNameTb.Text))
                 {
                     Key = 0;
                 }

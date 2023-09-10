@@ -36,9 +36,9 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            string docName = SerachByNameTb.Text; // Get the text from the SearchByName text box
-            string docSpec = SerachBySpecTb.Text; // Get the text from the SearchBySpec text box
-            DateTime? docDOB = DocAvailableDate.Checked ? DocAvailableDate.Value.Date : (DateTime?)null; // Get the selected date from the DateTimePicker
+            string docName = serachByNameTb.Text; // Get the text from the SearchByName text box
+            string docSpec = serachBySpecTb.Text; // Get the text from the SearchBySpec text box
+            DateTime? docDOB = docAvailableDate.Checked ? docAvailableDate.Value.Date : (DateTime?)null; // Get the selected date from the DateTimePicker
 
             if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec) && docDOB == null)
             {
@@ -97,10 +97,10 @@ namespace HealthCare_Plus__HMS.Staff
 
             Con.Close();
 
-            SerachByNameTb.Text = string.Empty;
-            SerachBySpecTb.Text = string.Empty;
-            DocAvailableDate.Value = DateTime.Now;
-            DocAvailableDate.Checked = false;
+            serachByNameTb.Text = string.Empty;
+            serachBySpecTb.Text = string.Empty;
+            docAvailableDate.Value = DateTime.Now;
+            docAvailableDate.Checked = false;
         }
 
 

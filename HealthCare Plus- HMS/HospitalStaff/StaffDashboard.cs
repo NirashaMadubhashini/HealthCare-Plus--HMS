@@ -208,7 +208,7 @@ namespace HealthCare_Plus__HMS.Staff
         private void btnDoctors_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Appoinments());
+            OpenChildForm(new AppointmentBooking());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
