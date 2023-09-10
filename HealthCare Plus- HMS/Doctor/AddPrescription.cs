@@ -32,17 +32,17 @@ namespace HealthCare_Plus__HMS.Doctor
         private void ClearAllFields()
         {
             // Clearing all textboxes
-            DocNameTb.Text = "";
-            PatNameTb.Text = "";
-            TestNameTb.Text = "";
-            CostTb.Text = "";
-            MedTb.Text = "";
-            PrescSumTxt.Text = "";
+            docNameTb.Text = "";
+            patNameTb.Text = "";
+            testNameTb.Text = "";
+            costTb.Text = "";
+            medTb.Text = "";
+            prescSumTxt.Text = "";
 
             // Clearing all combo boxes
-            DocIdCb.SelectedIndex = -1;
-            PatIdCb.SelectedIndex = -1;
-            TestIdCb.SelectedIndex = -1;
+            docIdCb.SelectedIndex = -1;
+            patIdCb.SelectedIndex = -1;
+            testIdCb.SelectedIndex = -1;
         }
 
         private void DisplayPrescription()
@@ -53,20 +53,20 @@ namespace HealthCare_Plus__HMS.Doctor
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            PrescriptionDGV.DataSource = ds.Tables[0];
-            PrescriptionDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            prescriptionDGV.DataSource = ds.Tables[0];
+            prescriptionDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Con.Close();
         }
         private void Clear()
         {
-            DocIdCb.SelectedIndex = -1; // No selection
-            DocNameTb.Text = "";
-            PatIdCb.SelectedIndex = -1; // No selection
-            PatNameTb.Text = "";
-            TestIdCb.SelectedIndex = -1; // No selection
-            TestNameTb.Text = "";
-            CostTb.Text = "";
-            MedTb.Text = "";
+            docIdCb.SelectedIndex = -1; // No selection
+            docNameTb.Text = "";
+            patIdCb.SelectedIndex = -1; // No selection
+            patNameTb.Text = "";
+            testIdCb.SelectedIndex = -1; // No selection
+            testNameTb.Text = "";
+            costTb.Text = "";
+            medTb.Text = "";
             //Key = 0;
         }
 
@@ -79,21 +79,21 @@ namespace HealthCare_Plus__HMS.Doctor
             DataTable dt = new DataTable();
             dt.Columns.Add("DocId", typeof(int));
             dt.Load(rdr);
-            DocIdCb.ValueMember = "DocId";
-            DocIdCb.DataSource = dt;
+            docIdCb.ValueMember = "DocId";
+            docIdCb.DataSource = dt;
             Con.Close();
         }
         private void GetDocName()
         {
             Con.Open();
-            string Query = "Select * from DoctorTbl where DocId = " + DocIdCb.SelectedValue.ToString() + "";
+            string Query = "Select * from DoctorTbl where DocId = " + docIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(Query, Con);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                DocNameTb.Text = dr["DocName"].ToString();
+                docNameTb.Text = dr["DocName"].ToString();
             }
             Con.Close();
         }
@@ -107,21 +107,21 @@ namespace HealthCare_Plus__HMS.Doctor
             DataTable dt = new DataTable();
             dt.Columns.Add("PatId", typeof(int));
             dt.Load(rdr);
-            PatIdCb.ValueMember = "PatId";
-            PatIdCb.DataSource = dt;
+            patIdCb.ValueMember = "PatId";
+            patIdCb.DataSource = dt;
             Con.Close();
         }
         private void GetPatName()
         {
             Con.Open();
-            string Query = "Select * from PatientTbl where PatId = " + PatIdCb.SelectedValue.ToString() + "";
+            string Query = "Select * from PatientTbl where PatId = " + patIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(Query, Con);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                PatNameTb.Text = dr["PatName"].ToString();
+                patNameTb.Text = dr["PatName"].ToString();
             }
             Con.Close();
         }
@@ -135,23 +135,23 @@ namespace HealthCare_Plus__HMS.Doctor
             DataTable dt = new DataTable();
             dt.Columns.Add("TestNum", typeof(int));
             dt.Load(rdr);
-            TestIdCb.ValueMember = "TestNum";
-            TestIdCb.DataSource = dt;
+            testIdCb.ValueMember = "TestNum";
+            testIdCb.DataSource = dt;
             Con.Close();
         }
 
         private void GetTest()
         {
             Con.Open();
-            string Query = "Select * from TestTbl where TestNum = " + TestIdCb.SelectedValue.ToString() + "";
+            string Query = "Select * from TestTbl where TestNum = " + testIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(Query, Con);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                TestNameTb.Text = dr["TestName"].ToString();
-                CostTb.Text = dr["TestCost"].ToString();
+                testNameTb.Text = dr["TestName"].ToString();
+                costTb.Text = dr["TestCost"].ToString();
 
             }
             Con.Close();
@@ -186,14 +186,14 @@ namespace HealthCare_Plus__HMS.Doctor
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font font = new Font("Century Gothic", 18, FontStyle.Regular);
-            SizeF stringSize = e.Graphics.MeasureString(PrescSumTxt.Text, font);
+            SizeF stringSize = e.Graphics.MeasureString(prescSumTxt.Text, font);
 
             // Centering text by calculating starting point
             float startPointX = (e.PageBounds.Width - stringSize.Width) / 2;
             float startPointY = (e.PageBounds.Height - stringSize.Height) / 2;
 
             // Drawing the text
-            e.Graphics.DrawString(PrescSumTxt.Text, font, Brushes.Black, new PointF(startPointX, startPointY));
+            e.Graphics.DrawString(prescSumTxt.Text, font, Brushes.Black, new PointF(startPointX, startPointY));
 
             // Drawing "Thanks" centered
             string thanksString = "\n\t" + "Thanks";
@@ -206,7 +206,7 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (DocNameTb.Text == "" || PatNameTb.Text == "" || TestNameTb.Text == "")
+            if (docNameTb.Text == "" || patNameTb.Text == "" || testNameTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
@@ -216,14 +216,14 @@ namespace HealthCare_Plus__HMS.Doctor
                 {
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("insert into PrescriptionTbl(DocId,DocName,PatId,PatName,LabTestId,LabTestName,Medicines,Cost)values(@DI,@DN,@PI,@PN,@TI,@TN,@MED,@CO)", Con);
-                    cmd.Parameters.AddWithValue("@DI", DocIdCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@DN", DocNameTb.Text);
-                    cmd.Parameters.AddWithValue("@PI", PatIdCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@PN", PatNameTb.Text);
-                    cmd.Parameters.AddWithValue("@TI", TestIdCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@TN", TestNameTb.Text);
-                    cmd.Parameters.AddWithValue("@MED", MedTb.Text);
-                    cmd.Parameters.AddWithValue("@CO", CostTb.Text);
+                    cmd.Parameters.AddWithValue("@DI", docIdCb.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@DN", docNameTb.Text);
+                    cmd.Parameters.AddWithValue("@PI", patIdCb.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@PN", patNameTb.Text);
+                    cmd.Parameters.AddWithValue("@TI", testIdCb.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@TN", testNameTb.Text);
+                    cmd.Parameters.AddWithValue("@MED", medTb.Text);
+                    cmd.Parameters.AddWithValue("@CO", costTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Prescription Added");
                     Con.Close();
@@ -249,7 +249,7 @@ namespace HealthCare_Plus__HMS.Doctor
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.PrescriptionDGV.Rows[e.RowIndex];
+                DataGridViewRow row = this.prescriptionDGV.Rows[e.RowIndex];
 
                 // Create a StringBuilder to hold the text
                 StringBuilder sb = new StringBuilder();
@@ -275,7 +275,7 @@ namespace HealthCare_Plus__HMS.Doctor
                 sb.AppendLine("***************************************************************");
 
                 // Assign text to PrescSumTxt
-                PrescSumTxt.Text = sb.ToString();
+                prescSumTxt.Text = sb.ToString();
             }
         }
     }
