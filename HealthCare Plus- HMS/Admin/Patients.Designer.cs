@@ -46,8 +46,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.patAddressTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.patRegDateCb = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.patDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +65,7 @@
             this.viewBtn.Size = new System.Drawing.Size(180, 45);
             this.viewBtn.TabIndex = 88;
             this.viewBtn.Text = "View";
+            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
             // 
             // updateBtn
             // 
@@ -84,6 +83,7 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 87;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // addBtn
             // 
@@ -101,6 +101,7 @@
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 86;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // patLastNameTb
             // 
@@ -273,35 +274,12 @@
             this.label4.TabIndex = 89;
             this.label4.Text = "Address";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(318, 230);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 25);
-            this.label1.TabIndex = 92;
-            this.label1.Text = "Registered Date";
-            // 
-            // patRegDateCb
-            // 
-            this.patRegDateCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patRegDateCb.Location = new System.Drawing.Point(318, 257);
-            this.patRegDateCb.Margin = new System.Windows.Forms.Padding(2);
-            this.patRegDateCb.Name = "patRegDateCb";
-            this.patRegDateCb.Size = new System.Drawing.Size(259, 42);
-            this.patRegDateCb.TabIndex = 91;
-            // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.patRegDateCb);
             this.Controls.Add(this.patAddressTb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.viewBtn);
@@ -351,7 +329,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox patAddressTb;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker patRegDateCb;
     }
 }

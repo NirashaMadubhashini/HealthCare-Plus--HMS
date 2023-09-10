@@ -68,5 +68,20 @@ namespace HealthCare_Plus__HMS.Admin
         {
             DisplaySearchPat();
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
