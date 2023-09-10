@@ -278,5 +278,10 @@ namespace HealthCare_Plus__HMS.Doctor
                 prescSumTxt.Text = sb.ToString();
             }
         }
+
+        private void docIdCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

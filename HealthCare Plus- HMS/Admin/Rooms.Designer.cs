@@ -88,10 +88,10 @@
             this.roomFloorCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomFloorCb.FormattingEnabled = true;
             this.roomFloorCb.Items.AddRange(new object[] {
-            "1st Floor",
-            "2nd Floor            ",
-            "3rd Floor",
-            "4th Floor"});
+            "1",
+            "2",
+            "3",
+            "4"});
             this.roomFloorCb.Location = new System.Drawing.Point(329, 71);
             this.roomFloorCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.roomFloorCb.Name = "roomFloorCb";
@@ -175,6 +175,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 72;
             this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // updateBtn
             // 
@@ -192,6 +193,7 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 71;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // addBtn
             // 
@@ -209,6 +211,7 @@
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 70;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
             // roomTypeCb
             // 

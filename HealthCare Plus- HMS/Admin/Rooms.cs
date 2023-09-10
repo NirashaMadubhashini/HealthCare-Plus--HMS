@@ -20,22 +20,24 @@ namespace HealthCare_Plus__HMS.Admin
             DisplayRoom();
             GetPatId();
             ClearAllFields();  // Clears all fields
+            roomDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(RoomDGV_DataBindingComplete);
+
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         int Key = 0;
         private void ClearAllFields()
         {
-          /*  // Clearing all textboxes
+            // Clearing all textboxes
             roomNumTb.Text = "";
             roomNoteTb.Text = "";
-            RDate.Text = "";
 
             // Clearing all combo boxes
-            DocIdCb.SelectedIndex = -1;
             roomFloorCb.SelectedIndex = -1;
-            statusCb.SelectedIndex = -1;*/
+            roomTypeCb.SelectedIndex = -1;
+            statusCb.SelectedIndex = -1;
+            patIdCb.SelectedIndex = -1;
         }
 
         private void DisplayRoom()
@@ -53,60 +55,82 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void Clear()
         {
-            /*DocIdCb.SelectedIndex = -1;
             roomNumTb.Text = "";
             roomFloorCb.SelectedIndex = -1;
-            roomNoteTb.Text = "";
+            roomTypeCb.SelectedIndex = -1;
             statusCb.SelectedIndex = -1;
-            RDate.Text = "";
-            Key = 0;*/
+            roomNoteTb.Text = "";
+            patIdCb.SelectedIndex = -1;
+            Key = 0;
         }
 
 
         private void GetPatId()
         {
             Con.Open();
-            SqlCommand cmd = new SqlCommand("Select PatId from PatientTbl", Con);
+            SqlCommand cmd = new SqlCommand("Select patient_id from PatientTbl", Con);
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
-            dt.Columns.Add("PatId", typeof(int));
+            dt.Columns.Add("patient_id", typeof(int));
             dt.Load(rdr);
-            roomFloorCb.ValueMember = "PatId";
-            roomFloorCb.DataSource = dt;
+            patIdCb.ValueMember = "patient_id";
+            patIdCb.DataSource = dt;
             Con.Close();
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private void addBtn_Click_1(object sender, EventArgs e)
         {
-           /* if (roomNumTb.Text == "" || roomNoteTb.Text == "" || statusCb.Text == "")
+            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "" || patIdCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information");
+                return; // Add a return statement to exit early
             }
-            else
+
+            try
             {
-                try
+                Con.Open();
+
+                // Check if a room with the entered number already exists
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM RoomTbl WHERE roomNumber = @RNUM", Con))
                 {
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into RoomTbl(DocId,DocName,PatId,PatName,RoomDate,RoomAvailability)values(@DI,@DN,@PI,@PN,@RD,@RA)", Con);
-                    cmd.Parameters.AddWithValue("@DI", DocIdCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@DN", roomNumTb.Text);
-                    cmd.Parameters.AddWithValue("@PI", roomFloorCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@PN", roomNoteTb.Text);
-                    cmd.Parameters.AddWithValue("@RD", RDate.Value.Date);
-                    cmd.Parameters.AddWithValue("@RA", statusCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
+                    var exists = (int)cmd.ExecuteScalar() > 0;
+
+                    if (exists)
+                    {
+                        MessageBox.Show("A room with this number already exists.");
+                        Con.Close();
+                        return; // Room number is already in use, exit early
+                    }
+                }
+
+                // Proceed to add the new room record
+                using (SqlCommand cmd = new SqlCommand("insert into RoomTbl(roomNumber,roomFloor,roomType,roomStatus,roomNotes,patient_id)values(@RNUM,@RF,@RT,@RS,@RN,@PI)", Con))
+                {
+                    cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
+                    cmd.Parameters.AddWithValue("@RF", roomFloorCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RT", roomTypeCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RS", statusCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RN", roomNoteTb.Text);
+                    cmd.Parameters.AddWithValue("@PI", patIdCb.SelectedValue.ToString());
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Room Added");
-                    Con.Close();
-                    DisplayRoom();
-                    Clear();  // Clear the fields here
                 }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
-                }
-            }*/
+
+                MessageBox.Show("Room Added");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+                DisplayRoom();
+                Clear();  // Clear the fields here
+            }
         }
+
 
         private void DocIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -118,9 +142,9 @@ namespace HealthCare_Plus__HMS.Admin
             
         }
 
-        private void EditBtn_Click(object sender, EventArgs e)
+        private void updateBtn_Click(object sender, EventArgs e)
         {
-           /* if (roomNumTb.Text == "" || roomNoteTb.Text == "" || statusCb.SelectedIndex == -1)
+            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "" || patIdCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information");
             }
@@ -129,15 +153,30 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("update RoomTbl set DocId=@DI,DocName=@DN,PatId=@PI,PatName=@PN,RoomDate=@RD,RoomAvailabilit=@RA where RoomId=@RKey", Con);
-                    cmd.Parameters.AddWithValue("@DI", DocIdCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@DN", roomNumTb.Text);
-                    cmd.Parameters.AddWithValue("@PI", roomFloorCb.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@PN", roomNoteTb.Text);
-                    cmd.Parameters.AddWithValue("@RD", RDate.Value.Date);
-                    cmd.Parameters.AddWithValue("@RA", statusCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@RKey", Key);
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd = new SqlCommand("SELECT room_id FROM RoomTbl WHERE roomNumber = @RNUM", Con))
+                    {
+                        cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && Convert.ToInt32(result) != Key)
+                        {
+                            MessageBox.Show("A room with this number already exists.");
+                            Con.Close();
+                            return;
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand("update RoomTbl set roomNumber=@RNUM,roomFloor=@RF,roomType=@RT,roomStatus=@RS,roomNotes=@RN,patient_id=@PI where room_id=@RKey", Con))
+                    {
+                        cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
+                        cmd.Parameters.AddWithValue("@RF", roomFloorCb.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@RT", roomTypeCb.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@RS", statusCb.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@RN", roomNoteTb.Text);
+                        cmd.Parameters.AddWithValue("@PI", patIdCb.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@RKey", Key);
+                        cmd.ExecuteNonQuery();
+                    }
                     MessageBox.Show("Room Updated");
                     Con.Close();
                     DisplayRoom();
@@ -147,10 +186,10 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     MessageBox.Show(Ex.Message);
                 }
-            }*/
+            }
         }
 
-        private void DelBtn_Click(object sender, EventArgs e)
+        private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (Key == 0)
             {
@@ -161,7 +200,7 @@ namespace HealthCare_Plus__HMS.Admin
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from RoomTbl where RoomId= @RKey", Con);
+                    SqlCommand cmd = new SqlCommand("Delete from RoomTbl where room_id= @RKey", Con);
                     cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Room Deleted");
@@ -176,22 +215,28 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
+        private void RoomDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in roomDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
+
         private void RoomDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           /* if (e.RowIndex >= 0)  // Check if row index is valid
+            if (e.RowIndex >= 0)  // Check if row index is valid
             {
                 DataGridViewRow row = roomDGV.Rows[e.RowIndex]; // Get the selected row
 
                 // Populate text fields with data from the row
-                roomNumTb.Text = row.Cells["DocName"].Value.ToString();
-                roomNoteTb.Text = row.Cells["PatName"].Value.ToString();
-                statusCb.SelectedItem = row.Cells["RoomAvailability"].Value.ToString();
+                roomNumTb.Text = row.Cells["roomNumber"].Value.ToString();
+                roomNoteTb.Text = row.Cells["roomNotes"].Value.ToString();
+                roomFloorCb.SelectedItem = row.Cells["roomFloor"].Value.ToString();
+                roomTypeCb.SelectedItem = row.Cells["roomType"].Value.ToString();
+                statusCb.SelectedItem = row.Cells["roomStatus"].Value.ToString();
+                patIdCb.SelectedValue = row.Cells["patient_id"].Value.ToString();
 
-                // Use the DateTimePicker's Value property to set its value
-                if (DateTime.TryParse(row.Cells["RoomDate"].Value.ToString(), out DateTime result))
-                {
-                    RDate.Value = result;
-                }
 
 
                 // Update the Key variable, which seems to be used for editing and deleting records
@@ -201,9 +246,9 @@ namespace HealthCare_Plus__HMS.Admin
                 }
                 else
                 {
-                    Key = Convert.ToInt32(row.Cells["RoomId"].Value?.ToString() ?? "0");
+                    Key = Convert.ToInt32(row.Cells["room_id"].Value?.ToString() ?? "0");
                 }
-            }*/
+            }
         }
 
         private void roomFloorCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -213,17 +258,8 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void Rooms_Load(object sender, EventArgs e)
         {
-           /* roomFloorCb.Items.Add("1st Floor");
-            roomFloorCb.Items.Add("2nd Floor");
-            roomFloorCb.Items.Add("3rd Floor");
-            roomFloorCb.Items.Add("4th Floor");
-
-            roomTypeCb.Items.Add("Regular");
-            roomTypeCb.Items.Add("ICU");
-            roomTypeCb.Items.Add("OperationTheater");
-
-            statusCb.Items.Add("Occupied");
-            statusCb.Items.Add("Available");*/
+          
         }
+
     }
 }

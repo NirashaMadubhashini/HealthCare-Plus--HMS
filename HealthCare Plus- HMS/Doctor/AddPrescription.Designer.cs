@@ -195,6 +195,7 @@
             this.docIdCb.Name = "docIdCb";
             this.docIdCb.Size = new System.Drawing.Size(138, 33);
             this.docIdCb.TabIndex = 80;
+            this.docIdCb.SelectedIndexChanged += new System.EventHandler(this.docIdCb_SelectedIndexChanged);
             this.docIdCb.SelectionChangeCommitted += new System.EventHandler(this.DocIdCb_SelectionChangeCommitted);
             // 
             // patIdCb
