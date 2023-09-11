@@ -56,7 +56,7 @@ namespace HealthCare_Plus__HMS.Admin
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("An error occurred while loading the table. Error details: " + Ex.Message);
             }
         }
 
@@ -85,7 +85,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Email validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(emailTb.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                MessageBox.Show("Invalid Email Address");
+                MessageBox.Show("Please enter a valid email address.");
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Contact number validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^[0-9\-\+\s]+$"))
             {
-                MessageBox.Show("Invalid Contact Number");
+                MessageBox.Show("Please enter a valid contact number.");
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Password validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(passwordTb.Text, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
             {
-                MessageBox.Show("Password must contain at least one uppercase letter, one lowercase letter, and one number.");
+                MessageBox.Show("Your password must contain at least one uppercase letter, one lowercase letter, and one number.");
                 return;
             }
 
@@ -118,13 +118,14 @@ namespace HealthCare_Plus__HMS.Admin
                 cmd.Parameters.AddWithValue("@SP", contactTb.Text);
                 cmd.Parameters.AddWithValue("@SL", DateTime.Now); // Set userLastLogin to current date and time
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Staff Member Added");
+
+                MessageBox.Show("Staff member has been successfully added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTbl();
                 Clear();
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("An error occurred. Error details: " + Ex.Message);
             }
             finally
             {
@@ -146,7 +147,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Email validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(emailTb.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                MessageBox.Show("Invalid Email Address");
+                MessageBox.Show("Please enter a valid email address.");
                 return;
             }
 
@@ -154,7 +155,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Contact number validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^[0-9\-\+\s]+$"))
             {
-                MessageBox.Show("Invalid Contact Number");
+                MessageBox.Show("Please enter a valid contact number.");
                 return;
             }
 
@@ -162,7 +163,7 @@ namespace HealthCare_Plus__HMS.Admin
             // Password validation
             if (!System.Text.RegularExpressions.Regex.IsMatch(passwordTb.Text, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
             {
-                MessageBox.Show("Password must contain at least one uppercase letter, one lowercase letter, and one number.");
+                MessageBox.Show("Your password must contain at least one uppercase letter, one lowercase letter, and one number.");
                 return;
             }
 
@@ -184,11 +185,11 @@ namespace HealthCare_Plus__HMS.Admin
 
                 // Execute the SQL command
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Staff Member Updated");
+                MessageBox.Show("Staff member details have been successfully updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("An error occurred. Error details: " + Ex.Message);
             }
             finally
             {
@@ -219,11 +220,11 @@ namespace HealthCare_Plus__HMS.Admin
 
                 // Execute the SQL command
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Staff Member Deleted");
+                MessageBox.Show("Staff member has been successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("An error occurred. Error details: " + Ex.Message);
             }
             finally
             {
