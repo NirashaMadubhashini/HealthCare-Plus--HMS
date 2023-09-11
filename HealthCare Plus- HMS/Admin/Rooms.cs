@@ -68,13 +68,13 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Missing Information. Please ensure all fields are filled.");
                 return; // Add a return statement to exit early
             }
             // Validate that roomNumber starts with "R"
             if (!roomNumTb.Text.StartsWith("R"))
             {
-                MessageBox.Show("Room number must start with 'R'");
+                MessageBox.Show("Invalid Room Number. The room number must start with 'R'.");
                 return;
             }
             try
@@ -89,7 +89,7 @@ namespace HealthCare_Plus__HMS.Admin
 
                     if (exists)
                     {
-                        MessageBox.Show("A room with this number already exists.");
+                        MessageBox.Show("Room Number Conflict. A room with this number already exists.");
                         Con.Close();
                         return; // Room number is already in use, exit early
                     }
@@ -106,11 +106,12 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Room Added");
+                MessageBox.Show("Room Added Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information
+);
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("An error occurred while processing your request: " + Ex.Message);
             }
             finally
             {
@@ -135,13 +136,13 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Missing Information. Please ensure all fields are filled.");
             }
 
             // Validate that roomNumber starts with "R"
             if (!roomNumTb.Text.StartsWith("R"))
             {
-                MessageBox.Show("Room number must start with 'R'");
+                MessageBox.Show("Invalid Room Number. The room number must start with 'R'.");
                 return;
             }
 
@@ -157,7 +158,7 @@ namespace HealthCare_Plus__HMS.Admin
 
                         if (result != null && Convert.ToInt32(result) != Key)
                         {
-                            MessageBox.Show("A room with this number already exists.");
+                            MessageBox.Show("Room Number Conflict. A room with this number already exists.");
                             Con.Close();
                             return;
                         }
@@ -173,14 +174,15 @@ namespace HealthCare_Plus__HMS.Admin
                         cmd.Parameters.AddWithValue("@RKey", Key);
                         cmd.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Room Updated");
+                    MessageBox.Show("Room Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information
+);
                     Con.Close();
                     DisplayRoom();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show("An error occurred while processing your request: " + Ex.Message);
                 }
             }
         }
@@ -189,7 +191,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (Key == 0)
             {
-                MessageBox.Show("Select the Room");
+                MessageBox.Show("No Room Selected. Please select a room to delete.");
             }
             else
             {
@@ -199,14 +201,14 @@ namespace HealthCare_Plus__HMS.Admin
                     SqlCommand cmd = new SqlCommand("Delete from RoomTbl where room_id= @RKey", Con);
                     cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Room Deleted");
+                    MessageBox.Show("Room Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayRoom();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show("An error occurred while processing your request: " + Ex.Message);
                 }
             }
         }
