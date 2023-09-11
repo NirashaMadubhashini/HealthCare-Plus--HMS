@@ -45,15 +45,12 @@
             // 
             this.payRollCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payRollCb.FormattingEnabled = true;
-            this.payRollCb.Items.AddRange(new object[] {
-            "Total Income",
-            "Patient Reports",
-            "Resource Allocation"});
             this.payRollCb.Location = new System.Drawing.Point(854, 54);
             this.payRollCb.Margin = new System.Windows.Forms.Padding(2);
             this.payRollCb.Name = "payRollCb";
             this.payRollCb.Size = new System.Drawing.Size(279, 42);
             this.payRollCb.TabIndex = 54;
+            this.payRollCb.SelectedIndexChanged += new System.EventHandler(this.payRollCb_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -83,6 +80,7 @@
             this.printBtn.Size = new System.Drawing.Size(180, 45);
             this.printBtn.TabIndex = 98;
             this.printBtn.Text = "Print";
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // addBtn
             // 
@@ -100,6 +98,7 @@
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 97;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label6
             // 
@@ -126,6 +125,7 @@
             this.reportDGV.RowTemplate.Height = 28;
             this.reportDGV.Size = new System.Drawing.Size(1088, 278);
             this.reportDGV.TabIndex = 95;
+            this.reportDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reportDGV_CellContentClick);
             // 
             // reportTxt
             // 
@@ -137,6 +137,7 @@
             this.reportTxt.Size = new System.Drawing.Size(646, 336);
             this.reportTxt.TabIndex = 94;
             this.reportTxt.Text = "";
+            this.reportTxt.TextChanged += new System.EventHandler(this.reportTxt_TextChanged);
             // 
             // printPreviewDialog1
             // 

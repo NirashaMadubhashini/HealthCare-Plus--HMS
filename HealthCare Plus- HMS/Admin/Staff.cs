@@ -272,8 +272,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             roleCb.Items.Add("Doctor");
             roleCb.Items.Add("Admin");
-            roleCb.Items.Add("Nurse");
-            roleCb.Items.Add("Receptionist");
+            roleCb.Items.Add("Staff Member");
         }
 
         private void roleCb_SelectedIndexChanged(object sender, EventArgs e)
