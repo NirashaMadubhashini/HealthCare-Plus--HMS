@@ -95,14 +95,14 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@RQ", resourceQuantityTb.Text);
                     cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Resource Updated");
+                    MessageBox.Show("Resource successfully updated.", "Operation Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayTest();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(Ex.Message, "Error while updating the resource", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -121,14 +121,14 @@ namespace HealthCare_Plus__HMS.Admin
                     SqlCommand cmd = new SqlCommand("Delete from MedicalResourceTbl where resource_id = @RKey", Con); // Fixed typo and added '='
                     cmd.Parameters.AddWithValue("@RKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Resource Deleted");
+                    MessageBox.Show("Resource successfully deleted.", "Operation Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayTest();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(Ex.Message, "Error while deleting the resource", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
