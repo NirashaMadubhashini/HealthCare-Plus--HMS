@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using HealthCare_Plus__HMS.Admin;
+using HealthCare_Plus__HMS.BillingStaff;
 using HealthCare_Plus__HMS.Doctor;
 using HealthCare_Plus__HMS.HospitalStaff;
 using System;
@@ -24,12 +25,10 @@ namespace HealthCare_Plus__HMS.Staff
         public StaffDashboard()
         {
             InitializeComponent();
-            /*UpdateDashboardStats();
-            CountPatients();
             CountDoctors();
-            CountStaffs();
-            CountHIV();
-            CountPriscription();*/
+            CountAppoinments();
+            CountPatients();
+            CountMedications();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -47,11 +46,10 @@ namespace HealthCare_Plus__HMS.Staff
         }
         private void UpdateDashboardStats()
         {
-          /*  CountPatients();
             CountDoctors();
-            CountStaffs();
-            CountHIV();
-            CountPriscription();*/
+            CountAppoinments();
+            CountPatients();
+            CountMedications();
         }
 
         //Structs
@@ -67,60 +65,48 @@ namespace HealthCare_Plus__HMS.Staff
             public static Color color8 = Color.FromArgb(6, 59, 130);
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
-/*        private void CountPatients()
-        {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            PatNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
-        }*/
-
-/*        private void CountDoctors()
+        private void CountDoctors()
         {
             Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from DoctorTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            DocNumlbl.Text = dt.Rows[0][0].ToString();
+            docNumLbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
-        }*/
+        }
 
-/*        private void CountStaffs()
+        private void CountAppoinments()
         {
             Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from StaffTbl", Con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from AppointmentTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            StaffNumlbl.Text = dt.Rows[0][0].ToString();
+            appoinmentNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
-        }*/
+        }
 
- /*       private void CountPriscription()
+
+        private void CountPatients()
         {
             Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PrescriptionTbl", Con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            Prescriptionlbl.Text = dt.Rows[0][0].ToString();
+            patientRecordsNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
-        }*/
-
-     /*   private void CountHIV()
+        } 
+        
+        private void CountMedications()
         {
-            string Status = "Positive";
             Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl where PatHIV = '" + Status + "'", Con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from MedicationTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            HIVlbl.Text = dt.Rows[0][0].ToString();
+            medNumLbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
-        }*/
-
-
+        }
 
         //Methods
         private void ActivateButton(Object senderBtn, Color color)
@@ -235,5 +221,32 @@ namespace HealthCare_Plus__HMS.Staff
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Medication());
         }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Billing());
+        }
+        private void docNumLbl_Click(object sender, EventArgs e)
+        {
+            CountDoctors();
+        }
+
+        private void appoinmentNumlbl_Click(object sender, EventArgs e)
+        {
+            CountAppoinments();
+        }
+
+        private void patientRecordsNumlbl_Click(object sender, EventArgs e)
+        {
+            CountPatients();
+        }
+
+        private void medNumLbl_Click(object sender, EventArgs e)
+        {
+            CountMedications();
+        }
+
+
     }
 }

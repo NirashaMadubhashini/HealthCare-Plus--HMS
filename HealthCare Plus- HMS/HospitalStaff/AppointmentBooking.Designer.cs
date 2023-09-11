@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentBooking));
             this.docRoomNumTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.statusCb = new System.Windows.Forms.ComboBox();
@@ -48,6 +49,8 @@
             this.specializationTb = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.appointmentDateDTP = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.searchTb = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.appoinmenysLoadDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,12 +259,12 @@
             this.appoinmenysLoadDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.appoinmenysLoadDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appoinmenysLoadDGV.GridColor = System.Drawing.Color.White;
-            this.appoinmenysLoadDGV.Location = new System.Drawing.Point(36, 239);
+            this.appoinmenysLoadDGV.Location = new System.Drawing.Point(36, 321);
             this.appoinmenysLoadDGV.Margin = new System.Windows.Forms.Padding(2);
             this.appoinmenysLoadDGV.Name = "appoinmenysLoadDGV";
             this.appoinmenysLoadDGV.RowHeadersWidth = 62;
             this.appoinmenysLoadDGV.RowTemplate.Height = 28;
-            this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 446);
+            this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 364);
             this.appoinmenysLoadDGV.TabIndex = 134;
             this.appoinmenysLoadDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.appoinmenysLoadDGV_CellContentClick);
             // 
@@ -311,12 +314,50 @@
             this.appointmentDateDTP.TabIndex = 152;
             this.appointmentDateDTP.ValueChanged += new System.EventHandler(this.appointmentDateDTP_ValueChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(33, 235);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 23);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "Search by Name";
+            // 
+            // searchTb
+            // 
+            this.searchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTb.DefaultText = "";
+            this.searchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
+            this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.searchTb.Location = new System.Drawing.Point(38, 266);
+            this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTb.Name = "searchTb";
+            this.searchTb.PasswordChar = '\0';
+            this.searchTb.PlaceholderText = "";
+            this.searchTb.SelectedText = "";
+            this.searchTb.Size = new System.Drawing.Size(377, 46);
+            this.searchTb.TabIndex = 154;
+            this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
+            // 
             // AppointmentBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.searchTb);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.appointmentDateDTP);
             this.Controls.Add(this.docRoomNumTb);
@@ -370,5 +411,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker appointmentDateDTP;
         private System.Windows.Forms.DataGridView appoinmenysLoadDGV;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox searchTb;
     }
 }

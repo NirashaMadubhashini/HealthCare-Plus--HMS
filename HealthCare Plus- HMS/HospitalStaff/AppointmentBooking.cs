@@ -30,6 +30,24 @@ namespace HealthCare_Plus__HMS.Staff
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
+        private void ClearFields()
+        {
+            // Clear all the text boxes, combo boxes, etc. to their default states
+            patNameCb.SelectedItem = null;
+            docNameCb.SelectedItem = null;
+            appoinmentNoteTb.Text = string.Empty;
+            patContactTb.Text = string.Empty;
+            specializationTb.Text = string.Empty;
+            docRoomNumTb.Text = string.Empty;
+            statusCb.SelectedItem = null;
+
+            // Reset date picker to current date
+            appointmentDateDTP.Value = DateTime.Now;
+
+            // Clear the selected appointment ID
+            selectedAppointmentId = -1;
+        }
+
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
@@ -183,6 +201,7 @@ namespace HealthCare_Plus__HMS.Staff
 
                         // Inform the user that the appointment has been scheduled
                         MessageBox.Show("Appointment Scheduled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
                     }
                     else
                     {
@@ -238,16 +257,36 @@ namespace HealthCare_Plus__HMS.Staff
             try
             {
                 Con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT A.appointment_id, P.PatientFirstName AS 'Patient Name', U.userName AS 'Doctor Name', A.appointmentDate AS 'Appointment Date', A.appointmentStatus AS 'Status', A.appointmentnotes AS 'Notes' FROM AppointmentTbl A JOIN PatientTbl P ON A.patient_id = P.patient_id JOIN UserTbl U ON A.doctor_id = U.user_id", Con);
+
+                // Get the search text and create parameters for the SQL query
+                string searchText = searchTb.Text;
+                string query = @"
+            SELECT 
+                A.appointment_id, 
+                P.PatientFirstName AS 'Patient Name', 
+                U.userName AS 'Doctor Name', 
+                A.appointmentDate AS 'Appointment Date', 
+                A.appointmentStatus AS 'Status', 
+                A.appointmentnotes AS 'Notes' 
+            FROM 
+                AppointmentTbl A 
+                JOIN PatientTbl P ON A.patient_id = P.patient_id 
+                JOIN UserTbl U ON A.doctor_id = U.user_id 
+            WHERE 
+                P.PatientFirstName LIKE @searchText OR 
+                U.userName LIKE @searchText OR 
+                A.appointmentStatus LIKE @searchText
+        ";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                // Assuming appoinmenysLoadDGV is the name of your DataGridView
                 appoinmenysLoadDGV.DataSource = dt;
 
-                // Make each column fill the available space
                 foreach (DataGridViewColumn column in appoinmenysLoadDGV.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -259,7 +298,6 @@ namespace HealthCare_Plus__HMS.Staff
             }
             finally
             {
-                // Close the database connection
                 if (Con.State == ConnectionState.Open)
                 {
                     Con.Close();
@@ -331,6 +369,7 @@ namespace HealthCare_Plus__HMS.Staff
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Appointment Rescheduled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
                     }
                     else
                     {
@@ -397,5 +436,11 @@ namespace HealthCare_Plus__HMS.Staff
             }
         }
 
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            LoadAppointmentsIntoDataGridView();
+            ClearFields();
+        }
     }
 }
