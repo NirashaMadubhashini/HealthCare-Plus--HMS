@@ -228,6 +228,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "MedicalResources";
             this.Text = "LabTests";
+            this.Load += new System.EventHandler(this.MedicalResources_Load);
             ((System.ComponentModel.ISupportInitialize)(this.medResourcesDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

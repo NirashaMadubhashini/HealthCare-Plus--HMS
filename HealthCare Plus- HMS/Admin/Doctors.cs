@@ -210,9 +210,9 @@ namespace HealthCare_Plus__HMS.Admin
                 loadTblDoctor();
                 Clear();
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Ex.Message, "Error while adding a doctor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Clear();
             }
             finally
@@ -268,9 +268,9 @@ namespace HealthCare_Plus__HMS.Admin
                 Clear();
 
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Ex.Message, "Error while updating a doctor", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -340,9 +340,9 @@ namespace HealthCare_Plus__HMS.Admin
                 }
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Ex.Message, "Error while deleting a doctor", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

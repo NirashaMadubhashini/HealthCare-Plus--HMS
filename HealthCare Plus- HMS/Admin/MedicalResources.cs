@@ -66,14 +66,14 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@RD", resourceDescriptionTb.Text);
                     cmd.Parameters.AddWithValue("@RQ", resourceQuantityTb.Text);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Resource Added");
-                    Con.Close();
+
+                    MessageBox.Show("Resource successfully added to the database.", "Operation Successful", MessageBoxButtons.OK, MessageBoxIcon.Information); Con.Close();
                     DisplayTest();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show(Ex.Message, "Error while adding the resource", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -166,5 +166,9 @@ namespace HealthCare_Plus__HMS.Admin
 
         }
 
+        private void MedicalResources_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
