@@ -211,5 +211,10 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace HealthCare_Plus__HMS.Staff
             DisplaySearchDoc();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         private void DisplaySearchDoc()
         {
@@ -36,71 +36,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            string docName = serachByNameTb.Text; // Get the text from the SearchByName text box
-            string docSpec = serachBySpecTb.Text; // Get the text from the SearchBySpec text box
-            DateTime? docDOB = docAvailableDate.Checked ? docAvailableDate.Value.Date : (DateTime?)null; // Get the selected date from the DateTimePicker
-
-            if (string.IsNullOrWhiteSpace(docName) && string.IsNullOrWhiteSpace(docSpec) && docDOB == null)
-            {
-                MessageBox.Show("Please enter a name, specialization, or date to search.", "Input Error");
-                return;
-            }
-
-            Con.Open();  // Open the connection
-
-            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM DoctorTbl");
-
-            List<string> conditions = new List<string>();
-            SqlCommand cmd = new SqlCommand();
-
-            if (!string.IsNullOrWhiteSpace(docName))
-            {
-                conditions.Add("DocName LIKE @DocName");
-                cmd.Parameters.AddWithValue("@DocName", "%" + docName + "%");
-            }
-
-            if (!string.IsNullOrWhiteSpace(docSpec))
-            {
-                conditions.Add("DocSpec LIKE @DocSpec");
-                cmd.Parameters.AddWithValue("@DocSpec", "%" + docSpec + "%");
-            }
-
-            if (docDOB != null)
-            {
-                conditions.Add("CAST(DocDOB AS DATE) = @DocDOB");
-                cmd.Parameters.AddWithValue("@DocDOB", docDOB.Value);
-            }
-
-            if (conditions.Any())
-            {
-                queryBuilder.Append(" WHERE ");
-                queryBuilder.Append(string.Join(" AND ", conditions));
-            }
-
-            string query = queryBuilder.ToString();
-            cmd.CommandText = query;
-            cmd.Connection = Con;
-
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-            if (dt.Rows.Count == 0)
-            {
-                MessageBox.Show("No doctor found with the given criteria.", "No Results");
-            }
-            else
-            {
-                DoctorLoadDGV.DataSource = dt;
-                DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-
-            Con.Close();
-
-            serachByNameTb.Text = string.Empty;
-            serachBySpecTb.Text = string.Empty;
-            docAvailableDate.Value = DateTime.Now;
-            docAvailableDate.Checked = false;
+           
         }
 
 
@@ -132,6 +68,11 @@ namespace HealthCare_Plus__HMS.Staff
         }
 
         private void refreshBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
         {
 
         }

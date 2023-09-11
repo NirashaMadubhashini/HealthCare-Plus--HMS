@@ -322,6 +322,7 @@
             this.label1.Size = new System.Drawing.Size(176, 23);
             this.label1.TabIndex = 92;
             this.label1.Text = "Search by Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // deleteBtn
             // 

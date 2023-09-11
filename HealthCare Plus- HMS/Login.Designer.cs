@@ -195,10 +195,6 @@
             this.roleCb.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roleCb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.roleCb.FormattingEnabled = true;
-            this.roleCb.Items.AddRange(new object[] {
-            "Admin",
-            "Doctor",
-            "Staff Member"});
             this.roleCb.Location = new System.Drawing.Point(751, 232);
             this.roleCb.Name = "roleCb";
             this.roleCb.Size = new System.Drawing.Size(339, 47);

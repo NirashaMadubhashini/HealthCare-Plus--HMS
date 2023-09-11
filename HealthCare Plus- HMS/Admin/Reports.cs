@@ -4,10 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OxyPlot;
+using OxyPlot.Series;
+using OxyPlot.WindowsForms;
 
 namespace HealthCare_Plus__HMS.Admin
 {
@@ -75,6 +79,25 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
+
+                // Generate styled report text with enhanced formatting
+                StringBuilder reportText = new StringBuilder();
+                reportText.AppendLine($"------- {selectedReportType.ToUpper()} REPORT -------");
+                reportText.AppendLine(DateTime.Now.ToString("f")); // Adding current date and time
+                reportText.AppendLine(new string('-', 50)); // Add a separator
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn column in dt.Columns)
+                    {
+                        // Format each line to have a fixed width for the column name and value
+                        reportText.AppendLine($"{column.ColumnName,-20} : {row[column],-20}");
+                    }
+                    reportText.AppendLine(new string('-', 50)); // Add a separator between records
+                }
+
+                reportTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
+                reportTxt.Text = reportText.ToString(); // 
             }
             catch (Exception ex)
             {
@@ -89,6 +112,7 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
+
         private void addBtn_Click(object sender, EventArgs e)
         {
 
@@ -96,7 +120,37 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void printBtn_Click(object sender, EventArgs e)
         {
+            // Set the print document to use the custom print logic defined in the printDocument2_PrintPage event handler
+            printDocument2.PrintPage += new PrintPageEventHandler(printDocument2_PrintPage);
+            // Start the printing process
+            printDocument2.Print();
+        }
 
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font printFont = new Font("Courier New", 12); // Changed font to Courier New for better alignment
+            float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
+            int count = 0;
+            float yPos = e.MarginBounds.Top;
+            string[] reportLines = reportTxt.Text.Split('\n');
+
+            while (count < reportLines.Length && count < linesPerPage)
+            {
+                string line = reportLines[count];
+                e.Graphics.DrawString(line, printFont, Brushes.Black, e.MarginBounds.Left, yPos, new StringFormat());
+                count++;
+                yPos += printFont.GetHeight(e.Graphics);
+            }
+
+            // Check to see if more pages are to be printed
+            if (count < reportLines.Length)
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+            }
         }
     }
 }
