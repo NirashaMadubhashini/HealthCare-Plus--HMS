@@ -203,5 +203,10 @@ namespace HealthCare_Plus__HMS.Admin
                 }
             }
             }
+
+        private void patGenCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

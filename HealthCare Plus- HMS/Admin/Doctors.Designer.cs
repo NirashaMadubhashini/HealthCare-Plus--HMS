@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.doctorDGV = new System.Windows.Forms.DataGridView();
-            this.docRoomTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.docEmailTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
             this.docexperienceTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.docRoomCb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.doctorDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,16 +63,6 @@
             this.doctorDGV.Size = new System.Drawing.Size(1089, 326);
             this.doctorDGV.TabIndex = 60;
             this.doctorDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorDGV_CellContentClick);
-            // 
-            // docRoomTb
-            // 
-            this.docRoomTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docRoomTb.ForeColor = System.Drawing.Color.Black;
-            this.docRoomTb.Location = new System.Drawing.Point(609, 153);
-            this.docRoomTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docRoomTb.Name = "docRoomTb";
-            this.docRoomTb.Size = new System.Drawing.Size(259, 42);
-            this.docRoomTb.TabIndex = 59;
             // 
             // label3
             // 
@@ -288,12 +278,30 @@
             this.label1.TabIndex = 67;
             this.label1.Text = "Experience/ Qualifications";
             // 
+            // docRoomCb
+            // 
+            this.docRoomCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docRoomCb.FormattingEnabled = true;
+            this.docRoomCb.Items.AddRange(new object[] {
+            "Urology",
+            "Gynecology",
+            "Surgery",
+            "Ophtalmo",
+            "Dermato",
+            "Generalist"});
+            this.docRoomCb.Location = new System.Drawing.Point(611, 153);
+            this.docRoomCb.Margin = new System.Windows.Forms.Padding(2);
+            this.docRoomCb.Name = "docRoomCb";
+            this.docRoomCb.Size = new System.Drawing.Size(252, 42);
+            this.docRoomCb.TabIndex = 69;
+            // 
             // Doctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.docRoomCb);
             this.Controls.Add(this.docexperienceTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.deleteBtn);
@@ -301,7 +309,6 @@
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.docIdTb);
             this.Controls.Add(this.doctorDGV);
-            this.Controls.Add(this.docRoomTb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.docEmailTb);
             this.Controls.Add(this.label2);
@@ -327,7 +334,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView doctorDGV;
-        private System.Windows.Forms.TextBox docRoomTb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox docEmailTb;
         private System.Windows.Forms.Label label2;
@@ -344,5 +350,6 @@
         private Guna.UI2.WinForms.Guna2Button deleteBtn;
         private System.Windows.Forms.TextBox docexperienceTb;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox docRoomCb;
     }
 }

@@ -189,6 +189,7 @@
             this.patGenCb.Name = "patGenCb";
             this.patGenCb.Size = new System.Drawing.Size(253, 42);
             this.patGenCb.TabIndex = 73;
+            this.patGenCb.SelectedIndexChanged += new System.EventHandler(this.patGenCb_SelectedIndexChanged);
             // 
             // label12
             // 

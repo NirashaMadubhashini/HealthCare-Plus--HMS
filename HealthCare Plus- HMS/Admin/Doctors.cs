@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HealthCare_Plus__HMS.Admin
 {
@@ -20,9 +21,41 @@ namespace HealthCare_Plus__HMS.Admin
             loadTblDoctor();
             doctorDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorDGV_DataBindingComplete);
             LoadDoctorNames();
-
+            GetRoomNum();
         }
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+
+        private void GetRoomNum()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("Select roomNumber from RoomTbl", Con);
+                SqlDataReader rdr;
+                rdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                // Remove the manual addition of the column
+                dt.Load(rdr);
+                docRoomCb.ValueMember = "roomNumber";
+                docRoomCb.DisplayMember = "roomNumber"; // Set the DisplayMember property here
+                docRoomCb.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+            }
+        }
+
+
+
+
         private void LoadDoctorNames()
         {
             docNameCb.Items.Clear();
@@ -53,21 +86,20 @@ namespace HealthCare_Plus__HMS.Admin
         {
             try
             {
-                Con.Open();
+                if (Con.State == ConnectionState.Closed)
+                {
+                    Con.Open();
+                }
 
-              
                 string query = "SELECT u.user_id AS 'Doctor ID', u.userName AS 'Doctor Name', " +
-                               "u.userContact AS 'Contact Number', dp.specialization_id AS 'Specialization ID', " +
-                               "dp.doctorQualifications AS 'Qualifications', dp.doctorLocation AS 'Location' " +
-                               "FROM UserTbl u " +
-                               "INNER JOIN DoctorTbl dp ON u.user_id = dp.doctor_id";
+               "u.userContact AS 'Contact Number', dp.doctorSpecialization AS 'Specialization', " +
+               "dp.doctorQualifications AS 'Qualifications', dp.roomNumber AS 'Room Number' " + // Updated column alias to 'Room Number'
+               "FROM UserTbl u " +
+               "INNER JOIN DoctorTbl dp ON u.user_id = dp.doctor_id";
 
                 SqlDataAdapter sda = new SqlDataAdapter(query, Con);
-
                 DataTable dt = new DataTable();
-
                 sda.Fill(dt);
-
                 doctorDGV.DataSource = dt;
 
                 foreach (DataGridViewColumn column in doctorDGV.Columns)
@@ -81,9 +113,13 @@ namespace HealthCare_Plus__HMS.Admin
             }
             finally
             {
-                Con.Close();
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
             }
         }
+
 
         int Key = 0;
         private void Clear()
@@ -93,8 +129,8 @@ namespace HealthCare_Plus__HMS.Admin
             docEmailTb.Text = "";
             docSpecCb.SelectedIndex = -1;
             docNameCb.SelectedIndex = -1;
+            docRoomCb.SelectedIndex = -1;
             docexperienceTb.Text = "";
-            docRoomTb.Text = "";
             Key = 0;
         }
       
@@ -112,40 +148,47 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = doctorDGV.Rows[e.RowIndex];
-                int doctorId = int.Parse(row.Cells["Doctor ID"].Value.ToString());
+                DataGridViewRow row = this.doctorDGV.Rows[e.RowIndex];
 
-                try
-                {
-                    Con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT u.userName, u.userContact, u.userEmail, dp.specialization_id, dp.doctorQualifications, dp.doctorLocation FROM UserTbl u INNER JOIN DoctorTbl dp ON u.user_id = dp.doctor_id WHERE dp.doctor_id = @DoctorId", Con);
-                    cmd.Parameters.AddWithValue("@DoctorId", doctorId);
+                docIdTb.Text = row.Cells["Doctor ID"].Value.ToString();
+                docNameCb.Text = row.Cells["Doctor Name"].Value.ToString();
+                docPhoneTb.Text = row.Cells["Contact Number"].Value.ToString();
+                docSpecCb.Text = row.Cells["Specialization"].Value.ToString();
+                docexperienceTb.Text = row.Cells["Qualifications"].Value.ToString();
+                docRoomCb.Text = row.Cells["Room Number"].Value.ToString();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            docIdTb.Text = reader["user_id"].ToString();
-                            docPhoneTb.Text = reader["userContact"].ToString();
-                            docEmailTb.Text = reader["userEmail"].ToString();
-                            docNameCb.Text = reader["userName"].ToString();
-                            docSpecCb.SelectedValue = reader["specialization_id"];
-                            docexperienceTb.Text = reader["doctorQualifications"].ToString();
-                            docRoomTb.Text = reader["doctorLocation"].ToString();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    if (Con.State == ConnectionState.Open)
-                        Con.Close();
-                }
+                // If you have email in your DataGridView add it like the lines above.
+                // For example:
+                // docEmailTb.Text = row.Cells["Email"].Value.ToString();
             }
+
+            /*            if (e.RowIndex >= 0)  // Check if row index is valid
+                        {
+                            DataGridViewRow row = this.doctorDGV.Rows[e.RowIndex];
+
+                            // Populate text fields with data from the row
+                            docIdTb.Text = row.Cells["Doctor ID"].Value.ToString();
+                            docNameCb.Text = row.Cells["Doctor Name"].Value.ToString();
+                            docPhoneTb.Text = row.Cells["Contact Number"].Value.ToString();
+                            docSpecCb.Text = row.Cells["Specialization"].Value.ToString();
+                            docexperienceTb.Text = row.Cells["Qualifications"].Value.ToString();
+                            docRoomCb.Text = row.Cells["Room Number"].Value.ToString();
+
+
+                            // Update the Key variable, which seems to be used for editing and deleting records
+                            if (string.IsNullOrEmpty(docIdTb.Text))
+                            {
+                                Key = 0;
+                            }
+                            else
+                            {
+                                Key = Convert.ToInt32(row.Cells["doctor_id"].Value?.ToString() ?? "0");
+                            }
+                        }*/
         }
+
+
+
 
         private void RoomNumCb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -154,95 +197,55 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void Doctors_Load(object sender, EventArgs e)
         {
-            LoadSpecializations();
-        }
-
-        private void LoadSpecializations()
-        {
-            try
-            {
-                Con.Open();
-
-                string query = "SELECT specializationName FROM SpecializationTbl";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                SqlDataReader rdr = cmd.ExecuteReader();
-
-                DataTable dt = new DataTable();
-
-                dt.Load(rdr);
-
-                docSpecCb.DataSource = dt;
-                docSpecCb.DisplayMember = "specializationName";
-                docSpecCb.ValueMember = "specializationName";
-
-                // Close the reader
-                rdr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Con.State == ConnectionState.Open)
-                    Con.Close();
-            }
+        
         }
 
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(docIdTb.Text) ||
-                docSpecCb.SelectedItem == null ||
-                string.IsNullOrWhiteSpace(docexperienceTb.Text) ||
-                string.IsNullOrWhiteSpace(docRoomTb.Text))
+                docSpecCb.SelectedItem == null || docRoomCb.SelectedValue == null||
+                string.IsNullOrWhiteSpace(docexperienceTb.Text))
             {
                 MessageBox.Show("Please fill in all the fields!");
-                return;
-            }
-
-            if (!int.TryParse(docRoomTb.Text, out int roomNumber))
-            {
-                MessageBox.Show("Room Number should be a valid integer!");
                 return;
             }
 
             try
             {
                 int doctor_id = int.Parse(docIdTb.Text);
-
-                string specializationName = docNameCb.SelectedItem.ToString();
-
+                string specializationName = docSpecCb.SelectedItem.ToString();
                 string doctorQualifications = docexperienceTb.Text;
-                string doctorLocation= docRoomTb.Text;
+                string roomNumber = docRoomCb.SelectedValue.ToString();
 
-                Con.Open();
+                if (Con.State == ConnectionState.Closed)
+                {
+                    Con.Open();
+                }
 
-                SqlCommand docSpecCb = new SqlCommand("SELECT specialization_id FROM SpecializationTbl WHERE specializationName = @SpecName", Con);
-                docSpecCb.Parameters.AddWithValue("@SpecName", specializationName);
-                int specialization_id = (int)docSpecCb.ExecuteScalar();
-
-                SqlCommand cmdInsert = new SqlCommand("INSERT INTO DoctorTbl (doctor_id, specialization_id, doctorQualifications, doctorLocation) VALUES (@DoctorId, @SpecId, @Qualifications, @Location)", Con);
+                SqlCommand cmdInsert = new SqlCommand("INSERT INTO DoctorTbl (doctor_id, doctorSpecialization, doctorQualifications, roomNumber) VALUES (@DoctorId, @DoctorSpec, @Qualifications, @RoomNumber)", Con);
                 cmdInsert.Parameters.AddWithValue("@DoctorId", doctor_id);
-                cmdInsert.Parameters.AddWithValue("@SpecId", specialization_id);
+                cmdInsert.Parameters.AddWithValue("@DoctorSpec", specializationName);
                 cmdInsert.Parameters.AddWithValue("@Qualifications", doctorQualifications);
-                cmdInsert.Parameters.AddWithValue("@Location", doctorLocation);
+                cmdInsert.Parameters.AddWithValue("@RoomNumber", docRoomCb.SelectedValue.ToString());
                 cmdInsert.ExecuteNonQuery();
+
 
                 MessageBox.Show("Doctor's profile added successfully!");
                 loadTblDoctor();
                 Clear();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 Clear();
-
             }
             finally
             {
-                Con.Close();
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
             }
         }
 
@@ -256,34 +259,33 @@ namespace HealthCare_Plus__HMS.Admin
             if (string.IsNullOrWhiteSpace(docIdTb.Text) ||
                 docSpecCb.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(docexperienceTb.Text) ||
-                string.IsNullOrWhiteSpace(docRoomTb.Text))
+                string.IsNullOrWhiteSpace(docRoomCb.Text))
             {
                 MessageBox.Show("Please fill in all the fields!");
-                return;  // Exit the method early
+                return;
             }
 
             try
             {
-                int doctorId = int.Parse(docIdTb.Text);
+
+                int doctor_id = int.Parse(docIdTb.Text);
                 string specializationName = docSpecCb.SelectedItem.ToString();
                 string doctorQualifications = docexperienceTb.Text;
-                int doctorLocation = int.Parse(docRoomTb.Text);
+                string roomNumber = docRoomCb.SelectedItem.ToString();
+
 
                 if (Con.State == ConnectionState.Closed)
                 {
                     Con.Open();
                 }
 
-                SqlCommand cmdSpec = new SqlCommand("SELECT specialization_id FROM SpecializationTbl  WHERE specializationName = @SpecName", Con);
-                cmdSpec.Parameters.AddWithValue("@SpecName", specializationName);
-                int specializationId = (int)cmdSpec.ExecuteScalar();
-
-                SqlCommand cmdUpdate = new SqlCommand("UPDATE DoctorTbl SET specialization_id = @SpecId, doctorQualifications  = @Qualifications, doctorLocation = @Location WHERE doctor_id = @DoctorId", Con);
-                cmdUpdate.Parameters.AddWithValue("@DoctorId", doctorId);
-                cmdUpdate.Parameters.AddWithValue("@SpecId", specializationId);
+                SqlCommand cmdUpdate = new SqlCommand("UPDATE DoctorTbl SET doctorSpecialization =@DoctorSpec, doctorQualifications=@Qualifications, roomNumber=@RoomNumber WHERE doctor_id = @DoctorId", Con);
+                cmdUpdate.Parameters.AddWithValue("@DoctorId", doctor_id);
+                cmdUpdate.Parameters.AddWithValue("@DoctorSpec", specializationName);
                 cmdUpdate.Parameters.AddWithValue("@Qualifications", doctorQualifications);
-                cmdUpdate.Parameters.AddWithValue("@Location", doctorLocation);
+                cmdUpdate.Parameters.AddWithValue("@RoomNumber", docRoomCb.SelectedValue.ToString());
                 cmdUpdate.ExecuteNonQuery();
+
 
                 MessageBox.Show("Doctor's profile updated successfully!");
                 loadTblDoctor();
