@@ -149,6 +149,7 @@
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(1184, 760);
             this.pnlLogin.TabIndex = 5;
+            this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint_1);
             // 
             // loginBtn
             // 
@@ -165,6 +166,7 @@
             this.loginBtn.Size = new System.Drawing.Size(180, 45);
             this.loginBtn.TabIndex = 16;
             this.loginBtn.Text = "Login";
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click_1);
             // 
             // passTb
             // 

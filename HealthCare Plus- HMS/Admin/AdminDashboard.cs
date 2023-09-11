@@ -29,7 +29,8 @@ namespace HealthCare_Plus__HMS.Admin
             CountDoctors();
             CountStaffs();
             CountHIV();
-            CountPriscription();
+            CountRooms();
+            CountResources();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -62,7 +63,8 @@ namespace HealthCare_Plus__HMS.Admin
             CountDoctors();
             CountStaffs();
             CountHIV();
-            CountPriscription();
+            CountRooms();
+            CountResources();
         }
 
         //Structs
@@ -78,48 +80,57 @@ namespace HealthCare_Plus__HMS.Admin
             public static Color color8 = Color.FromArgb(6, 59, 130);
         }
 
-/*        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\niras\OneDrive\Documents\HospitalDb.mdf;Integrated Security=True;Connect Timeout=30");*/
       SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         private void CountPatients()
         {
-            /*Con.Open();
+            Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             PatNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();*/
+            Con.Close();
         }
 
         private void CountDoctors()
         {
-           /* Con.Open();
+            Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from DoctorTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             DocNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();*/
+            Con.Close();
         }
 
         private void CountStaffs()
         {
-          /*  Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from StaffTbl", Con);
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from UserTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             StaffNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();*/
+            Con.Close();
         }
 
-           private void CountPriscription()
+        private void CountRooms()
                 {
-                  /*  Con.Open();
-                    SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PrescriptionTbl", Con);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    Prescriptionlbl.Text = dt.Rows[0][0].ToString();
-                    Con.Close();*/
-                }
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from RoomTbl ", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            roomNumlbl.Text = dt.Rows[0][0].ToString();
+            Con.Close();
+        } 
+        
+        private void CountResources()
+                {
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from MedicalResourceTbl", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            resourcesNumlbl.Text = dt.Rows[0][0].ToString();
+            Con.Close();
+        }
 
         private void CountHIV()
         {
@@ -276,19 +287,28 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void DocNumlbl_Click(object sender, EventArgs e)
         {
-
+            CountDoctors();
         }
 
         private void PatNumlbl_Click(object sender, EventArgs e)
         {
-
+            CountPatients();
         }
 
         private void StaffNumlbl_Click(object sender, EventArgs e)
         {
-
+            CountStaffs();
         }
 
+        private void roomNumlbl_Click(object sender, EventArgs e)
+        {
+            CountRooms();
+        }
+
+        private void resourcesNumlbl_Click(object sender, EventArgs e)
+        {
+
+        }
         private void Prescriptionlbl_Click(object sender, EventArgs e)
         {
 
@@ -343,6 +363,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
 
     }
 }

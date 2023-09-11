@@ -46,12 +46,12 @@ namespace HealthCare_Plus__HMS
 
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void loginBtn_Click_1(object sender, EventArgs e)
         {
          
             if (string.IsNullOrEmpty(unameTb.Text) || string.IsNullOrEmpty(passTb.Text) || roleCb.SelectedIndex == -1)
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("All fields are required. Please complete each field before proceeding.");
                 return;
             }
 
@@ -75,33 +75,43 @@ namespace HealthCare_Plus__HMS
                         {
                             case "Admin":
                                 AdminDashboard adminDashboard = new AdminDashboard();
+                                MessageBox.Show("Login successful. Welcome, Admin!");
                                 adminDashboard.Show();
                                 this.Hide();
                                 break;
                             case "Doctor":
                                 DoctorDashboard doctorDashboard = new DoctorDashboard();
+                                MessageBox.Show("Login successful. Welcome, Doctor!");
                                 doctorDashboard.Show();
                                 this.Hide();
                                 break;
+                        /*    case "Staff Member":
+                                StaffDashboard staffDashboard = new StaffDashboard(); // Assuming the class name is StaffDashboard
+                                MessageBox.Show("Login successful. Welcome, Staff!");
+                                staffDashboard.Show();
+                                this.Hide();
+                                break;*/
                             default:
-                                MessageBox.Show("Invalid Role selected.");
+                                MessageBox.Show("The role you selected is not recognized. Please select a valid role.");
                                 break;
                         }
+
                     }
                     else
                     {
-                        MessageBox.Show("Role mismatch. Please select the correct role.");
+                        MessageBox.Show("The selected role does not match the credentials provided. Please select the correct role.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Credentials. Please try again.");
+                    MessageBox.Show("The username or password entered is incorrect. Please try again.");
+
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An unexpected error occurred while attempting to log in. Please try again later.");
             }
             finally
             {
@@ -111,12 +121,23 @@ namespace HealthCare_Plus__HMS
 
         private void pnlLogin_Paint(object sender, PaintEventArgs e)
         {
-
+            /*roleCb.Items.Add("Doctor");
+            roleCb.Items.Add("Admin");
+            roleCb.Items.Add("Nurse");
+            roleCb.Items.Add("Receptionist");*/
         }
 
         private void pnlLogo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pnlLogin_Paint_1(object sender, PaintEventArgs e)
+        {
+/*            roleCb.Items.Add("Doctor");
+            roleCb.Items.Add("Admin");
+            roleCb.Items.Add("Nurse");
+            roleCb.Items.Add("Receptionist");*/
         }
     }
 }

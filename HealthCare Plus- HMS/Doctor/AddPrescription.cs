@@ -283,5 +283,10 @@ namespace HealthCare_Plus__HMS.Doctor
         {
 
         }
+
+        private void AddPrescription_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

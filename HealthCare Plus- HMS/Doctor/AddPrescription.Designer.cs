@@ -361,6 +361,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "AddPrescription";
             this.Text = "AddPrescription";
+            this.Load += new System.EventHandler(this.AddPrescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

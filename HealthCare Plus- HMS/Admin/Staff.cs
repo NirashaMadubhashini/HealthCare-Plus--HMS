@@ -151,13 +151,13 @@ namespace HealthCare_Plus__HMS.Admin
                 return;
             }
 
-
             // Contact number validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^[0-9\-\+\s]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^\d{10}$"))
             {
-                MessageBox.Show("Please enter a valid contact number.");
+                MessageBox.Show("Please enter a valid contact number consisting of 10 digits.");
                 return;
             }
+
 
 
             // Password validation
