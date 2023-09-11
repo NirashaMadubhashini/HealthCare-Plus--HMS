@@ -64,7 +64,7 @@ namespace HealthCare_Plus__HMS.Admin
             if (patFirstNameTb.Text == "" || patLastNameTb.Text == "" || patDOBCb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patAddressTb.Text == "" || patMedHistoryTb.Text == "")
 
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Please fill in all the required fields.");
             }
             else
             {
@@ -81,14 +81,15 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@PMH", patMedHistoryTb.Text);
                     cmd.Parameters.AddWithValue("@PRD", DateTime.Now); // Set userLastLogin to current date and time
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Patient Added");
+
+                    MessageBox.Show("Patient has been successfully added to the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayPatients();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show("An error occurred while adding the patient: " + Ex.Message);
                 }
             }
         }
@@ -97,7 +98,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (patFirstNameTb.Text == "" || patLastNameTb.Text == "" || patDOBCb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patAddressTb.Text == "" || patMedHistoryTb.Text == "")
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Please fill in all the required fields.");
             }
             else
             {
@@ -115,14 +116,15 @@ namespace HealthCare_Plus__HMS.Admin
                     cmd.Parameters.AddWithValue("@PRD", DateTime.Now); // Set userLastLogin to current date and time
                     cmd.Parameters.AddWithValue("@PKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Patient Updated");
+
+                    MessageBox.Show("Patient details have been successfully updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayPatients();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show("An error occurred while updating the patient details: " + Ex.Message);
                 }
             }
         }
@@ -182,7 +184,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (Key == 0)
             {
-                MessageBox.Show("Select the Patient");
+                MessageBox.Show("Please select the patient you want to delete.");
             }
             else
             {
@@ -192,14 +194,15 @@ namespace HealthCare_Plus__HMS.Admin
                     SqlCommand cmd = new SqlCommand("Delete from PatientTbl  where patient_id= @PKey", Con);
                     cmd.Parameters.AddWithValue("@PKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Patient Deleted");
+
+                    MessageBox.Show("Patient has been successfully deleted from the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Con.Close();
                     DisplayPatients();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show(Ex.Message);
+                    MessageBox.Show("An error occurred while deleting the patient: " + Ex.Message);
                 }
             }
             }
