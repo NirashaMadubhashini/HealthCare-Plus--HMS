@@ -156,35 +156,8 @@ namespace HealthCare_Plus__HMS.Admin
                 docSpecCb.Text = row.Cells["Specialization"].Value.ToString();
                 docexperienceTb.Text = row.Cells["Qualifications"].Value.ToString();
                 docRoomCb.Text = row.Cells["Room Number"].Value.ToString();
-
-                // If you have email in your DataGridView add it like the lines above.
-                // For example:
-                // docEmailTb.Text = row.Cells["Email"].Value.ToString();
             }
 
-            /*            if (e.RowIndex >= 0)  // Check if row index is valid
-                        {
-                            DataGridViewRow row = this.doctorDGV.Rows[e.RowIndex];
-
-                            // Populate text fields with data from the row
-                            docIdTb.Text = row.Cells["Doctor ID"].Value.ToString();
-                            docNameCb.Text = row.Cells["Doctor Name"].Value.ToString();
-                            docPhoneTb.Text = row.Cells["Contact Number"].Value.ToString();
-                            docSpecCb.Text = row.Cells["Specialization"].Value.ToString();
-                            docexperienceTb.Text = row.Cells["Qualifications"].Value.ToString();
-                            docRoomCb.Text = row.Cells["Room Number"].Value.ToString();
-
-
-                            // Update the Key variable, which seems to be used for editing and deleting records
-                            if (string.IsNullOrEmpty(docIdTb.Text))
-                            {
-                                Key = 0;
-                            }
-                            else
-                            {
-                                Key = Convert.ToInt32(row.Cells["doctor_id"].Value?.ToString() ?? "0");
-                            }
-                        }*/
         }
 
 
@@ -201,13 +174,14 @@ namespace HealthCare_Plus__HMS.Admin
         }
 
 
+
         private void addBtn_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(docIdTb.Text) ||
                 docSpecCb.SelectedItem == null || docRoomCb.SelectedValue == null||
                 string.IsNullOrWhiteSpace(docexperienceTb.Text))
             {
-                MessageBox.Show("Please fill in all the fields!");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -217,6 +191,7 @@ namespace HealthCare_Plus__HMS.Admin
                 string specializationName = docSpecCb.SelectedItem.ToString();
                 string doctorQualifications = docexperienceTb.Text;
                 string roomNumber = docRoomCb.SelectedValue.ToString();
+
 
                 if (Con.State == ConnectionState.Closed)
                 {
@@ -231,7 +206,7 @@ namespace HealthCare_Plus__HMS.Admin
                 cmdInsert.ExecuteNonQuery();
 
 
-                MessageBox.Show("Doctor's profile added successfully!");
+                MessageBox.Show("Doctor's profile has been successfully added to the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTblDoctor();
                 Clear();
             }
@@ -247,13 +222,14 @@ namespace HealthCare_Plus__HMS.Admin
                     Con.Close();
                 }
             }
+
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(docIdTb.Text))
             {
-                MessageBox.Show("Please select a doctor to edit.");
+                MessageBox.Show("Please select a doctor from the list to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(docIdTb.Text) ||
@@ -261,7 +237,7 @@ namespace HealthCare_Plus__HMS.Admin
                 string.IsNullOrWhiteSpace(docexperienceTb.Text) ||
                 string.IsNullOrWhiteSpace(docRoomCb.Text))
             {
-                MessageBox.Show("Please fill in all the fields!");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -287,7 +263,7 @@ namespace HealthCare_Plus__HMS.Admin
                 cmdUpdate.ExecuteNonQuery();
 
 
-                MessageBox.Show("Doctor's profile updated successfully!");
+                MessageBox.Show("Doctor's profile has been successfully updated in the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTblDoctor();
                 Clear();
 
@@ -307,7 +283,7 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (string.IsNullOrWhiteSpace(docIdTb.Text))
             {
-                MessageBox.Show("Please select a doctor to delete.");
+                MessageBox.Show("Please select a doctor from the list to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -321,7 +297,7 @@ namespace HealthCare_Plus__HMS.Admin
                 cmdDelete.Parameters.AddWithValue("@DoctorId", doctorId);
                 cmdDelete.ExecuteNonQuery();
 
-                MessageBox.Show("Doctor's profile deleted successfully!");
+                MessageBox.Show("Doctor's profile has been successfully deleted from the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTblDoctor();
                 Clear();
 
