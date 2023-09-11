@@ -22,6 +22,7 @@ namespace HealthCare_Plus__HMS.Admin
             doctorDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorDGV_DataBindingComplete);
             LoadDoctorNames();
             GetRoomNum();
+            searchTb.TextChanged += new EventHandler(searchTb_TextChanged);
         }
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
@@ -355,5 +356,56 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Con.Open();
+
+                string query;
+
+                if (string.IsNullOrWhiteSpace(searchTb.Text))
+                {
+                    query = "SELECT u.user_id AS 'Doctor ID', u.userName AS 'Doctor Name', " +
+                       "u.userContact AS 'Contact Number', dp.doctorSpecialization AS 'Specialization', " +
+                       "dp.doctorQualifications AS 'Qualifications', dp.roomNumber AS 'Room Number' " +
+                       "FROM UserTbl u " +
+                       "INNER JOIN DoctorTbl dp ON u.user_id = dp.doctor_id";
+                }
+                else
+                {
+                    query = "SELECT u.user_id AS 'Doctor ID', u.userName AS 'Doctor Name', " +
+                       "u.userContact AS 'Contact Number', dp.doctorSpecialization AS 'Specialization', " +
+                       "dp.doctorQualifications AS 'Qualifications', dp.roomNumber AS 'Room Number' " +
+                       "FROM UserTbl u " +
+                       "INNER JOIN DoctorTbl dp ON u.user_id = dp.doctor_id " +
+                       "WHERE u.userName LIKE @nameParam OR dp.doctorSpecialization LIKE @specializationParam";
+                }
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+
+                if (!string.IsNullOrWhiteSpace(searchTb.Text))
+                {
+                    cmd.Parameters.AddWithValue("@nameParam", "%" + searchTb.Text.Trim() + "%");
+                    cmd.Parameters.AddWithValue("@specializationParam", "%" + searchTb.Text.Trim() + "%");
+                }
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                doctorDGV.DataSource = null; // Clear the DataSource
+                doctorDGV.DataSource = ds.Tables[0]; // Set the new DataSource
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
     }
 }

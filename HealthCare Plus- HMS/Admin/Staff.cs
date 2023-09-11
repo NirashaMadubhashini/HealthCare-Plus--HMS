@@ -279,5 +279,18 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "SELECT * FROM UserTbl WHERE userName LIKE @search";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@search", "%" + searchTb.Text + "%");
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            staffDGV.DataSource = dt;
+            Con.Close();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
             this.emailTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.staffDGV = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,8 @@
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.roleCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.searchTb = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.staffDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -226,12 +229,50 @@
             this.label1.TabIndex = 74;
             this.label1.Text = "Role";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(437, 245);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 23);
+            this.label3.TabIndex = 112;
+            this.label3.Text = "Search by Name";
+            // 
+            // searchTb
+            // 
+            this.searchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTb.DefaultText = "";
+            this.searchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
+            this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.searchTb.Location = new System.Drawing.Point(442, 276);
+            this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTb.Name = "searchTb";
+            this.searchTb.PasswordChar = '\0';
+            this.searchTb.PlaceholderText = "";
+            this.searchTb.SelectedText = "";
+            this.searchTb.Size = new System.Drawing.Size(377, 46);
+            this.searchTb.TabIndex = 111;
+            this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
+            // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.searchTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.roleCb);
             this.Controls.Add(this.deleteBtn);
@@ -274,5 +315,7 @@
         private Guna.UI2.WinForms.Guna2Button addBtn;
         private System.Windows.Forms.ComboBox roleCb;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2TextBox searchTb;
     }
 }

@@ -170,5 +170,18 @@ namespace HealthCare_Plus__HMS.Admin
         {
 
         }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "SELECT * FROM MedicalResourceTbl WHERE resourceName LIKE @search";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@search", "%" + searchTb.Text + "%");
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            medResourcesDGV.DataSource = dt;
+            Con.Close();
+        }
     }
 }
