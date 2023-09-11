@@ -65,6 +65,7 @@ namespace HealthCare_Plus__HMS.Admin
             CountHIV();
             CountRooms();
             CountResources();
+            CountReports();
         }
 
         //Structs
@@ -130,6 +131,11 @@ namespace HealthCare_Plus__HMS.Admin
             sda.Fill(dt);
             resourcesNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
+        }
+        
+        private void CountReports()
+        {
+          
         }
 
         private void CountHIV()
@@ -304,7 +310,10 @@ namespace HealthCare_Plus__HMS.Admin
         {
             CountRooms();
         }
-
+        private void reportNumlbl_Click(object sender, EventArgs e)
+        {
+            CountReports();
+        }
         private void resourcesNumlbl_Click(object sender, EventArgs e)
         {
 

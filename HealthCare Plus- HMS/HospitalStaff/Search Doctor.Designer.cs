@@ -86,6 +86,7 @@
             this.searchBtn.Size = new System.Drawing.Size(180, 45);
             this.searchBtn.TabIndex = 105;
             this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click_1);
             // 
             // label2
             // 
@@ -95,9 +96,9 @@
             this.label2.Location = new System.Drawing.Point(32, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 23);
+            this.label2.Size = new System.Drawing.Size(361, 23);
             this.label2.TabIndex = 108;
-            this.label2.Text = "Search by Name";
+            this.label2.Text = "Search by Name and Specialization";
             // 
             // searchTb
             // 

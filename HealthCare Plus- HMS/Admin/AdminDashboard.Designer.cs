@@ -42,10 +42,6 @@
             this.btnDoctors = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.reportNumlbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.resourcesNumlbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -81,8 +77,6 @@
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelDesktop.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
@@ -329,7 +323,6 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
-            this.panelDesktop.Controls.Add(this.panel7);
             this.panelDesktop.Controls.Add(this.panel3);
             this.panelDesktop.Controls.Add(this.panel2);
             this.panelDesktop.Controls.Add(this.lblDateTime);
@@ -345,56 +338,6 @@
             this.panelDesktop.Size = new System.Drawing.Size(1155, 721);
             this.panelDesktop.TabIndex = 7;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.reportNumlbl);
-            this.panel7.Controls.Add(this.label12);
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(769, 245);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(292, 96);
-            this.panel7.TabIndex = 21;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
-            // 
-            // reportNumlbl
-            // 
-            this.reportNumlbl.AutoSize = true;
-            this.reportNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.reportNumlbl.Location = new System.Drawing.Point(206, 45);
-            this.reportNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.reportNumlbl.Name = "reportNumlbl";
-            this.reportNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.reportNumlbl.TabIndex = 13;
-            this.reportNumlbl.Text = "50";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label12.Location = new System.Drawing.Point(185, 12);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 30);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Reports";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(14, 15);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 13;
-            this.pictureBox7.TabStop = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -402,7 +345,7 @@
             this.panel3.Controls.Add(this.resourcesNumlbl);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(769, 362);
+            this.panel3.Location = new System.Drawing.Point(742, 245);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(292, 96);
@@ -452,7 +395,7 @@
             this.panel2.Controls.Add(this.roomNumlbl);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(141, 476);
+            this.panel2.Location = new System.Drawing.Point(64, 395);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(339, 96);
@@ -524,7 +467,7 @@
             this.panel1.Controls.Add(this.billingNumlbl);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(635, 476);
+            this.panel1.Location = new System.Drawing.Point(742, 395);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 96);
@@ -624,7 +567,7 @@
             this.panel5.Controls.Add(this.PatNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(64, 362);
+            this.panel5.Location = new System.Drawing.Point(429, 395);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(286, 96);
@@ -832,9 +775,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -901,10 +841,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton btnReport;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label reportNumlbl;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox btnHome;
     }
 }
