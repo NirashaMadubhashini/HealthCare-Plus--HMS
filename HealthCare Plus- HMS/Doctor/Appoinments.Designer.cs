@@ -31,11 +31,21 @@
             this.cancelBtn = new Guna.UI2.WinForms.Guna2Button();
             this.reSheduleBtn = new Guna.UI2.WinForms.Guna2Button();
             this.appoinmenysLoadDGV = new System.Windows.Forms.DataGridView();
-            this.appSearchNameTb = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.appSearchDateCb = new System.Windows.Forms.DateTimePicker();
             this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.patIdCb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.roomNoteTb = new System.Windows.Forms.TextBox();
+            this.roomNumTb = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.appoinmenysLoadDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,49 +97,6 @@
             this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 475);
             this.appoinmenysLoadDGV.TabIndex = 107;
             // 
-            // appSearchNameTb
-            // 
-            this.appSearchNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appSearchNameTb.ForeColor = System.Drawing.Color.Black;
-            this.appSearchNameTb.Location = new System.Drawing.Point(35, 69);
-            this.appSearchNameTb.Margin = new System.Windows.Forms.Padding(2);
-            this.appSearchNameTb.Name = "appSearchNameTb";
-            this.appSearchNameTb.Size = new System.Drawing.Size(368, 42);
-            this.appSearchNameTb.TabIndex = 106;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(30, 40);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(247, 25);
-            this.label9.TabIndex = 105;
-            this.label9.Text = "Search Here By Name";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(453, 42);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(233, 25);
-            this.label13.TabIndex = 111;
-            this.label13.Text = "Search Here By Date";
-            // 
-            // appSearchDateCb
-            // 
-            this.appSearchDateCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appSearchDateCb.Location = new System.Drawing.Point(453, 69);
-            this.appSearchDateCb.Margin = new System.Windows.Forms.Padding(2);
-            this.appSearchDateCb.Name = "appSearchDateCb";
-            this.appSearchDateCb.Size = new System.Drawing.Size(368, 42);
-            this.appSearchDateCb.TabIndex = 110;
-            // 
             // viewBtn
             // 
             this.viewBtn.BackColor = System.Drawing.Color.White;
@@ -147,20 +114,185 @@
             this.viewBtn.TabIndex = 112;
             this.viewBtn.Text = "View";
             // 
+            // patIdCb
+            // 
+            this.patIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patIdCb.FormattingEnabled = true;
+            this.patIdCb.Location = new System.Drawing.Point(264, 52);
+            this.patIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patIdCb.Name = "patIdCb";
+            this.patIdCb.Size = new System.Drawing.Size(209, 42);
+            this.patIdCb.TabIndex = 124;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(260, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 25);
+            this.label3.TabIndex = 123;
+            this.label3.Text = "Patient Name";
+            // 
+            // roomNoteTb
+            // 
+            this.roomNoteTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomNoteTb.ForeColor = System.Drawing.Color.Black;
+            this.roomNoteTb.Location = new System.Drawing.Point(495, 137);
+            this.roomNoteTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.roomNoteTb.Multiline = true;
+            this.roomNoteTb.Name = "roomNoteTb";
+            this.roomNoteTb.Size = new System.Drawing.Size(210, 42);
+            this.roomNoteTb.TabIndex = 120;
+            // 
+            // roomNumTb
+            // 
+            this.roomNumTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomNumTb.ForeColor = System.Drawing.Color.Black;
+            this.roomNumTb.Location = new System.Drawing.Point(34, 50);
+            this.roomNumTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.roomNumTb.Name = "roomNumTb";
+            this.roomNumTb.Size = new System.Drawing.Size(211, 42);
+            this.roomNumTb.TabIndex = 119;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(482, 18);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(114, 25);
+            this.label12.TabIndex = 115;
+            this.label12.Text = "Patient Id";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(491, 105);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(222, 25);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "Appointment Notes";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(30, 18);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 25);
+            this.label9.TabIndex = 113;
+            this.label9.Text = "Room Number";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(487, 52);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(211, 42);
+            this.textBox1.TabIndex = 125;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(33, 139);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(209, 42);
+            this.comboBox1.TabIndex = 127;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(29, 105);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 25);
+            this.label1.TabIndex = 126;
+            this.label1.Text = "Doctor Name";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(265, 139);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(211, 42);
+            this.textBox2.TabIndex = 129;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(260, 105);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 25);
+            this.label2.TabIndex = 128;
+            this.label2.Text = "Doctor Id";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(719, 50);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(209, 42);
+            this.comboBox2.TabIndex = 131;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(714, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 25);
+            this.label4.TabIndex = 130;
+            this.label4.Text = "Status";
+            // 
             // Appoinments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.patIdCb);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.roomNoteTb);
+            this.Controls.Add(this.roomNumTb);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.viewBtn);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.appSearchDateCb);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.reSheduleBtn);
             this.Controls.Add(this.appoinmenysLoadDGV);
-            this.Controls.Add(this.appSearchNameTb);
-            this.Controls.Add(this.label9);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -177,10 +309,20 @@
         private Guna.UI2.WinForms.Guna2Button cancelBtn;
         private Guna.UI2.WinForms.Guna2Button reSheduleBtn;
         private System.Windows.Forms.DataGridView appoinmenysLoadDGV;
-        private System.Windows.Forms.TextBox appSearchNameTb;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker appSearchDateCb;
         private Guna.UI2.WinForms.Guna2Button viewBtn;
+        private System.Windows.Forms.ComboBox patIdCb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox roomNoteTb;
+        private System.Windows.Forms.TextBox roomNumTb;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label4;
     }
 }

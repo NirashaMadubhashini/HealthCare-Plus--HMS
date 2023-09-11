@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patients));
             this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -46,6 +47,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.patAddressTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.searchTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.patDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +65,7 @@
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(945, 194);
+            this.refreshBtn.Location = new System.Drawing.Point(945, 222);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 88;
@@ -78,7 +83,7 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(945, 132);
+            this.updateBtn.Location = new System.Drawing.Point(945, 120);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 87;
@@ -275,12 +280,75 @@
             this.label4.TabIndex = 89;
             this.label4.Text = "Address";
             // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // searchTb
+            // 
+            this.searchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTb.DefaultText = "";
+            this.searchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
+            this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.searchTb.Location = new System.Drawing.Point(530, 290);
+            this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTb.Name = "searchTb";
+            this.searchTb.PasswordChar = '\0';
+            this.searchTb.PlaceholderText = "";
+            this.searchTb.SelectedText = "";
+            this.searchTb.Size = new System.Drawing.Size(339, 46);
+            this.searchTb.TabIndex = 91;
+            this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(525, 259);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 23);
+            this.label1.TabIndex = 92;
+            this.label1.Text = "Search by Name";
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.BackColor = System.Drawing.Color.White;
+            this.deleteBtn.BorderRadius = 8;
+            this.deleteBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteBtn.FillColor = System.Drawing.Color.Red;
+            this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteBtn.Location = new System.Drawing.Point(945, 171);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(180, 45);
+            this.deleteBtn.TabIndex = 93;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchTb);
             this.Controls.Add(this.patAddressTb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.refreshBtn);
@@ -330,5 +398,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox patAddressTb;
         private System.Windows.Forms.Label label4;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private Guna.UI2.WinForms.Guna2TextBox searchTb;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button deleteBtn;
     }
 }

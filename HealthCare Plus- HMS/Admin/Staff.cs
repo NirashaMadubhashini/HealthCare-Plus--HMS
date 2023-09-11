@@ -262,7 +262,6 @@ namespace HealthCare_Plus__HMS.Admin
             return row.Cells[columnName]?.Value?.ToString() ?? "";
         }
 
-        // Helper function to safely convert strings to integers
         private int ConvertToInt(string value)
         {
             int.TryParse(value, out int result);

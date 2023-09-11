@@ -163,5 +163,45 @@ namespace HealthCare_Plus__HMS.Admin
                 }
             }
         }
+
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "SELECT * FROM PatientTbl WHERE PatientFirstName LIKE @search OR PatientLastName LIKE @search";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@search", "%" + searchTb.Text + "%");
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            patDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (Key == 0)
+            {
+                MessageBox.Show("Select the Patient");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("Delete from PatientTbl  where patient_id= @PKey", Con);
+                    cmd.Parameters.AddWithValue("@PKey", Key);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Patient Deleted");
+                    Con.Close();
+                    DisplayPatients();
+                    Clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+            }
     }
 }

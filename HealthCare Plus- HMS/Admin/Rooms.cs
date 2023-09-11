@@ -18,7 +18,6 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             DisplayRoom();
-            GetPatId();
             ClearAllFields();  // Clears all fields
             roomDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(RoomDGV_DataBindingComplete);
 
@@ -37,7 +36,6 @@ namespace HealthCare_Plus__HMS.Admin
             roomFloorCb.SelectedIndex = -1;
             roomTypeCb.SelectedIndex = -1;
             statusCb.SelectedIndex = -1;
-            patIdCb.SelectedIndex = -1;
         }
 
         private void DisplayRoom()
@@ -50,6 +48,7 @@ namespace HealthCare_Plus__HMS.Admin
             sda.Fill(ds);
             roomDGV.DataSource = ds.Tables[0];
             roomDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            roomDGV.Columns["patient_id"].Visible = false;
             Con.Close();
         }
 
@@ -60,33 +59,24 @@ namespace HealthCare_Plus__HMS.Admin
             roomTypeCb.SelectedIndex = -1;
             statusCb.SelectedIndex = -1;
             roomNoteTb.Text = "";
-            patIdCb.SelectedIndex = -1;
             Key = 0;
         }
 
 
-        private void GetPatId()
-        {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("Select patient_id from PatientTbl", Con);
-            SqlDataReader rdr;
-            rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("patient_id", typeof(int));
-            dt.Load(rdr);
-            patIdCb.ValueMember = "patient_id";
-            patIdCb.DataSource = dt;
-            Con.Close();
-        }
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
-            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "" || patIdCb.SelectedIndex == -1)
+            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
                 return; // Add a return statement to exit early
             }
-
+            // Validate that roomNumber starts with "R"
+            if (!roomNumTb.Text.StartsWith("R"))
+            {
+                MessageBox.Show("Room number must start with 'R'");
+                return;
+            }
             try
             {
                 Con.Open();
@@ -106,14 +96,13 @@ namespace HealthCare_Plus__HMS.Admin
                 }
 
                 // Proceed to add the new room record
-                using (SqlCommand cmd = new SqlCommand("insert into RoomTbl(roomNumber,roomFloor,roomType,roomStatus,roomNotes,patient_id)values(@RNUM,@RF,@RT,@RS,@RN,@PI)", Con))
+                using (SqlCommand cmd = new SqlCommand("insert into RoomTbl(roomNumber,roomFloor,roomType,roomStatus,roomNotes)values(@RNUM,@RF,@RT,@RS,@RN)", Con))
                 {
                     cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
                     cmd.Parameters.AddWithValue("@RF", roomFloorCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@RT", roomTypeCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@RS", statusCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@RN", roomNoteTb.Text);
-                    cmd.Parameters.AddWithValue("@PI", patIdCb.SelectedValue.ToString());
                     cmd.ExecuteNonQuery();
                 }
 
@@ -144,10 +133,18 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "" || patIdCb.SelectedIndex == -1)
+            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
+
+            // Validate that roomNumber starts with "R"
+            if (!roomNumTb.Text.StartsWith("R"))
+            {
+                MessageBox.Show("Room number must start with 'R'");
+                return;
+            }
+
             else
             {
                 try
@@ -166,14 +163,13 @@ namespace HealthCare_Plus__HMS.Admin
                         }
                     }
 
-                    using (SqlCommand cmd = new SqlCommand("update RoomTbl set roomNumber=@RNUM,roomFloor=@RF,roomType=@RT,roomStatus=@RS,roomNotes=@RN,patient_id=@PI where room_id=@RKey", Con))
+                    using (SqlCommand cmd = new SqlCommand("update RoomTbl set roomNumber=@RNUM,roomFloor=@RF,roomType=@RT,roomStatus=@RS,roomNotes=@RN where room_id=@RKey", Con))
                     {
                         cmd.Parameters.AddWithValue("@RNUM", roomNumTb.Text);
                         cmd.Parameters.AddWithValue("@RF", roomFloorCb.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@RT", roomTypeCb.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@RS", statusCb.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@RN", roomNoteTb.Text);
-                        cmd.Parameters.AddWithValue("@PI", patIdCb.SelectedValue.ToString());
                         cmd.Parameters.AddWithValue("@RKey", Key);
                         cmd.ExecuteNonQuery();
                     }
@@ -235,8 +231,6 @@ namespace HealthCare_Plus__HMS.Admin
                 roomFloorCb.SelectedItem = row.Cells["roomFloor"].Value.ToString();
                 roomTypeCb.SelectedItem = row.Cells["roomType"].Value.ToString();
                 statusCb.SelectedItem = row.Cells["roomStatus"].Value.ToString();
-                patIdCb.SelectedValue = row.Cells["patient_id"].Value.ToString();
-
 
 
                 // Update the Key variable, which seems to be used for editing and deleting records
@@ -251,6 +245,7 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
+
         private void roomFloorCb_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -261,5 +256,9 @@ namespace HealthCare_Plus__HMS.Admin
           
         }
 
+        private void patIdCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

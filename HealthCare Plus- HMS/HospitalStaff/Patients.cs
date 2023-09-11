@@ -182,5 +182,18 @@ namespace HealthCare_Plus__HMS.Staff
                 }
             }
         }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "SELECT * FROM PatientTbl WHERE PatientFirstName LIKE @search OR PatientLastName LIKE @search";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@search", "%" + searchTb.Text + "%");
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            patientsDGV.DataSource = dt;
+            Con.Close();
+        }
     }
 }

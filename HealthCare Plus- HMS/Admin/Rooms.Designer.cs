@@ -42,8 +42,6 @@
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.roomTypeCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.patIdCb = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.roomDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -239,36 +237,12 @@
             this.label1.TabIndex = 73;
             this.label1.Text = "Room Type";
             // 
-            // patIdCb
-            // 
-            this.patIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patIdCb.FormattingEnabled = true;
-            this.patIdCb.Location = new System.Drawing.Point(567, 168);
-            this.patIdCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.patIdCb.Name = "patIdCb";
-            this.patIdCb.Size = new System.Drawing.Size(209, 42);
-            this.patIdCb.TabIndex = 76;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(563, 134);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 25);
-            this.label3.TabIndex = 75;
-            this.label3.Text = "Patient Id";
-            // 
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.patIdCb);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.roomTypeCb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.deleteBtn);
@@ -311,7 +285,5 @@
         private Guna.UI2.WinForms.Guna2Button addBtn;
         private System.Windows.Forms.ComboBox roomTypeCb;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox patIdCb;
-        private System.Windows.Forms.Label label3;
     }
 }
