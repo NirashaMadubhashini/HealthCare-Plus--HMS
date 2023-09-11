@@ -22,6 +22,7 @@ namespace HealthCare_Plus__HMS.Doctor
         public DoctorDashboard()
         {
             InitializeComponent();
+
             /*UpdateDashboardStats();
              CountPatients();
              CountDoctors();
@@ -222,10 +223,14 @@ namespace HealthCare_Plus__HMS.Doctor
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new AddPrescription());
         }
+
+        public int LoggedInDoctorId { get; set; }
         private void btnProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Profile());
+
+            // Use the logged-in doctor's ID to open their profile
+            OpenChildForm(new Profile(LoggedInDoctorId));
         }
 
         private void btnAppointment_Click(object sender, EventArgs e)

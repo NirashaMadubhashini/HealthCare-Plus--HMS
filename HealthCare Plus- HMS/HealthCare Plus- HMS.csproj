@@ -114,17 +114,11 @@
     <Compile Include="Admin\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="BillingStaff\Billing.cs">
+    <Compile Include="HospitalStaff\Billing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillingStaff\Billing.Designer.cs">
+    <Compile Include="HospitalStaff\Billing.Designer.cs">
       <DependentUpon>Billing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BillingStaff\BillingStaffDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BillingStaff\BillingStaffDashboard.Designer.cs">
-      <DependentUpon>BillingStaffDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Doctor\AddPrescription.cs">
       <SubType>Form</SubType>
@@ -218,11 +212,8 @@
     <EmbeddedResource Include="Admin\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BillingStaff\Billing.resx">
+    <EmbeddedResource Include="HospitalStaff\Billing.resx">
       <DependentUpon>Billing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BillingStaff\BillingStaffDashboard.resx">
-      <DependentUpon>BillingStaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\AddPrescription.resx">
       <DependentUpon>AddPrescription.cs</DependentUpon>

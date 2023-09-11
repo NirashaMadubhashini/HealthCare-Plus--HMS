@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillingandInvoicing));
-            this.manageBtn = new Guna.UI2.WinForms.Guna2Button();
             this.generateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.billDGV = new System.Windows.Forms.DataGridView();
@@ -38,26 +37,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.billDGV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // manageBtn
-            // 
-            this.manageBtn.BackColor = System.Drawing.Color.White;
-            this.manageBtn.BorderRadius = 8;
-            this.manageBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.manageBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.manageBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.manageBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.manageBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.manageBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageBtn.ForeColor = System.Drawing.Color.White;
-            this.manageBtn.Location = new System.Drawing.Point(943, 193);
-            this.manageBtn.Name = "manageBtn";
-            this.manageBtn.Size = new System.Drawing.Size(180, 45);
-            this.manageBtn.TabIndex = 105;
-            this.manageBtn.Text = "Manage";
             // 
             // generateBtn
             // 
@@ -137,9 +118,9 @@
             this.label22.Location = new System.Drawing.Point(829, 38);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(86, 25);
+            this.label22.Size = new System.Drawing.Size(160, 25);
             this.label22.TabIndex = 99;
-            this.label22.Text = "Payroll";
+            this.label22.Text = "Patient Name";
             // 
             // printPreviewDialog1
             // 
@@ -152,31 +133,12 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // viewBtn
-            // 
-            this.viewBtn.BackColor = System.Drawing.Color.White;
-            this.viewBtn.BorderRadius = 8;
-            this.viewBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.viewBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.viewBtn.FillColor = System.Drawing.Color.Gray;
-            this.viewBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBtn.ForeColor = System.Drawing.Color.White;
-            this.viewBtn.Location = new System.Drawing.Point(943, 244);
-            this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(180, 45);
-            this.viewBtn.TabIndex = 106;
-            this.viewBtn.Text = "View";
-            // 
             // BillingandInvoicing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.viewBtn);
-            this.Controls.Add(this.manageBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.billDGV);
@@ -195,8 +157,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button manageBtn;
         private Guna.UI2.WinForms.Guna2Button generateBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView billDGV;
@@ -205,6 +165,5 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private Guna.UI2.WinForms.Guna2Button viewBtn;
     }
 }

@@ -36,13 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.docEmailTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.docSpecCb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.docNameCb = new System.Windows.Forms.ComboBox();
             this.docPhoneTb = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.docNameTb = new System.Windows.Forms.TextBox();
+            this.docSpecTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // experienceTb
@@ -55,6 +55,7 @@
             this.experienceTb.Name = "experienceTb";
             this.experienceTb.Size = new System.Drawing.Size(535, 71);
             this.experienceTb.TabIndex = 86;
+            this.experienceTb.TextChanged += new System.EventHandler(this.experienceTb_TextChanged);
             // 
             // label1
             // 
@@ -84,10 +85,10 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 83;
             this.updateBtn.Text = "Update";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // docIdTb
             // 
-            this.docIdTb.Enabled = false;
             this.docIdTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docIdTb.ForeColor = System.Drawing.Color.Black;
             this.docIdTb.Location = new System.Drawing.Point(424, 81);
@@ -95,6 +96,7 @@
             this.docIdTb.Name = "docIdTb";
             this.docIdTb.Size = new System.Drawing.Size(259, 42);
             this.docIdTb.TabIndex = 81;
+            this.docIdTb.TextChanged += new System.EventHandler(this.docIdTb_TextChanged);
             // 
             // docRoomTb
             // 
@@ -105,6 +107,7 @@
             this.docRoomTb.Name = "docRoomTb";
             this.docRoomTb.Size = new System.Drawing.Size(259, 42);
             this.docRoomTb.TabIndex = 79;
+            this.docRoomTb.TextChanged += new System.EventHandler(this.docRoomTb_TextChanged);
             // 
             // label3
             // 
@@ -120,7 +123,6 @@
             // 
             // docEmailTb
             // 
-            this.docEmailTb.Enabled = false;
             this.docEmailTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docEmailTb.ForeColor = System.Drawing.Color.Black;
             this.docEmailTb.Location = new System.Drawing.Point(142, 182);
@@ -128,6 +130,7 @@
             this.docEmailTb.Name = "docEmailTb";
             this.docEmailTb.Size = new System.Drawing.Size(258, 42);
             this.docEmailTb.TabIndex = 77;
+            this.docEmailTb.TextChanged += new System.EventHandler(this.docEmailTb_TextChanged);
             // 
             // label2
             // 
@@ -141,23 +144,6 @@
             this.label2.TabIndex = 76;
             this.label2.Text = "E-mail";
             // 
-            // docSpecCb
-            // 
-            this.docSpecCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docSpecCb.FormattingEnabled = true;
-            this.docSpecCb.Items.AddRange(new object[] {
-            "Urology",
-            "Gynecology",
-            "Surgery",
-            "Ophtalmo",
-            "Dermato",
-            "Generalist"});
-            this.docSpecCb.Location = new System.Drawing.Point(427, 181);
-            this.docSpecCb.Margin = new System.Windows.Forms.Padding(2);
-            this.docSpecCb.Name = "docSpecCb";
-            this.docSpecCb.Size = new System.Drawing.Size(252, 42);
-            this.docSpecCb.TabIndex = 75;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -170,22 +156,8 @@
             this.label22.TabIndex = 74;
             this.label22.Text = "Specialisation";
             // 
-            // docNameCb
-            // 
-            this.docNameCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docNameCb.FormattingEnabled = true;
-            this.docNameCb.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.docNameCb.Location = new System.Drawing.Point(140, 84);
-            this.docNameCb.Margin = new System.Windows.Forms.Padding(2);
-            this.docNameCb.Name = "docNameCb";
-            this.docNameCb.Size = new System.Drawing.Size(253, 42);
-            this.docNameCb.TabIndex = 73;
-            // 
             // docPhoneTb
             // 
-            this.docPhoneTb.Enabled = false;
             this.docPhoneTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docPhoneTb.ForeColor = System.Drawing.Color.Black;
             this.docPhoneTb.Location = new System.Drawing.Point(720, 79);
@@ -193,6 +165,7 @@
             this.docPhoneTb.Name = "docPhoneTb";
             this.docPhoneTb.Size = new System.Drawing.Size(259, 42);
             this.docPhoneTb.TabIndex = 72;
+            this.docPhoneTb.TextChanged += new System.EventHandler(this.docPhoneTb_TextChanged);
             // 
             // label11
             // 
@@ -230,12 +203,36 @@
             this.label9.TabIndex = 69;
             this.label9.Text = "Doctor Name";
             // 
+            // docNameTb
+            // 
+            this.docNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docNameTb.ForeColor = System.Drawing.Color.Black;
+            this.docNameTb.Location = new System.Drawing.Point(140, 81);
+            this.docNameTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docNameTb.Name = "docNameTb";
+            this.docNameTb.Size = new System.Drawing.Size(259, 42);
+            this.docNameTb.TabIndex = 87;
+            this.docNameTb.TextChanged += new System.EventHandler(this.docNameTb_TextChanged);
+            // 
+            // docSpecTb
+            // 
+            this.docSpecTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docSpecTb.ForeColor = System.Drawing.Color.Black;
+            this.docSpecTb.Location = new System.Drawing.Point(424, 182);
+            this.docSpecTb.Margin = new System.Windows.Forms.Padding(2);
+            this.docSpecTb.Name = "docSpecTb";
+            this.docSpecTb.Size = new System.Drawing.Size(259, 42);
+            this.docSpecTb.TabIndex = 88;
+            this.docSpecTb.TextChanged += new System.EventHandler(this.docSpecTb_TextChanged);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.docSpecTb);
+            this.Controls.Add(this.docNameTb);
             this.Controls.Add(this.experienceTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.updateBtn);
@@ -244,9 +241,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.docEmailTb);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.docSpecCb);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.docNameCb);
             this.Controls.Add(this.docPhoneTb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -271,12 +266,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox docEmailTb;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox docSpecCb;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox docNameCb;
         private System.Windows.Forms.TextBox docPhoneTb;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox docNameTb;
+        private System.Windows.Forms.TextBox docSpecTb;
     }
 }
