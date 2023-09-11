@@ -14,6 +14,7 @@ namespace HealthCare_Plus__HMS.Staff
 {
     public partial class AppointmentBooking : Form
     {
+        private int selectedAppointmentId = -1;
         private Dictionary<string, string> patientNameToIdMap = new Dictionary<string, string>();
         private Dictionary<string, (string doctorSpecialization, string roomNumber)> DoctorNameToDetailsMap = new Dictionary<string, (string doctorSpecialization, string roomNumber)>();
         public AppointmentBooking()
@@ -209,26 +210,28 @@ namespace HealthCare_Plus__HMS.Staff
         }
 
         private void AppoinmenysLoadDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Make sure user select at least one row 
-            {
-                DataGridViewRow row = appoinmenysLoadDGV.Rows[e.RowIndex];
+{
+    if (e.RowIndex >= 0) // Make sure user select at least one row 
+    {
+        DataGridViewRow row = appoinmenysLoadDGV.Rows[e.RowIndex];
 
-                // Assuming that column index 1 contains patient name and column index 2 contains doctor name
-                patNameCb.SelectedItem = row.Cells[1].Value.ToString();
-                docNameCb.SelectedItem = row.Cells[2].Value.ToString();
+        selectedAppointmentId = Convert.ToInt32(row.Cells[0].Value);
 
-                // Set other fields using appropriate column indexes
-                appointmentDateDTP.Value = Convert.ToDateTime(row.Cells[3].Value);
-                statusCb.SelectedItem = row.Cells[4].Value.ToString();
-                appoinmentNoteTb.Text = row.Cells[5].Value.ToString();
+        // Assuming that column index 1 contains patient name and column index 2 contains doctor name
+        patNameCb.SelectedItem = row.Cells[1].Value.ToString();
+        docNameCb.SelectedItem = row.Cells[2].Value.ToString();
 
-                // You will need to call the SelectedIndexChanged event handlers manually
-                // to update fields that depend on selected patient and doctor
-                patNameCb_SelectedIndexChanged(patNameCb, EventArgs.Empty);
-                docNameCb_SelectedIndexChanged(docNameCb, EventArgs.Empty);
-            }
-        }
+        // Set other fields using appropriate column indexes
+        appointmentDateDTP.Value = Convert.ToDateTime(row.Cells[3].Value);
+        statusCb.SelectedItem = row.Cells[4].Value.ToString();
+        appoinmentNoteTb.Text = row.Cells[5].Value.ToString();
+
+        // You will need to call the SelectedIndexChanged event handlers manually
+        // to update fields that depend on selected patient and doctor
+        patNameCb_SelectedIndexChanged(patNameCb, EventArgs.Empty);
+        docNameCb_SelectedIndexChanged(docNameCb, EventArgs.Empty);
+    }
+}
 
         private void LoadAppointmentsIntoDataGridView()
         {
@@ -290,5 +293,109 @@ namespace HealthCare_Plus__HMS.Staff
         {
 
         }
+
+        private void reSheduleBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedAppointmentId == -1)
+            {
+                MessageBox.Show("Please select an appointment to reschedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                string selectedPatientName = patNameCb.SelectedItem?.ToString();
+                string selectedDoctorName = docNameCb.SelectedItem?.ToString();
+                string appointmentNotes = appoinmentNoteTb.Text;
+                string appointmentStatus = statusCb.SelectedItem?.ToString();
+                DateTime appointmentDate = appointmentDateDTP.Value;
+
+                if (patientNameToIdMap.TryGetValue(selectedPatientName, out string patientContact))
+                {
+                    if (DoctorNameToDetailsMap.TryGetValue(selectedDoctorName, out var doctorDetails))
+                    {
+                        Con.Open();
+
+                        SqlCommand findDoctorIdCmd = new SqlCommand("SELECT user_id FROM UserTbl WHERE userName = @docName", Con);
+                        findDoctorIdCmd.Parameters.AddWithValue("@docName", selectedDoctorName);
+                        int doctorId = (int)findDoctorIdCmd.ExecuteScalar();
+
+                        SqlCommand cmd = new SqlCommand("UPDATE AppointmentTbl SET patient_id = (SELECT patient_id FROM PatientTbl WHERE PatientContact = @patContact), doctor_id = @docId, appointmentDate = @appDate, appointmentStatus = @appStatus, appointmentnotes = @appNotes WHERE appointment_id = @appId", Con);
+                        cmd.Parameters.AddWithValue("@patContact", patientContact);
+                        cmd.Parameters.AddWithValue("@docId", doctorId);
+                        cmd.Parameters.AddWithValue("@appDate", appointmentDate);
+                        cmd.Parameters.AddWithValue("@appStatus", appointmentStatus);
+                        cmd.Parameters.AddWithValue("@appNotes", appointmentNotes);
+                        cmd.Parameters.AddWithValue("@appId", selectedAppointmentId);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Appointment Rescheduled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Doctor not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Patient not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+                LoadAppointmentsIntoDataGridView();
+            }
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedAppointmentId == -1)
+            {
+                MessageBox.Show("Please select an appointment to cancel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                DialogResult confirmResult = MessageBox.Show("Are you sure to cancel this appointment?", "Confirm Cancelation", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    Con.Open();
+
+                    SqlCommand cmd = new SqlCommand("DELETE FROM AppointmentTbl WHERE appointment_id = @appId", Con);
+                    cmd.Parameters.AddWithValue("@appId", selectedAppointmentId);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Appointment Cancelled Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Cancelation Aborted", "Aborted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+                LoadAppointmentsIntoDataGridView();
+            }
+        }
+
     }
 }

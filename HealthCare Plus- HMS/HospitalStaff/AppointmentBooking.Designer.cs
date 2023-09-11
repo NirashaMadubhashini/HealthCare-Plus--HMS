@@ -230,6 +230,7 @@
             this.cancelBtn.Size = new System.Drawing.Size(180, 45);
             this.cancelBtn.TabIndex = 136;
             this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // reSheduleBtn
             // 
@@ -247,6 +248,7 @@
             this.reSheduleBtn.Size = new System.Drawing.Size(180, 45);
             this.reSheduleBtn.TabIndex = 135;
             this.reSheduleBtn.Text = "Re-Shedule";
+            this.reSheduleBtn.Click += new System.EventHandler(this.reSheduleBtn_Click);
             // 
             // appoinmenysLoadDGV
             // 
