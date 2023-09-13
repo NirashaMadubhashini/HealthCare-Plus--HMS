@@ -31,7 +31,7 @@
             this.experienceTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.docIdTb = new System.Windows.Forms.TextBox();
+            this.upDocIdTb = new System.Windows.Forms.TextBox();
             this.docRoomTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.docEmailTb = new System.Windows.Forms.TextBox();
@@ -89,14 +89,14 @@
             // 
             // docIdTb
             // 
-            this.docIdTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docIdTb.ForeColor = System.Drawing.Color.Black;
-            this.docIdTb.Location = new System.Drawing.Point(424, 81);
-            this.docIdTb.Margin = new System.Windows.Forms.Padding(2);
-            this.docIdTb.Name = "docIdTb";
-            this.docIdTb.Size = new System.Drawing.Size(259, 42);
-            this.docIdTb.TabIndex = 81;
-            this.docIdTb.TextChanged += new System.EventHandler(this.docIdTb_TextChanged);
+            this.upDocIdTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upDocIdTb.ForeColor = System.Drawing.Color.Black;
+            this.upDocIdTb.Location = new System.Drawing.Point(424, 81);
+            this.upDocIdTb.Margin = new System.Windows.Forms.Padding(2);
+            this.upDocIdTb.Name = "docIdTb";
+            this.upDocIdTb.Size = new System.Drawing.Size(259, 42);
+            this.upDocIdTb.TabIndex = 81;
+            this.upDocIdTb.TextChanged += new System.EventHandler(this.docIdTb_TextChanged);
             // 
             // docRoomTb
             // 
@@ -236,7 +236,7 @@
             this.Controls.Add(this.experienceTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.docIdTb);
+            this.Controls.Add(this.upDocIdTb);
             this.Controls.Add(this.docRoomTb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.docEmailTb);
@@ -261,7 +261,7 @@
         private System.Windows.Forms.TextBox experienceTb;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button updateBtn;
-        private System.Windows.Forms.TextBox docIdTb;
+        private System.Windows.Forms.TextBox upDocIdTb;
         private System.Windows.Forms.TextBox docRoomTb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox docEmailTb;

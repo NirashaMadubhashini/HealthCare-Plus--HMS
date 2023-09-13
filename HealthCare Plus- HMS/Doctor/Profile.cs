@@ -47,16 +47,55 @@ namespace HealthCare_Plus__HMS.Doctor
 
                 if (reader.Read())
                 {
-                    docIdTb.Text = reader["user_id"].ToString();
+                    upDocIdTb.Text = reader["user_id"].ToString();
                     docNameTb.Text = reader["userName"].ToString();
                     docPhoneTb.Text = reader["userContact"].ToString();
                     docEmailTb.Text = reader["userEmail"].ToString();
                     docSpecTb.Text = reader["doctorSpecialization"].ToString();
-                    docRoomTb.Text = reader["roomNumber"].ToString();
+                   docRoomTb.Text = reader["roomNumber"].ToString();
                     experienceTb.Text = reader["doctorQualifications"].ToString();
                 }
 
                 reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Con.Open();
+
+                // Construct the SQL query
+                string query = @"UPDATE DoctorTbl SET doctorSpecialization = @docSpec, doctorQualifications = @docQual, roomNumber = @roomNumber
+                         FROM DoctorTbl dp
+                         INNER JOIN UserTbl u ON dp.doctor_id = u.user_id
+                         WHERE u.userName = @userName AND u.userPassword = @userPassword";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", _userName);
+                cmd.Parameters.AddWithValue("@userPassword", _userPassword);
+                cmd.Parameters.AddWithValue("@docSpec", docSpecTb.Text);
+                cmd.Parameters.AddWithValue("@docQual", experienceTb.Text);
+                cmd.Parameters.AddWithValue("@roomNumber", docRoomTb.Text);
+
+                int rowsUpdated = cmd.ExecuteNonQuery();
+                if (rowsUpdated > 0)
+                {
+                    MessageBox.Show("Doctor details updated successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("No record found.");
+                }
             }
             catch (Exception ex)
             {
@@ -107,9 +146,5 @@ namespace HealthCare_Plus__HMS.Doctor
 
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
