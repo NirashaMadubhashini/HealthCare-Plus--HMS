@@ -51,7 +51,7 @@
             this.docRoomTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.appoinmentSumTxt = new System.Windows.Forms.RichTextBox();
-            this.docStatusTb = new System.Windows.Forms.TextBox();
+            this.docAvailTb = new System.Windows.Forms.TextBox();
             this.docChargeTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hospitalChargeTb = new System.Windows.Forms.TextBox();
@@ -68,9 +68,9 @@
             this.label4.Location = new System.Drawing.Point(378, 447);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 25);
+            this.label4.Size = new System.Drawing.Size(207, 25);
             this.label4.TabIndex = 148;
-            this.label4.Text = "Status";
+            this.label4.Text = "Doctor Availabilty";
             // 
             // patFirstNameTb
             // 
@@ -326,16 +326,16 @@
             this.appoinmentSumTxt.TabIndex = 164;
             this.appoinmentSumTxt.Text = "";
             // 
-            // docStatusTb
+            // docAvailTb
             // 
-            this.docStatusTb.Enabled = false;
-            this.docStatusTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docStatusTb.ForeColor = System.Drawing.Color.Black;
-            this.docStatusTb.Location = new System.Drawing.Point(381, 482);
-            this.docStatusTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.docStatusTb.Name = "docStatusTb";
-            this.docStatusTb.Size = new System.Drawing.Size(211, 42);
-            this.docStatusTb.TabIndex = 165;
+            this.docAvailTb.Enabled = false;
+            this.docAvailTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docAvailTb.ForeColor = System.Drawing.Color.Black;
+            this.docAvailTb.Location = new System.Drawing.Point(381, 482);
+            this.docAvailTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.docAvailTb.Name = "docAvailTb";
+            this.docAvailTb.Size = new System.Drawing.Size(211, 42);
+            this.docAvailTb.TabIndex = 165;
             // 
             // docChargeTb
             // 
@@ -404,7 +404,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.hospitalChargeTb);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.docStatusTb);
+            this.Controls.Add(this.docAvailTb);
             this.Controls.Add(this.appoinmentSumTxt);
             this.Controls.Add(this.docRoomTb);
             this.Controls.Add(this.label9);
@@ -460,7 +460,7 @@
         private System.Windows.Forms.TextBox docRoomTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox appoinmentSumTxt;
-        private System.Windows.Forms.TextBox docStatusTb;
+        private System.Windows.Forms.TextBox docAvailTb;
         private System.Windows.Forms.TextBox docChargeTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox hospitalChargeTb;
