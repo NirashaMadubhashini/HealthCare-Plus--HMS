@@ -345,7 +345,7 @@
             this.panel3.Controls.Add(this.resourcesNumlbl);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(742, 245);
+            this.panel3.Location = new System.Drawing.Point(779, 260);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(292, 96);
@@ -395,10 +395,10 @@
             this.panel2.Controls.Add(this.roomNumlbl);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(64, 395);
+            this.panel2.Location = new System.Drawing.Point(82, 410);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(339, 96);
+            this.panel2.Size = new System.Drawing.Size(287, 96);
             this.panel2.TabIndex = 21;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -407,7 +407,7 @@
             this.roomNumlbl.AutoSize = true;
             this.roomNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.roomNumlbl.Location = new System.Drawing.Point(175, 42);
+            this.roomNumlbl.Location = new System.Drawing.Point(197, 42);
             this.roomNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.roomNumlbl.Name = "roomNumlbl";
             this.roomNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -420,12 +420,12 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label6.Location = new System.Drawing.Point(99, 12);
+            this.label6.Location = new System.Drawing.Point(165, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 30);
+            this.label6.Size = new System.Drawing.Size(94, 30);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Room and Theater";
+            this.label6.Text = "Rooms";
             // 
             // pictureBox2
             // 
@@ -467,10 +467,10 @@
             this.panel1.Controls.Add(this.billingNumlbl);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(742, 395);
+            this.panel1.Location = new System.Drawing.Point(779, 410);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 96);
+            this.panel1.Size = new System.Drawing.Size(292, 96);
             this.panel1.TabIndex = 20;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -479,7 +479,7 @@
             this.billingNumlbl.AutoSize = true;
             this.billingNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billingNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.billingNumlbl.Location = new System.Drawing.Point(190, 42);
+            this.billingNumlbl.Location = new System.Drawing.Point(206, 42);
             this.billingNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.billingNumlbl.Name = "billingNumlbl";
             this.billingNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -492,12 +492,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label2.Location = new System.Drawing.Point(101, 12);
+            this.label2.Location = new System.Drawing.Point(208, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 30);
+            this.label2.Size = new System.Drawing.Size(55, 30);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Billing and Invoicing";
+            this.label2.Text = "Bills";
             // 
             // pictureBox1
             // 
@@ -517,7 +517,7 @@
             this.panel6.Controls.Add(this.StaffNumlbl);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Location = new System.Drawing.Point(415, 245);
+            this.panel6.Location = new System.Drawing.Point(433, 260);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(286, 96);
@@ -567,7 +567,7 @@
             this.panel5.Controls.Add(this.PatNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(429, 395);
+            this.panel5.Location = new System.Drawing.Point(433, 410);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(286, 96);
@@ -617,7 +617,7 @@
             this.panel4.Controls.Add(this.DocNumlbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(64, 245);
+            this.panel4.Location = new System.Drawing.Point(82, 260);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(286, 96);
