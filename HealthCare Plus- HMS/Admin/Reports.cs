@@ -21,7 +21,9 @@ namespace HealthCare_Plus__HMS.Admin
         {
             InitializeComponent();
             LoadReportTypes();
+            reportDGV.CellClick += new DataGridViewCellEventHandler(reportDGV_CellContentClick);
         }
+
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
@@ -40,8 +42,33 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void reportDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+                if (e.RowIndex >= 0) // Ensure a valid row has been clicked
+                {
+                    DataGridViewRow row = reportDGV.Rows[e.RowIndex];
 
-        }
+                    // Access individual cell values like: row.Cells["ColumnName"].Value
+                    // Create a report based on the selected row's data.
+
+                    StringBuilder reportText = new StringBuilder();
+                    reportText.AppendLine($"------- SINGLE RECORD REPORT -------");
+                    reportText.AppendLine(DateTime.Now.ToString("f")); // Adding current date and time
+                    reportText.AppendLine(new string('-', 50)); // Add a separator
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            // Format each line to have a fixed width for the column name and value
+                            reportText.AppendLine($"{reportDGV.Columns[cell.ColumnIndex].Name,-20} : {cell.Value.ToString(),-20}");
+                        }
+                    }
+                    reportText.AppendLine(new string('-', 50)); // Add a separator
+
+                    reportTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
+                    reportTxt.Text = reportText.ToString(); // Set the report text
+                }
+            }
+
 
         private void payRollCb_SelectedIndexChanged(object sender, EventArgs e)
         {
