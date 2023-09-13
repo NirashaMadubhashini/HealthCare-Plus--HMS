@@ -61,10 +61,16 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (patFirstNameTb.Text == "" || patLastNameTb.Text == "" || patDOBCb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patAddressTb.Text == "" || patMedHistoryTb.Text == "")
-
+            if (string.IsNullOrWhiteSpace(patFirstNameTb.Text) ||
+        string.IsNullOrWhiteSpace(patLastNameTb.Text) ||
+        string.IsNullOrWhiteSpace(patDOBCb.Text) ||
+        patGenCb.SelectedIndex == -1 ||
+        string.IsNullOrWhiteSpace(patPhoneTb.Text) ||
+        string.IsNullOrWhiteSpace(patAddressTb.Text) ||
+        string.IsNullOrWhiteSpace(patMedHistoryTb.Text))
             {
-                MessageBox.Show("Please fill in all the required fields.");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -98,7 +104,8 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (patFirstNameTb.Text == "" || patLastNameTb.Text == "" || patDOBCb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patAddressTb.Text == "" || patMedHistoryTb.Text == "")
             {
-                MessageBox.Show("Please fill in all the required fields.");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {

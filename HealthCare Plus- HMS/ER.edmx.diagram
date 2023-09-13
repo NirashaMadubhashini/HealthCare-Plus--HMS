@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="992f91af44dc4ca39b487e1edb116763" Name="Diagram1">
+        <EntityTypeShape EntityType="Hospital_ManagementModel.AppointmentTbl" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.BillTbl" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.DoctorAvailabileTbl" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.DoctorTbl" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.MedicalResourceTbl" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.MedicationTbl" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.PatientTbl" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.RoomTbl" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hospital_ManagementModel.UserTbl" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__Appointme__docto__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__Appointme__patie__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__BillTbl__appoint__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__DoctorAva__docto__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__DoctorTbl__docto__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Hospital_ManagementModel.FK__RoomTbl__patient__4F7CD00D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

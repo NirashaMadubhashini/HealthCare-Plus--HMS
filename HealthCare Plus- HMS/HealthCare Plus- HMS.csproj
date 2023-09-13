@@ -446,6 +446,21 @@
     <Compile Include="Admin\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="ER.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ER.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ER.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ER.edmx</DependentUpon>
+    </Compile>
     <Compile Include="HospitalStaff\Billing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -592,6 +607,13 @@
     </EmbeddedResource>
     <None Include="ClassDiagram5.cd" />
     <None Include="ClassDiagram6.cd" />
+    <EntityDeploy Include="ER.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ER.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ER.edmx.diagram">
+      <DependentUpon>ER.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -608,6 +630,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ER.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ER.edmx</DependentUpon>
+      <LastGenOutput>ER.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ER.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ER.edmx</DependentUpon>
+      <LastGenOutput>ER.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

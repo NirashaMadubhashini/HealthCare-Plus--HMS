@@ -68,8 +68,8 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
-                MessageBox.Show("Missing Information. Please ensure all fields are filled.");
-                return; // Add a return statement to exit early
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             // Validate that roomNumber starts with "R"
             if (!roomNumTb.Text.StartsWith("R"))
@@ -136,7 +136,8 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
-                MessageBox.Show("Missing Information. Please ensure all fields are filled.");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             // Validate that roomNumber starts with "R"

@@ -51,10 +51,12 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
-            if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "" || resourceQuantityTb.Text == "")
-
+            if (string.IsNullOrWhiteSpace(resourceNameTb.Text) ||
+         string.IsNullOrWhiteSpace(resourceDescriptionTb.Text) ||
+         string.IsNullOrWhiteSpace(resourceQuantityTb.Text))
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -82,7 +84,8 @@ namespace HealthCare_Plus__HMS.Admin
         {
             if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "" || resourceQuantityTb.Text == "")
             {
-                MessageBox.Show("Missing Information");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {

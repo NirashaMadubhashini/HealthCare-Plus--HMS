@@ -174,7 +174,39 @@ namespace HealthCare_Plus__HMS.Admin
         
         }
 
+        private bool IsRoomAvailable(string roomNumber, int? doctorId = null)
+        {
+            try
+            {
+                if (Con.State == ConnectionState.Closed)
+                {
+                    Con.Open();
+                }
 
+                string query = "SELECT COUNT(1) FROM DoctorTbl WHERE roomNumber = @RoomNumber";
+                if (doctorId != null)
+                {
+                    query += " AND doctor_id <> @DoctorId";
+                }
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                if (doctorId != null)
+                {
+                    cmd.Parameters.AddWithValue("@DoctorId", doctorId.Value);
+                }
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count == 0;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+            }
+        }
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
@@ -186,12 +218,19 @@ namespace HealthCare_Plus__HMS.Admin
                 return;
             }
 
+
             try
             {
                 int doctor_id = int.Parse(docIdTb.Text);
                 string specializationName = docSpecCb.SelectedItem.ToString();
                 string doctorQualifications = docexperienceTb.Text;
                 string roomNumber = docRoomCb.SelectedValue.ToString();
+
+                if (!IsRoomAvailable(roomNumber))
+                {
+                    MessageBox.Show("This room is already assigned to another doctor. Please select a different room.", "Room not available", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
 
                 if (Con.State == ConnectionState.Closed)
@@ -251,10 +290,13 @@ namespace HealthCare_Plus__HMS.Admin
                 string roomNumber = docRoomCb.SelectedItem.ToString();
 
 
+
+
                 if (Con.State == ConnectionState.Closed)
                 {
                     Con.Open();
                 }
+
 
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE DoctorTbl SET doctorSpecialization =@DoctorSpec, doctorQualifications=@Qualifications, roomNumber=@RoomNumber WHERE doctor_id = @DoctorId", Con);
                 cmdUpdate.Parameters.AddWithValue("@DoctorId", doctor_id);
@@ -305,7 +347,11 @@ namespace HealthCare_Plus__HMS.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                var confirmResult = MessageBox.Show("Are you sure to delete this doctor?", "Confirm Delete!", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.No)
+                {
+                    return;
+                }
             }
             finally
             {
