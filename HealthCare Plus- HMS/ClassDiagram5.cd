@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HealthCare_Plus__HMS.Admin.AdminDashboard">
+    <Position X="32.75" Y="3.75" Width="1.5" />
+    <Members>
+      <Field Name="billingNumlbl" Hidden="true" />
+      <Field Name="btnDashboard" Hidden="true" />
+      <Field Name="btnDoctors" Hidden="true" />
+      <Field Name="btnHome" Hidden="true" />
+      <Field Name="btnLaboratoryTest" Hidden="true" />
+      <Field Name="btnLogout" Hidden="true" />
+      <Field Name="btnPatient" Hidden="true" />
+      <Field Name="btnPrescription" Hidden="true" />
+      <Field Name="btnReport" Hidden="true" />
+      <Field Name="btnRooms" Hidden="true" />
+      <Field Name="btnStaff" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="Con" Hidden="true" />
+      <Field Name="currentBtn" Hidden="true" />
+      <Field Name="currentChildForm" Hidden="true" />
+      <Field Name="DocNumlbl" Hidden="true" />
+      <Field Name="iconPictureBoxClose" Hidden="true" />
+      <Field Name="iconPictureBoxMin" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label10" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="lblDateTime" Hidden="true" />
+      <Field Name="lblTitleChildForm" Hidden="true" />
+      <Field Name="leftBorderBtn" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panelDesktop" Hidden="true" />
+      <Field Name="panelMenu" Hidden="true" />
+      <Field Name="panelShadow" Hidden="true" />
+      <Field Name="panelTitleBar" Hidden="true" />
+      <Field Name="PatNumlbl" Hidden="true" />
+      <Field Name="pictureBox1" Hidden="true" />
+      <Field Name="pictureBox2" Hidden="true" />
+      <Field Name="pictureBox3" Hidden="true" />
+      <Field Name="pictureBox4" Hidden="true" />
+      <Field Name="pictureBox5" Hidden="true" />
+      <Field Name="pictureBox8" Hidden="true" />
+      <Field Name="resourcesNumlbl" Hidden="true" />
+      <Field Name="roomNumlbl" Hidden="true" />
+      <Field Name="StaffNumlbl" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Struct Name="HealthCare_Plus__HMS.Admin.AdminDashboard.RGBColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Admin\AdminDashboard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>GRKJClAACCaAUJVAEIDA4BIKAJlJNgwCigFiEaBABAg=</HashCode>
+      <FileName>Admin\AdminDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.BillingandInvoicing">
+    <Position X="29.75" Y="3" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAGADIAABwogACAAAAiAAEAAAIgCAAAAAAAAAA=</HashCode>
+      <FileName>Admin\BillingandInvoicing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Doctors">
+    <Position X="28" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>cIhJMEAAASAAABQAQACkBCECBAEAAAFAAMAAABhAIAA=</HashCode>
+      <FileName>Admin\Doctors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.MedicalResources">
+    <Position X="30.25" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAARqAAAACAAABQAAAKkBAACAAEAAgAAAIAAgBBCIAA=</HashCode>
+      <FileName>Admin\MedicalResources.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Patients">
+    <Position X="26" Y="9" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>8QABIBQgACAAABSQIACkBAACAKGDAEAAAIUAABBAIAA=</HashCode>
+      <FileName>Admin\Patients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Reports">
+    <Position X="28" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAACAAABwAEACBAAAGAAGAAEIAAAAAAAECAMg=</HashCode>
+      <FileName>Admin\Reports.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Rooms">
+    <Position X="34.5" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UAAlKAAAACCIABQAIACkDAQKAIEAAAIAAMACABFAYAA=</HashCode>
+      <FileName>Admin\Rooms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Staff">
+    <Position X="24" Y="9" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>MAABIAAAAKgQBJSAAACkBAACAMEAAAAAAIIAgBBAIIA=</HashCode>
+      <FileName>Admin\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.AddPrescription">
+    <Position X="17.25" Y="9.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>YAEwEAAACSIgAhYIABCBaEAKEIEgAAIAgIAQhABACEA=</HashCode>
+      <FileName>Doctor\AddPrescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.Appoinments">
+    <Position X="16.75" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UAAAAAAAASAAABEQAACAQAACAACAAAAAEAACAAAAAAA=</HashCode>
+      <FileName>Doctor\Appoinments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.DoctorDashboard">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="HealthCare_Plus__HMS.Doctor.DoctorDashboard.RGBColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Doctor\DoctorDashboard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UQAICgAACGIAApFAAoCAgBIKCBFJAwQAgAFgBSAABAg=</HashCode>
+      <FileName>Doctor\DoctorDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.PatientRecords">
+    <Position X="14.5" Y="11" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>MQABAAAAASAAABAQAACAAAACAAAAAAAAAAAAEBAAAAQ=</HashCode>
+      <FileName>Doctor\PatientRecords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.Profile">
+    <Position X="19.5" Y="10" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>cAAEAAAAASAAABAIAACMBAECIEECAAAAAAAAEBBAgIA=</HashCode>
+      <FileName>Doctor\Profile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.AppointmentBooking">
+    <Position X="7.25" Y="3.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>8CAGRCACASACQDkAQACgMEAOFMWhgAoIAAAAEAIAIEA=</HashCode>
+      <FileName>HospitalStaff\AppointmentBooking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.Patients">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>8QEBIAAAECAAABSQBACkBAACAIEAAEAAAIUAABhAIAA=</HashCode>
+      <FileName>HospitalStaff\Patients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.Search_Doctor">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IABAAgAACCAAABAAAACgBAACAAEAIIAAAAACAAAAIAA=</HashCode>
+      <FileName>HospitalStaff\Search Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.StaffDashboard">
+    <Position X="14.5" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="HealthCare_Plus__HMS.Staff.StaffDashboard.RGBColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>HospitalStaff\StaffDashboard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>MZAJChAQAGYggJEAEICAABIeABFIIhQggAFgAWJABAg=</HashCode>
+      <FileName>HospitalStaff\StaffDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.BillingStaff.Billing">
+    <Position X="12" Y="7.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAACACAAABwIAACBAAACAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>HospitalStaff\Billing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.HospitalStaff.Medication">
+    <Position X="10" Y="7.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>MAARAAAAACAAAB0AAACuBAACAAGACAgAAIgAABBAIAA=</HashCode>
+      <FileName>HospitalStaff\Medication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Login">
+    <Position X="21.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IQQADhABACBAAFEAGACAAAACAMUYAABAAAJAARBAQAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Program">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

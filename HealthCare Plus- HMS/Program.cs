@@ -17,10 +17,12 @@ namespace HealthCare_Plus__HMS
         /// </summary>
         [STAThread]
         static void Main()
+
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StaffDashboard());
+
+            Application.Run(new Login());
         }
     }
 }

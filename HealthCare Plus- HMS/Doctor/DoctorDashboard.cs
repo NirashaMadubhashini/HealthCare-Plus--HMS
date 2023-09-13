@@ -13,16 +13,20 @@ using System.Windows.Forms;
 
 namespace HealthCare_Plus__HMS.Doctor
 {
+
     public partial class DoctorDashboard : Form
     {
         //fields
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        public DoctorDashboard()
+        private string _userName;
+        private string _userPassword;
+        public DoctorDashboard(string userName, string userPassword)
         {
             InitializeComponent();
-
+            _userName = userName;
+            _userPassword = userPassword;
             /*UpdateDashboardStats();
              CountPatients();
              CountDoctors();
@@ -49,6 +53,10 @@ namespace HealthCare_Plus__HMS.Doctor
             {
 
             }
+        }
+
+        public DoctorDashboard(string v1, object userName, string v2, object userPassword)
+        {
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -224,13 +232,10 @@ namespace HealthCare_Plus__HMS.Doctor
             OpenChildForm(new AddPrescription());
         }
 
-        public int LoggedInDoctorId { get; set; }
         private void btnProfile_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-
-            // Use the logged-in doctor's ID to open their profile
-            OpenChildForm(new Profile(LoggedInDoctorId));
+            OpenChildForm(new Profile(_userName, _userPassword));
         }
 
         private void btnAppointment_Click(object sender, EventArgs e)

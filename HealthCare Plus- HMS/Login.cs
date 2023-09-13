@@ -86,7 +86,7 @@ namespace HealthCare_Plus__HMS
                                 this.Hide();
                                 break;
                             case "Doctor":
-                                DoctorDashboard doctorDashboard = new DoctorDashboard();
+                                DoctorDashboard doctorDashboard = new DoctorDashboard(unameTb.Text, passTb.Text);
                                 MessageBox.Show("Login successful. Welcome, Doctor!");
                                 doctorDashboard.Show();
                                 this.Hide();

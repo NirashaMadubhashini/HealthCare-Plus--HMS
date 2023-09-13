@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HealthCare_Plus__HMS.Admin.AdminDashboard" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GRKJClAACCaAUJVAEIDA4BIKAJlJNgwCigFiEaBABAg=</HashCode>
+      <FileName>Admin\AdminDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.BillingandInvoicing" Collapsed="true">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAGADIAABwogACAAAAiAAEAAAIgCAAAAAAAAAA=</HashCode>
+      <FileName>Admin\BillingandInvoicing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Doctors" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cIhJMEAAASAAABQAQACkBCECBAEAAAFAAMAAABhAIAA=</HashCode>
+      <FileName>Admin\Doctors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.MedicalResources" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAARqAAAACAAABQAAAKkBAACAAEAAgAAAIAAgBBCIAA=</HashCode>
+      <FileName>Admin\MedicalResources.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Patients" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8QABIBQgACAAABSQIACkBAACAKGDAEAAAIUAABBAIAA=</HashCode>
+      <FileName>Admin\Patients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Reports" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAACAAABwAEACBAAAGAAGAAEIAAAAAAAECAMg=</HashCode>
+      <FileName>Admin\Reports.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Rooms" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAlKAAAACCIABQAIACkDAQKAIEAAAIAAMACABFAYAA=</HashCode>
+      <FileName>Admin\Rooms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Admin.Staff" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAABIAAAAKgQBJSAAACkBAACAMEAAAAAAIIAgBBAIIA=</HashCode>
+      <FileName>Admin\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.AddPrescription" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAEwEAAACSIgAhYIABCBaEAKEIEgAAIAgIAQhABACEA=</HashCode>
+      <FileName>Doctor\AddPrescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.Appoinments" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAAAAAAASAAABEQAACAQAACAACAAAAAEAACAAAAAAA=</HashCode>
+      <FileName>Doctor\Appoinments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.DoctorDashboard" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UQAICgAACGIAApFAAoCAgBIKCBFJAwQAgAFgBSAABAg=</HashCode>
+      <FileName>Doctor\DoctorDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.PatientRecords" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MQABAAAAASAAABAQAACAAAACAAAAAAAAAAAAEBAAAAQ=</HashCode>
+      <FileName>Doctor\PatientRecords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Doctor.Profile" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cAAEAAAAASAAABAIAACMBAECIEECAAAAAAAAEBBAgIA=</HashCode>
+      <FileName>Doctor\Profile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.AppointmentBooking" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8CAGRCACASACQDkAQACgMEAOFMWhgAoIAAAAEAIAIEA=</HashCode>
+      <FileName>HospitalStaff\AppointmentBooking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.Patients" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8QEBIAAAECAAABSQBACkBAACAIEAAEAAAIUAABhAIAA=</HashCode>
+      <FileName>HospitalStaff\Patients.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.Search_Doctor" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAgAACCAAABAAAACgBAACAAEAIIAAAAACAAAAIAA=</HashCode>
+      <FileName>HospitalStaff\Search Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.Staff.StaffDashboard" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MZAJChAQAGYggJEAEICAABIeABFIIhQggAFgAWJABAg=</HashCode>
+      <FileName>HospitalStaff\StaffDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.BillingStaff.Billing" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACACAAABwIAACBAAACAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>HospitalStaff\Billing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthCare_Plus__HMS.HospitalStaff.Medication" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAARAAAAACAAAB0AAACuBAACAAGACAgAAIgAABBAIAA=</HashCode>
+      <FileName>HospitalStaff\Medication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
