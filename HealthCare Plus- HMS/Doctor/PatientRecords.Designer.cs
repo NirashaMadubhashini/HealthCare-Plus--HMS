@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             this.updateBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.diagnosesTb = new System.Windows.Forms.TextBox();
             this.patRecordsDGV = new System.Windows.Forms.DataGridView();
-            this.patMedHistoryTb = new System.Windows.Forms.TextBox();
+            this.patMedicineTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.prescriptionsTb = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.patNameCb = new System.Windows.Forms.ComboBox();
+            this.patIdCb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.patNameTb = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.patContactTb = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.patRecordsDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // viewBtn
+            // refreshBtn
             // 
-            this.viewBtn.BackColor = System.Drawing.Color.White;
-            this.viewBtn.BorderRadius = 8;
-            this.viewBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.viewBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.viewBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.viewBtn.FillColor = System.Drawing.Color.Gray;
-            this.viewBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBtn.ForeColor = System.Drawing.Color.White;
-            this.viewBtn.Location = new System.Drawing.Point(945, 69);
-            this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(180, 45);
-            this.viewBtn.TabIndex = 108;
-            this.viewBtn.Text = "View";
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.Gray;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(945, 69);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 108;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // updateBtn
             // 
@@ -75,17 +76,7 @@
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 107;
             this.updateBtn.Text = "Update";
-            // 
-            // diagnosesTb
-            // 
-            this.diagnosesTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diagnosesTb.ForeColor = System.Drawing.Color.Black;
-            this.diagnosesTb.Location = new System.Drawing.Point(318, 69);
-            this.diagnosesTb.Margin = new System.Windows.Forms.Padding(2);
-            this.diagnosesTb.Multiline = true;
-            this.diagnosesTb.Name = "diagnosesTb";
-            this.diagnosesTb.Size = new System.Drawing.Size(260, 120);
-            this.diagnosesTb.TabIndex = 105;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // patRecordsDGV
             // 
@@ -100,17 +91,19 @@
             this.patRecordsDGV.RowTemplate.Height = 28;
             this.patRecordsDGV.Size = new System.Drawing.Size(1089, 326);
             this.patRecordsDGV.TabIndex = 104;
+            this.patRecordsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patRecordsDGV_CellContentClick);
             // 
-            // patMedHistoryTb
+            // patMedicineTb
             // 
-            this.patMedHistoryTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patMedHistoryTb.ForeColor = System.Drawing.Color.Black;
-            this.patMedHistoryTb.Location = new System.Drawing.Point(36, 181);
-            this.patMedHistoryTb.Margin = new System.Windows.Forms.Padding(2);
-            this.patMedHistoryTb.Multiline = true;
-            this.patMedHistoryTb.Name = "patMedHistoryTb";
-            this.patMedHistoryTb.Size = new System.Drawing.Size(260, 120);
-            this.patMedHistoryTb.TabIndex = 103;
+            this.patMedicineTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patMedicineTb.ForeColor = System.Drawing.Color.Black;
+            this.patMedicineTb.Location = new System.Drawing.Point(36, 181);
+            this.patMedicineTb.Margin = new System.Windows.Forms.Padding(2);
+            this.patMedicineTb.Multiline = true;
+            this.patMedicineTb.Name = "patMedicineTb";
+            this.patMedicineTb.Size = new System.Drawing.Size(260, 120);
+            this.patMedicineTb.TabIndex = 103;
+            this.patMedicineTb.TextChanged += new System.EventHandler(this.patMedicineTb_TextChanged);
             // 
             // label2
             // 
@@ -120,57 +113,23 @@
             this.label2.Location = new System.Drawing.Point(32, 152);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 25);
+            this.label2.Size = new System.Drawing.Size(122, 25);
             this.label2.TabIndex = 102;
-            this.label2.Text = "Medical History";
+            this.label2.Text = "Medicines";
             // 
-            // prescriptionsTb
+            // patIdCb
             // 
-            this.prescriptionsTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prescriptionsTb.ForeColor = System.Drawing.Color.Black;
-            this.prescriptionsTb.Location = new System.Drawing.Point(606, 67);
-            this.prescriptionsTb.Margin = new System.Windows.Forms.Padding(2);
-            this.prescriptionsTb.Multiline = true;
-            this.prescriptionsTb.Name = "prescriptionsTb";
-            this.prescriptionsTb.Size = new System.Drawing.Size(260, 120);
-            this.prescriptionsTb.TabIndex = 97;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(602, 40);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 25);
-            this.label11.TabIndex = 96;
-            this.label11.Text = "Prescriptions";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(318, 40);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 25);
-            this.label10.TabIndex = 95;
-            this.label10.Text = "Diagnoses";
-            // 
-            // patNameCb
-            // 
-            this.patNameCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patNameCb.FormattingEnabled = true;
-            this.patNameCb.Items.AddRange(new object[] {
+            this.patIdCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patIdCb.FormattingEnabled = true;
+            this.patIdCb.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.patNameCb.Location = new System.Drawing.Point(36, 69);
-            this.patNameCb.Margin = new System.Windows.Forms.Padding(2);
-            this.patNameCb.Name = "patNameCb";
-            this.patNameCb.Size = new System.Drawing.Size(253, 42);
-            this.patNameCb.TabIndex = 114;
+            this.patIdCb.Location = new System.Drawing.Point(36, 69);
+            this.patIdCb.Margin = new System.Windows.Forms.Padding(2);
+            this.patIdCb.Name = "patIdCb";
+            this.patIdCb.Size = new System.Drawing.Size(253, 42);
+            this.patIdCb.TabIndex = 114;
+            this.patIdCb.SelectedIndexChanged += new System.EventHandler(this.patIdCb_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -180,9 +139,55 @@
             this.label3.Location = new System.Drawing.Point(32, 40);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 25);
+            this.label3.Size = new System.Drawing.Size(115, 25);
             this.label3.TabIndex = 113;
-            this.label3.Text = "Patient Name";
+            this.label3.Text = "Patient ID";
+            // 
+            // patNameTb
+            // 
+            this.patNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patNameTb.ForeColor = System.Drawing.Color.Black;
+            this.patNameTb.Location = new System.Drawing.Point(330, 69);
+            this.patNameTb.Margin = new System.Windows.Forms.Padding(2);
+            this.patNameTb.Name = "patNameTb";
+            this.patNameTb.Size = new System.Drawing.Size(259, 42);
+            this.patNameTb.TabIndex = 116;
+            this.patNameTb.TextChanged += new System.EventHandler(this.patNameTb_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(325, 40);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 25);
+            this.label9.TabIndex = 115;
+            this.label9.Text = "Patient Name";
+            // 
+            // patContactTb
+            // 
+            this.patContactTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patContactTb.ForeColor = System.Drawing.Color.Black;
+            this.patContactTb.Location = new System.Drawing.Point(623, 69);
+            this.patContactTb.Margin = new System.Windows.Forms.Padding(2);
+            this.patContactTb.Name = "patContactTb";
+            this.patContactTb.Size = new System.Drawing.Size(259, 42);
+            this.patContactTb.TabIndex = 118;
+            this.patContactTb.TextChanged += new System.EventHandler(this.patContactTb_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(618, 40);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 25);
+            this.label1.TabIndex = 117;
+            this.label1.Text = "Contact";
             // 
             // PatientRecords
             // 
@@ -190,17 +195,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
-            this.Controls.Add(this.patNameCb);
+            this.Controls.Add(this.patContactTb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.patNameTb);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.patIdCb);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.viewBtn);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.diagnosesTb);
             this.Controls.Add(this.patRecordsDGV);
-            this.Controls.Add(this.patMedHistoryTb);
+            this.Controls.Add(this.patMedicineTb);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.prescriptionsTb);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -213,16 +218,16 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button viewBtn;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
         private Guna.UI2.WinForms.Guna2Button updateBtn;
-        private System.Windows.Forms.TextBox diagnosesTb;
         private System.Windows.Forms.DataGridView patRecordsDGV;
-        private System.Windows.Forms.TextBox patMedHistoryTb;
+        private System.Windows.Forms.TextBox patMedicineTb;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox prescriptionsTb;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox patNameCb;
+        private System.Windows.Forms.ComboBox patIdCb;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox patNameTb;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox patContactTb;
+        private System.Windows.Forms.Label label1;
     }
 }
