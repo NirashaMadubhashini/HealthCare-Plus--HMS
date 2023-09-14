@@ -72,6 +72,7 @@
             this.btnReport = new FontAwesome.Sharp.IconButton();
             this.btnLaboratoryTest = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
+            this.chartPnl = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.panelTitleBar.SuspendLayout();
@@ -194,7 +195,7 @@
             this.btnRooms.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
             this.btnRooms.Size = new System.Drawing.Size(345, 78);
             this.btnRooms.TabIndex = 6;
-            this.btnRooms.Text = "Room and Theater";
+            this.btnRooms.Text = "Rooms";
             this.btnRooms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRooms.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRooms.UseVisualStyleBackColor = false;
@@ -323,6 +324,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.chartPnl);
             this.panelDesktop.Controls.Add(this.panel3);
             this.panelDesktop.Controls.Add(this.panel2);
             this.panelDesktop.Controls.Add(this.lblDateTime);
@@ -345,10 +347,10 @@
             this.panel3.Controls.Add(this.resourcesNumlbl);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(779, 260);
+            this.panel3.Location = new System.Drawing.Point(829, 371);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(292, 96);
+            this.panel3.Size = new System.Drawing.Size(278, 96);
             this.panel3.TabIndex = 20;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -370,7 +372,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label10.Location = new System.Drawing.Point(152, 17);
+            this.label10.Location = new System.Drawing.Point(138, 17);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(134, 30);
@@ -395,10 +397,10 @@
             this.panel2.Controls.Add(this.roomNumlbl);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(82, 410);
+            this.panel2.Location = new System.Drawing.Point(829, 250);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 96);
+            this.panel2.Size = new System.Drawing.Size(278, 96);
             this.panel2.TabIndex = 21;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -467,10 +469,10 @@
             this.panel1.Controls.Add(this.billingNumlbl);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(779, 410);
+            this.panel1.Location = new System.Drawing.Point(829, 497);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 96);
+            this.panel1.Size = new System.Drawing.Size(278, 96);
             this.panel1.TabIndex = 20;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -517,10 +519,10 @@
             this.panel6.Controls.Add(this.StaffNumlbl);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Location = new System.Drawing.Point(433, 260);
+            this.panel6.Location = new System.Drawing.Point(529, 371);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(286, 96);
+            this.panel6.Size = new System.Drawing.Size(272, 96);
             this.panel6.TabIndex = 19;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -542,7 +544,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label7.Location = new System.Drawing.Point(212, 12);
+            this.label7.Location = new System.Drawing.Point(198, 15);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 30);
@@ -567,10 +569,10 @@
             this.panel5.Controls.Add(this.PatNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(433, 410);
+            this.panel5.Location = new System.Drawing.Point(529, 497);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(286, 96);
+            this.panel5.Size = new System.Drawing.Size(272, 96);
             this.panel5.TabIndex = 19;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -617,10 +619,10 @@
             this.panel4.Controls.Add(this.DocNumlbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(82, 260);
+            this.panel4.Location = new System.Drawing.Point(529, 250);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(286, 96);
+            this.panel4.Size = new System.Drawing.Size(272, 96);
             this.panel4.TabIndex = 18;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -752,6 +754,14 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // chartPnl
+            // 
+            this.chartPnl.Location = new System.Drawing.Point(0, 211);
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(522, 456);
+            this.chartPnl.TabIndex = 24;
+            this.chartPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl_Paint);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
@@ -842,5 +852,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton btnReport;
         private System.Windows.Forms.PictureBox btnHome;
+        private System.Windows.Forms.Panel chartPnl;
     }
 }

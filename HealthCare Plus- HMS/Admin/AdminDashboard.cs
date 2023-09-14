@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 
 namespace HealthCare_Plus__HMS.Admin
@@ -21,6 +23,11 @@ namespace HealthCare_Plus__HMS.Admin
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private Chart myChart;
+
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+
+
         public AdminDashboard()
         {
             InitializeComponent();
@@ -81,7 +88,6 @@ namespace HealthCare_Plus__HMS.Admin
             public static Color color8 = Color.FromArgb(6, 59, 130);
         }
 
-      SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         private void CountPatients()
         {
@@ -373,6 +379,34 @@ namespace HealthCare_Plus__HMS.Admin
 
         }
 
+        private void chartPnl_Paint(object sender, PaintEventArgs e)
+        {
+            // Step 2: Retrieve the necessary data
+            CountPatients();
+            CountDoctors();
+            CountStaffs();
+            // ... (Call other count methods as well)
+
+            // Step 3: Create a new Chart object, configure it, and add the data to it
+            myChart = new Chart();
+            ChartArea chartArea = new ChartArea();
+            myChart.ChartAreas.Add(chartArea);
+
+            Series series = new Series();
+            series.Name = "DataSeries";
+            series.ChartType = SeriesChartType.Column;
+
+            series.Points.AddXY("Patients", int.Parse(PatNumlbl.Text));
+            series.Points.AddXY("Doctors", int.Parse(DocNumlbl.Text));
+            series.Points.AddXY("Staffs", int.Parse(StaffNumlbl.Text));
+            // ... (Add other data points as needed)
+
+            myChart.Series.Add(series);
+
+            // Step 4: Add the Chart object to your chartPnl panel
+            myChart.Dock = DockStyle.Fill;
+            chartPnl.Controls.Add(myChart);
+        }
 
     }
 }

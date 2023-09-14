@@ -248,9 +248,9 @@
             this.label3.Location = new System.Drawing.Point(562, 188);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 23);
+            this.label3.Size = new System.Drawing.Size(224, 23);
             this.label3.TabIndex = 112;
-            this.label3.Text = "Search by Name";
+            this.label3.Text = "Search by Room Type";
             // 
             // searchTb
             // 
