@@ -5,10 +5,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HealthCare_Plus__HMS.Staff
 {
@@ -22,6 +24,8 @@ namespace HealthCare_Plus__HMS.Staff
             LoadPatientIds();
             LoadDoctorIds(); // Load doctor IDs when the form loads
 
+            hospitalChargeTb.Text = "800";
+            docChargeTb.Text = "1500";
         }
 
         private void LoadDoctorIds()
@@ -236,7 +240,23 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void reSheduleBtn_Click(object sender, EventArgs e)
         {
-           
+            if (string.IsNullOrEmpty(appoinmentSumTxt.Text))
+            {
+                MessageBox.Show("No appointment summary to print.");
+                return;
+            }
+
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_1);
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDoc;
+
+            DialogResult result = printDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
         }
         private void appoinmentNoteTb_TextChanged(object sender, EventArgs e)
         {
@@ -263,7 +283,36 @@ namespace HealthCare_Plus__HMS.Staff
 
         }
 
+        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
+        {
+            string textToPrint = appoinmentSumTxt.Text;
+            Font printFont = new Font("Arial", 12);
+            e.Graphics.DrawString(textToPrint, printFont, Brushes.Black, 10, 10);
+        }
 
-     
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            // Clear all text boxes
+            patFirstNameTb.Text = string.Empty;
+            patLastNameTb.Text = string.Empty;
+            patContactTb.Text = string.Empty;
+            docNameTb.Text = string.Empty;
+            specializationTb.Text = string.Empty;
+            docRoomTb.Text = string.Empty;
+            hospitalChargeTb.Text = string.Empty;
+            docChargeTb.Text = string.Empty;
+            appoinmentSumTxt.Text = string.Empty;
+            
+
+            // Reset all combo boxes
+            patIdCb.SelectedIndex = -1;
+            docIdCb.SelectedIndex = -1;
+            docAvailCb.SelectedIndex = -1;
+            
+
+            // Reset DateTimePicker
+            appointmentDateDTP.Value = DateTime.Now;
+        }
+
     }
 }

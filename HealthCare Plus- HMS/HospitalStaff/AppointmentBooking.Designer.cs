@@ -58,6 +58,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.docAvailCb = new System.Windows.Forms.ComboBox();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label4
@@ -382,6 +383,10 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
             // docAvailCb
             // 
             this.docAvailCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,12 +397,31 @@
             this.docAvailCb.Size = new System.Drawing.Size(266, 42);
             this.docAvailCb.TabIndex = 170;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.Gray;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(734, 643);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 171;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // AppointmentBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.docAvailCb);
             this.Controls.Add(this.docChargeTb);
             this.Controls.Add(this.label1);
@@ -465,5 +489,6 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ComboBox docAvailCb;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
     }
 }
