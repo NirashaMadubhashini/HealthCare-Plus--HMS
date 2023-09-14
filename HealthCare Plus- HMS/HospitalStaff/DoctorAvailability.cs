@@ -27,7 +27,41 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
             LoadDoctorIDs();
 
+            docAvailableDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(docAvailableDGV_DataBindingComplete);
+            docAvailableDGV.CellClick += new DataGridViewCellEventHandler(docAvailableDGV_CellContentClick);
+
+
         }
+
+        private void ResetForm()
+        {
+            // Clear text fields
+            docNameTb.Text = "";
+            docSpecTb.Text = "";
+            docRoomTb.Text = "";
+
+            // Uncheck checkboxes
+            mondayCheckBox.Checked = false;
+            tuesdayCheckBox.Checked = false;
+            wednesdayCheckBox.Checked = false;
+            thursdayCheckBox.Checked = false;
+            fridayCheckBox.Checked = false;
+            saturdayCheckBox.Checked = false;
+            sundayCheckBox.Checked = false;
+
+            // Set date pickers to default values (if any)
+            startTimeCb.Value = DateTime.Now;
+            endTimeCb.Value = DateTime.Now;
+
+            // Clear selection in combobox
+            docIdCb.SelectedIndex = -1;
+
+            // Uncheck vacation checkbox
+            vacationCheckBox.Checked = false;
+
+            // Additional controls can be reset here if needed
+        }
+
 
         private void LoadDoctorIDs()
         {
@@ -44,6 +78,12 @@ namespace HealthCare_Plus__HMS.HospitalStaff
                 }
 
                 dr.Close();
+
+                // Load data into the DataGridView
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM DoctorAvailabileTbl", Con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                docAvailableDGV.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -55,10 +95,60 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             }
         }
 
+        private void PopulateFieldsFromSelectedRow()
+        {
+            if (docAvailableDGV.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = docAvailableDGV.SelectedRows[0];
+
+                // Assuming your DataGridView columns have specific names, update these names accordingly
+                docIdCb.SelectedItem = selectedRow.Cells["doctor_id"].Value.ToString();
+                // Other fields can be populated similarly
+            }
+        }
+
         private void addBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string weekDays = string.Join(",",
+                    new List<string>()
+                    {
+                mondayCheckBox.Checked ? "Monday" : string.Empty,
+                tuesdayCheckBox.Checked ? "Tuesday" : string.Empty,
+                wednesdayCheckBox.Checked ? "Wednesday" : string.Empty,
+                thursdayCheckBox.Checked ? "Thursday" : string.Empty,
+                fridayCheckBox.Checked ? "Friday" : string.Empty,
+                saturdayCheckBox.Checked ? "Saturday" : string.Empty,
+                sundayCheckBox.Checked ? "Sunday" : string.Empty,
+                    }.Where(s => !string.IsNullOrEmpty(s))
+                );
 
+                Con.Open();
+                string query = "INSERT INTO DoctorAvailabileTbl (doctor_id,weekDays, availabilityStartTime, availabilityEndTime,doctorIsVacation) VALUES (@DoctorId, @WeekDays, @Start_time, @End_time, @IsOnVacation)";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@DoctorId", int.Parse(docIdCb.SelectedItem.ToString()));
+                cmd.Parameters.AddWithValue("@WeekDays", weekDays);
+                cmd.Parameters.AddWithValue("@Start_time", startTimeCb.Value.TimeOfDay);
+                cmd.Parameters.AddWithValue("@End_time", endTimeCb.Value.TimeOfDay);
+                cmd.Parameters.AddWithValue("@IsOnVacation", vacationCheckBox.Checked);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Availability details added successfully");
+                ResetForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+                LoadDoctorIDs();
+            }
         }
+
 
 
 
@@ -72,20 +162,63 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
 
         }
+
+        private void docAvailableDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in docAvailableDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void docAvailableDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                PopulateFieldsFromSelectedRow();
+            }
 
-            
         }
 
 
         private void docIdCb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (docIdCb.SelectedItem != null)
+                {
+                    Con.Open();
+                    string query = "SELECT U.userName, D.doctorSpecialization, D.roomNumber FROM DoctorTbl D INNER JOIN UserTbl U ON D.doctor_id = U.user_id WHERE D.doctor_id = @doctor_id";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.Parameters.AddWithValue("@doctor_id", docIdCb.SelectedItem.ToString());
+                    SqlDataReader dr = cmd.ExecuteReader();
 
+                    if (dr.Read())
+                    {
+                        docNameTb.Text = dr["userName"].ToString();
+                        docSpecTb.Text = dr["doctorSpecialization"].ToString();
+                        docRoomTb.Text = dr["roomNumber"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No details found for the selected ID");
+                    }
+
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
 
-    private void docNameTb_TextChanged(object sender, EventArgs e)
+
+        private void docNameTb_TextChanged(object sender, EventArgs e)
         {
 
         }
