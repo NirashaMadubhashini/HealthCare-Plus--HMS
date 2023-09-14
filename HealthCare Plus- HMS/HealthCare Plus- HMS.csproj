@@ -498,6 +498,12 @@
     <Compile Include="Doctor\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="HospitalStaff\DoctorAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HospitalStaff\DoctorAvailability.Designer.cs">
+      <DependentUpon>DoctorAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="HospitalStaff\Medication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -578,6 +584,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HospitalStaff\DoctorAvailability.resx">
+      <DependentUpon>DoctorAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HospitalStaff\Medication.resx">
       <DependentUpon>Medication.cs</DependentUpon>

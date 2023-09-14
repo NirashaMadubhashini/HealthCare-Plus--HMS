@@ -51,13 +51,13 @@
             this.docRoomTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.appoinmentSumTxt = new System.Windows.Forms.RichTextBox();
-            this.docAvailTb = new System.Windows.Forms.TextBox();
             this.docChargeTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hospitalChargeTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.docAvailCb = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label4
@@ -326,17 +326,6 @@
             this.appoinmentSumTxt.TabIndex = 164;
             this.appoinmentSumTxt.Text = "";
             // 
-            // docAvailTb
-            // 
-            this.docAvailTb.Enabled = false;
-            this.docAvailTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docAvailTb.ForeColor = System.Drawing.Color.Black;
-            this.docAvailTb.Location = new System.Drawing.Point(381, 482);
-            this.docAvailTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.docAvailTb.Name = "docAvailTb";
-            this.docAvailTb.Size = new System.Drawing.Size(211, 42);
-            this.docAvailTb.TabIndex = 165;
-            // 
             // docChargeTb
             // 
             this.docChargeTb.Enabled = false;
@@ -394,17 +383,27 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // docAvailCb
+            // 
+            this.docAvailCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docAvailCb.FormattingEnabled = true;
+            this.docAvailCb.Location = new System.Drawing.Point(383, 479);
+            this.docAvailCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.docAvailCb.Name = "docAvailCb";
+            this.docAvailCb.Size = new System.Drawing.Size(209, 42);
+            this.docAvailCb.TabIndex = 170;
+            // 
             // AppointmentBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.docAvailCb);
             this.Controls.Add(this.docChargeTb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.hospitalChargeTb);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.docAvailTb);
             this.Controls.Add(this.appoinmentSumTxt);
             this.Controls.Add(this.docRoomTb);
             this.Controls.Add(this.label9);
@@ -460,12 +459,12 @@
         private System.Windows.Forms.TextBox docRoomTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox appoinmentSumTxt;
-        private System.Windows.Forms.TextBox docAvailTb;
         private System.Windows.Forms.TextBox docChargeTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox hospitalChargeTb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ComboBox docAvailCb;
     }
 }

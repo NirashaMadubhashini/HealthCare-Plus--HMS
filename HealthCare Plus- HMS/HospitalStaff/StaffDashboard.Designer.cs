@@ -60,12 +60,14 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnBill = new FontAwesome.Sharp.IconButton();
             this.btnMedication = new FontAwesome.Sharp.IconButton();
+            this.btnAvailability = new FontAwesome.Sharp.IconButton();
             this.btnDoctor = new FontAwesome.Sharp.IconButton();
             this.btnPatientRecords = new FontAwesome.Sharp.IconButton();
             this.btnAppointmentBooking = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
+            this.btnBill = new FontAwesome.Sharp.IconButton();
+            this.chartPnl = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.panelTitleBar.SuspendLayout();
@@ -194,6 +196,7 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.chartPnl);
             this.panelDesktop.Controls.Add(this.panel3);
             this.panelDesktop.Controls.Add(this.panel1);
             this.panelDesktop.Controls.Add(this.panel2);
@@ -207,6 +210,7 @@
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1155, 729);
             this.panelDesktop.TabIndex = 15;
+            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
             // panel3
             // 
@@ -215,10 +219,10 @@
             this.panel3.Controls.Add(this.billingNumlbl);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(407, 567);
+            this.panel3.Location = new System.Drawing.Point(702, 499);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(354, 120);
+            this.panel3.Size = new System.Drawing.Size(272, 96);
             this.panel3.TabIndex = 35;
             // 
             // billingNumlbl
@@ -226,7 +230,7 @@
             this.billingNumlbl.AutoSize = true;
             this.billingNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billingNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.billingNumlbl.Location = new System.Drawing.Point(227, 54);
+            this.billingNumlbl.Location = new System.Drawing.Point(202, 39);
             this.billingNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.billingNumlbl.Name = "billingNumlbl";
             this.billingNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -238,17 +242,17 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label8.Location = new System.Drawing.Point(101, 12);
+            this.label8.Location = new System.Drawing.Point(198, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(254, 30);
+            this.label8.Size = new System.Drawing.Size(55, 30);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Billing and Invoicing";
+            this.label8.Text = "Bills";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(15, 29);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 14);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(68, 62);
@@ -263,10 +267,10 @@
             this.panel1.Controls.Add(this.docNumLbl);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(174, 393);
+            this.panel1.Location = new System.Drawing.Point(847, 269);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(354, 120);
+            this.panel1.Size = new System.Drawing.Size(272, 96);
             this.panel1.TabIndex = 27;
             // 
             // docNumLbl
@@ -274,7 +278,7 @@
             this.docNumLbl.AutoSize = true;
             this.docNumLbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.docNumLbl.Location = new System.Drawing.Point(255, 69);
+            this.docNumLbl.Location = new System.Drawing.Point(192, 53);
             this.docNumLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.docNumLbl.Name = "docNumLbl";
             this.docNumLbl.Size = new System.Drawing.Size(51, 37);
@@ -287,7 +291,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label4.Location = new System.Drawing.Point(227, 15);
+            this.label4.Location = new System.Drawing.Point(162, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 30);
@@ -297,7 +301,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 20);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 62);
@@ -312,10 +316,10 @@
             this.panel2.Controls.Add(this.medNumLbl);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(626, 393);
+            this.panel2.Location = new System.Drawing.Point(847, 380);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(354, 120);
+            this.panel2.Size = new System.Drawing.Size(272, 96);
             this.panel2.TabIndex = 28;
             // 
             // medNumLbl
@@ -323,7 +327,7 @@
             this.medNumLbl.AutoSize = true;
             this.medNumLbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.medNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.medNumLbl.Location = new System.Drawing.Point(245, 69);
+            this.medNumLbl.Location = new System.Drawing.Point(193, 45);
             this.medNumLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.medNumLbl.Name = "medNumLbl";
             this.medNumLbl.Size = new System.Drawing.Size(51, 37);
@@ -336,7 +340,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label7.Location = new System.Drawing.Point(185, 28);
+            this.label7.Location = new System.Drawing.Point(115, 15);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 30);
@@ -346,7 +350,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 15);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(68, 62);
@@ -361,10 +365,10 @@
             this.panel4.Controls.Add(this.appoinmentNumlbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(174, 206);
+            this.panel4.Location = new System.Drawing.Point(555, 269);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(354, 120);
+            this.panel4.Size = new System.Drawing.Size(272, 96);
             this.panel4.TabIndex = 33;
             // 
             // appoinmentNumlbl
@@ -372,7 +376,7 @@
             this.appoinmentNumlbl.AutoSize = true;
             this.appoinmentNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appoinmentNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.appoinmentNumlbl.Location = new System.Drawing.Point(255, 69);
+            this.appoinmentNumlbl.Location = new System.Drawing.Point(192, 46);
             this.appoinmentNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.appoinmentNumlbl.Name = "appoinmentNumlbl";
             this.appoinmentNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -385,7 +389,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label5.Location = new System.Drawing.Point(176, 15);
+            this.label5.Location = new System.Drawing.Point(94, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 30);
@@ -395,7 +399,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(14, 28);
+            this.pictureBox8.Location = new System.Drawing.Point(14, 15);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(68, 62);
@@ -410,10 +414,10 @@
             this.panel5.Controls.Add(this.patientRecordsNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(626, 206);
+            this.panel5.Location = new System.Drawing.Point(555, 380);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(354, 120);
+            this.panel5.Size = new System.Drawing.Size(272, 96);
             this.panel5.TabIndex = 34;
             // 
             // patientRecordsNumlbl
@@ -421,7 +425,7 @@
             this.patientRecordsNumlbl.AutoSize = true;
             this.patientRecordsNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientRecordsNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.patientRecordsNumlbl.Location = new System.Drawing.Point(245, 69);
+            this.patientRecordsNumlbl.Location = new System.Drawing.Point(193, 46);
             this.patientRecordsNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.patientRecordsNumlbl.Name = "patientRecordsNumlbl";
             this.patientRecordsNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -434,17 +438,17 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.label3.Location = new System.Drawing.Point(147, 28);
+            this.label3.Location = new System.Drawing.Point(160, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(199, 30);
+            this.label3.Size = new System.Drawing.Size(106, 30);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Patient Records";
+            this.label3.Text = "Patients";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(15, 28);
+            this.pictureBox4.Location = new System.Drawing.Point(15, 15);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(68, 62);
@@ -479,8 +483,9 @@
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.btnBill);
-            this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnMedication);
+            this.panelMenu.Controls.Add(this.btnLogout);
+            this.panelMenu.Controls.Add(this.btnAvailability);
             this.panelMenu.Controls.Add(this.btnDoctor);
             this.panelMenu.Controls.Add(this.btnPatientRecords);
             this.panelMenu.Controls.Add(this.btnAppointmentBooking);
@@ -491,30 +496,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(347, 729);
             this.panelMenu.TabIndex = 12;
-            // 
-            // btnBill
-            // 
-            this.btnBill.BackColor = System.Drawing.Color.White;
-            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBill.FlatAppearance.BorderSize = 0;
-            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.btnBill.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
-            this.btnBill.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.btnBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBill.IconSize = 40;
-            this.btnBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill.Location = new System.Drawing.Point(0, 490);
-            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnBill.Name = "btnBill";
-            this.btnBill.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnBill.Size = new System.Drawing.Size(345, 98);
-            this.btnBill.TabIndex = 7;
-            this.btnBill.Text = "Bill";
-            this.btnBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBill.UseVisualStyleBackColor = false;
-            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // btnMedication
             // 
@@ -528,17 +509,41 @@
             this.btnMedication.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMedication.IconSize = 40;
             this.btnMedication.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMedication.Location = new System.Drawing.Point(0, 392);
+            this.btnMedication.Location = new System.Drawing.Point(0, 390);
             this.btnMedication.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnMedication.Name = "btnMedication";
             this.btnMedication.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnMedication.Size = new System.Drawing.Size(345, 98);
-            this.btnMedication.TabIndex = 5;
+            this.btnMedication.Size = new System.Drawing.Size(345, 78);
+            this.btnMedication.TabIndex = 7;
             this.btnMedication.Text = "Medication";
             this.btnMedication.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMedication.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMedication.UseVisualStyleBackColor = false;
-            this.btnMedication.Click += new System.EventHandler(this.btnMedication_Click);
+            this.btnMedication.Click += new System.EventHandler(this.btnBill_Click);
+            // 
+            // btnAvailability
+            // 
+            this.btnAvailability.BackColor = System.Drawing.Color.White;
+            this.btnAvailability.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAvailability.FlatAppearance.BorderSize = 0;
+            this.btnAvailability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvailability.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnAvailability.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.btnAvailability.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnAvailability.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAvailability.IconSize = 40;
+            this.btnAvailability.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAvailability.Location = new System.Drawing.Point(0, 312);
+            this.btnAvailability.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAvailability.Name = "btnAvailability";
+            this.btnAvailability.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnAvailability.Size = new System.Drawing.Size(345, 78);
+            this.btnAvailability.TabIndex = 5;
+            this.btnAvailability.Text = "Doctor Availability";
+            this.btnAvailability.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAvailability.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAvailability.UseVisualStyleBackColor = false;
+            this.btnAvailability.Click += new System.EventHandler(this.btnMedication_Click);
             // 
             // btnDoctor
             // 
@@ -552,11 +557,11 @@
             this.btnDoctor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDoctor.IconSize = 40;
             this.btnDoctor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoctor.Location = new System.Drawing.Point(0, 294);
+            this.btnDoctor.Location = new System.Drawing.Point(0, 234);
             this.btnDoctor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDoctor.Name = "btnDoctor";
             this.btnDoctor.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnDoctor.Size = new System.Drawing.Size(345, 98);
+            this.btnDoctor.Size = new System.Drawing.Size(345, 78);
             this.btnDoctor.TabIndex = 4;
             this.btnDoctor.Text = "Doctor";
             this.btnDoctor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -576,11 +581,11 @@
             this.btnPatientRecords.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPatientRecords.IconSize = 40;
             this.btnPatientRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatientRecords.Location = new System.Drawing.Point(0, 196);
+            this.btnPatientRecords.Location = new System.Drawing.Point(0, 156);
             this.btnPatientRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPatientRecords.Name = "btnPatientRecords";
             this.btnPatientRecords.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnPatientRecords.Size = new System.Drawing.Size(345, 98);
+            this.btnPatientRecords.Size = new System.Drawing.Size(345, 78);
             this.btnPatientRecords.TabIndex = 3;
             this.btnPatientRecords.Text = "Patient Records";
             this.btnPatientRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -600,13 +605,13 @@
             this.btnAppointmentBooking.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAppointmentBooking.IconSize = 40;
             this.btnAppointmentBooking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppointmentBooking.Location = new System.Drawing.Point(0, 98);
+            this.btnAppointmentBooking.Location = new System.Drawing.Point(0, 78);
             this.btnAppointmentBooking.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAppointmentBooking.Name = "btnAppointmentBooking";
             this.btnAppointmentBooking.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnAppointmentBooking.Size = new System.Drawing.Size(345, 98);
+            this.btnAppointmentBooking.Size = new System.Drawing.Size(345, 78);
             this.btnAppointmentBooking.TabIndex = 2;
-            this.btnAppointmentBooking.Text = "Appointment Booking";
+            this.btnAppointmentBooking.Text = "Appointments";
             this.btnAppointmentBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAppointmentBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAppointmentBooking.UseVisualStyleBackColor = false;
@@ -628,13 +633,44 @@
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(345, 98);
+            this.btnDashboard.Size = new System.Drawing.Size(345, 78);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.White;
+            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBill.FlatAppearance.BorderSize = 0;
+            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnBill.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
+            this.btnBill.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBill.IconSize = 40;
+            this.btnBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBill.Location = new System.Drawing.Point(0, 468);
+            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnBill.Size = new System.Drawing.Size(345, 78);
+            this.btnBill.TabIndex = 8;
+            this.btnBill.Text = "Bill";
+            this.btnBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBill.UseVisualStyleBackColor = false;
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click_1);
+            // 
+            // chartPnl
+            // 
+            this.chartPnl.Location = new System.Drawing.Point(0, 204);
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(536, 456);
+            this.chartPnl.TabIndex = 36;
             // 
             // StaffDashboard
             // 
@@ -688,7 +724,7 @@
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton btnMedication;
+        private FontAwesome.Sharp.IconButton btnAvailability;
         private FontAwesome.Sharp.IconButton btnDoctor;
         private FontAwesome.Sharp.IconButton btnPatientRecords;
         private FontAwesome.Sharp.IconButton btnAppointmentBooking;
@@ -712,10 +748,12 @@
         private System.Windows.Forms.Label patientRecordsNumlbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private FontAwesome.Sharp.IconButton btnBill;
+        private FontAwesome.Sharp.IconButton btnMedication;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label billingNumlbl;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private FontAwesome.Sharp.IconButton btnBill;
+        private System.Windows.Forms.Panel chartPnl;
     }
 }

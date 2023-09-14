@@ -219,10 +219,16 @@ namespace HealthCare_Plus__HMS.Staff
         private void btnMedication_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Medication());
+            OpenChildForm(new DoctorAvailability());
         }
 
         private void btnBill_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Medication());
+        }
+
+        private void btnBill_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Billing());
@@ -247,6 +253,9 @@ namespace HealthCare_Plus__HMS.Staff
             CountMedications();
         }
 
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
