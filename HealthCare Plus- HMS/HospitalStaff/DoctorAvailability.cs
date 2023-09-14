@@ -19,12 +19,18 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
             InitializeComponent();
             LoadDoctorIds();
+            LoadDoctorAvailability(); // Ensure data is loaded when the form is opened
 
             startTimeCb.Format = DateTimePickerFormat.Time;
             startTimeCb.ShowUpDown = true;
             endTimeCb.Format = DateTimePickerFormat.Time;
             endTimeCb.ShowUpDown = true;
+
+            docAvailableDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(docAvailableDGV_DataBindingComplete);
+            docAvailableDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
+
 
 
         private void LoadDoctorIds()
@@ -54,11 +60,19 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
             try
             {
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+
                 Con.Open();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DoctorAvailabileTbl", Con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 docAvailableDGV.DataSource = dt;
+
+                // Make the table data fit to the table size
+                docAvailableDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (SqlException sqlEx)
             {
@@ -73,6 +87,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
                 Con.Close();
             }
         }
+
 
 
         private bool ValidateInputs()
@@ -161,6 +176,13 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         }
 
+        private void docAvailableDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in docAvailableDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void docAvailableDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
