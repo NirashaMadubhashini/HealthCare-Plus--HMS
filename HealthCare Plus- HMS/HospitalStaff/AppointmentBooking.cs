@@ -99,7 +99,37 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void patNameCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (patIdCb.SelectedItem != null)
+            {
+                int selectedPatientId = Convert.ToInt32(patIdCb.SelectedItem.ToString());
+
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT PatientFirstName, PatientLastName, PatientContact FROM PatientTbl WHERE patient_id = @PatientId", Con);
+                    cmd.Parameters.AddWithValue("@PatientId", selectedPatientId);
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        patFirstNameTb.Text = rdr["PatientFirstName"].ToString();
+                        patLastNameTb.Text = rdr["PatientLastName"].ToString();
+                       patContactTb.Text = rdr["PatientContact"].ToString();
+                    }
+
+                    rdr.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (Con.State == ConnectionState.Open)
+                        Con.Close();
+                }
+            }
         }
 
         private void patIdTb_TextChanged(object sender, EventArgs e)
