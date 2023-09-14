@@ -327,6 +327,7 @@
             this.appoinmentSumTxt.Size = new System.Drawing.Size(477, 449);
             this.appoinmentSumTxt.TabIndex = 164;
             this.appoinmentSumTxt.Text = "";
+            this.appoinmentSumTxt.TextChanged += new System.EventHandler(this.appoinmentSumTxt_TextChanged);
             // 
             // docChargeTb
             // 

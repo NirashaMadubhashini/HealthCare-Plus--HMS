@@ -210,53 +210,31 @@ namespace HealthCare_Plus__HMS.Staff
                 decimal totalAmount = hospitalCharge + doctorCharge;
 
                 StringBuilder bill = new StringBuilder();
+                bill.AppendLine($"              ------- BILL REPORT -------");
+                bill.AppendLine(DateTime.Now.ToString("f")); // Adding current date and time
+                bill.AppendLine(new string('-', 60)); // Add a separator
 
-                bill.AppendLine("********************************************************************");
-                bill.AppendLine("                          HealthCare Plus");
-                bill.AppendLine("                  49/12 Circular Road, Galle, Sri Lanka");
-                bill.AppendLine("                      Contact: 076-131-9259");
-                bill.AppendLine("********************************************************************");
-                bill.AppendLine();
+                // Add desired details about the appointment from your existing controls
+                // or from selected row of a DataGridView (assuming you have one)
+                bill.AppendLine($"Patient Name   : {patFirstNameTb.Text} {patLastNameTb.Text}");
+                bill.AppendLine($"Doctor Name    : {docNameTb.Text}");
+                bill.AppendLine($"Appointment Date: {appointmentDateDTP.Value:dd/MM/yyyy}");
+                bill.AppendLine("------------------");
 
-                // Patient Details
-                bill.AppendLine("Patient Details");
-                bill.AppendLine("--------------------");
-                bill.AppendLine($"Name          : {patFirstNameTb.Text} {patLastNameTb.Text}");
-                bill.AppendLine($"ID            : {patIdCb.SelectedItem}");
-                bill.AppendLine($"Contact       : {patContactTb.Text}");
-                bill.AppendLine();
-
-                // Doctor Details
-                bill.AppendLine("Doctor Details");
-                bill.AppendLine("--------------------");
-                bill.AppendLine($"ID            : {docIdCb.SelectedItem}");
-                bill.AppendLine($"Name          : {docNameTb.Text}");
-                bill.AppendLine($"Specialization: {specializationTb.Text}");
-                bill.AppendLine($"Room No       : {docRoomTb.Text}");
-                bill.AppendLine();
-
-                // Appointment Details
-                bill.AppendLine("Appointment Details");
-                bill.AppendLine("--------------------");
-                bill.AppendLine($"Date          : {appointmentDateDTP.Value:dd/MM/yyyy}");
-                bill.AppendLine();
-
-                // Charges Details
-                bill.AppendLine("Charges Detail");
-                bill.AppendLine("--------------------");
+                // Charges Detail
                 bill.AppendLine($"Hospital Charges: {hospitalCharge:C2}");
                 bill.AppendLine($"Doctor Charges  : {doctorCharge:C2}");
-                bill.AppendLine("--------------------");
+                bill.AppendLine("------------------");
                 bill.AppendLine($"Total Amount    : {totalAmount:C2}");
-                bill.AppendLine();
+                bill.AppendLine(new string('-', 60)); // Add a separator
 
                 // Thank You Note
-                bill.AppendLine("               Thank you for choosing HealthCare Plus!");
-                bill.AppendLine("                           Visit again.");
-                bill.AppendLine("********************************************************************");
+                bill.AppendLine("          Thank you for choosing HealthCare Plus!");
+                bill.AppendLine("                      Visit again.");
+                bill.AppendLine(new string('-', 60)); // Add a separator
 
-                // Display the bill in the TextBox
-                appoinmentSumTxt.Text = bill.ToString();
+                appoinmentSumTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
+                appoinmentSumTxt.Text = bill.ToString(); // Set the bill text
             }
             catch
             {
@@ -313,9 +291,29 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
         {
-            string textToPrint = appoinmentSumTxt.Text;
-            Font printFont = new Font("Arial", 12);
-            e.Graphics.DrawString(textToPrint, printFont, Brushes.Black, 10, 10);
+            Font printFont = new Font("Courier New", 12); // Changed font to Courier New for better alignment
+            float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
+            int count = 0;
+            float yPos = e.MarginBounds.Top;
+            string[] billLines = appoinmentSumTxt.Text.Split('\n');
+
+            while (count < billLines.Length && count < linesPerPage)
+            {
+                string line = billLines[count];
+                e.Graphics.DrawString(line, printFont, Brushes.Black, e.MarginBounds.Left, yPos, new StringFormat());
+                count++;
+                yPos += printFont.GetHeight(e.Graphics);
+            }
+
+            // Check to see if more pages are to be printed
+            if (count < billLines.Length)
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+            }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
@@ -342,5 +340,9 @@ namespace HealthCare_Plus__HMS.Staff
             appointmentDateDTP.Value = DateTime.Now;
         }
 
+        private void appoinmentSumTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

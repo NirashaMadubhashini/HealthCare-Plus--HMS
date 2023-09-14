@@ -96,9 +96,9 @@
             this.label2.Location = new System.Drawing.Point(32, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(361, 23);
+            this.label2.Size = new System.Drawing.Size(466, 23);
             this.label2.TabIndex = 108;
-            this.label2.Text = "Search by Name and Specialization";
+            this.label2.Text = "Search by Name,Specialization and Weekdays";
             // 
             // searchTb
             // 
@@ -119,7 +119,7 @@
             this.searchTb.PasswordChar = '\0';
             this.searchTb.PlaceholderText = "";
             this.searchTb.SelectedText = "";
-            this.searchTb.Size = new System.Drawing.Size(413, 46);
+            this.searchTb.Size = new System.Drawing.Size(475, 46);
             this.searchTb.TabIndex = 107;
             this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);

@@ -26,13 +26,25 @@ namespace HealthCare_Plus__HMS.Staff
             try
             {
                 Con.Open();
-                string query = "Select doctor_id, doctorSpecialization, userName from DoctorTbl inner join UserTbl on DoctorTbl.doctor_id = UserTbl.user_id";
+                string query = "Select D.doctor_id, doctorSpecialization, userName, weekDays, availabilityStartTime, availabilityEndTime " +
+                               "from DoctorTbl D " +
+                               "inner join UserTbl U on D.doctor_id = U.user_id " +
+                               "inner join DoctorAvailabileTbl DA on D.doctor_id = DA.doctor_id";
                 SqlDataAdapter sda = new SqlDataAdapter(query, Con);
                 var ds = new DataSet();
                 sda.Fill(ds);
                 DoctorLoadDGV.DataSource = null; // Clear the DataSource
                 DoctorLoadDGV.DataSource = ds.Tables[0]; // Set the new DataSource
-                DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+                // Set each column to a fixed portion of the total width
+                int totalWidth = DoctorLoadDGV.Width;
+                DoctorLoadDGV.Columns[0].Width = totalWidth * 10 / 100; // 10% of the total width
+                DoctorLoadDGV.Columns[1].Width = totalWidth * 20 / 100; // 20% of the total width
+                DoctorLoadDGV.Columns[2].Width = totalWidth * 20 / 100; // 20% of the total width
+                DoctorLoadDGV.Columns[3].Width = totalWidth * 15 / 100; // 15% of the total width
+                DoctorLoadDGV.Columns[4].Width = totalWidth * 15 / 100; // 15% of the total width
+                DoctorLoadDGV.Columns[5].Width = totalWidth * 20 / 100; // 20% of the total width
             }
             catch (Exception ex)
             {
@@ -49,26 +61,26 @@ namespace HealthCare_Plus__HMS.Staff
             {
                 Con.Open();
 
-                // Debugging: Display the text from searchTb to ensure it contains the correct value
-                Console.WriteLine($"Search text: {searchTb.Text}");
-
-                string query = "SELECT doctor_id, doctorSpecialization, userName " +
-                               "FROM DoctorTbl " +
-                               "INNER JOIN UserTbl ON DoctorTbl.doctor_id = UserTbl.user_id " +
-                               "WHERE userName LIKE @nameParam OR doctorSpecialization LIKE @specializationParam";
+                string query = "SELECT D.doctor_id, doctorSpecialization, userName, weekDays, availabilityStartTime, availabilityEndTime " +
+                    "FROM DoctorTbl D " +
+                    "INNER JOIN UserTbl U ON D.doctor_id = U.user_id " +
+                    "INNER JOIN DoctorAvailabileTbl DA ON D.doctor_id = DA.doctor_id " +
+                    "WHERE (userName LIKE @nameParam OR doctorSpecialization LIKE @specializationParam OR weekDays LIKE @weekDaysParam " +
+                    "OR FORMAT(availabilityStartTime, 'hh:mm tt') LIKE @timeParam OR FORMAT(availabilityEndTime, 'hh:mm tt') LIKE @timeParam)";
 
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("@nameParam", "%" + searchTb.Text + "%");
                 cmd.Parameters.AddWithValue("@specializationParam", "%" + searchTb.Text + "%");
-
-                // Debugging: Display the SQL command to be executed
-                Console.WriteLine($"SQL Command: {cmd.CommandText}");
+                cmd.Parameters.AddWithValue("@weekDaysParam", "%" + searchTb.Text + "%");
+                cmd.Parameters.AddWithValue("@timeParam", "%" + searchTb.Text + "%");
 
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 var ds = new DataSet();
                 sda.Fill(ds);
                 DoctorLoadDGV.DataSource = null; // Clear the DataSource
                 DoctorLoadDGV.DataSource = ds.Tables[0]; // Set the new DataSource
+
+                SetColumnWidths(); // Call a new method to set the column widths
             }
             catch (Exception ex)
             {
@@ -80,7 +92,16 @@ namespace HealthCare_Plus__HMS.Staff
             }
         }
 
-
+        private void SetColumnWidths()
+        {
+            int totalWidth = DoctorLoadDGV.Width;
+            DoctorLoadDGV.Columns[0].Width = totalWidth * 10 / 100; // 10% of the total width
+            DoctorLoadDGV.Columns[1].Width = totalWidth * 20 / 100; // 20% of the total width
+            DoctorLoadDGV.Columns[2].Width = totalWidth * 20 / 100; // 20% of the total width
+            DoctorLoadDGV.Columns[3].Width = totalWidth * 15 / 100; // 15% of the total width
+            DoctorLoadDGV.Columns[4].Width = totalWidth * 15 / 100; // 15% of the total width
+            DoctorLoadDGV.Columns[5].Width = totalWidth * 20 / 100; // 20% of the total width
+        }
 
         private void DoctorLoadDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
