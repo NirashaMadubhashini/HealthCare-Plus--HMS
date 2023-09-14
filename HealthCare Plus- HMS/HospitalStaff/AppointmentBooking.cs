@@ -137,16 +137,107 @@ namespace HealthCare_Plus__HMS.Staff
 
         }
 
-        private void docNameCb_SelectedIndexChanged(object sender, EventArgs e)
+        private void docIdCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            if (docIdCb.SelectedItem != null)
+            {
+                int selectedDoctorId = Convert.ToInt32(docIdCb.SelectedItem.ToString());
+
+                try
+                {
+                    Con.Open();
+
+                    // Fetching the doctor details
+                    SqlCommand cmd = new SqlCommand(@"SELECT U.userName, D.doctorSpecialization, D.roomNumber 
+                                              FROM DoctorTbl D
+                                              JOIN UserTbl U ON D.doctor_id = U.user_id
+                                              WHERE D.doctor_id = @DoctorId", Con);
+                    cmd.Parameters.AddWithValue("@DoctorId", selectedDoctorId);
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                       docNameTb.Text = rdr["userName"].ToString();
+                        specializationTb.Text = rdr["doctorSpecialization"].ToString();
+                        docRoomTb.Text = rdr["roomNumber"].ToString();
+                    }
+
+                    rdr.Close();
+
+                    // Fetching the doctor availability
+                    cmd = new SqlCommand(@"SELECT weekDays, CONVERT(VARCHAR, availabilityStartTime, 0) AS availabilityStartTime, 
+                                   CONVERT(VARCHAR, availabilityEndTime, 0) AS availabilityEndTime 
+                                   FROM DoctorAvailabileTbl
+                                   WHERE doctor_id = @DoctorId", Con);
+                    cmd.Parameters.AddWithValue("@DoctorId", selectedDoctorId);
+
+                    rdr = cmd.ExecuteReader();
+
+                    docAvailCb.Items.Clear(); // Clear existing items
+
+                    while (rdr.Read())
+                    {
+                        string availability = $"{rdr["weekDays"]} {rdr["availabilityStartTime"]} - {rdr["availabilityEndTime"]}";
+                        docAvailCb.Items.Add(availability);
+                    }
+
+                    rdr.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (Con.State == ConnectionState.Open)
+                        Con.Close();
+                }
+            }
         }
 
         private void sheduleBtn_Click(object sender, EventArgs e)
         {
-          
+            try
+            {
+                decimal hospitalCharge = decimal.Parse(hospitalChargeTb.Text);
+                decimal doctorCharge = decimal.Parse(docChargeTb.Text);
+                decimal totalAmount = hospitalCharge + doctorCharge;
+
+                string bill = "********************** HealthCare Plus - Bill **********************\n";
+                bill += "Patient Name: " + patFirstNameTb.Text + " " + patLastNameTb.Text + "\n";
+                bill += "Patient ID: " + patIdCb.SelectedItem.ToString() + "\n";
+                bill += "Contact: " + patContactTb.Text + "\n\n";
+
+                bill += "Doctor ID: " + docIdCb.SelectedItem.ToString() + "\n";
+                bill += "Doctor Name: " + docNameTb.Text + "\n";
+                bill += "Specialization: " + specializationTb.Text + "\n\n";
+
+                bill += "Room No: " + docRoomTb.Text + "\n\n";
+
+                bill += "Appoinment Date : " + appointmentDateDTP.Text + "\n\n";
+
+
+                bill += "Hospital Charges: " + hospitalChargeTb.Text + "\n";
+                bill += "Doctor Charges: " + docChargeTb.Text + "\n";
+                bill += "-------------------------------------------------------------\n";
+                bill += "Total Amount: " + totalAmount.ToString("F2") + "\n";
+                bill += "***************************************************************\n";
+
+                // Display bill (replace txtBill with the name of your TextBox/RichTextBox where you want to display the bill)
+                appoinmentSumTxt.Text = bill;
+            }
+            catch
+            {
+                // Handle invalid number format here, if necessary
+                MessageBox.Show("Invalid number format in charges.");
+            }
         }
 
+        private void reSheduleBtn_Click(object sender, EventArgs e)
+        {
+           
+        }
         private void appoinmentNoteTb_TextChanged(object sender, EventArgs e)
         {
 
@@ -172,10 +263,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         }
 
-        private void reSheduleBtn_Click(object sender, EventArgs e)
-        {
-           
-        }
 
+     
     }
 }

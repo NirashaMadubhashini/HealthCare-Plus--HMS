@@ -65,7 +65,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(378, 447);
+            this.label4.Location = new System.Drawing.Point(36, 452);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(207, 25);
@@ -184,7 +184,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(36, 452);
+            this.label13.Location = new System.Drawing.Point(323, 452);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 25);
@@ -194,10 +194,10 @@
             // appointmentDateDTP
             // 
             this.appointmentDateDTP.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentDateDTP.Location = new System.Drawing.Point(36, 479);
+            this.appointmentDateDTP.Location = new System.Drawing.Point(323, 479);
             this.appointmentDateDTP.Margin = new System.Windows.Forms.Padding(2);
             this.appointmentDateDTP.Name = "appointmentDateDTP";
-            this.appointmentDateDTP.Size = new System.Drawing.Size(320, 42);
+            this.appointmentDateDTP.Size = new System.Drawing.Size(269, 42);
             this.appointmentDateDTP.TabIndex = 152;
             this.appointmentDateDTP.ValueChanged += new System.EventHandler(this.appointmentDateDTP_ValueChanged);
             // 
@@ -256,6 +256,7 @@
             this.docIdCb.Name = "docIdCb";
             this.docIdCb.Size = new System.Drawing.Size(209, 42);
             this.docIdCb.TabIndex = 159;
+            this.docIdCb.SelectedIndexChanged += new System.EventHandler(this.docIdCb_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -328,7 +329,6 @@
             // 
             // docChargeTb
             // 
-            this.docChargeTb.Enabled = false;
             this.docChargeTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docChargeTb.ForeColor = System.Drawing.Color.Black;
             this.docChargeTb.Location = new System.Drawing.Point(329, 586);
@@ -351,7 +351,6 @@
             // 
             // hospitalChargeTb
             // 
-            this.hospitalChargeTb.Enabled = false;
             this.hospitalChargeTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hospitalChargeTb.ForeColor = System.Drawing.Color.Black;
             this.hospitalChargeTb.Location = new System.Drawing.Point(41, 586);
@@ -387,10 +386,10 @@
             // 
             this.docAvailCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docAvailCb.FormattingEnabled = true;
-            this.docAvailCb.Location = new System.Drawing.Point(383, 479);
+            this.docAvailCb.Location = new System.Drawing.Point(38, 479);
             this.docAvailCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.docAvailCb.Name = "docAvailCb";
-            this.docAvailCb.Size = new System.Drawing.Size(209, 42);
+            this.docAvailCb.Size = new System.Drawing.Size(266, 42);
             this.docAvailCb.TabIndex = 170;
             // 
             // AppointmentBooking
