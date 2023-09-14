@@ -37,6 +37,7 @@
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.chartPnl = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.billingNumlbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,14 +61,13 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnBill = new FontAwesome.Sharp.IconButton();
             this.btnMedication = new FontAwesome.Sharp.IconButton();
             this.btnAvailability = new FontAwesome.Sharp.IconButton();
             this.btnDoctor = new FontAwesome.Sharp.IconButton();
             this.btnPatientRecords = new FontAwesome.Sharp.IconButton();
             this.btnAppointmentBooking = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
-            this.btnBill = new FontAwesome.Sharp.IconButton();
-            this.chartPnl = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.panelTitleBar.SuspendLayout();
@@ -211,6 +211,14 @@
             this.panelDesktop.Size = new System.Drawing.Size(1155, 729);
             this.panelDesktop.TabIndex = 15;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // chartPnl
+            // 
+            this.chartPnl.Location = new System.Drawing.Point(0, 204);
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(536, 456);
+            this.chartPnl.TabIndex = 36;
+            this.chartPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl_Paint);
             // 
             // panel3
             // 
@@ -497,6 +505,30 @@
             this.panelMenu.Size = new System.Drawing.Size(347, 729);
             this.panelMenu.TabIndex = 12;
             // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.White;
+            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBill.FlatAppearance.BorderSize = 0;
+            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnBill.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
+            this.btnBill.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.btnBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBill.IconSize = 40;
+            this.btnBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBill.Location = new System.Drawing.Point(0, 468);
+            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
+            this.btnBill.Size = new System.Drawing.Size(345, 78);
+            this.btnBill.TabIndex = 8;
+            this.btnBill.Text = "Bill";
+            this.btnBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBill.UseVisualStyleBackColor = false;
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click_1);
+            // 
             // btnMedication
             // 
             this.btnMedication.BackColor = System.Drawing.Color.White;
@@ -640,37 +672,6 @@
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnBill
-            // 
-            this.btnBill.BackColor = System.Drawing.Color.White;
-            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBill.FlatAppearance.BorderSize = 0;
-            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.btnBill.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
-            this.btnBill.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.btnBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBill.IconSize = 40;
-            this.btnBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill.Location = new System.Drawing.Point(0, 468);
-            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnBill.Name = "btnBill";
-            this.btnBill.Padding = new System.Windows.Forms.Padding(15, 0, 31, 0);
-            this.btnBill.Size = new System.Drawing.Size(345, 78);
-            this.btnBill.TabIndex = 8;
-            this.btnBill.Text = "Bill";
-            this.btnBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBill.UseVisualStyleBackColor = false;
-            this.btnBill.Click += new System.EventHandler(this.btnBill_Click_1);
-            // 
-            // chartPnl
-            // 
-            this.chartPnl.Location = new System.Drawing.Point(0, 204);
-            this.chartPnl.Name = "chartPnl";
-            this.chartPnl.Size = new System.Drawing.Size(536, 456);
-            this.chartPnl.TabIndex = 36;
             // 
             // StaffDashboard
             // 

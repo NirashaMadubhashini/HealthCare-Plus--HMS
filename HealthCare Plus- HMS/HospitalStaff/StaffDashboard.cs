@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HealthCare_Plus__HMS.Staff
 {
@@ -22,6 +23,7 @@ namespace HealthCare_Plus__HMS.Staff
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private Chart myChart;
         public StaffDashboard()
         {
             InitializeComponent();
@@ -256,6 +258,34 @@ namespace HealthCare_Plus__HMS.Staff
         private void panelDesktop_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void chartPnl_Paint(object sender, PaintEventArgs e)
+        {
+            CountPatients();
+            CountDoctors();
+            CountMedications();
+            // ... (Call other count methods as well)
+
+            // Step 3: Create a new Chart object, configure it, and add the data to it
+            myChart = new Chart();
+            ChartArea chartArea = new ChartArea();
+            myChart.ChartAreas.Add(chartArea);
+
+            Series series = new Series();
+            series.Name = "DataSeries";
+            series.ChartType = SeriesChartType.Pie;
+
+            series.Points.AddXY("Patients", int.Parse(patientRecordsNumlbl.Text));
+            series.Points.AddXY("Doctors", int.Parse(docNumLbl.Text));
+            series.Points.AddXY("Medications", int.Parse(medNumLbl.Text));
+            // ... (Add other data points as needed)
+
+            myChart.Series.Add(series);
+
+            // Step 4: Add the Chart object to your chartPnl panel
+            myChart.Dock = DockStyle.Fill;
+            chartPnl.Controls.Add(myChart);
         }
     }
 }
