@@ -79,8 +79,8 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
                 dr.Close();
 
-                // Load data into the DataGridView
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM DoctorAvailabileTbl", Con);
+                // Modifying the query to join with the UserTbl to get the doctor names
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT D.doctor_id, U.userName as doctorName, D.weekDays, D.availabilityStartTime, D.availabilityEndTime, D.doctorIsVacation FROM DoctorAvailabileTbl D INNER JOIN UserTbl U ON D.doctor_id = U.user_id", Con);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 docAvailableDGV.DataSource = dt;
@@ -94,6 +94,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
                 Con.Close();
             }
         }
+
 
 
 
@@ -194,8 +195,53 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Check if a doctor ID is selected
+                if (docIdCb.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a doctor ID.");
+                    return;
+                }
 
+                Con.Open();
+
+                // SQL query to delete the record of the selected doctor ID
+                string query = "DELETE FROM DoctorAvailabileTbl WHERE doctor_id = @DoctorId";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@DoctorId", int.Parse(docIdCb.SelectedItem.ToString()));
+
+                // Execute the SQL command
+                int deletedRows = cmd.ExecuteNonQuery();
+
+                // Check if any rows were deleted
+                if (deletedRows > 0)
+                {
+                    MessageBox.Show("Availability details deleted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("No record found to delete. Please select a valid record.");
+                }
+
+                // Reset the form controls
+                ResetForm();
+            }
+            catch (Exception ex)
+            {
+                // Show any error message
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // Close the database connection
+                Con.Close();
+
+                // Reload the doctor IDs
+                LoadDoctorIDs();
+            }
         }
+
 
         private void docAvailableDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -272,6 +318,36 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             }
         }
 
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"SELECT D.*, U.userName FROM DoctorAvailabileTbl D
+                         INNER JOIN UserTbl U ON D.doctor_id = U.user_id 
+                         WHERE U.userName LIKE @searchText
+                         OR CAST(D.availabilityStartTime AS VARCHAR(5)) LIKE @searchText 
+                         OR CAST(D.availabilityEndTime AS VARCHAR(5)) LIKE @searchText
+                         OR D.weekDays LIKE @searchText";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@searchText", "%" + searchTb.Text + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                docAvailableDGV.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
 
 
         private void docNameTb_TextChanged(object sender, EventArgs e)
@@ -309,10 +385,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         }
 
-        private void searchTb_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void mondayCheckBox_CheckedChanged(object sender, EventArgs e)
         {

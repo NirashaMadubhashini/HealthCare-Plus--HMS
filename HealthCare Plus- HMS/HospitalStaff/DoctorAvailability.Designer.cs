@@ -267,9 +267,9 @@
             this.label3.Location = new System.Drawing.Point(701, 299);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 23);
+            this.label3.Size = new System.Drawing.Size(325, 23);
             this.label3.TabIndex = 205;
-            this.label3.Text = "Search by Name";
+            this.label3.Text = "Search by Name,Date and Time";
             // 
             // searchTb
             // 
