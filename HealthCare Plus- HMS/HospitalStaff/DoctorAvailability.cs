@@ -142,8 +142,54 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                string weekDays = string.Join(",",
+                    new List<string>()
+                    {
+                mondayCheckBox.Checked ? "Monday" : string.Empty,
+                tuesdayCheckBox.Checked ? "Tuesday" : string.Empty,
+                wednesdayCheckBox.Checked ? "Wednesday" : string.Empty,
+                thursdayCheckBox.Checked ? "Thursday" : string.Empty,
+                fridayCheckBox.Checked ? "Friday" : string.Empty,
+                saturdayCheckBox.Checked ? "Saturday" : string.Empty,
+                sundayCheckBox.Checked ? "Sunday" : string.Empty,
+                    }.Where(s => !string.IsNullOrEmpty(s))
+                );
+
+                Con.Open();
+                string query = "UPDATE DoctorAvailabileTbl SET weekDays = @WeekDays, availabilityStartTime = @Start_time, availabilityEndTime = @End_time, doctorIsVacation = @IsOnVacation WHERE doctor_id = @DoctorId";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@DoctorId", int.Parse(docIdCb.SelectedItem.ToString()));
+                cmd.Parameters.AddWithValue("@WeekDays", weekDays);
+                cmd.Parameters.AddWithValue("@Start_time", startTimeCb.Value.TimeOfDay);
+                cmd.Parameters.AddWithValue("@End_time", endTimeCb.Value.TimeOfDay);
+                cmd.Parameters.AddWithValue("@IsOnVacation", vacationCheckBox.Checked);
+
+                int updatedRows = cmd.ExecuteNonQuery();
+
+                if (updatedRows > 0)
+                {
+                    MessageBox.Show("Availability details updated successfully");
+                }
+                else
+                {
+                    MessageBox.Show("No record found to update. Please select a valid record.");
+                }
+
+                ResetForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+                LoadDoctorIDs();
+            }
         }
+
 
 
         private void deleteBtn_Click(object sender, EventArgs e)
