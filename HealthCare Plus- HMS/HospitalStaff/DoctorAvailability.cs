@@ -160,8 +160,32 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         }
         private void docAvailableDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.docAvailableDGV.Rows[e.RowIndex];
+
+                // Set doctor ID ComboBox
+                docIdCb.SelectedItem = row.Cells["doctor_id"].Value.ToString();
+
+                // Set WeekDays checkboxes
+                string weekDays = row.Cells["weekDays"].Value.ToString();
+                mondayCheckBox.Checked = weekDays.Contains("Monday");
+                tuesdayCheckBox.Checked = weekDays.Contains("Tuesday");
+                wednesdayCheckBox.Checked = weekDays.Contains("Wednesday");
+                thursdayCheckBox.Checked = weekDays.Contains("Thursday");
+                fridayCheckBox.Checked = weekDays.Contains("Friday");
+                saturdayCheckBox.Checked = weekDays.Contains("Saturday");
+                sundayCheckBox.Checked = weekDays.Contains("Sunday");
+
+                // Set Time Pickers
+                startTimeCb.Value = DateTime.Today.Add((TimeSpan)row.Cells["availabilityStartTime"].Value);
+                endTimeCb.Value = DateTime.Today.Add((TimeSpan)row.Cells["availabilityEndTime"].Value);
+
+                // Set Vacation Checkbox
+                vacationCheckBox.Checked = (bool)row.Cells["doctorIsVacation"].Value;
+            }
         }
+
 
 
 

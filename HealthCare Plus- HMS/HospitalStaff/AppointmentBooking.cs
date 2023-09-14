@@ -200,6 +200,7 @@ namespace HealthCare_Plus__HMS.Staff
             }
         }
 
+
         private void sheduleBtn_Click(object sender, EventArgs e)
         {
             try
@@ -208,28 +209,54 @@ namespace HealthCare_Plus__HMS.Staff
                 decimal doctorCharge = decimal.Parse(docChargeTb.Text);
                 decimal totalAmount = hospitalCharge + doctorCharge;
 
-                string bill = "********************** HealthCare Plus - Bill **********************\n";
-                bill += "Patient Name: " + patFirstNameTb.Text + " " + patLastNameTb.Text + "\n";
-                bill += "Patient ID: " + patIdCb.SelectedItem.ToString() + "\n";
-                bill += "Contact: " + patContactTb.Text + "\n\n";
+                StringBuilder bill = new StringBuilder();
 
-                bill += "Doctor ID: " + docIdCb.SelectedItem.ToString() + "\n";
-                bill += "Doctor Name: " + docNameTb.Text + "\n";
-                bill += "Specialization: " + specializationTb.Text + "\n\n";
+                bill.AppendLine("********************************************************************");
+                bill.AppendLine("                          HealthCare Plus");
+                bill.AppendLine("                  49/12 Circular Road, Galle, Sri Lanka");
+                bill.AppendLine("                      Contact: 076-131-9259");
+                bill.AppendLine("********************************************************************");
+                bill.AppendLine();
 
-                bill += "Room No: " + docRoomTb.Text + "\n\n";
+                // Patient Details
+                bill.AppendLine("Patient Details");
+                bill.AppendLine("--------------------");
+                bill.AppendLine($"Name          : {patFirstNameTb.Text} {patLastNameTb.Text}");
+                bill.AppendLine($"ID            : {patIdCb.SelectedItem}");
+                bill.AppendLine($"Contact       : {patContactTb.Text}");
+                bill.AppendLine();
 
-                bill += "Appoinment Date : " + appointmentDateDTP.Text + "\n\n";
+                // Doctor Details
+                bill.AppendLine("Doctor Details");
+                bill.AppendLine("--------------------");
+                bill.AppendLine($"ID            : {docIdCb.SelectedItem}");
+                bill.AppendLine($"Name          : {docNameTb.Text}");
+                bill.AppendLine($"Specialization: {specializationTb.Text}");
+                bill.AppendLine($"Room No       : {docRoomTb.Text}");
+                bill.AppendLine();
 
+                // Appointment Details
+                bill.AppendLine("Appointment Details");
+                bill.AppendLine("--------------------");
+                bill.AppendLine($"Date          : {appointmentDateDTP.Value:dd/MM/yyyy}");
+                bill.AppendLine();
 
-                bill += "Hospital Charges: " + hospitalChargeTb.Text + "\n";
-                bill += "Doctor Charges: " + docChargeTb.Text + "\n";
-                bill += "-------------------------------------------------------------\n";
-                bill += "Total Amount: " + totalAmount.ToString("F2") + "\n";
-                bill += "***************************************************************\n";
+                // Charges Details
+                bill.AppendLine("Charges Detail");
+                bill.AppendLine("--------------------");
+                bill.AppendLine($"Hospital Charges: {hospitalCharge:C2}");
+                bill.AppendLine($"Doctor Charges  : {doctorCharge:C2}");
+                bill.AppendLine("--------------------");
+                bill.AppendLine($"Total Amount    : {totalAmount:C2}");
+                bill.AppendLine();
 
-                // Display bill (replace txtBill with the name of your TextBox/RichTextBox where you want to display the bill)
-                appoinmentSumTxt.Text = bill;
+                // Thank You Note
+                bill.AppendLine("               Thank you for choosing HealthCare Plus!");
+                bill.AppendLine("                           Visit again.");
+                bill.AppendLine("********************************************************************");
+
+                // Display the bill in the TextBox
+                appoinmentSumTxt.Text = bill.ToString();
             }
             catch
             {
@@ -237,6 +264,7 @@ namespace HealthCare_Plus__HMS.Staff
                 MessageBox.Show("Invalid number format in charges.");
             }
         }
+
 
         private void reSheduleBtn_Click(object sender, EventArgs e)
         {
