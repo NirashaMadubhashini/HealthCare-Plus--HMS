@@ -95,17 +95,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             }
         }
 
-        private void PopulateFieldsFromSelectedRow()
-        {
-            if (docAvailableDGV.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = docAvailableDGV.SelectedRows[0];
 
-                // Assuming your DataGridView columns have specific names, update these names accordingly
-                docIdCb.SelectedItem = selectedRow.Cells["doctor_id"].Value.ToString();
-                // Other fields can be populated similarly
-            }
-        }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
@@ -150,13 +140,11 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         }
 
 
-
-
         private void updateBtn_Click(object sender, EventArgs e)
         {
-
-
+           
         }
+
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
@@ -172,12 +160,10 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         }
         private void docAvailableDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                PopulateFieldsFromSelectedRow();
-            }
-
+            
         }
+
+
 
 
         private void docIdCb_SelectedIndexChanged(object sender, EventArgs e)

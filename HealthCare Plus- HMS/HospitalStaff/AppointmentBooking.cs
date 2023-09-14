@@ -14,14 +14,71 @@ namespace HealthCare_Plus__HMS.Staff
 {
     public partial class AppointmentBooking : Form
     {
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+
         public AppointmentBooking()
         {
             InitializeComponent();
+            LoadPatientIds();
+            LoadDoctorIds(); // Load doctor IDs when the form loads
 
         }
 
+        private void LoadDoctorIds()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT doctor_id FROM DoctorTbl", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
 
-        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+                docIdCb.Items.Clear(); // Clear existing items to avoid duplications
+
+                while (rdr.Read())
+                {
+                    docIdCb.Items.Add(rdr["doctor_id"]);
+                }
+
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                    Con.Close();
+            }
+        }
+
+        private void LoadPatientIds()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT patient_id FROM PatientTbl", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                patIdCb.Items.Clear();  // Clear existing items
+
+                while (rdr.Read())
+                {
+                    patIdCb.Items.Add(rdr["patient_id"]);
+                }
+
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                    Con.Close();
+            }
+        }
 
         private void ClearFields()
         {
@@ -59,10 +116,6 @@ namespace HealthCare_Plus__HMS.Staff
         {
           
         }
-
-    
-
-
 
         private void appoinmentNoteTb_TextChanged(object sender, EventArgs e)
         {
