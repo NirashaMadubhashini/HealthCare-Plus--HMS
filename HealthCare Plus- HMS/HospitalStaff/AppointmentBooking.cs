@@ -25,7 +25,7 @@ namespace HealthCare_Plus__HMS.Staff
             LoadDoctorIds(); // Load doctor IDs when the form loads
 
             hospitalChargeTb.Text = "800";
-            docChargeTb.Text = "1500";
+          
         }
 
         private void LoadDoctorIds()
@@ -153,18 +153,38 @@ namespace HealthCare_Plus__HMS.Staff
 
                     // Fetching the doctor details
                     SqlCommand cmd = new SqlCommand(@"SELECT U.userName, D.doctorSpecialization, D.roomNumber 
-                                              FROM DoctorTbl D
-                                              JOIN UserTbl U ON D.doctor_id = U.user_id
-                                              WHERE D.doctor_id = @DoctorId", Con);
+                                          FROM DoctorTbl D
+                                          JOIN UserTbl U ON D.doctor_id = U.user_id
+                                          WHERE D.doctor_id = @DoctorId", Con);
                     cmd.Parameters.AddWithValue("@DoctorId", selectedDoctorId);
 
                     SqlDataReader rdr = cmd.ExecuteReader();
 
                     if (rdr.Read())
                     {
-                       docNameTb.Text = rdr["userName"].ToString();
+                        docNameTb.Text = rdr["userName"].ToString();
                         specializationTb.Text = rdr["doctorSpecialization"].ToString();
                         docRoomTb.Text = rdr["roomNumber"].ToString();
+
+                        // Set doctor charge based on specialization
+                        switch (rdr["doctorSpecialization"].ToString().ToLower())
+                        {
+                            case "urology":
+                            case "surgery":
+                                docChargeTb.Text = "1200";
+                                break;
+
+                            case "gynecology":
+                            case "ophtalmo":
+                            case "dermato":
+                            case "generalist":
+                                docChargeTb.Text = "800";
+                                break;
+
+                            default:
+                                docChargeTb.Text = "800"; // Default charge in case specialization does not match any predefined category
+                                break;
+                        }
                     }
 
                     rdr.Close();
