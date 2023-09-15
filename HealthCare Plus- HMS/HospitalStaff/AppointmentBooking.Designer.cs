@@ -188,9 +188,9 @@
             this.label13.Location = new System.Drawing.Point(323, 452);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 25);
+            this.label13.Size = new System.Drawing.Size(206, 25);
             this.label13.TabIndex = 153;
-            this.label13.Text = "DOB";
+            this.label13.Text = "Appoinment Date";
             // 
             // appointmentDateDTP
             // 

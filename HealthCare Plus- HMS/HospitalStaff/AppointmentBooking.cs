@@ -9,8 +9,12 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
+using TheArtOfDevHtmlRenderer.Adapters;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace HealthCare_Plus__HMS.Staff
 {
@@ -25,7 +29,7 @@ namespace HealthCare_Plus__HMS.Staff
             LoadDoctorIds(); // Load doctor IDs when the form loads
 
             hospitalChargeTb.Text = "800";
-          
+
         }
 
         private void LoadDoctorIds()
@@ -86,7 +90,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void ClearFields()
         {
-   
+
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -119,7 +123,7 @@ namespace HealthCare_Plus__HMS.Staff
                     {
                         patFirstNameTb.Text = rdr["PatientFirstName"].ToString();
                         patLastNameTb.Text = rdr["PatientLastName"].ToString();
-                       patContactTb.Text = rdr["PatientContact"].ToString();
+                        patContactTb.Text = rdr["PatientContact"].ToString();
                     }
 
                     rdr.Close();
@@ -225,6 +229,125 @@ namespace HealthCare_Plus__HMS.Staff
         {
             try
             {
+                // Step 1: Validate inputs
+                if (patIdCb.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a patient.");
+                    return;
+                }
+
+                if (docIdCb.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a doctor.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(hospitalChargeTb.Text) || !decimal.TryParse(hospitalChargeTb.Text, out decimal hospitalCharge))
+                {
+                    MessageBox.Show("Please enter a valid hospital charge.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(docChargeTb.Text) || !decimal.TryParse(docChargeTb.Text, out decimal doctorCharge))
+                {
+                    MessageBox.Show("Please enter a valid doctor charge.");
+                    return;
+                }
+
+                if (appointmentDateDTP.Value.Date < DateTime.Now.Date)
+                {
+                    MessageBox.Show("Appointment date cannot be in the past.");
+                    return;
+                }
+
+                // Step 2: Insert appointment details
+                if (Con.State == ConnectionState.Closed)
+                    Con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(@"INSERT INTO AppointmentTbl(patient_id, doctor_id, appointmentDate,appointmentStatus,appointmentnotes) 
+                                  VALUES(@PatientId, @DoctorId, @DateTime, 'Scheduled', @Notes); 
+                                  SELECT SCOPE_IDENTITY()", Con))
+                {
+                    cmd.Parameters.AddWithValue("@PatientId", Convert.ToInt32(patIdCb.SelectedItem));
+                    cmd.Parameters.AddWithValue("@DoctorId", Convert.ToInt32(docIdCb.SelectedItem));
+                    cmd.Parameters.AddWithValue("@DateTime", appointmentDateDTP.Value);
+                    cmd.Parameters.AddWithValue("@Notes", "");
+                    int appointmentId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    // Step 3: Insert billing details
+                    cmd.CommandText = @"INSERT INTO BillTbl(totalAmount, hospitalCharges, doctorCharges, appointment_id) 
+                               VALUES(@TotalAmount, @HospitalCharges, @DoctorCharges, @AppointmentId)";
+                    cmd.Parameters.AddWithValue("@TotalAmount", hospitalCharge + doctorCharge);
+                    cmd.Parameters.AddWithValue("@HospitalCharges", hospitalCharge);
+                    cmd.Parameters.AddWithValue("@DoctorCharges", doctorCharge);
+                    cmd.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                    cmd.ExecuteNonQuery();
+
+                    // Step 4: Generate PDF
+                    GeneratePDF(appointmentId);
+
+                    MessageBox.Show("Data Saved and PDF Generated Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                    Con.Close();
+            }
+        }
+
+        private void GeneratePDF(int appointmentId)
+        {
+            try
+            {
+                if (Con.State == ConnectionState.Closed)
+                    Con.Open();
+
+                // Step 1: Fetch data from the database using the appointmentId parameter
+                SqlCommand cmd = new SqlCommand(@"SELECT 
+                            A.appointment_id, A.appointmentDate, A.appointmentStatus, A.appointmentnotes, 
+                            B.totalAmount, B.hospitalCharges, B.doctorCharges, B.billDate, 
+                            P.patient_id, P.PatientFirstName as patient_first_name, P.PatientLastName as patient_last_name, P.PatientContact as patient_contact, 
+                            D.doctor_id, U.userName as doctor_name, D.doctorSpecialization as doctor_specialization, 
+                            D.roomNumber 
+                          FROM 
+                            AppointmentTbl A 
+                            JOIN BillTbl B ON A.appointment_id = B.appointment_id 
+                            JOIN PatientTbl P ON A.patient_id = P.patient_id 
+                            JOIN DoctorTbl D ON A.doctor_id = D.doctor_id 
+                            JOIN UserTbl U ON D.doctor_id = U.user_id  
+                           /* LEFT JOIN Rooms R ON P.patient_id = R.patient_id */
+                          WHERE 
+                            A.appointment_id = @AppointmentId", Con);
+
+                cmd.Parameters.AddWithValue("@AppointmentId", appointmentId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                if (!rdr.Read())
+                {
+                    throw new Exception("No data found for the given appointment ID.");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open)
+                    Con.Close();
+            }
+        }
+            private void reSheduleBtn_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
                 decimal hospitalCharge = decimal.Parse(hospitalChargeTb.Text);
                 decimal doctorCharge = decimal.Parse(docChargeTb.Text);
                 decimal totalAmount = hospitalCharge + doctorCharge;
@@ -261,12 +384,7 @@ namespace HealthCare_Plus__HMS.Staff
                 // Handle invalid number format here, if necessary
                 MessageBox.Show("Invalid number format in charges.");
             }
-        }
-
-
-        private void reSheduleBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(appoinmentSumTxt.Text))
+            /*if (string.IsNullOrEmpty(appoinmentSumTxt.Text))
             {
                 MessageBox.Show("No appointment summary to print.");
                 return;
@@ -282,7 +400,7 @@ namespace HealthCare_Plus__HMS.Staff
             if (result == DialogResult.OK)
             {
                 printDoc.Print();
-            }
+            }*/
         }
         private void appoinmentNoteTb_TextChanged(object sender, EventArgs e)
         {
@@ -311,7 +429,7 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
         {
-            Font printFont = new Font("Courier New", 12); // Changed font to Courier New for better alignment
+           /* Font printFont = new Font("Courier New", 12); // Changed font to Courier New for better alignment
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
             int count = 0;
             float yPos = e.MarginBounds.Top;
@@ -333,7 +451,7 @@ namespace HealthCare_Plus__HMS.Staff
             else
             {
                 e.HasMorePages = false;
-            }
+            }*/
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)

@@ -468,12 +468,6 @@
     <Compile Include="HospitalStaff\Billing.Designer.cs">
       <DependentUpon>Billing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Doctor\AddPrescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Doctor\AddPrescription.Designer.cs">
-      <DependentUpon>AddPrescription.cs</DependentUpon>
-    </Compile>
     <Compile Include="Doctor\Appoinments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -569,9 +563,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HospitalStaff\Billing.resx">
       <DependentUpon>Billing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Doctor\AddPrescription.resx">
-      <DependentUpon>AddPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\Appoinments.resx">
       <DependentUpon>Appoinments.cs</DependentUpon>

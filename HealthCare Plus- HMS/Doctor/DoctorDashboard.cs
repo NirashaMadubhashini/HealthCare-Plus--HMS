@@ -228,8 +228,7 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new AddPrescription());
+           
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
