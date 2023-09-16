@@ -38,6 +38,7 @@ namespace HealthCare_Plus__HMS.Admin
             CountHIV();
             CountRooms();
             CountResources();
+            CountBills();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -73,6 +74,7 @@ namespace HealthCare_Plus__HMS.Admin
             CountRooms();
             CountResources();
             CountReports();
+            CountBills();
         }
 
         //Structs
@@ -138,7 +140,16 @@ namespace HealthCare_Plus__HMS.Admin
             resourcesNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
         }
-        
+
+        private void CountBills()
+        {
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from BillTbl", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            resourcesNumlbl.Text = dt.Rows[0][0].ToString();
+            Con.Close();
+        }
         private void CountReports()
         {
           
@@ -326,7 +337,7 @@ namespace HealthCare_Plus__HMS.Admin
         }
         private void Prescriptionlbl_Click(object sender, EventArgs e)
         {
-
+            CountBills();
         }
 
         private void HIVlbl_Click(object sender, EventArgs e)

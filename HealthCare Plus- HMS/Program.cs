@@ -22,7 +22,7 @@ namespace HealthCare_Plus__HMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new StaffDashboard());
+            Application.Run(new AdminDashboard());
         }
     }
 }

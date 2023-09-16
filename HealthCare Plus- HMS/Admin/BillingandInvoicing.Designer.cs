@@ -37,6 +37,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.billDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.generateBtn.Size = new System.Drawing.Size(180, 45);
             this.generateBtn.TabIndex = 104;
             this.generateBtn.Text = "Generate";
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // label6
             // 
@@ -100,15 +102,12 @@
             // 
             this.payRollCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payRollCb.FormattingEnabled = true;
-            this.payRollCb.Items.AddRange(new object[] {
-            "Total Income",
-            "Patient Reports",
-            "Resource Allocation"});
             this.payRollCb.Location = new System.Drawing.Point(833, 66);
             this.payRollCb.Margin = new System.Windows.Forms.Padding(2);
             this.payRollCb.Name = "payRollCb";
             this.payRollCb.Size = new System.Drawing.Size(288, 42);
             this.payRollCb.TabIndex = 100;
+            this.payRollCb.SelectedIndexChanged += new System.EventHandler(this.payRollCb_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -118,9 +117,9 @@
             this.label22.Location = new System.Drawing.Point(829, 38);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(160, 25);
+            this.label22.Size = new System.Drawing.Size(114, 25);
             this.label22.TabIndex = 99;
-            this.label22.Text = "Patient Name";
+            this.label22.Text = "Patient Id";
             // 
             // printPreviewDialog1
             // 
@@ -133,12 +132,31 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.Gray;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(941, 201);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 172;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click_1);
+            // 
             // BillingandInvoicing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.generateBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.billDGV);
@@ -165,5 +183,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
     }
 }

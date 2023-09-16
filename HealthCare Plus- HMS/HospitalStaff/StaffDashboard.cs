@@ -287,5 +287,10 @@ namespace HealthCare_Plus__HMS.Staff
             myChart.Dock = DockStyle.Fill;
             chartPnl.Controls.Add(myChart);
         }
+
+        private void lblDateTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

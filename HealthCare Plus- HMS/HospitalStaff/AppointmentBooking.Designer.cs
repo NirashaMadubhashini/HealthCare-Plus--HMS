@@ -455,6 +455,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "AppointmentBooking";
             this.Text = "Appointments";
+            this.Load += new System.EventHandler(this.AppointmentBooking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

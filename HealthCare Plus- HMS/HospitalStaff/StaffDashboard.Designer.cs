@@ -474,6 +474,7 @@
             this.lblDateTime.Size = new System.Drawing.Size(560, 34);
             this.lblDateTime.TabIndex = 32;
             this.lblDateTime.Text = "Saturday, September 9, 2023 1:20:54 AM";
+            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // label1
             // 
