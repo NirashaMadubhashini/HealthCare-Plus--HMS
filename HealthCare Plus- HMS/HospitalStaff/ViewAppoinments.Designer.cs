@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAppoinments));
+            this.patStatusCb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.patNameTb = new System.Windows.Forms.TextBox();
             this.patIdCb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.roomNoteTb = new System.Windows.Forms.TextBox();
+            this.appoinNoteTb = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -41,19 +42,27 @@
             this.reSheduleBtn = new Guna.UI2.WinForms.Guna2Button();
             this.appoinmenysLoadDGV = new System.Windows.Forms.DataGridView();
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.searchTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.appDateCb = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.appoinmenysLoadDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox2
+            // patStatusCb
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(491, 114);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(209, 42);
-            this.comboBox2.TabIndex = 143;
+            this.patStatusCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patStatusCb.FormattingEnabled = true;
+            this.patStatusCb.Items.AddRange(new object[] {
+            "Scheduled",
+            "Completed",
+            "Cancelled"});
+            this.patStatusCb.Location = new System.Drawing.Point(491, 114);
+            this.patStatusCb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patStatusCb.Name = "patStatusCb";
+            this.patStatusCb.Size = new System.Drawing.Size(209, 42);
+            this.patStatusCb.TabIndex = 143;
             // 
             // label4
             // 
@@ -67,15 +76,15 @@
             this.label4.TabIndex = 142;
             this.label4.Text = "Status";
             // 
-            // textBox1
+            // patNameTb
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(265, 116);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 42);
-            this.textBox1.TabIndex = 141;
+            this.patNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patNameTb.ForeColor = System.Drawing.Color.Black;
+            this.patNameTb.Location = new System.Drawing.Point(265, 116);
+            this.patNameTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.patNameTb.Name = "patNameTb";
+            this.patNameTb.Size = new System.Drawing.Size(211, 42);
+            this.patNameTb.TabIndex = 141;
             // 
             // patIdCb
             // 
@@ -86,6 +95,7 @@
             this.patIdCb.Name = "patIdCb";
             this.patIdCb.Size = new System.Drawing.Size(209, 42);
             this.patIdCb.TabIndex = 140;
+            this.patIdCb.SelectedIndexChanged += new System.EventHandler(this.patIdCb_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -99,16 +109,16 @@
             this.label3.TabIndex = 139;
             this.label3.Text = "Patient Name";
             // 
-            // roomNoteTb
+            // appoinNoteTb
             // 
-            this.roomNoteTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomNoteTb.ForeColor = System.Drawing.Color.Black;
-            this.roomNoteTb.Location = new System.Drawing.Point(712, 114);
-            this.roomNoteTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.roomNoteTb.Multiline = true;
-            this.roomNoteTb.Name = "roomNoteTb";
-            this.roomNoteTb.Size = new System.Drawing.Size(210, 42);
-            this.roomNoteTb.TabIndex = 138;
+            this.appoinNoteTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appoinNoteTb.ForeColor = System.Drawing.Color.Black;
+            this.appoinNoteTb.Location = new System.Drawing.Point(712, 114);
+            this.appoinNoteTb.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.appoinNoteTb.Multiline = true;
+            this.appoinNoteTb.Name = "appoinNoteTb";
+            this.appoinNoteTb.Size = new System.Drawing.Size(210, 42);
+            this.appoinNoteTb.TabIndex = 138;
             // 
             // label12
             // 
@@ -184,6 +194,7 @@
             this.reSheduleBtn.Size = new System.Drawing.Size(180, 45);
             this.reSheduleBtn.TabIndex = 133;
             this.reSheduleBtn.Text = "Re-Shedule";
+            this.reSheduleBtn.Click += new System.EventHandler(this.reSheduleBtn_Click);
             // 
             // appoinmenysLoadDGV
             // 
@@ -216,19 +227,79 @@
             this.iconPictureBoxClose.TabStop = false;
             this.iconPictureBoxClose.Click += new System.EventHandler(this.iconPictureBoxClose_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(416, 184);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(506, 23);
+            this.label2.TabIndex = 146;
+            this.label2.Text = "Search by Name, Appoinetment Id or Dotor Name";
+            // 
+            // searchTb
+            // 
+            this.searchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTb.DefaultText = "";
+            this.searchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
+            this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.searchTb.Location = new System.Drawing.Point(421, 215);
+            this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchTb.Name = "searchTb";
+            this.searchTb.PasswordChar = '\0';
+            this.searchTb.PlaceholderText = "";
+            this.searchTb.SelectedText = "";
+            this.searchTb.Size = new System.Drawing.Size(501, 46);
+            this.searchTb.TabIndex = 145;
+            this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(35, 179);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 25);
+            this.label13.TabIndex = 148;
+            this.label13.Text = "Date";
+            // 
+            // appDateCb
+            // 
+            this.appDateCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDateCb.Location = new System.Drawing.Point(35, 206);
+            this.appDateCb.Margin = new System.Windows.Forms.Padding(2);
+            this.appDateCb.Name = "appDateCb";
+            this.appDateCb.Size = new System.Drawing.Size(259, 42);
+            this.appDateCb.TabIndex = 147;
+            // 
             // ViewAppoinments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.appDateCb);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.searchTb);
             this.Controls.Add(this.iconPictureBoxClose);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.patStatusCb);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.patNameTb);
             this.Controls.Add(this.patIdCb);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.roomNoteTb);
+            this.Controls.Add(this.appoinNoteTb);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.refreshBtn);
@@ -250,12 +321,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox patStatusCb;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox patNameTb;
         private System.Windows.Forms.ComboBox patIdCb;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox roomNoteTb;
+        private System.Windows.Forms.TextBox appoinNoteTb;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Button refreshBtn;
@@ -263,5 +334,9 @@
         private Guna.UI2.WinForms.Guna2Button reSheduleBtn;
         private System.Windows.Forms.DataGridView appoinmenysLoadDGV;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox searchTb;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker appDateCb;
     }
 }
