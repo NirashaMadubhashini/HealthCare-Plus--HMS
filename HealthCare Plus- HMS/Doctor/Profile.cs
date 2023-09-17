@@ -146,5 +146,9 @@ namespace HealthCare_Plus__HMS.Doctor
 
         }
 
+        private void Profile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

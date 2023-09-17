@@ -383,6 +383,12 @@
     <Compile Include="Admin\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\AllAppoinments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\AllAppoinments.Designer.cs">
+      <DependentUpon>AllAppoinments.cs</DependentUpon>
+    </Compile>
     <Compile Include="ER.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -403,12 +409,6 @@
     </Compile>
     <Compile Include="HospitalStaff\Billing.Designer.cs">
       <DependentUpon>Billing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Doctor\Appoinments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Doctor\Appoinments.Designer.cs">
-      <DependentUpon>Appoinments.cs</DependentUpon>
     </Compile>
     <Compile Include="Doctor\DoctorDashboard.cs">
       <SubType>Form</SubType>
@@ -503,11 +503,11 @@
     <EmbeddedResource Include="Admin\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\AllAppoinments.resx">
+      <DependentUpon>AllAppoinments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HospitalStaff\Billing.resx">
       <DependentUpon>Billing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Doctor\Appoinments.resx">
-      <DependentUpon>Appoinments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>

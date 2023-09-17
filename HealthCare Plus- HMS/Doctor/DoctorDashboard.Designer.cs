@@ -330,6 +330,7 @@
             this.patientRecordsNumlbl.Size = new System.Drawing.Size(51, 37);
             this.patientRecordsNumlbl.TabIndex = 13;
             this.patientRecordsNumlbl.Text = "85";
+            this.patientRecordsNumlbl.Click += new System.EventHandler(this.patientRecordsNumlbl_Click);
             // 
             // label3
             // 

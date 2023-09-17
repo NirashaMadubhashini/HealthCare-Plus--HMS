@@ -15,7 +15,7 @@ namespace HealthCare_Plus__HMS.BillingStaff
     public partial class Billing : Form
     {
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
-        private string selectedBillId = string.Empty;
+
         public Billing()
         {
             InitializeComponent();
@@ -244,18 +244,20 @@ namespace HealthCare_Plus__HMS.BillingStaff
 
         private void billDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) // Ensure the clicked row index is valid
             {
-                // Get the bill_id of the clicked row
-                selectedBillId = billDGV.Rows[e.RowIndex].Cells["bill_id"].Value.ToString();
+                // Get the patient_id of the clicked row
+                var patientId = billDGV.Rows[e.RowIndex].Cells["patient_id"].Value.ToString();
+
+                // Set the selected value of the ComboBox to this patient_id to load the respective data
+                payRollCb.SelectedItem = patientId;
 
                 // Display the report in a MessageBox (or any other way you prefer)
                 billTxt.Text = GetBillAndAppointmentDetailsAsString();
 
                 // Optionally, directly invoke the print functionality
-                // printDocument1.Print();  // Uncomment if you want to print directly
+                printDocument1.Print();
             }
         }
-
     }
 }

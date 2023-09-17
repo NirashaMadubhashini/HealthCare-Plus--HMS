@@ -14,7 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HealthCare_Plus__HMS.Doctor
 {
-
+    
     public partial class DoctorDashboard : Form
     {
         //fields
@@ -23,12 +23,14 @@ namespace HealthCare_Plus__HMS.Doctor
         private Form currentChildForm;
         private string _userName;
         private string _userPassword;
+        private Chart myChart;
         public DoctorDashboard(string userName, string userPassword)
         {
             InitializeComponent();
             _userName = userName;
             _userPassword = userPassword;
             CountAppoinments();
+            CountPatients();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -63,6 +65,7 @@ namespace HealthCare_Plus__HMS.Doctor
         private void UpdateDashboardStats()
         {
             CountAppoinments();
+            CountPatients();
         }
 
         //Structs
@@ -84,24 +87,13 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void CountPatients()
         {
-        /*    Con.Open();
+            Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            PatNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();*/
+            patientRecordsNumlbl.Text = dt.Rows[0][0].ToString();
+            Con.Close();
         }
-
-        /*   private void CountHIV()
-           {
-               string Status = "Positive";
-               Con.Open();
-               SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl where PatHIV = '" + Status + "'", Con);
-               DataTable dt = new DataTable();
-               sda.Fill(dt);
-               HIVlbl.Text = dt.Rows[0][0].ToString();
-               Con.Close();
-           }*/
 
         private void CountAppoinments()
         {
@@ -211,7 +203,7 @@ namespace HealthCare_Plus__HMS.Doctor
         private void btnAppointment_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Appoinments());
+            OpenChildForm(new AllAppoinments());
         }
         private void btnStaff_Click(object sender, EventArgs e)
         {
@@ -237,10 +229,9 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void chartPnl1_Paint(object sender, PaintEventArgs e)
         {
-          /*  // Step 2: Retrieve the necessary data
+            // Step 2: Retrieve the necessary data
             CountPatients();
-            CountDoctors();
-            CountStaffs();
+            CountAppoinments();
             // ... (Call other count methods as well)
 
             // Step 3: Create a new Chart object, configure it, and add the data to it
@@ -250,26 +241,25 @@ namespace HealthCare_Plus__HMS.Doctor
 
             Series series = new Series();
             series.Name = "DataSeries";
-            series.ChartType = SeriesChartType.Column;
+            series.ChartType = SeriesChartType.Bubble;
 
-            series.Points.AddXY("Patients", int.Parse(PatNumlbl.Text));
-            series.Points.AddXY("Doctors", int.Parse(DocNumlbl.Text));
-            series.Points.AddXY("Staffs", int.Parse(StaffNumlbl.Text));
+            series.Points.AddXY("Patients", int.Parse(patientRecordsNumlbl.Text));
+            series.Points.AddXY("Appointments", int.Parse(appoinmentNumlbl.Text));
+            
             // ... (Add other data points as needed)
 
             myChart.Series.Add(series);
 
             // Step 4: Add the Chart object to your chartPnl panel
             myChart.Dock = DockStyle.Fill;
-            chartPnl.Controls.Add(myChart);*/
+            chartPnl1.Controls.Add(myChart);
         }
 
         private void chartPnl2_Paint(object sender, PaintEventArgs e)
         {
-           /* // Step 2: Retrieve the necessary data
+            // Step 2: Retrieve the necessary data
             CountPatients();
-            CountDoctors();
-            CountStaffs();
+            CountAppoinments();
             // ... (Call other count methods as well)
 
             // Step 3: Create a new Chart object, configure it, and add the data to it
@@ -279,23 +269,29 @@ namespace HealthCare_Plus__HMS.Doctor
 
             Series series = new Series();
             series.Name = "DataSeries";
-            series.ChartType = SeriesChartType.Column;
+            series.ChartType = SeriesChartType.Doughnut
+;
 
-            series.Points.AddXY("Patients", int.Parse(PatNumlbl.Text));
-            series.Points.AddXY("Doctors", int.Parse(DocNumlbl.Text));
-            series.Points.AddXY("Staffs", int.Parse(StaffNumlbl.Text));
+            series.Points.AddXY("Patients", int.Parse(patientRecordsNumlbl.Text));
+            series.Points.AddXY("Appointments", int.Parse(appoinmentNumlbl.Text));
+
             // ... (Add other data points as needed)
 
             myChart.Series.Add(series);
 
             // Step 4: Add the Chart object to your chartPnl panel
             myChart.Dock = DockStyle.Fill;
-            chartPnl.Controls.Add(myChart);*/
+            chartPnl2.Controls.Add(myChart);
         }
 
         private void AppoinmentNumlbl_Click(object sender, EventArgs e)
         {
             CountAppoinments();
+        }
+
+        private void patientRecordsNumlbl_Click(object sender, EventArgs e)
+        {
+            CountPatients();
         }
     }
 }
