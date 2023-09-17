@@ -211,8 +211,9 @@ namespace HealthCare_Plus__HMS.BillingStaff
 
         private string GetBillAndAppointmentDetailsAsString()
         {
-            DataTable dt = GetBillAndAppointmentDetails();
+            if (payRollCb.SelectedItem == null) return "No data available";
 
+            DataTable dt = GetBillAndAppointmentDetails();
             if (dt.Rows.Count == 0) return "No data available";
 
             StringBuilder report = new StringBuilder();
@@ -240,6 +241,53 @@ namespace HealthCare_Plus__HMS.BillingStaff
 
             return report.ToString();
         }
+
+        private void billDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure the clicked row index is valid
+            {
+                // Get the bill_id of the clicked row
+                var billId = billDGV.Rows[e.RowIndex].Cells["bill_id"].Value.ToString();
+
+                // Set the billId globally or find a way to pass it to your other methods
+                // to be able to filter out the details based on this bill_id.
+
+                // Get the patient_id related to this bill_id (add a method to get it)
+                var patientId = GetPatientIdByBillId(billId);
+
+                // Set the selected value of the ComboBox to this patient_id to load the respective data
+                payRollCb.SelectedItem = patientId;
+
+                // Display the report in a MessageBox (or any other way you prefer)
+                billTxt.Text = GetBillAndAppointmentDetailsAsString();
+
+                // Optionally, directly invoke the print functionality
+                printDocument1.Print();
+            }
+        }
+
+        private string GetPatientIdByBillId(string billId)
+        {
+            try
+            {
+                Con.Open();
+                string query = "SELECT patient_id FROM AppointmentTbl WHERE appointment_id IN (SELECT appointment_id FROM BillTbl WHERE bill_id = @bill_id)";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@bill_id", billId);
+                var patientId = cmd.ExecuteScalar().ToString();
+                return patientId;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
 
     }
 }

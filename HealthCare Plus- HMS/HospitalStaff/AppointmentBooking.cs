@@ -283,11 +283,8 @@ namespace HealthCare_Plus__HMS.Staff
                     cmd.Parameters.AddWithValue("@DoctorCharges", doctorCharge);
                     cmd.Parameters.AddWithValue("@AppointmentId", appointmentId);
                     cmd.ExecuteNonQuery();
+                    MessageBox.Show("Appointment scheduled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Step 4: Generate PDF
-                    GeneratePDF(appointmentId);
-
-                    MessageBox.Show("Data Saved and PDF Generated Successfully");
                 }
             }
             catch (Exception ex)
@@ -301,137 +298,9 @@ namespace HealthCare_Plus__HMS.Staff
             }
         }
 
-        private void GeneratePDF(int appointmentId)
-        {
-            try
-            {
-                if (Con.State == ConnectionState.Closed)
-                    Con.Open();
 
-                // Step 1: Fetch data from the database using the appointmentId parameter
-                SqlCommand cmd = new SqlCommand(@"SELECT 
-                            A.appointment_id, A.appointmentDate, A.appointmentStatus, A.appointmentnotes, 
-                            B.totalAmount, B.hospitalCharges, B.doctorCharges, B.billDate, 
-                            P.patient_id, P.PatientFirstName as patient_first_name, P.PatientLastName as patient_last_name, P.PatientContact as patient_contact, 
-                            D.doctor_id, U.userName as doctor_name, D.doctorSpecialization as doctor_specialization, 
-                            D.roomNumber 
-                          FROM 
-                            AppointmentTbl A 
-                            JOIN BillTbl B ON A.appointment_id = B.appointment_id 
-                            JOIN PatientTbl P ON A.patient_id = P.patient_id 
-                            JOIN DoctorTbl D ON A.doctor_id = D.doctor_id 
-                            JOIN UserTbl U ON D.doctor_id = U.user_id  
-                           /* LEFT JOIN Rooms R ON P.patient_id = R.patient_id */
-                          WHERE 
-                            A.appointment_id = @AppointmentId", Con);
-
-                cmd.Parameters.AddWithValue("@AppointmentId", appointmentId);
-                SqlDataReader rdr = cmd.ExecuteReader();
-
-                if (!rdr.Read())
-                {
-                    throw new Exception("No data found for the given appointment ID.");
-                }
-
-               /* // Step 2: Set up the PDF document, graphics, and fonts
-                PdfDocument document = new PdfDocument();
-                PdfPage page = document.AddPage();
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-                XFont headerFont = new XFont("Verdana", 20, XFontStyle.Bold);
-                XFont subHeaderFont = new XFont("Verdana", 16, XFontStyle.Regular);
-                XFont bodyFont = new XFont("Verdana", 12, XFontStyle.Regular);
-                XFont boldFont = new XFont("Verdana", 12, XFontStyle.Bold);
-
-                // Define some formatting
-                double lineSpacing = 30;
-                double currentY = 20;
-
-                // Step 3: Add header to the PDF
-                gfx.DrawString("HealthCare Plus - Appointment Detail", headerFont, XBrushes.Black, new XRect(0, currentY, page.Width, 0), XStringFormats.Center);
-                currentY += lineSpacing + 10;
-
-                // Step 4: Add body containing appointment and billing details
-                gfx.DrawString("Patient Details", subHeaderFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Adding patient details
-                gfx.DrawString("Patient ID: " + rdr["patient_id"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Patient Name: " + rdr["patient_first_name"] + " " + rdr["patient_last_name"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Contact: " + rdr["patient_contact"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Room No: " + (rdr["room_number"] == DBNull.Value ? "N/A" : rdr["room_number"]), bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Drawing a line for separation
-                XPen linePen = new XPen(XColors.Black, 2);
-                gfx.DrawLine(linePen, 40, currentY + 5, page.Width - 40, currentY + 5);
-                currentY += lineSpacing;
-
-                gfx.DrawString("Doctor Details", subHeaderFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Adding doctor details
-                gfx.DrawString("Doctor ID: " + rdr["doctor_id"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Doctor Name: " + rdr["doctor_name"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Specialization: " + rdr["doctor_specialization"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Drawing a line for separation
-                gfx.DrawLine(linePen, 40, currentY + 5, page.Width - 40, currentY + 5);
-                currentY += lineSpacing;
-
-                // Adding billing details
-                gfx.DrawString("Billing Details", subHeaderFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                gfx.DrawString("Total Amount: " + rdr["total_amount"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Hospital Charges: " + rdr["hospital_charges"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Doctor Charges: " + rdr["doctor_charges"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Drawing a line for separation
-                gfx.DrawLine(linePen, 40, currentY + 5, page.Width - 40, currentY + 5);
-                currentY += lineSpacing;
-
-                // Adding appointment details
-                gfx.DrawString("Appointment Details", subHeaderFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                gfx.DrawString("Appointment ID: " + rdr["appointment_id"], bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-                gfx.DrawString("Appointment Date: " + ((DateTime)rdr["date_time"]).ToString("d"), bodyFont, XBrushes.Black, new XRect(40, currentY, 0, 0));
-                currentY += lineSpacing;
-
-                // Step 5: Add footer
-                currentY = page.Height - 50;
-                gfx.DrawString("Thank you for choosing HealthCare Plus!", subHeaderFont, XBrushes.Black, new XRect(0, currentY, page.Width, 0), XStringFormats.Center);
-
-                // Step 6: Save the PDF and notify the user
-                string pdfPath = "C:\\Users\\niras\\OneDrive\\Pictures\\Screenshots\\Appointment.pdf";
-                document.Save(pdfPath);*/
-
-/*                MessageBox.Show("PDF generated successfully!\nFile saved at: " + pdfPath);
-*/                rdr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Con.State == ConnectionState.Open)
-                    Con.Close();
-            }
-    }
         private void reSheduleBtn_Click(object sender, EventArgs e)
         {
-
             try
             {
                 decimal hospitalCharge = decimal.Parse(hospitalChargeTb.Text);
@@ -464,14 +333,30 @@ namespace HealthCare_Plus__HMS.Staff
 
                 appoinmentSumTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
                 appoinmentSumTxt.Text = bill.ToString(); // Set the bill text
+
+                // Offer to save the report to a file
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text File|*.txt";
+                saveFileDialog.Title = "Save Report";
+                saveFileDialog.FileName = "HealthCarePlus_Report.txt";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog.OpenFile()))
+                    {
+                        sw.Write(bill.ToString());
+                    }
+
+                    MessageBox.Show("Report saved successfully.");
+                }
             }
             catch
             {
                 // Handle invalid number format here, if necessary
                 MessageBox.Show("Invalid number format in charges.");
             }
-            
         }
+
         private void appoinmentNoteTb_TextChanged(object sender, EventArgs e)
         {
 

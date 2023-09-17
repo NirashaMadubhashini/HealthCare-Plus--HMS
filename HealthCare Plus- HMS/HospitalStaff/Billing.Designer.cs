@@ -84,6 +84,7 @@
             this.billDGV.RowTemplate.Height = 28;
             this.billDGV.Size = new System.Drawing.Size(1088, 278);
             this.billDGV.TabIndex = 176;
+            this.billDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billDGV_CellContentClick);
             // 
             // billTxt
             // 
