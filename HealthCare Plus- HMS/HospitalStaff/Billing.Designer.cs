@@ -57,6 +57,7 @@
             this.generateBtn.Size = new System.Drawing.Size(180, 45);
             this.generateBtn.TabIndex = 178;
             this.generateBtn.Text = "Generate";
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // label6
             // 
@@ -128,6 +129,10 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // refreshBtn
             // 
