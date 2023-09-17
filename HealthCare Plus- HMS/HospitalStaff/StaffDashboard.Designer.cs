@@ -244,6 +244,7 @@
             this.billingNumlbl.Size = new System.Drawing.Size(51, 37);
             this.billingNumlbl.TabIndex = 13;
             this.billingNumlbl.Text = "50";
+            this.billingNumlbl.Click += new System.EventHandler(this.billingNumlbl_Click);
             // 
             // label8
             // 

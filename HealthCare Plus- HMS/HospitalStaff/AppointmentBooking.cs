@@ -15,9 +15,7 @@ using System.Windows.Media;
 using TheArtOfDevHtmlRenderer.Adapters;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
-
-
-
+using HealthCare_Plus__HMS.HospitalStaff;
 
 namespace HealthCare_Plus__HMS.Staff
 {
@@ -534,6 +532,15 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void AppointmentBooking_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void viewAppoinmentsBtn_Click(object sender, EventArgs e)
+        {
+           ViewAppoinments modalForm = new ViewAppoinments();
+
+            // Show the form as a modal dialog
+            modalForm.ShowDialog();
 
         }
     }

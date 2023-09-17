@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HealthCare_Plus__HMS.Staff
 {
@@ -31,6 +32,7 @@ namespace HealthCare_Plus__HMS.Staff
             CountAppoinments();
             CountPatients();
             CountMedications();
+            CountBills();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -81,14 +83,15 @@ namespace HealthCare_Plus__HMS.Staff
 
         private void CountAppoinments()
         {
+            string Status = "Scheduled";
             Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from AppointmentTbl", Con);
+            /*SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from AppointmentTbl", Con);*/
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from AppointmentTbl where appointmentStatus = '" + Status + "'", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             appoinmentNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
         }
-
 
         private void CountPatients()
         {
@@ -107,6 +110,16 @@ namespace HealthCare_Plus__HMS.Staff
             DataTable dt = new DataTable();
             sda.Fill(dt);
             medNumLbl.Text = dt.Rows[0][0].ToString();
+            Con.Close();
+        }   
+        
+        private void CountBills()
+        {
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from BillTbl", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            billingNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
         }
 
@@ -254,7 +267,10 @@ namespace HealthCare_Plus__HMS.Staff
         {
             CountMedications();
         }
-
+        private void billingNumlbl_Click(object sender, EventArgs e)
+        {
+            CountBills();
+        }
         private void panelDesktop_Paint(object sender, PaintEventArgs e)
         {
 
@@ -292,5 +308,7 @@ namespace HealthCare_Plus__HMS.Staff
         {
 
         }
+
+
     }
 }

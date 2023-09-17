@@ -37,9 +37,11 @@
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.chartPnl2 = new System.Windows.Forms.Panel();
+            this.chartPnl1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.AppoinmentNumlbl = new System.Windows.Forms.Label();
+            this.appoinmentNumlbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -214,6 +216,8 @@
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.chartPnl2);
+            this.panelDesktop.Controls.Add(this.chartPnl1);
             this.panelDesktop.Controls.Add(this.label1);
             this.panelDesktop.Controls.Add(this.panel4);
             this.panelDesktop.Controls.Add(this.panel5);
@@ -225,6 +229,22 @@
             this.panelDesktop.Size = new System.Drawing.Size(1155, 729);
             this.panelDesktop.TabIndex = 11;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
+            // 
+            // chartPnl2
+            // 
+            this.chartPnl2.Location = new System.Drawing.Point(385, 228);
+            this.chartPnl2.Name = "chartPnl2";
+            this.chartPnl2.Size = new System.Drawing.Size(367, 349);
+            this.chartPnl2.TabIndex = 34;
+            this.chartPnl2.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl2_Paint);
+            // 
+            // chartPnl1
+            // 
+            this.chartPnl1.Location = new System.Drawing.Point(6, 228);
+            this.chartPnl1.Name = "chartPnl1";
+            this.chartPnl1.Size = new System.Drawing.Size(367, 349);
+            this.chartPnl1.TabIndex = 33;
+            this.chartPnl1.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl1_Paint);
             // 
             // label1
             // 
@@ -241,26 +261,27 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.AppoinmentNumlbl);
+            this.panel4.Controls.Add(this.appoinmentNumlbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Location = new System.Drawing.Point(189, 228);
+            this.panel4.Location = new System.Drawing.Point(770, 245);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(354, 148);
             this.panel4.TabIndex = 24;
             // 
-            // AppoinmentNumlbl
+            // appoinmentNumlbl
             // 
-            this.AppoinmentNumlbl.AutoSize = true;
-            this.AppoinmentNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppoinmentNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.AppoinmentNumlbl.Location = new System.Drawing.Point(255, 69);
-            this.AppoinmentNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.AppoinmentNumlbl.Name = "AppoinmentNumlbl";
-            this.AppoinmentNumlbl.Size = new System.Drawing.Size(51, 37);
-            this.AppoinmentNumlbl.TabIndex = 13;
-            this.AppoinmentNumlbl.Text = "45";
+            this.appoinmentNumlbl.AutoSize = true;
+            this.appoinmentNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appoinmentNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.appoinmentNumlbl.Location = new System.Drawing.Point(255, 69);
+            this.appoinmentNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.appoinmentNumlbl.Name = "appoinmentNumlbl";
+            this.appoinmentNumlbl.Size = new System.Drawing.Size(51, 37);
+            this.appoinmentNumlbl.TabIndex = 13;
+            this.appoinmentNumlbl.Text = "45";
+            this.appoinmentNumlbl.Click += new System.EventHandler(this.AppoinmentNumlbl_Click);
             // 
             // label5
             // 
@@ -292,7 +313,7 @@
             this.panel5.Controls.Add(this.patientRecordsNumlbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(641, 228);
+            this.panel5.Location = new System.Drawing.Point(770, 411);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(354, 148);
@@ -467,7 +488,7 @@
         private System.Windows.Forms.PictureBox btnHome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label AppoinmentNumlbl;
+        private System.Windows.Forms.Label appoinmentNumlbl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel5;
@@ -475,5 +496,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.Panel chartPnl2;
+        private System.Windows.Forms.Panel chartPnl1;
     }
 }

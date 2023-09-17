@@ -59,6 +59,7 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.docAvailCb = new System.Windows.Forms.ComboBox();
             this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.viewAppoinmentsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label4
@@ -409,12 +410,30 @@
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(734, 643);
+            this.refreshBtn.Location = new System.Drawing.Point(639, 646);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 171;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // viewAppoinmentsBtn
+            // 
+            this.viewAppoinmentsBtn.BackColor = System.Drawing.Color.White;
+            this.viewAppoinmentsBtn.BorderRadius = 8;
+            this.viewAppoinmentsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.viewAppoinmentsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.viewAppoinmentsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.viewAppoinmentsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.viewAppoinmentsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.viewAppoinmentsBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewAppoinmentsBtn.ForeColor = System.Drawing.Color.White;
+            this.viewAppoinmentsBtn.Location = new System.Drawing.Point(839, 646);
+            this.viewAppoinmentsBtn.Name = "viewAppoinmentsBtn";
+            this.viewAppoinmentsBtn.Size = new System.Drawing.Size(221, 45);
+            this.viewAppoinmentsBtn.TabIndex = 172;
+            this.viewAppoinmentsBtn.Text = "View Appoinments";
+            this.viewAppoinmentsBtn.Click += new System.EventHandler(this.viewAppoinmentsBtn_Click);
             // 
             // AppointmentBooking
             // 
@@ -422,6 +441,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.viewAppoinmentsBtn);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.docAvailCb);
             this.Controls.Add(this.docChargeTb);
@@ -492,5 +512,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ComboBox docAvailCb;
         private Guna.UI2.WinForms.Guna2Button refreshBtn;
+        private Guna.UI2.WinForms.Guna2Button viewAppoinmentsBtn;
     }
 }
