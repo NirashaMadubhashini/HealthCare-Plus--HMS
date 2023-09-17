@@ -83,13 +83,34 @@ namespace HealthCare_Plus__HMS.Admin
             try
             {
                 Con.Open();
-                string query = "SELECT * FROM BillTbl WHERE appointment_id IN (SELECT appointment_id FROM AppointmentTbl WHERE patient_id = @patient_id)";
+                string query = @"SELECT 
+                            BillTbl.bill_id, BillTbl.totalAmount, BillTbl.billDate, 
+                            AppointmentTbl.appointmentDate, AppointmentTbl.appointmentStatus, AppointmentTbl.appointmentNotes 
+                        FROM 
+                            BillTbl
+                        INNER JOIN 
+                            AppointmentTbl ON BillTbl.appointment_id = AppointmentTbl.appointment_id
+                        WHERE 
+                            AppointmentTbl.patient_id = @patient_id";
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("@patient_id", payRollCb.SelectedItem.ToString());
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 billDGV.DataSource = dt;
+
+                // Generate report text
+                StringBuilder reportText = new StringBuilder();
+                reportText.AppendLine("Bill ID\tTotal Amount\tBill Date\tAppointment Date\tAppointment Status\tAppointment Notes");
+                reportText.AppendLine(new string('-', 100));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    reportText.AppendLine($"{row["bill_id"]}\t{row["totalAmount"]}\t{row["billDate"]}\t{row["appointmentDate"]}\t{row["appointmentStatus"]}\t{row["appointmentNotes"]}");
+                }
+
+                // Set the report text as the Text property of billTxt
+                billTxt.Text = reportText.ToString();
             }
             catch (Exception ex)
             {
@@ -102,9 +123,71 @@ namespace HealthCare_Plus__HMS.Admin
         }
 
 
+        private DataTable GetBillAndAppointmentDetails(int patientId)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                Con.Open();
+                string query = @"
+            SELECT 
+                BillTbl.bill_id, BillTbl.totalAmount, BillTbl.billDate, 
+                AppointmentTbl.appointmentDate, AppointmentTbl.appointmentStatus, AppointmentTbl.appointmentNotes 
+            FROM 
+                BillTbl
+            INNER JOIN 
+                AppointmentTbl ON BillTbl.appointment_id = AppointmentTbl.appointment_id
+            WHERE 
+                AppointmentTbl.patient_id = @patient_id";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@patient_id", patientId);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+
+            return dt;
+        }
+
         private void generateBtn_Click(object sender, EventArgs e)
         {
-
+            if (payRollCb.SelectedItem != null)
+            {
+                int selectedPatientId = int.Parse(payRollCb.SelectedItem.ToString());
+                billDGV.DataSource = GetBillAndAppointmentDetails(selectedPatientId);
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient ID.");
+            }
         }
+
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (billDGV.DataSource is DataTable dt)
+            {
+                StringBuilder reportText = new StringBuilder();
+                reportText.AppendLine("Bill ID\tTotal Amount\tBill Date\tAppointment Date\tAppointment Status\tAppointment Notes");
+                reportText.AppendLine(new string('-', 100));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    reportText.AppendLine($"{row["bill_id"]}\t{row["totalAmount"]}\t{row["billDate"]}\t{row["appointmentDate"]}\t{row["appointmentStatus"]}\t{row["appointmentNotes"]}");
+                }
+
+                e.Graphics.DrawString(reportText.ToString(), new Font("Arial", 12), Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top);
+            }
+        }
+
+
     }
 }
