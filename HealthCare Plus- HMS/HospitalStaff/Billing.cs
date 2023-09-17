@@ -15,7 +15,7 @@ namespace HealthCare_Plus__HMS.BillingStaff
     public partial class Billing : Form
     {
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
-
+        private string selectedBillId = string.Empty;
         public Billing()
         {
             InitializeComponent();
@@ -244,50 +244,18 @@ namespace HealthCare_Plus__HMS.BillingStaff
 
         private void billDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure the clicked row index is valid
+            if (e.RowIndex >= 0)
             {
                 // Get the bill_id of the clicked row
-                var billId = billDGV.Rows[e.RowIndex].Cells["bill_id"].Value.ToString();
-
-                // Set the billId globally or find a way to pass it to your other methods
-                // to be able to filter out the details based on this bill_id.
-
-                // Get the patient_id related to this bill_id (add a method to get it)
-                var patientId = GetPatientIdByBillId(billId);
-
-                // Set the selected value of the ComboBox to this patient_id to load the respective data
-                payRollCb.SelectedItem = patientId;
+                selectedBillId = billDGV.Rows[e.RowIndex].Cells["bill_id"].Value.ToString();
 
                 // Display the report in a MessageBox (or any other way you prefer)
                 billTxt.Text = GetBillAndAppointmentDetailsAsString();
 
                 // Optionally, directly invoke the print functionality
-                printDocument1.Print();
+                // printDocument1.Print();  // Uncomment if you want to print directly
             }
         }
-
-        private string GetPatientIdByBillId(string billId)
-        {
-            try
-            {
-                Con.Open();
-                string query = "SELECT patient_id FROM AppointmentTbl WHERE appointment_id IN (SELECT appointment_id FROM BillTbl WHERE bill_id = @bill_id)";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@bill_id", billId);
-                var patientId = cmd.ExecuteScalar().ToString();
-                return patientId;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            finally
-            {
-                Con.Close();
-            }
-        }
-
 
     }
 }
