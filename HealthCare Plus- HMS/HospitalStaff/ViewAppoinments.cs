@@ -128,42 +128,90 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
             try
             {
-                if (appoinmenysLoadDGV.SelectedRows.Count > 0)
-                {
-                    Con.Open();
+                Con.Open();
 
-                    // Assuming you have a DateTimePicker control with the name newDateDtp
-                    DateTime newDate = appDateCb.Value;
-                    string newStatus = patStatusCb.Text;
-                    string newNotes = appoinNoteTb.Text;
+                DateTime newDate = appDateCb.Value;
+                string newStatus = patStatusCb.Text;
+                string newNotes = appoinNoteTb.Text;
 
-                    // Get the selected appointment ID
-                    int appointmentID = int.Parse(appoinmenysLoadDGV.SelectedRows[0].Cells[0].Value.ToString());
+                // Get the selected patient ID
+                int patientID = int.Parse(patIdCb.SelectedItem.ToString());
 
-                    string query = @"
-                     UPDATE AppointmentTbl 
-                    SET 
-                     appointmentDate = @NewDate, 
-                     appointmentStatus = @NewStatus, 
-                     appointmentnotes = @NewNotes
-                    WHERE 
-                     appointment_id = @AppointmentID
-                    ";
+                string query = @"
+             UPDATE AppointmentTbl 
+            SET 
+             appointmentDate = @NewDate, 
+             appointmentStatus = @NewStatus, 
+             appointmentnotes = @NewNotes
+            WHERE 
+             patient_id = @PatientID
+        ";
 
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.Parameters.AddWithValue("@NewDate", newDate);
-                    cmd.Parameters.AddWithValue("@NewStatus", newStatus);
-                    cmd.Parameters.AddWithValue("@NewNotes", newNotes);
-                    cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@NewDate", newDate);
+                cmd.Parameters.AddWithValue("@NewStatus", newStatus);
+                cmd.Parameters.AddWithValue("@NewNotes", newNotes);
+                cmd.Parameters.AddWithValue("@PatientID", patientID);
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+                LoadAppointmentData();
+                MessageBox.Show("Appointments updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+                patIdCb_SelectedIndexChanged(sender, e); // refresh the data grid view
+            }
+        }
 
-                    MessageBox.Show("Appointment updated successfully.");
-                }
-                else
-                {
-                    MessageBox.Show("Please select an appointment to update.");
-                }
+        private void LoadAppointmentData()
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"
+            SELECT 
+                a.appointment_id AS 'Appointment ID', 
+                p.PatientFirstName + ' ' + p.PatientLastName AS 'Patient Name',
+                u.userName AS 'Doctor Name',
+                a.appointmentDate AS 'Appointment Date',
+                a.appointmentStatus AS 'Appointment Status',
+                a.appointmentnotes AS 'Appointment Notes'
+            FROM 
+                AppointmentTbl a
+            JOIN 
+                PatientTbl p ON a.patient_id = p.patient_id
+            JOIN 
+                UserTbl u ON a.doctor_id = u.user_id
+            WHERE 
+                a.patient_id = @PatientId
+        ";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@PatientId", int.Parse(patIdCb.SelectedItem.ToString()));
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                // Set new data source
+                appoinmenysLoadDGV.DataSource = dt;
+
+                // Set individual column widths (adjust numbers as needed)
+                appoinmenysLoadDGV.Columns["Appointment ID"].Width = 100;
+                appoinmenysLoadDGV.Columns["Patient Name"].Width = 200;
+                appoinmenysLoadDGV.Columns["Doctor Name"].Width = 150;
+                appoinmenysLoadDGV.Columns["Appointment Date"].Width = 150;
+                appoinmenysLoadDGV.Columns["Appointment Status"].Width = 150;
+                appoinmenysLoadDGV.Columns["Appointment Notes"].Width = 300;
+
+                // Optional: to clear the selection after loading the data
+                appoinmenysLoadDGV.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -175,6 +223,31 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             }
         }
 
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Set the data source of the DataGridView to null to clear it
+                appoinmenysLoadDGV.DataSource = null;
 
+                // Clear the individual fields
+                patIdCb.Text = string.Empty;
+                patNameTb.Text = string.Empty;
+                patStatusCb.Text = string.Empty;
+                appoinNoteTb.Text = string.Empty;
+                appDateCb.Value = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

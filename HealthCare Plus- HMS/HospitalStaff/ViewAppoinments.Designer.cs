@@ -38,7 +38,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.cancelBtn = new Guna.UI2.WinForms.Guna2Button();
             this.reSheduleBtn = new Guna.UI2.WinForms.Guna2Button();
             this.appoinmenysLoadDGV = new System.Windows.Forms.DataGridView();
             this.iconPictureBoxClose = new FontAwesome.Sharp.IconPictureBox();
@@ -155,28 +154,12 @@
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(944, 184);
+            this.refreshBtn.Location = new System.Drawing.Point(944, 133);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 135;
             this.refreshBtn.Text = "Refresh";
-            // 
-            // cancelBtn
-            // 
-            this.cancelBtn.BackColor = System.Drawing.Color.White;
-            this.cancelBtn.BorderRadius = 8;
-            this.cancelBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.cancelBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.cancelBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.cancelBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cancelBtn.FillColor = System.Drawing.Color.Red;
-            this.cancelBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(944, 133);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(180, 45);
-            this.cancelBtn.TabIndex = 134;
-            this.cancelBtn.Text = "Cancel";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // reSheduleBtn
             // 
@@ -261,6 +244,7 @@
             this.searchTb.Size = new System.Drawing.Size(501, 46);
             this.searchTb.TabIndex = 145;
             this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
             // 
             // label13
             // 
@@ -287,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1155, 719);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.appDateCb);
@@ -303,7 +287,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.refreshBtn);
-            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.reSheduleBtn);
             this.Controls.Add(this.appoinmenysLoadDGV);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -330,7 +313,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Button refreshBtn;
-        private Guna.UI2.WinForms.Guna2Button cancelBtn;
         private Guna.UI2.WinForms.Guna2Button reSheduleBtn;
         private System.Windows.Forms.DataGridView appoinmenysLoadDGV;
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxClose;
