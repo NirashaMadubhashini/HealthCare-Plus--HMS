@@ -147,7 +147,7 @@ namespace HealthCare_Plus__HMS.Admin
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from BillTbl", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            resourcesNumlbl.Text = dt.Rows[0][0].ToString();
+            billingNumlbl.Text = dt.Rows[0][0].ToString();
             Con.Close();
         }
         private void CountReports()

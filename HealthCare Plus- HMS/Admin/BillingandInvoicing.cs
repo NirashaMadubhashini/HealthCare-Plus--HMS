@@ -14,6 +14,7 @@ namespace HealthCare_Plus__HMS.Admin
 {
     public partial class BillingandInvoicing : Form
     {
+
         public BillingandInvoicing()
         {
             InitializeComponent();
@@ -163,6 +164,9 @@ namespace HealthCare_Plus__HMS.Admin
             {
                 int selectedPatientId = int.Parse(payRollCb.SelectedItem.ToString());
                 billDGV.DataSource = GetBillAndAppointmentDetails(selectedPatientId);
+
+                // Initiate printing
+                printDocument1.Print();
             }
             else
             {
@@ -171,22 +175,63 @@ namespace HealthCare_Plus__HMS.Admin
         }
 
 
+
+
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             if (billDGV.DataSource is DataTable dt)
             {
-                StringBuilder reportText = new StringBuilder();
-                reportText.AppendLine("Bill ID\tTotal Amount\tBill Date\tAppointment Date\tAppointment Status\tAppointment Notes");
-                reportText.AppendLine(new string('-', 100));
+                Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+                Font sectionFont = new Font("Arial", 12, FontStyle.Bold);
+                Font bodyFont = new Font("Arial", 10);
+                Font footerFont = new Font("Arial", 10, FontStyle.Italic);
+
+                // Header Section
+                // Drawing Logo (Replace "path_to_logo.png" with the actual path to your logo)
+                try
+                {
+                    Image logo = Image.FromFile("path_to_logo.png");
+                    e.Graphics.DrawImage(logo, e.MarginBounds.Right - 100, e.MarginBounds.Top, 100, 100);
+                }
+                catch
+                {
+                    // Handle missing logo file
+                }
+                e.Graphics.DrawString("HealthCare Plus - Invoice", headerFont, Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top);
+                e.Graphics.DrawString("Address: 49/12- Circular Road, Galle", bodyFont, Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top + 30);
+                e.Graphics.DrawString("Contact: 076-1319259", bodyFont, Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top + 50);
+
+                // Bill Details Section
+                e.Graphics.DrawString("Bill Details", sectionFont, Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top + 100);
+
+                // Variables to hold X and Y positions
+                int xPosition = e.MarginBounds.Left;
+                int yPosition = e.MarginBounds.Top + 130;
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    reportText.AppendLine($"{row["bill_id"]}\t{row["totalAmount"]}\t{row["billDate"]}\t{row["appointmentDate"]}\t{row["appointmentStatus"]}\t{row["appointmentNotes"]}");
+                    // Display data in a more structured and beautiful format rather than just tab separated
+                    e.Graphics.DrawString($"Bill ID: {row["bill_id"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 20;
+                    e.Graphics.DrawString($"Total Amount: {row["totalAmount"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 20;
+                    e.Graphics.DrawString($"Bill Date: {row["billDate"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 20;
+                    e.Graphics.DrawString($"Appointment Date: {row["appointmentDate"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 20;
+                    e.Graphics.DrawString($"Status: {row["appointmentStatus"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 20;
+                    e.Graphics.DrawString($"Notes: {row["appointmentNotes"]}", bodyFont, Brushes.Black, xPosition, yPosition);
+                    yPosition += 30; // Extra space between entries
                 }
 
-                e.Graphics.DrawString(reportText.ToString(), new Font("Arial", 12), Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top);
+                // Footer Section
+                e.Graphics.DrawString("Thank you for choosing HealthCare Plus!", footerFont, Brushes.Black, e.MarginBounds.Left, yPosition + 30);
             }
         }
+
+
+
 
 
     }
