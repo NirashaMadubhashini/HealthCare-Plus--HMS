@@ -23,6 +23,7 @@ namespace HealthCare_Plus__HMS.Admin
             reportDGV.CellClick += new DataGridViewCellEventHandler(reportDGV_CellContentClick);
             exportBtn.Click -= new EventHandler(exportBtn_Click); // Unregister the event handler
             exportBtn.Click += new EventHandler(exportBtn_Click); // Register the event handler
+            reportDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(reportDGV_DataBindingComplete);
 
 
         }
@@ -40,6 +41,14 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void reportTxt_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void reportDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in reportDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
         }
 
         private void reportDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
