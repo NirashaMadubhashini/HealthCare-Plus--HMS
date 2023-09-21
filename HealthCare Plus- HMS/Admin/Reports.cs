@@ -24,7 +24,6 @@ namespace HealthCare_Plus__HMS.Admin
             exportBtn.Click -= new EventHandler(exportBtn_Click); // Unregister the event handler
             exportBtn.Click += new EventHandler(exportBtn_Click); // Register the event handler
 
-            reportDGV.CellFormatting += new DataGridViewCellFormattingEventHandler(reportDGV_CellFormatting);
 
         }
 
@@ -37,38 +36,6 @@ namespace HealthCare_Plus__HMS.Admin
             payRollCb.Items.Add("Appointments");
             payRollCb.Items.Add("Patients");
             payRollCb.Items.Add("Doctors");
-        }
-
-        private void reportDGV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Check if this is the "appointmentStatus" column (replace with your column name)
-            if (reportDGV.Columns[e.ColumnIndex].Name == "appointmentStatus")
-            {
-                // Check the value and set the cell style accordingly
-                if (e.Value != null)
-                {
-                    string status = e.Value.ToString();
-                    switch (status)
-                    {
-                        case "Pending":
-                            e.CellStyle.BackColor = Color.Yellow;
-                            e.CellStyle.ForeColor = Color.Black;
-                            break;
-                        case "Approved":
-                            e.CellStyle.BackColor = Color.Green;
-                            e.CellStyle.ForeColor = Color.White;
-                            break;
-                        case "Rejected":
-                            e.CellStyle.BackColor = Color.Red;
-                            e.CellStyle.ForeColor = Color.White;
-                            break;
-                        default:
-                            e.CellStyle.BackColor = Color.White;
-                            e.CellStyle.ForeColor = Color.Black;
-                            break;
-                    }
-                }
-            }
         }
 
         private void reportTxt_TextChanged(object sender, EventArgs e)

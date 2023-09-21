@@ -128,34 +128,46 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
             try
             {
-                Con.Open();
+                using (SqlConnection connection = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True"))
+                {
+                    connection.Open();
 
-                DateTime newDate = appDateCb.Value;
-                string newStatus = patStatusCb.Text;
-                string newNotes = appoinNoteTb.Text;
+                    DateTime newDate = appDateCb.Value;
+                    string newStatus = patStatusCb.Text;
+                    string newNotes = appoinNoteTb.Text;
 
-                // Get the selected patient ID
-                int patientID = int.Parse(patIdCb.SelectedItem.ToString());
+                    // Get the selected patient ID and appointment ID
+                    int patientID = int.Parse(patIdCb.SelectedItem.ToString());
 
-                string query = @"
-             UPDATE AppointmentTbl 
-            SET 
-             appointmentDate = @NewDate, 
-             appointmentStatus = @NewStatus, 
-             appointmentnotes = @NewNotes
-            WHERE 
-             patient_id = @PatientID
-        ";
+                    if (appoinmenysLoadDGV.CurrentRow == null)
+                    {
+                        MessageBox.Show("No appointment selected.");
+                        return;
+                    }
 
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@NewDate", newDate);
-                cmd.Parameters.AddWithValue("@NewStatus", newStatus);
-                cmd.Parameters.AddWithValue("@NewNotes", newNotes);
-                cmd.Parameters.AddWithValue("@PatientID", patientID);
+                    int appointmentID = int.Parse(appoinmenysLoadDGV.CurrentRow.Cells["Appointment ID"].Value.ToString());
 
-                cmd.ExecuteNonQuery();
-                LoadAppointmentData();
-                MessageBox.Show("Appointments updated successfully.");
+                    string query = @"
+                UPDATE AppointmentTbl 
+                SET 
+                 appointmentDate = @NewDate, 
+                 appointmentStatus = @NewStatus, 
+                 appointmentnotes = @NewNotes
+                WHERE 
+                 patient_id = @PatientID AND appointment_id = @AppointmentID
+            ";
+
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@NewDate", newDate);
+                    cmd.Parameters.AddWithValue("@NewStatus", newStatus);
+                    cmd.Parameters.AddWithValue("@NewNotes", newNotes);
+                    cmd.Parameters.AddWithValue("@PatientID", patientID);
+                    cmd.Parameters.AddWithValue("@AppointmentID", appointmentID);
+
+                    cmd.ExecuteNonQuery();
+                    LoadAppointmentData();
+                    MessageBox.Show("Appointments updated successfully.");
+                }
             }
             catch (Exception ex)
             {
@@ -163,10 +175,10 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             }
             finally
             {
-                Con.Close();
-                patIdCb_SelectedIndexChanged(sender, e); // refresh the data grid view
+                patIdCb_SelectedIndexChanged(sender, e);
             }
         }
+
 
         private void LoadAppointmentData()
         {
@@ -209,6 +221,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
                 appoinmenysLoadDGV.Columns["Appointment Date"].Width = 150;
                 appoinmenysLoadDGV.Columns["Appointment Status"].Width = 150;
                 appoinmenysLoadDGV.Columns["Appointment Notes"].Width = 300;
+
 
                 // Optional: to clear the selection after loading the data
                 appoinmenysLoadDGV.ClearSelection();
