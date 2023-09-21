@@ -15,63 +15,18 @@ namespace HealthCare_Plus__HMS.Doctor
     {
         private int _doctor_id;
 
+        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
+
         public PatientRecords(int doctor_id)
         {
             InitializeComponent();
             _doctor_id = doctor_id;
-            FetchPatientsByDoctorId(_doctor_id);
-            LoadPatientsForDoctor(_doctor_id);  // Load patient IDs to the ComboBox
+            LoadPatientsByDoctorId();
+            FillPatientsComboBox();
         }
 
 
-
-        SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
-
-        private void LoadPatientsForDoctor(int doctor_id)
-        {
-            try
-            {
-                Con.Open();
-
-                string query = @"
-            SELECT DISTINCT 
-                p.patient_id
-            FROM 
-                PatientTbl p
-            JOIN 
-                AppointmentTbl a
-            ON 
-                p.patient_id = a.patient_id
-            WHERE 
-                a.doctor_id = @doctorId;
-        ";
-
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@doctorId", doctor_id);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                patIdCb.Items.Clear();  // Clear previous items from ComboBox
-
-                while (reader.Read())
-                {
-                    patIdCb.Items.Add(reader["patient_id"].ToString());
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                Con.Close();
-            }
-        }
-
-
-        private void FetchPatientsByDoctorId(int doctor_id)
+        private void LoadPatientsByDoctorId()
         {
             string query = @"
                 SELECT 
@@ -89,12 +44,40 @@ namespace HealthCare_Plus__HMS.Doctor
             ";
 
             SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@doctorId", doctor_id);
+            cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             patRecordsDGV.DataSource = dt;
+        }
+
+        private void FillPatientsComboBox()
+        {
+            try
+            {
+                Con.Open();
+
+                string query = "SELECT DISTINCT patient_id FROM AppointmentTbl WHERE doctor_id = @doctorId";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                patIdCb.Items.Clear();
+                while (reader.Read())
+                {
+                    patIdCb.Items.Add(reader["patient_id"].ToString());
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void patIdCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,7 +107,7 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            FetchPatientsByDoctorId(_doctor_id);
+  
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
