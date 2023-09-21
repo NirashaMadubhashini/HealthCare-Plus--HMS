@@ -20,6 +20,7 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             InitializeComponent();
             LoadPatientIds();
             patIdCb.SelectedIndexChanged += patIdCb_SelectedIndexChanged;
+
         }
 
         private void LoadPatientIds()
