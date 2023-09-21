@@ -25,31 +25,43 @@ namespace HealthCare_Plus__HMS.Doctor
             FillPatientsComboBox();
         }
 
-
         private void LoadPatientsByDoctorId()
         {
-            string query = @"
-                SELECT 
-                    p.*,
-                    a.appointmentDate, 
-                    a.appointmentnotes 
-                FROM 
-                    PatientTbl p
-                JOIN 
-                    AppointmentTbl a
-                ON 
-                    p.patient_id = a.patient_id
-                WHERE 
-                    a.doctor_id = @doctorId;
-            ";
+            try
+            {
+                Con.Open();
 
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
+                string query = @"
+                    SELECT 
+                        p.*,
+                        a.appointmentDate, 
+                        a.appointmentnotes 
+                    FROM 
+                        PatientTbl p
+                    JOIN 
+                        AppointmentTbl a
+                    ON 
+                        p.patient_id = a.patient_id
+                    WHERE 
+                        a.doctor_id = @doctorId;
+                ";
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            patRecordsDGV.DataSource = dt;
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                patRecordsDGV.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching patient data: " + ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void FillPatientsComboBox()
@@ -64,15 +76,20 @@ namespace HealthCare_Plus__HMS.Doctor
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 patIdCb.Items.Clear();
+                int count = 0;
                 while (reader.Read())
                 {
                     patIdCb.Items.Add(reader["patient_id"].ToString());
+                    count++;
                 }
                 reader.Close();
+
+                // Show how many patients are loaded
+                MessageBox.Show(count + " patients loaded into the combo box.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error fetching patient IDs: " + ex.Message);
             }
             finally
             {

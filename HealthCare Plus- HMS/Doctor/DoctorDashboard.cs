@@ -23,7 +23,6 @@ namespace HealthCare_Plus__HMS.Doctor
         private Form currentChildForm;
         private string _userName;
         private string _userPassword;
-        private int _doctor_id;
         private Chart myChart;
         public DoctorDashboard(string userName, string userPassword)
         {
@@ -209,7 +208,7 @@ namespace HealthCare_Plus__HMS.Doctor
         private void btnStaff_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new PatientRecords(_doctor_id));
+            OpenChildForm(new PatientRecords());
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
