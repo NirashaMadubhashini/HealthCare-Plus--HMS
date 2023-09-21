@@ -13,14 +13,65 @@ namespace HealthCare_Plus__HMS.Doctor
 {
     public partial class PatientRecords : Form
     {
-        public PatientRecords()
+        private int _doctor_id;
+
+        public PatientRecords(int doctor_id)
         {
             InitializeComponent();
+            _doctor_id = doctor_id;
+            FetchPatientsByDoctorId(_doctor_id);
+            LoadPatientsForDoctor(_doctor_id);  // Load patient IDs to the ComboBox
         }
+
+
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
-        private void FetchPatientsByDoctorId(int doctorId)
+        private void LoadPatientsForDoctor(int doctor_id)
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"
+            SELECT DISTINCT 
+                p.patient_id
+            FROM 
+                PatientTbl p
+            JOIN 
+                AppointmentTbl a
+            ON 
+                p.patient_id = a.patient_id
+            WHERE 
+                a.doctor_id = @doctorId;
+        ";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@doctorId", doctor_id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                patIdCb.Items.Clear();  // Clear previous items from ComboBox
+
+                while (reader.Read())
+                {
+                    patIdCb.Items.Add(reader["patient_id"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+
+        private void FetchPatientsByDoctorId(int doctor_id)
         {
             string query = @"
                 SELECT 
@@ -38,7 +89,7 @@ namespace HealthCare_Plus__HMS.Doctor
             ";
 
             SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@doctorId", doctorId);
+            cmd.Parameters.AddWithValue("@doctorId", doctor_id);
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -73,8 +124,7 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            int doctorId = 1; // replace with the correct doctor_id
-            FetchPatientsByDoctorId(doctorId);
+            FetchPatientsByDoctorId(_doctor_id);
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
