@@ -9,9 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OxyPlot;
-using OxyPlot.Series;
-using OxyPlot.WindowsForms;
+using Microsoft.Reporting.WinForms;
+
 
 namespace HealthCare_Plus__HMS.Admin
 {
@@ -22,53 +21,81 @@ namespace HealthCare_Plus__HMS.Admin
             InitializeComponent();
             LoadReportTypes();
             reportDGV.CellClick += new DataGridViewCellEventHandler(reportDGV_CellContentClick);
+            exportBtn.Click -= new EventHandler(exportBtn_Click); // Unregister the event handler
+            exportBtn.Click += new EventHandler(exportBtn_Click); // Register the event handler
+
+            reportDGV.CellFormatting += new DataGridViewCellFormattingEventHandler(reportDGV_CellFormatting);
+
         }
+
 
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         private void LoadReportTypes()
         {
-            // Add the different types of reports the user can generate
             payRollCb.Items.Add("Appointments");
             payRollCb.Items.Add("Patients");
             payRollCb.Items.Add("Doctors");
-            // ... (add other report types as needed)
         }
+
+        private void reportDGV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if this is the "appointmentStatus" column (replace with your column name)
+            if (reportDGV.Columns[e.ColumnIndex].Name == "appointmentStatus")
+            {
+                // Check the value and set the cell style accordingly
+                if (e.Value != null)
+                {
+                    string status = e.Value.ToString();
+                    switch (status)
+                    {
+                        case "Pending":
+                            e.CellStyle.BackColor = Color.Yellow;
+                            e.CellStyle.ForeColor = Color.Black;
+                            break;
+                        case "Approved":
+                            e.CellStyle.BackColor = Color.Green;
+                            e.CellStyle.ForeColor = Color.White;
+                            break;
+                        case "Rejected":
+                            e.CellStyle.BackColor = Color.Red;
+                            e.CellStyle.ForeColor = Color.White;
+                            break;
+                        default:
+                            e.CellStyle.BackColor = Color.White;
+                            e.CellStyle.ForeColor = Color.Black;
+                            break;
+                    }
+                }
+            }
+        }
+
         private void reportTxt_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void reportDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-                if (e.RowIndex >= 0) // Ensure a valid row has been clicked
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = reportDGV.Rows[e.RowIndex];
+                StringBuilder reportText = new StringBuilder();
+                reportText.AppendLine($"------- SINGLE RECORD REPORT -------");
+                reportText.AppendLine(DateTime.Now.ToString("f"));
+                reportText.AppendLine(new string('-', 50));
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    DataGridViewRow row = reportDGV.Rows[e.RowIndex];
-
-                    // Access individual cell values like: row.Cells["ColumnName"].Value
-                    // Create a report based on the selected row's data.
-
-                    StringBuilder reportText = new StringBuilder();
-                    reportText.AppendLine($"------- SINGLE RECORD REPORT -------");
-                    reportText.AppendLine(DateTime.Now.ToString("f")); // Adding current date and time
-                    reportText.AppendLine(new string('-', 50)); // Add a separator
-
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (cell.Value != null)
                     {
-                        if (cell.Value != null)
-                        {
-                            // Format each line to have a fixed width for the column name and value
-                            reportText.AppendLine($"{reportDGV.Columns[cell.ColumnIndex].Name,-20} : {cell.Value.ToString(),-20}");
-                        }
+                        reportText.AppendLine($"{reportDGV.Columns[cell.ColumnIndex].Name,-20} : {cell.Value.ToString(),-20}");
                     }
-                    reportText.AppendLine(new string('-', 50)); // Add a separator
-
-                    reportTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
-                    reportTxt.Text = reportText.ToString(); // Set the report text
                 }
+                reportText.AppendLine(new string('-', 50));
+                reportTxt.Font = new Font("Courier New", 10);
+                reportTxt.Text = reportText.ToString();
             }
-
+        }
 
         private void payRollCb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,7 +106,6 @@ namespace HealthCare_Plus__HMS.Admin
             try
             {
                 Con.Open();
-
                 SqlCommand cmd;
                 switch (selectedReportType)
                 {
@@ -92,7 +118,6 @@ namespace HealthCare_Plus__HMS.Admin
                     case "Doctors":
                         cmd = new SqlCommand("SELECT D.doctor_id, U.userName, D.doctorSpecialization, D.roomNumber FROM DoctorTbl D JOIN UserTbl U ON D.doctor_id = U.user_id WHERE U.userRole = 'Doctor'", Con);
                         break;
-                    // ... (add other cases as needed)
                     default:
                         throw new Exception("Unknown report type");
                 }
@@ -107,24 +132,22 @@ namespace HealthCare_Plus__HMS.Admin
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
 
-                // Generate styled report text with enhanced formatting
                 StringBuilder reportText = new StringBuilder();
                 reportText.AppendLine($"------- {selectedReportType.ToUpper()} REPORT -------");
-                reportText.AppendLine(DateTime.Now.ToString("f")); // Adding current date and time
-                reportText.AppendLine(new string('-', 50)); // Add a separator
+                reportText.AppendLine(DateTime.Now.ToString("f"));
+                reportText.AppendLine(new string('-', 50));
 
                 foreach (DataRow row in dt.Rows)
                 {
                     foreach (DataColumn column in dt.Columns)
                     {
-                        // Format each line to have a fixed width for the column name and value
                         reportText.AppendLine($"{column.ColumnName,-20} : {row[column],-20}");
                     }
-                    reportText.AppendLine(new string('-', 50)); // Add a separator between records
+                    reportText.AppendLine(new string('-', 50));
                 }
 
-                reportTxt.Font = new Font("Courier New", 10); // Set a monospace font for aligned text
-                reportTxt.Text = reportText.ToString(); // 
+                reportTxt.Font = new Font("Courier New", 10);
+                reportTxt.Text = reportText.ToString();
             }
             catch (Exception ex)
             {
@@ -139,23 +162,19 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
-
         private void addBtn_Click(object sender, EventArgs e)
         {
-
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            // Set the print document to use the custom print logic defined in the printDocument2_PrintPage event handler
             printDocument2.PrintPage += new PrintPageEventHandler(printDocument2_PrintPage);
-            // Start the printing process
             printDocument2.Print();
         }
 
-        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font printFont = new Font("Courier New", 12); // Changed font to Courier New for better alignment
+            Font printFont = new Font("Courier New", 12);
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
             int count = 0;
             float yPos = e.MarginBounds.Top;
@@ -169,7 +188,6 @@ namespace HealthCare_Plus__HMS.Admin
                 yPos += printFont.GetHeight(e.Graphics);
             }
 
-            // Check to see if more pages are to be printed
             if (count < reportLines.Length)
             {
                 e.HasMorePages = true;
@@ -179,5 +197,85 @@ namespace HealthCare_Plus__HMS.Admin
                 e.HasMorePages = false;
             }
         }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+
+     
+        }
+
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = "Report.csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    StringBuilder csvContent = new StringBuilder();
+
+                    // Adding column names
+                    for (int i = 0; i < reportDGV.Columns.Count; i++)
+                    {
+                        csvContent.Append(reportDGV.Columns[i].Name);
+
+                        if (i < reportDGV.Columns.Count - 1)
+                        {
+                            csvContent.Append(",");
+                        }
+                    }
+                    csvContent.AppendLine();
+
+                    // Adding row data
+                    if (reportDGV.SelectedRows.Count == 1) // If a single row is selected, only export that row
+                    {
+                        DataGridViewRow row = reportDGV.SelectedRows[0];
+                        for (int i = 0; i < row.Cells.Count; i++)
+                        {
+                            csvContent.Append(row.Cells[i].Value?.ToString() ?? "");
+
+                            if (i < row.Cells.Count - 1)
+                            {
+                                csvContent.Append(",");
+                            }
+                        }
+                        csvContent.AppendLine();
+                    }
+                    else // Otherwise, export all rows
+                    {
+                        foreach (DataGridViewRow row in reportDGV.Rows)
+                        {
+                            if (row.IsNewRow) // Skip the new row at the end used for insertion
+                            {
+                                continue;
+                            }
+
+                            for (int i = 0; i < row.Cells.Count; i++)
+                            {
+                                csvContent.Append(row.Cells[i].Value?.ToString() ?? "");
+
+                                if (i < row.Cells.Count - 1)
+                                {
+                                    csvContent.Append(",");
+                                }
+                            }
+                            csvContent.AppendLine();
+                        }
+                    }
+
+                    // Writing data to CSV file
+                    System.IO.File.WriteAllText(sfd.FileName, csvContent.ToString());
+                    MessageBox.Show("Report exported successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

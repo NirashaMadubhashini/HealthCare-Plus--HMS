@@ -39,6 +39,7 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.exportBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.reportDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,12 +149,31 @@
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
+            // exportBtn
+            // 
+            this.exportBtn.BackColor = System.Drawing.Color.White;
+            this.exportBtn.BorderRadius = 8;
+            this.exportBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exportBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exportBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exportBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exportBtn.FillColor = System.Drawing.Color.Purple;
+            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.Location = new System.Drawing.Point(898, 355);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(180, 45);
+            this.exportBtn.TabIndex = 99;
+            this.exportBtn.Text = "Export";
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.reportDGV);
@@ -165,6 +185,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Reports";
             this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reportDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +204,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private Guna.UI2.WinForms.Guna2Button exportBtn;
     }
 }

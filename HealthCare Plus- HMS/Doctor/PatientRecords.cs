@@ -20,6 +20,32 @@ namespace HealthCare_Plus__HMS.Doctor
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
+        private void FetchPatientsByDoctorId(int doctorId)
+        {
+            string query = @"
+                SELECT 
+                    p.*,
+                    a.appointmentDate, 
+                    a.appointmentnotes 
+                FROM 
+                    PatientTbl p
+                JOIN 
+                    AppointmentTbl a
+                ON 
+                    p.patient_id = a.patient_id
+                WHERE 
+                    a.doctor_id = @doctorId;
+            ";
+
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@doctorId", doctorId);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            patRecordsDGV.DataSource = dt;
+        }
+
         private void patIdCb_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -47,7 +73,8 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-
+            int doctorId = 1; // replace with the correct doctor_id
+            FetchPatientsByDoctorId(doctorId);
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
