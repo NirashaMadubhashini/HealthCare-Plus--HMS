@@ -192,6 +192,7 @@
             this.appoinmenysLoadDGV.RowTemplate.Height = 28;
             this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 403);
             this.appoinmenysLoadDGV.TabIndex = 132;
+            this.appoinmenysLoadDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.appoinmenysLoadDGV_CellContentClick);
             // 
             // iconPictureBoxClose
             // 

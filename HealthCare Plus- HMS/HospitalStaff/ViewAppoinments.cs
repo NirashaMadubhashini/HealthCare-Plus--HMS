@@ -20,8 +20,36 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             InitializeComponent();
             LoadPatientIds();
             patIdCb.SelectedIndexChanged += patIdCb_SelectedIndexChanged;
+            appoinmenysLoadDGV.RowPostPaint += appoinmenysLoadDGV_RowPostPaint;
+            appoinmenysLoadDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(appoinmenysLoadDGV_DataBindingComplete);
 
         }
+
+
+        private void appoinmenysLoadDGV_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridViewRow row = appoinmenysLoadDGV.Rows[e.RowIndex];
+            if (row.DataBoundItem != null)
+            {
+                DataRowView drv = (DataRowView)row.DataBoundItem;
+                string status = drv["Appointment Status"].ToString();
+
+                switch (status)
+                {
+                    case "Scheduled":
+                        row.Cells["Appointment Status"].Style.BackColor = Color.Yellow;
+                        break;
+                    case "Completed":
+                        row.Cells["Appointment Status"].Style.BackColor = Color.Green;
+                        break;
+                    case "Cancelled":
+                        row.Cells["Appointment Status"].Style.BackColor = Color.Red;
+                        break;
+                        // ... Add other cases if needed
+                }
+            }
+        }
+
 
         private void LoadPatientIds()
         {
@@ -260,6 +288,18 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
 
         private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appoinmenysLoadDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in appoinmenysLoadDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
+        private void appoinmenysLoadDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
