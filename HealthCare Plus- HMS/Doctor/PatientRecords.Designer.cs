@@ -226,6 +226,7 @@
             this.searchTb.Size = new System.Drawing.Size(336, 46);
             this.searchTb.TabIndex = 178;
             this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
             // 
             // PatientRecords
             // 

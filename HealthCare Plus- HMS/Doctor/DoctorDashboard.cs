@@ -203,7 +203,7 @@ namespace HealthCare_Plus__HMS.Doctor
         private void btnAppointment_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new AllAppoinments());
+            OpenChildForm(new AllAppoinments(_userName));
         }
         private void btnStaff_Click(object sender, EventArgs e)
         {

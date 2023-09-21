@@ -81,5 +81,10 @@ namespace HealthCare_Plus__HMS.Doctor
         {
 
         }
+
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

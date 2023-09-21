@@ -71,6 +71,7 @@
             this.searchTb.Size = new System.Drawing.Size(475, 46);
             this.searchTb.TabIndex = 122;
             this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
             // 
             // refreshBtn
             // 
@@ -88,6 +89,7 @@
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 121;
             this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // searchBtn
             // 
@@ -105,6 +107,7 @@
             this.searchBtn.Size = new System.Drawing.Size(180, 45);
             this.searchBtn.TabIndex = 120;
             this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // appoinmentsDGV
             // 
