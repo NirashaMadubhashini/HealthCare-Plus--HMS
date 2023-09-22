@@ -20,9 +20,15 @@ namespace HealthCare_Plus__HMS.Doctor
         public PatientRecords(string userName)
         {
             InitializeComponent();
+            // Improve DataGridView initial settings
+            patRecordsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            patRecordsDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            patRecordsDGV.MultiSelect = false;
+            patRecordsDGV.ReadOnly = true;
+
             _userName = userName;
             LoadPatientIds();
-            LoadAllPatientDetails();  // Loading all patient details to the DataGridView
+            LoadAllPatientDetails();
         }
 
         private void LoadPatientIds()
@@ -106,11 +112,13 @@ namespace HealthCare_Plus__HMS.Doctor
                 Con.Open();
 
                 string query = @"
-                    SELECT p.patient_id, p.PatientFirstName, p.PatientLastName, p.PatientContact, p.PatientMedicalHistory
-                    FROM PatientTbl p
-                    INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
-                    INNER JOIN UserTbl u ON a.doctor_id = u.user_id
-                    WHERE u.userName = @userName";
+            SELECT DISTINCT p.patient_id AS 'Patient ID', p.PatientFirstName AS 'First Name', 
+                           p.PatientLastName AS 'Last Name', p.PatientContact AS 'Contact', 
+                           p.PatientMedicalHistory AS 'Medical History'
+            FROM PatientTbl p
+            INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+            INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+            WHERE u.userName = @userName";
 
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("@userName", _userName);
@@ -119,6 +127,10 @@ namespace HealthCare_Plus__HMS.Doctor
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 patRecordsDGV.DataSource = dt;
+
+                // Improve DataGridView appearance
+                patRecordsDGV.AutoResizeColumns();  // Resize columns to fit content
+                patRecordsDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;  // Set alternating row colors
             }
             catch (Exception ex)
             {
@@ -129,6 +141,7 @@ namespace HealthCare_Plus__HMS.Doctor
                 Con.Close();
             }
         }
+
 
 
         private void patNameTb_TextChanged(object sender, EventArgs e)
@@ -195,6 +208,9 @@ namespace HealthCare_Plus__HMS.Doctor
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Patient details updated successfully!");
+
+                    // Reload the table data to reflect the changes.
+                    LoadAllPatientDetails();
                 }
                 else
                 {
