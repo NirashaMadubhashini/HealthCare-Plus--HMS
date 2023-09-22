@@ -174,6 +174,7 @@ namespace HealthCare_Plus__HMS.Doctor
             if (patIdCb.SelectedIndex != -1) // Ensure a patient is selected.
             {
                 UpdatePatientDetails(patIdCb.SelectedItem.ToString());
+                LoadAllPatientDetails(); // Refresh the table
             }
             else
             {
@@ -208,9 +209,6 @@ namespace HealthCare_Plus__HMS.Doctor
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Patient details updated successfully!");
-
-                    // Reload the table data to reflect the changes.
-                    LoadAllPatientDetails();
                 }
                 else
                 {
