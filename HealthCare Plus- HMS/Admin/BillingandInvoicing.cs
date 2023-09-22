@@ -106,6 +106,10 @@ namespace HealthCare_Plus__HMS.Admin
                 sda.Fill(dt);
                 billDGV.DataSource = dt;
 
+                // Improve DataGridView appearance
+                billDGV.AutoResizeColumns();  // Resize columns to fit content
+                billDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
                 // Generate report text
                 StringBuilder reportText = new StringBuilder();
                 reportText.AppendLine("Bill ID\tTotal Amount\tBill Date\tAppointment Date\tAppointment Status\tAppointment Notes");
