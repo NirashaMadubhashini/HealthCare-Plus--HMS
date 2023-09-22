@@ -20,6 +20,12 @@ namespace HealthCare_Plus__HMS.Admin
             InitializeComponent();
             DisplaySearchPrescription();
             LoadPatientIds();
+
+            // Improve DataGridView initial settings
+            billDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            billDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            billDGV.MultiSelect = false;
+            billDGV.ReadOnly = true;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
@@ -145,6 +151,10 @@ namespace HealthCare_Plus__HMS.Admin
                 cmd.Parameters.AddWithValue("@patient_id", patientId);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 sda.Fill(dt);
+                // Improve DataGridView appearance
+                billDGV.AutoResizeColumns();  // Resize columns to fit content
+                billDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
             }
             catch (Exception ex)
             {

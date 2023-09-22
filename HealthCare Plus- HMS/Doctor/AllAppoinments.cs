@@ -27,7 +27,11 @@ namespace HealthCare_Plus__HMS.Doctor
             appoinmentsDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             appoinmentsDGV.MultiSelect = false;
             appoinmentsDGV.ReadOnly = true;
+
+            // Remove the line below if you decide to delete the appoinmentsDGV_CellContentClick method
+            // appoinmentsDGV.CellContentClick += new DataGridViewCellEventHandler(appoinmentsDGV_CellContentClick);
         }
+
 
         private void LoadDoctorAppointments()
         {
@@ -73,8 +77,6 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void appoinmentsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            AllAppoinments allAppointmentsForm = new AllAppoinments(_userName); // or use _userId if you prefer
-            allAppointmentsForm.Show();
 
         }
 
