@@ -23,6 +23,10 @@ namespace HealthCare_Plus__HMS.Doctor
             LoadDoctorAppointments();
             appoinmentsDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(appoinmentsDGV_DataBindingComplete);
 
+            appoinmentsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            appoinmentsDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            appoinmentsDGV.MultiSelect = false;
+            appoinmentsDGV.ReadOnly = true;
         }
 
         private void LoadDoctorAppointments()
@@ -44,6 +48,10 @@ namespace HealthCare_Plus__HMS.Doctor
                 sda.Fill(dt);
 
                 appoinmentsDGV.DataSource = dt;  // Assuming appoinmentsDGV is your DataGridView's name
+
+                // Improve DataGridView appearance
+                appoinmentsDGV.AutoResizeColumns();  // Resize columns to fit content
+                appoinmentsDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
             }
             catch (Exception ex)
             {
