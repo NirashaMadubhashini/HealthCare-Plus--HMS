@@ -8,88 +8,97 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HealthCare_Plus__HMS.Doctor
 {
     public partial class PatientRecords : Form
     {
-        private int _doctor_id;
-
+        private string _userName;
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
-        public PatientRecords(int doctor_id)
+        public PatientRecords(string userName)
         {
             InitializeComponent();
-            _doctor_id = doctor_id;
-            LoadPatientsByDoctorId();
-            FillPatientsComboBox();
+            _userName = userName;
+            LoadPatientIds();
         }
 
-        private void LoadPatientsByDoctorId()
+        private void LoadPatientIds()
         {
             try
             {
                 Con.Open();
 
-                string query = @"
-                    SELECT 
-                        p.*,
-                        a.appointmentDate, 
-                        a.appointmentnotes 
-                    FROM 
-                        PatientTbl p
-                    JOIN 
-                        AppointmentTbl a
-                    ON 
-                        p.patient_id = a.patient_id
-                    WHERE 
-                        a.doctor_id = @doctorId;
-                ";
+                string query = @"SELECT DISTINCT p.patient_id
+                        FROM PatientTbl p
+                        INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+                        INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+                        WHERE u.userName = @userName";
 
                 SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                patRecordsDGV.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error fetching patient data: " + ex.Message);
-            }
-            finally
-            {
-                Con.Close();
-            }
-        }
-
-        private void FillPatientsComboBox()
-        {
-            try
-            {
-                Con.Open();
-
-                string query = "SELECT DISTINCT patient_id FROM AppointmentTbl WHERE doctor_id = @doctorId";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@doctorId", _doctor_id);
+                cmd.Parameters.AddWithValue("@userName", _userName);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                patIdCb.Items.Clear();
-                int count = 0;
+
+                patIdCb.Items.Clear(); // clear existing items
                 while (reader.Read())
                 {
                     patIdCb.Items.Add(reader["patient_id"].ToString());
-                    count++;
                 }
                 reader.Close();
-
-                // Show how many patients are loaded
-                MessageBox.Show(count + " patients loaded into the combo box.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error fetching patient IDs: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+        private void patIdCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (patIdCb.SelectedIndex != -1) // Make sure something is selected
+            {
+                LoadPatientDetails(patIdCb.SelectedItem.ToString());
+            }
+        }
+
+        private void LoadPatientDetails(string patientId)
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"SELECT PatientFirstName, PatientLastName, PatientContact, PatientMedicalHistory
+                        FROM PatientTbl
+                        WHERE patient_id = @patientId";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                // Fetching patient data and populating the text boxes
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    patFullNameTb.Text = $"{reader["PatientFirstName"]} {reader["PatientLastName"]}";
+                    patContactTb.Text = reader["PatientContact"].ToString();
+                    patMedicineTb.Text = reader["PatientMedicalHistory"].ToString();
+                }
+                reader.Close();
+
+                // Loading patient data into the DataGridView
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                patRecordsDGV.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -97,10 +106,7 @@ namespace HealthCare_Plus__HMS.Doctor
             }
         }
 
-        private void patIdCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void patNameTb_TextChanged(object sender, EventArgs e)
         {
@@ -129,7 +135,58 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (patIdCb.SelectedIndex != -1) // Ensure a patient is selected.
+            {
+                UpdatePatientDetails(patIdCb.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient first.");
+            }
+        }
 
+        private void UpdatePatientDetails(string patientId)
+        {
+            try
+            {
+                Con.Open();
+
+                // Splitting the full name into first and last names.
+                string[] names = patFullNameTb.Text.Split(' ');
+                string firstName = names[0];
+                string lastName = names.Length > 1 ? names[1] : "";  // Handling case if only first name is present.
+
+                string query = @"UPDATE PatientTbl
+                                 SET PatientFirstName = @firstName, PatientLastName = @lastName, PatientContact = @contact, PatientMedicalHistory = @medicalHistory
+                                 WHERE patient_id = @patientId";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@firstName", firstName);
+                cmd.Parameters.AddWithValue("@lastName", lastName);
+                cmd.Parameters.AddWithValue("@contact", patContactTb.Text);
+                cmd.Parameters.AddWithValue("@medicalHistory", patMedicineTb.Text);
+                cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Patient details updated successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Error updating patient details.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void searchTb_TextChanged(object sender, EventArgs e)
