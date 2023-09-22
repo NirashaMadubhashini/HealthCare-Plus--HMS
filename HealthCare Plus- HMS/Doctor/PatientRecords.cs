@@ -166,9 +166,16 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-  
+            ClearAllFields();
         }
 
+        private void ClearAllFields()
+        {
+            patFullNameTb.Text = "";
+            patContactTb.Text = "";
+            patMedicineTb.Text = "";
+            patIdCb.SelectedIndex = -1; // Clear the selected index of the ComboBox
+        }
         private void updateBtn_Click(object sender, EventArgs e)
         {
             if (patIdCb.SelectedIndex != -1) // Ensure a patient is selected.
