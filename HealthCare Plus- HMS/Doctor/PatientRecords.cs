@@ -106,11 +106,11 @@ namespace HealthCare_Plus__HMS.Doctor
                 Con.Open();
 
                 string query = @"
-            SELECT DISTINCT p.PatientFirstName, p.PatientLastName, p.PatientContact, p.PatientMedicalHistory
-            FROM PatientTbl p
-            INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
-            INNER JOIN UserTbl u ON a.doctor_id = u.user_id
-            WHERE u.userName = @userName";
+                    SELECT p.patient_id, p.PatientFirstName, p.PatientLastName, p.PatientContact, p.PatientMedicalHistory
+                    FROM PatientTbl p
+                    INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+                    INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+                    WHERE u.userName = @userName";
 
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("@userName", _userName);
