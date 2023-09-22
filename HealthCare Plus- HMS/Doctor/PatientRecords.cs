@@ -22,6 +22,7 @@ namespace HealthCare_Plus__HMS.Doctor
             InitializeComponent();
             _userName = userName;
             LoadPatientIds();
+            LoadAllPatientDetails();  // Loading all patient details to the DataGridView
         }
 
         private void LoadPatientIds()
@@ -72,13 +73,12 @@ namespace HealthCare_Plus__HMS.Doctor
                 Con.Open();
 
                 string query = @"SELECT PatientFirstName, PatientLastName, PatientContact, PatientMedicalHistory
-                        FROM PatientTbl
-                        WHERE patient_id = @patientId";
+                                FROM PatientTbl
+                                WHERE patient_id = @patientId";
 
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.Parameters.AddWithValue("@patientId", patientId);
 
-                // Fetching patient data and populating the text boxes
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -88,13 +88,6 @@ namespace HealthCare_Plus__HMS.Doctor
                     patMedicineTb.Text = reader["PatientMedicalHistory"].ToString();
                 }
                 reader.Close();
-
-                // Loading patient data into the DataGridView
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                patRecordsDGV.DataSource = dt;
-
             }
             catch (Exception ex)
             {
@@ -106,6 +99,36 @@ namespace HealthCare_Plus__HMS.Doctor
             }
         }
 
+        private void LoadAllPatientDetails()
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"
+            SELECT DISTINCT p.PatientFirstName, p.PatientLastName, p.PatientContact, p.PatientMedicalHistory
+            FROM PatientTbl p
+            INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+            INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+            WHERE u.userName = @userName";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", _userName);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                patRecordsDGV.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
 
 
         private void patNameTb_TextChanged(object sender, EventArgs e)
