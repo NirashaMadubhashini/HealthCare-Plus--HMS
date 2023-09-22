@@ -233,9 +233,56 @@ namespace HealthCare_Plus__HMS.Doctor
             }
         }
 
+        private void SearchPatients(string searchTerm)
+        {
+            try
+            {
+                Con.Open();
+
+                string query = @"
+            SELECT DISTINCT p.patient_id AS 'Patient ID', p.PatientFirstName AS 'First Name', 
+                           p.PatientLastName AS 'Last Name', p.PatientContact AS 'Contact', 
+                           p.PatientMedicalHistory AS 'Medical History'
+            FROM PatientTbl p
+            INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+            INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+            WHERE (u.userName = @userName) AND 
+                  (p.patient_id LIKE @searchTerm OR 
+                   p.PatientFirstName LIKE @searchTerm OR 
+                   p.PatientLastName LIKE @searchTerm)";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", _userName);
+                cmd.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                patRecordsDGV.DataSource = dt;
+
+                // Improve DataGridView appearance
+                patRecordsDGV.AutoResizeColumns();  // Resize columns to fit content
+                patRecordsDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;  // Set alternating row colors
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
         private void searchTb_TextChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(searchTb.Text))
+            {
+                SearchPatients(searchTb.Text);
+            }
+            else
+            {
+                LoadAllPatientDetails();  // If search box is empty, load all patient details.
+            }
         }
     }
 }
