@@ -87,22 +87,49 @@ namespace HealthCare_Plus__HMS.Doctor
 
         private void CountPatients()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from PatientTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            patientRecordsNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string query = @"
+                SELECT COUNT(DISTINCT p.patient_id) 
+                FROM PatientTbl p
+                INNER JOIN AppointmentTbl a ON p.patient_id = a.patient_id
+                INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+                WHERE u.userName = @userName AND u.userPassword = @userPassword";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", _userName);
+                cmd.Parameters.AddWithValue("@userPassword", _userPassword);
+
+                patientRecordsNumlbl.Text = cmd.ExecuteScalar().ToString();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void CountAppoinments()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from AppointmentTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            appoinmentNumlbl.Text = dt.Rows[0][0].ToString();
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string query = @"
+                SELECT COUNT(*)
+                FROM AppointmentTbl a
+                INNER JOIN UserTbl u ON a.doctor_id = u.user_id
+                WHERE u.userName = @userName AND u.userPassword = @userPassword";
+
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", _userName);
+                cmd.Parameters.AddWithValue("@userPassword", _userPassword);
+
+                appoinmentNumlbl.Text = cmd.ExecuteScalar().ToString();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         //Methods
