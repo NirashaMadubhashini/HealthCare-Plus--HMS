@@ -200,9 +200,9 @@
             this.label4.Location = new System.Drawing.Point(543, 179);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 23);
+            this.label4.Size = new System.Drawing.Size(321, 23);
             this.label4.TabIndex = 179;
-            this.label4.Text = "Search by Patient Id";
+            this.label4.Text = "Search by Patient Id and Name";
             // 
             // searchTb
             // 
