@@ -19,6 +19,11 @@ namespace HealthCare_Plus__HMS.Admin
             DisplayTest();
             medResourcesDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(LabTestDGV_DataBindingComplete);
 
+            // Improve DataGridView initial settings
+            medResourcesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            medResourcesDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            medResourcesDGV.MultiSelect = false;
+            medResourcesDGV.ReadOnly = true;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
@@ -32,6 +37,10 @@ namespace HealthCare_Plus__HMS.Admin
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
+
+            medResourcesDGV.AutoResizeColumns();  // Resize columns to fit content
+            medResourcesDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
             medResourcesDGV.DataSource = ds.Tables[0];
             medResourcesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             medResourcesDGV.Columns["resourceName"].HeaderText = "Name";
