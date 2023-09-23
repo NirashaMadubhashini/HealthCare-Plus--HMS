@@ -20,6 +20,10 @@ namespace HealthCare_Plus__HMS.Admin
             DisplayPatients();
             patDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(patDGV_DataBindingComplete);
 
+            patDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            patDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            patDGV.MultiSelect = false;
+            patDGV.ReadOnly = true;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
@@ -32,6 +36,11 @@ namespace HealthCare_Plus__HMS.Admin
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
+
+            // Improve DataGridView appearance
+            patDGV.AutoResizeColumns();  // Resize columns to fit content
+            patDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
             patDGV.DataSource = ds.Tables[0];
             patDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Con.Close();
@@ -184,6 +193,8 @@ namespace HealthCare_Plus__HMS.Admin
             DataTable dt = new DataTable();
             sda.Fill(dt);
             patDGV.DataSource = dt;
+
+
             Con.Close();
         }
 
