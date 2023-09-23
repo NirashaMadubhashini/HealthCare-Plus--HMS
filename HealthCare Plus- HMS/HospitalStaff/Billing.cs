@@ -22,6 +22,8 @@ namespace HealthCare_Plus__HMS.BillingStaff
             DisplaySearchPrescription();
             LoadPatientIds();
 
+
+
             // Improve DataGridView initial settings
             billDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             billDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
