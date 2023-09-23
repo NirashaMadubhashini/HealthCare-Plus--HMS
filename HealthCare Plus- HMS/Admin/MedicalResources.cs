@@ -24,10 +24,45 @@ namespace HealthCare_Plus__HMS.Admin
             medResourcesDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             medResourcesDGV.MultiSelect = false;
             medResourcesDGV.ReadOnly = true;
+
+            resourceNameTb.KeyDown += resourceNameTb_KeyDown;
+            resourceDescriptionTb.KeyDown += resourceDescriptionTb_KeyDown;
+            resourceQuantityTb.KeyDown += resourceQuantityTb_KeyDown;
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private void resourceNameTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                resourceDescriptionTb.Focus();
+                e.SuppressKeyPress = true; // to prevent the beep sound on pressing enter
+                e.Handled = true;
+            }
+        }
+
+        private void resourceDescriptionTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                resourceQuantityTb.Focus();
+                e.SuppressKeyPress = true;  // to prevent the beep sound on pressing enter
+                e.Handled = true;
+            }
+        }
+
+        private void resourceQuantityTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addBtn.PerformClick(); // or any other button you want to be triggered
+                e.SuppressKeyPress = true;  // to prevent the beep sound on pressing enter
+                e.Handled = true;
+            }
+        }
 
         private bool IsValidResourceName(string name)
         {

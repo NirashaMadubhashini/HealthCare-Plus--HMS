@@ -25,11 +25,25 @@ namespace HealthCare_Plus__HMS.Admin
             roomDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             roomDGV.MultiSelect = false;
             roomDGV.ReadOnly = true;
+
+            roomNumTb.KeyDown += new KeyEventHandler(roomNumTb_KeyDown);
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
         int Key = 0;
+
+        private void roomNumTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                roomNoteTb.Focus();
+                e.Handled = true; // To prevent the default behavior (e.g., beep sound)
+                e.SuppressKeyPress = true; // Prevents the ding sound
+            }
+        }
+
         private void ClearAllFields()
         {
             // Clearing all textboxes
