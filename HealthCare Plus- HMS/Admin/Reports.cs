@@ -25,6 +25,10 @@ namespace HealthCare_Plus__HMS.Admin
             exportBtn.Click += new EventHandler(exportBtn_Click); // Register the event handler
             reportDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(reportDGV_DataBindingComplete);
 
+            reportDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            reportDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            reportDGV.MultiSelect = false;
+            reportDGV.ReadOnly = true;
 
         }
 
@@ -103,6 +107,10 @@ namespace HealthCare_Plus__HMS.Admin
                 da.Fill(dt);
 
                 reportDGV.DataSource = dt;
+
+                reportDGV.AutoResizeColumns();  // Resize columns to fit content
+                reportDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
                 foreach (DataGridViewColumn column in reportDGV.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
