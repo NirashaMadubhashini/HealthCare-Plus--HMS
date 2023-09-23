@@ -155,7 +155,7 @@
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(944, 133);
+            this.refreshBtn.Location = new System.Drawing.Point(944, 162);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 135;
@@ -173,7 +173,7 @@
             this.reSheduleBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.reSheduleBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reSheduleBtn.ForeColor = System.Drawing.Color.White;
-            this.reSheduleBtn.Location = new System.Drawing.Point(944, 82);
+            this.reSheduleBtn.Location = new System.Drawing.Point(944, 111);
             this.reSheduleBtn.Name = "reSheduleBtn";
             this.reSheduleBtn.Size = new System.Drawing.Size(180, 45);
             this.reSheduleBtn.TabIndex = 133;
