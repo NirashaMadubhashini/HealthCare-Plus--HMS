@@ -108,12 +108,12 @@
             this.medicationDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.medicationDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medicationDGV.GridColor = System.Drawing.Color.White;
-            this.medicationDGV.Location = new System.Drawing.Point(36, 241);
+            this.medicationDGV.Location = new System.Drawing.Point(36, 263);
             this.medicationDGV.Margin = new System.Windows.Forms.Padding(2);
             this.medicationDGV.Name = "medicationDGV";
             this.medicationDGV.RowHeadersWidth = 62;
             this.medicationDGV.RowTemplate.Height = 28;
-            this.medicationDGV.Size = new System.Drawing.Size(1089, 438);
+            this.medicationDGV.Size = new System.Drawing.Size(1089, 416);
             this.medicationDGV.TabIndex = 82;
             this.medicationDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.medicationDGV_CellContentClick);
             // 
