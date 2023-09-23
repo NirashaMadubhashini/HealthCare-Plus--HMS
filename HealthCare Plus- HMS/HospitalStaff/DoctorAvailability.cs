@@ -30,7 +30,10 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             docAvailableDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(docAvailableDGV_DataBindingComplete);
             docAvailableDGV.CellClick += new DataGridViewCellEventHandler(docAvailableDGV_CellContentClick);
 
-
+            docAvailableDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            docAvailableDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            docAvailableDGV.MultiSelect = false;
+            docAvailableDGV.ReadOnly = true;
         }
 
         private void ResetForm()
@@ -84,6 +87,9 @@ namespace HealthCare_Plus__HMS.HospitalStaff
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 docAvailableDGV.DataSource = dt;
+
+                docAvailableDGV.AutoResizeColumns();  // Resize columns to fit content
+                docAvailableDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
             }
             catch (Exception ex)
             {
