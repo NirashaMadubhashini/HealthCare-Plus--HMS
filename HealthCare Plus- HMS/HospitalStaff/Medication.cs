@@ -25,10 +25,55 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             medicationDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             medicationDGV.MultiSelect = false;
             medicationDGV.ReadOnly = true;
+
+            medNameTb.KeyDown += MedNameTb_KeyDown;
+            medDescriptionTb.KeyDown += MedDescriptionTb_KeyDown;
+            medDosageTb.KeyDown += MedDosageTb_KeyDown;
+            medSideEffectsTb.KeyDown += MedSideEffectsTb_KeyDown;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private void MedNameTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                medDescriptionTb.Focus();
+                e.SuppressKeyPress = true;  // To prevent the beep sound
+                e.Handled = true;
+            }
+        }
+
+        private void MedDescriptionTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                medDosageTb.Focus();
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void MedDosageTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                medSideEffectsTb.Focus();
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void MedSideEffectsTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                medStockQuantityTb.Focus();
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
 
         private bool IsValidInputs()
         {
