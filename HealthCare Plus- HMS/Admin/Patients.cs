@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
+
 
 namespace HealthCare_Plus__HMS.Admin
 {
@@ -28,6 +30,43 @@ namespace HealthCare_Plus__HMS.Admin
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private bool ValidateInputs()
+        {
+            // Validation for PatientFirstName and PatientLastName
+            Regex namePattern = new Regex(@"^[A-Za-z\s]+$");
+
+            if (!namePattern.IsMatch(patFirstNameTb.Text))
+            {
+                MessageBox.Show("First name can only contain A-Z letters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!namePattern.IsMatch(patLastNameTb.Text))
+            {
+                MessageBox.Show("Last name can only contain A-Z letters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validation for PatientContact
+            Regex phonePattern = new Regex(@"^\d{10}$");
+
+            if (!phonePattern.IsMatch(patPhoneTb.Text))
+            {
+                MessageBox.Show("Contact should only contain 10 digits.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validation for PatientAddress
+            if (!namePattern.IsMatch(patAddressTb.Text))
+            {
+                MessageBox.Show("Address can only contain A-Z letters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void DisplayPatients()
         {
             Con.Open();
@@ -70,6 +109,11 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputs())
+            {
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(patFirstNameTb.Text) ||
         string.IsNullOrWhiteSpace(patLastNameTb.Text) ||
         string.IsNullOrWhiteSpace(patDOBCb.Text) ||
@@ -111,6 +155,11 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputs())
+            {
+                return;
+            }
+
             if (patFirstNameTb.Text == "" || patLastNameTb.Text == "" || patDOBCb.Text == "" || patGenCb.SelectedIndex == -1 || patPhoneTb.Text == "" || patAddressTb.Text == "" || patMedHistoryTb.Text == "")
             {
                 MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
