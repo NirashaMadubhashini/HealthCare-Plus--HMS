@@ -21,6 +21,12 @@ namespace HealthCare_Plus__HMS.BillingStaff
             InitializeComponent();
             DisplaySearchPrescription();
             LoadPatientIds();
+
+            // Improve DataGridView initial settings
+            billDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            billDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            billDGV.MultiSelect = false;
+            billDGV.ReadOnly = true;
         }
 
         private void DisplaySearchPrescription()
@@ -33,6 +39,10 @@ namespace HealthCare_Plus__HMS.BillingStaff
             sda.Fill(ds);
             billDGV.DataSource = ds.Tables[0];
             billDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            billDGV.AutoResizeColumns();  // Resize columns to fit content
+            billDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
             Con.Close();
         }
 
@@ -79,6 +89,9 @@ namespace HealthCare_Plus__HMS.BillingStaff
                 sda.Fill(dt);
                 billDGV.DataSource = dt;
                 billTxt.Text = GetBillAndAppointmentDetailsAsString();
+
+                billDGV.AutoResizeColumns();  // Resize columns to fit content
+                billDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
             }
             catch (Exception ex)
             {
@@ -122,6 +135,9 @@ namespace HealthCare_Plus__HMS.BillingStaff
                 cmd.Parameters.AddWithValue("@patient_id", payRollCb.SelectedItem.ToString());
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 sda.Fill(dt);
+
+                billDGV.AutoResizeColumns();  // Resize columns to fit content
+                billDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
             }
             catch (Exception ex)
             {
@@ -244,20 +260,9 @@ namespace HealthCare_Plus__HMS.BillingStaff
 
         private void billDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure the clicked row index is valid
-            {
-                // Get the patient_id of the clicked row
-                var patientId = billDGV.Rows[e.RowIndex].Cells["patient_id"].Value.ToString();
 
-                // Set the selected value of the ComboBox to this patient_id to load the respective data
-                payRollCb.SelectedItem = patientId;
-
-                // Display the report in a MessageBox (or any other way you prefer)
-                billTxt.Text = GetBillAndAppointmentDetailsAsString();
-
-                // Optionally, directly invoke the print functionality
-                printDocument1.Print();
-            }
         }
+
+
     }
 }
