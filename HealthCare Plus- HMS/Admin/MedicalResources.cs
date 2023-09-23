@@ -29,6 +29,18 @@ namespace HealthCare_Plus__HMS.Admin
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
 
+        private bool IsValidResourceName(string name)
+        {
+            // Check if name contains only alphabetical characters
+            return System.Text.RegularExpressions.Regex.IsMatch(name, "^[a-zA-Z]+$");
+        }
+
+        private bool IsValidResourceQuantity(string quantity)
+        {
+            // Check if quantity contains only numbers
+            return System.Text.RegularExpressions.Regex.IsMatch(quantity, "^[0-9]+$");
+        }
+
         private void DisplayTest()
         {
             Con.Open();
@@ -60,6 +72,18 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
+            if (!IsValidResourceName(resourceNameTb.Text))
+            {
+                MessageBox.Show("Resource Name must contain only alphabetical characters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidResourceQuantity(resourceQuantityTb.Text))
+            {
+                MessageBox.Show("Resource Quantity must contain only numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(resourceNameTb.Text) ||
          string.IsNullOrWhiteSpace(resourceDescriptionTb.Text) ||
          string.IsNullOrWhiteSpace(resourceQuantityTb.Text))
@@ -91,6 +115,19 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+
+            if (!IsValidResourceName(resourceNameTb.Text))
+            {
+                MessageBox.Show("Resource Name must contain only alphabetical characters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidResourceQuantity(resourceQuantityTb.Text))
+            {
+                MessageBox.Show("Resource Quantity must contain only numbers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (resourceNameTb.Text == "" || resourceDescriptionTb.Text == "" || resourceQuantityTb.Text == "")
             {
                 MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
