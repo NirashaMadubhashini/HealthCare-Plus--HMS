@@ -20,11 +20,19 @@ namespace HealthCare_Plus__HMS
         {
             InitializeComponent();
             InitializeRoleComboBox(); // Call the method to initialize role combobox items
+            unameTb.KeyUp += unameTb_KeyUp;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         public static string Role;
 
+        private void unameTb_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                passTb.Focus();
+            }
+        }
         // Method to initialize the role combobox items
         private void InitializeRoleComboBox()
         {
