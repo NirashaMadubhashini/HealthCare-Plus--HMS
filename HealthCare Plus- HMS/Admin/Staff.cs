@@ -46,7 +46,7 @@ namespace HealthCare_Plus__HMS.Admin
         private bool IsValidUserPassword(string userPassword)
         {
             // Adjusted the regex pattern to accept underscores along with A-Z, a-z letters, and 0-9 numbers
-            return Regex.IsMatch(userPassword, "^[A-Za-z0-9_]+$");
+            return Regex.IsMatch(userPassword, "^[A-z0-9_]+$");
         }
 
         private bool IsValidUserEmail(string userEmail)
