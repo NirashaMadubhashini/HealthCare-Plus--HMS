@@ -23,6 +23,10 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             appoinmenysLoadDGV.RowPostPaint += appoinmenysLoadDGV_RowPostPaint;
             appoinmenysLoadDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(appoinmenysLoadDGV_DataBindingComplete);
 
+            appoinmenysLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            appoinmenysLoadDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            appoinmenysLoadDGV.MultiSelect = false;
+            appoinmenysLoadDGV.ReadOnly = true;
         }
 
 
@@ -242,6 +246,9 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
                 // Set new data source
                 appoinmenysLoadDGV.DataSource = dt;
+
+                appoinmenysLoadDGV.AutoResizeColumns();  // Resize columns to fit content
+                appoinmenysLoadDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
 
                 // Set individual column widths (adjust numbers as needed)
                 appoinmenysLoadDGV.Columns["Appointment ID"].Width = 100;
