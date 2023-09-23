@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
+
 
 namespace HealthCare_Plus__HMS.Admin
 {
@@ -28,6 +30,31 @@ namespace HealthCare_Plus__HMS.Admin
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private bool IsValidUserName(string userName)
+        {
+            // Match only A-Z and a-z letters
+            return Regex.IsMatch(userName, "^[A-Za-z]+$");
+        }
+
+        private bool IsValidUserContact(string userContact)
+        {
+            // Match only numbers and should be 10 digits
+            return Regex.IsMatch(userContact, @"^\d{10}$");
+        }
+
+        private bool IsValidUserPassword(string userPassword)
+        {
+            // Match only A-Z, a-z letters, hyphen and 0-9 numbers
+            return Regex.IsMatch(userPassword, "^[A-Za-z0-9-]+$");
+        }
+
+        private bool IsValidUserEmail(string userEmail)
+        {
+            // Match specified email format
+            return Regex.IsMatch(userEmail, @"^[a-z0-9]+@[a-z]+\.[a-z]+$") && userEmail.EndsWith("healthcare.com");
+        }
+
 
         private void loadTbl()
         {
@@ -80,6 +107,30 @@ namespace HealthCare_Plus__HMS.Admin
         }
         private void addBtn_Click_1(object sender, EventArgs e)
         {
+            if (!IsValidUserName(nameTb.Text))
+            {
+                MessageBox.Show("Invalid User Name! It should contain only letters A-z.");
+                return;
+            }
+
+            if (!IsValidUserContact(contactTb.Text))
+            {
+                MessageBox.Show("Invalid Contact! It should contain exactly 10 numbers.");
+                return;
+            }
+
+            if (!IsValidUserPassword(passwordTb.Text))
+            {
+                MessageBox.Show("Invalid Password! It should contain only A-z letters, hyphen and 0-9 numbers.");
+                return;
+            }
+
+            if (!IsValidUserEmail(emailTb.Text))
+            {
+                MessageBox.Show("Invalid Email! It should be in the format: username@healthcare.com");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(nameTb.Text) ||
                string.IsNullOrWhiteSpace(contactTb.Text) ||
                string.IsNullOrWhiteSpace(passwordTb.Text) ||
@@ -88,30 +139,6 @@ namespace HealthCare_Plus__HMS.Admin
                 MessageBox.Show("Missing Information");
                 return;
             }
-
-            // Email validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(emailTb.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Please enter a valid email address.");
-                return;
-            }
-
-
-            // Contact number validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^[0-9\-\+\s]+$"))
-            {
-                MessageBox.Show("Please enter a valid contact number.");
-                return;
-            }
-
-
-            // Password validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(passwordTb.Text, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
-            {
-                MessageBox.Show("Your password must contain at least one uppercase letter, one lowercase letter, and one number.");
-                return;
-            }
-
 
             try
             {
@@ -142,6 +169,29 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (!IsValidUserName(nameTb.Text))
+            {
+                MessageBox.Show("Invalid User Name! It should contain only letters A-z.");
+                return;
+            }
+
+            if (!IsValidUserContact(contactTb.Text))
+            {
+                MessageBox.Show("Invalid Contact! It should contain exactly 10 numbers.");
+                return;
+            }
+
+            if (!IsValidUserPassword(passwordTb.Text))
+            {
+                MessageBox.Show("Invalid Password! It should contain only A-z letters, hyphen and 0-9 numbers.");
+                return;
+            }
+
+            if (!IsValidUserEmail(emailTb.Text))
+            {
+                MessageBox.Show("Invalid Email! It should be in the format: username@healthcare.com");
+                return;
+            }
             // Check if the essential fields are filled
             if (string.IsNullOrWhiteSpace(nameTb.Text) ||
                 string.IsNullOrWhiteSpace(contactTb.Text) ||
@@ -149,28 +199,6 @@ namespace HealthCare_Plus__HMS.Admin
                 string.IsNullOrWhiteSpace(emailTb.Text)) // Added email validation
             {
                 MessageBox.Show("Missing Information");
-                return;
-            }
-            // Email validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(emailTb.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("Please enter a valid email address.");
-                return;
-            }
-
-            // Contact number validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(contactTb.Text, @"^\d{10}$"))
-            {
-                MessageBox.Show("Please enter a valid contact number consisting of 10 digits.");
-                return;
-            }
-
-
-
-            // Password validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(passwordTb.Text, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
-            {
-                MessageBox.Show("Your password must contain at least one uppercase letter, one lowercase letter, and one number.");
                 return;
             }
 
