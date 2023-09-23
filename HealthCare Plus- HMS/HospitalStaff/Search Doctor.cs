@@ -17,6 +17,11 @@ namespace HealthCare_Plus__HMS.Staff
         {
             InitializeComponent();
             DisplaySearchDoc();
+
+            DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DoctorLoadDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DoctorLoadDGV.MultiSelect = false;
+            DoctorLoadDGV.ReadOnly = true;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
@@ -33,6 +38,10 @@ namespace HealthCare_Plus__HMS.Staff
                 SqlDataAdapter sda = new SqlDataAdapter(query, Con);
                 var ds = new DataSet();
                 sda.Fill(ds);
+
+                DoctorLoadDGV.AutoResizeColumns();  // Resize columns to fit content
+                DoctorLoadDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
                 DoctorLoadDGV.DataSource = null; // Clear the DataSource
                 DoctorLoadDGV.DataSource = ds.Tables[0]; // Set the new DataSource
                 DoctorLoadDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
