@@ -77,7 +77,7 @@
             this.printBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printBtn.ForeColor = System.Drawing.Color.White;
-            this.printBtn.Location = new System.Drawing.Point(694, 355);
+            this.printBtn.Location = new System.Drawing.Point(953, 120);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(180, 45);
             this.printBtn.TabIndex = 98;
@@ -160,7 +160,7 @@
             this.exportBtn.FillColor = System.Drawing.Color.Purple;
             this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportBtn.ForeColor = System.Drawing.Color.White;
-            this.exportBtn.Location = new System.Drawing.Point(898, 355);
+            this.exportBtn.Location = new System.Drawing.Point(953, 171);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(180, 45);
             this.exportBtn.TabIndex = 99;
