@@ -23,6 +23,12 @@ namespace HealthCare_Plus__HMS.Admin
             LoadDoctorNames();
             GetRoomNum();
             searchTb.TextChanged += new EventHandler(searchTb_TextChanged);
+
+            // Improve DataGridView initial settings
+            doctorDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            doctorDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            doctorDGV.MultiSelect = false;
+            doctorDGV.ReadOnly = true;
         }
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
 
@@ -102,6 +108,9 @@ namespace HealthCare_Plus__HMS.Admin
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 doctorDGV.DataSource = dt;
+
+                doctorDGV.AutoResizeColumns();  // Resize columns to fit content
+                doctorDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
 
                 foreach (DataGridViewColumn column in doctorDGV.Columns)
                 {
