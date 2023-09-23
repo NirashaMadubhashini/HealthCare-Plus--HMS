@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -29,6 +30,29 @@ namespace HealthCare_Plus__HMS.Doctor
             _userName = userName;
             LoadPatientIds();
             LoadAllPatientDetails();
+        }
+
+        private bool ValidateInputs()
+        {
+            // Validation for PatientFirstName and PatientLastName
+            Regex namePattern = new Regex(@"^[A-Za-z\s]+$");
+
+            if (!namePattern.IsMatch(patFullNameTb.Text))
+            {
+                MessageBox.Show("Name can only contain A-Z letters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validation for PatientContact
+            Regex phonePattern = new Regex(@"^\d{10}$");
+
+            if (!phonePattern.IsMatch(patContactTb.Text))
+            {
+                MessageBox.Show("Contact should only contain 10 digits.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         private void LoadPatientIds()
@@ -178,6 +202,11 @@ namespace HealthCare_Plus__HMS.Doctor
         }
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputs())
+            {
+                return;
+            }
+
             if (patIdCb.SelectedIndex != -1) // Ensure a patient is selected.
             {
                 UpdatePatientDetails(patIdCb.SelectedItem.ToString());
