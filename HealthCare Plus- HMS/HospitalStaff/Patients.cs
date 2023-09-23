@@ -25,48 +25,36 @@ namespace HealthCare_Plus__HMS.Staff
             patientsDGV.MultiSelect = false;
             patientsDGV.ReadOnly = true;
 
-            // In the constructor after InitializeComponent();
-            patFirstNameTb.KeyDown += PatFirstNameTb_KeyDown;
-            patLastNameTb.KeyDown += PatLastNameTb_KeyDown;
-            patPhoneTb.KeyDown += PatPhoneTb_KeyDown;
-            patAddressTb.KeyDown += PatAddressTb_KeyDown;
-
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
 
-        private void PatFirstNameTb_KeyDown(object sender, KeyEventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (keyData == Keys.Enter)
             {
-                patLastNameTb.Focus();
+                if (ActiveControl == patFirstNameTb)
+                {
+                    patLastNameTb.Focus();
+                }
+                else if (ActiveControl == patLastNameTb)
+                {
+                    patPhoneTb.Focus();
+                }
+                else if (ActiveControl == patPhoneTb)
+                {
+                    patAddressTb.Focus();
+                }
+                else if (ActiveControl == patAddressTb)
+                {
+                    patMedHistoryTb.Focus();
+                }
+                return true; // Indicate that you've handled this key
             }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void PatLastNameTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                patPhoneTb.Focus();
-            }
-        }
-
-        private void PatPhoneTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                patAddressTb.Focus();
-            }
-        }
-
-        private void PatAddressTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                patMedHistoryTb.Focus();
-            }
-        }
 
         private bool ValidateInputs()
         {

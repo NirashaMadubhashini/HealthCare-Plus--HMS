@@ -26,10 +26,38 @@ namespace HealthCare_Plus__HMS.Admin
             patDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             patDGV.MultiSelect = false;
             patDGV.ReadOnly = true;
+
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                if (ActiveControl == patFirstNameTb)
+                {
+                    patLastNameTb.Focus();
+                }
+                else if (ActiveControl == patLastNameTb)
+                {
+                    patPhoneTb.Focus();
+                }
+                else if (ActiveControl == patPhoneTb)
+                {
+                    patAddressTb.Focus();
+                }
+                else if (ActiveControl == patAddressTb)
+                {
+                    patMedHistoryTb.Focus();
+                }
+                return true; // Indicate that you've handled this key
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
         private bool ValidateInputs()
         {
