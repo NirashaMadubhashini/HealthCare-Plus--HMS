@@ -70,21 +70,47 @@ namespace HealthCare_Plus__HMS.Admin
             Key = 0;
         }
 
+        private bool IsValidRoom(string roomNumber)
+        {
+            if (!roomNumber.StartsWith("R"))
+            {
+                MessageBox.Show("Invalid Room Number. The room number must start with 'R'.");
+                return false;
+            }
+
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM RoomTbl WHERE roomNumber = @RNUM", Con))
+            {
+                Con.Open();  // Explicitly open the connection here
+                cmd.Parameters.AddWithValue("@RNUM", roomNumber);
+                var exists = (int)cmd.ExecuteScalar() > 0;
+                Con.Close(); // Close the connection after executing the command
+
+                if (exists)
+                {
+                    MessageBox.Show("Room Number Conflict. A room with this number already exists.");
+                    return false; // Room number is already in use
+                }
+            }
+
+            return true; // All validations passed
+        }
+
 
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
+
+            if (!IsValidRoom(roomNumTb.Text))
+            {
+                return;
+            }
+
             if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
                 MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Validate that roomNumber starts with "R"
-            if (!roomNumTb.Text.StartsWith("R"))
-            {
-                MessageBox.Show("Invalid Room Number. The room number must start with 'R'.");
-                return;
-            }
+
             try
             {
                 Con.Open();
@@ -142,16 +168,15 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
+
+            if (!IsValidRoom(roomNumTb.Text))
             {
-                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Validate that roomNumber starts with "R"
-            if (!roomNumTb.Text.StartsWith("R"))
+            if (roomNumTb.Text == "" || roomFloorCb.SelectedIndex == -1 || roomTypeCb.SelectedIndex == -1 || statusCb.Text == "" || roomNoteTb.Text == "")
             {
-                MessageBox.Show("Invalid Room Number. The room number must start with 'R'.");
+                MessageBox.Show("Please complete all fields before proceeding.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
