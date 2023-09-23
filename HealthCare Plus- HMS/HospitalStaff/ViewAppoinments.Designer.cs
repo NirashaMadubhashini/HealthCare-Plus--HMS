@@ -77,6 +77,7 @@
             // 
             // patNameTb
             // 
+            this.patNameTb.Enabled = false;
             this.patNameTb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patNameTb.ForeColor = System.Drawing.Color.Black;
             this.patNameTb.Location = new System.Drawing.Point(265, 116);

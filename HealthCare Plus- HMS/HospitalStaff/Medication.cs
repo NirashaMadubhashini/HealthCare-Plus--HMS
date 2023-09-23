@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace HealthCare_Plus__HMS.HospitalStaff
 {
@@ -27,6 +29,25 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private bool IsValidInputs()
+        {
+            // Validate medicationName for A-z letters only
+            if (!Regex.IsMatch(medNameTb.Text, "^[a-zA-Z ]+$"))
+            {
+                MessageBox.Show("Medication Name should contain only letters.");
+                return false;
+            }
+
+            // Validate medicationStockQuantity for 0-9 numbers only
+            if (!Regex.IsMatch(medStockQuantityTb.Text, "^[0-9]+$"))
+            {
+                MessageBox.Show("Medication Stock Quantity should contain only numbers.");
+                return false;
+            }
+
+            return true;
+        }
 
         private void DisplayMed()
         {
@@ -56,6 +77,9 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         }
         private void addBtn_Click(object sender, EventArgs e)
         {
+            if (!IsValidInputs())
+                return;
+
             if (medNameTb.Text == "" || medDescriptionTb.Text == "" || medDosageTb.Text == "" || medSideEffectsTb.Text == "" || medStockQuantityTb.Text == "")
 
             {
@@ -87,6 +111,9 @@ namespace HealthCare_Plus__HMS.HospitalStaff
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (!IsValidInputs())
+                return;
+
             if (medNameTb.Text == "" || medDescriptionTb.Text == "" || medDosageTb.Text == "" || medSideEffectsTb.Text == "" || medStockQuantityTb.Text == "")
             {
                 MessageBox.Show("Missing Essential Information. Please fill in all the fields."); // Error message for missing information
