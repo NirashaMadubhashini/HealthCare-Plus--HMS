@@ -24,10 +24,49 @@ namespace HealthCare_Plus__HMS.Staff
             patientsDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             patientsDGV.MultiSelect = false;
             patientsDGV.ReadOnly = true;
+
+            // In the constructor after InitializeComponent();
+            patFirstNameTb.KeyDown += PatFirstNameTb_KeyDown;
+            patLastNameTb.KeyDown += PatLastNameTb_KeyDown;
+            patPhoneTb.KeyDown += PatPhoneTb_KeyDown;
+            patAddressTb.KeyDown += PatAddressTb_KeyDown;
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private void PatFirstNameTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                patLastNameTb.Focus();
+            }
+        }
+
+        private void PatLastNameTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                patPhoneTb.Focus();
+            }
+        }
+
+        private void PatPhoneTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                patAddressTb.Focus();
+            }
+        }
+
+        private void PatAddressTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                patMedHistoryTb.Focus();
+            }
+        }
 
         private bool ValidateInputs()
         {
