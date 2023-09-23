@@ -17,8 +17,13 @@ namespace HealthCare_Plus__HMS.HospitalStaff
         {
             InitializeComponent();
             DisplayMed();
-           medicationDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(medicationDGV_DataBindingComplete);
-       }
+            medicationDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(medicationDGV_DataBindingComplete);
+
+            medicationDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            medicationDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            medicationDGV.MultiSelect = false;
+            medicationDGV.ReadOnly = true;
+        }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
@@ -33,6 +38,10 @@ namespace HealthCare_Plus__HMS.HospitalStaff
             sda.Fill(ds);
             medicationDGV.DataSource = ds.Tables[0];
             medicationDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            medicationDGV.AutoResizeColumns();  // Resize columns to fit content
+            medicationDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
             Con.Close();
         }
 
