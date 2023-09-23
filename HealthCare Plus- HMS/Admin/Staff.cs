@@ -26,10 +26,51 @@ namespace HealthCare_Plus__HMS.Admin
             staffDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             staffDGV.MultiSelect = false;
             staffDGV.ReadOnly = true;
+
+            nameTb.KeyDown += NameTb_KeyDown;
+            contactTb.KeyDown += ContactTb_KeyDown;
+            passwordTb.KeyDown += PasswordTb_KeyDown;
+            emailTb.KeyDown += EmailTb_KeyDown;
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=NIRASHA\SQLEXPRESS;Initial Catalog=Hospital_Management;Integrated Security=True");
         int Key = 0;
+
+        private void NameTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                contactTb.Focus(); // Move focus to the userContact TextBox
+                e.SuppressKeyPress = true; // Prevents the annoying "ding" sound
+            }
+        }
+
+        private void ContactTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                passwordTb.Focus(); // Move focus to the userPassword TextBox
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void PasswordTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                emailTb.Focus(); // Move focus to the userEmail TextBox
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void EmailTb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                roleCb.Focus(); // You can decide where to shift focus after the userEmail TextBox. Here I've set it to the roleCb ComboBox.
+                e.SuppressKeyPress = true;
+            }
+        }
 
         private bool IsValidUserName(string userName)
         {
