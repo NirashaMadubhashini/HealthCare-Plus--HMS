@@ -300,7 +300,7 @@
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.searchTb.Location = new System.Drawing.Point(530, 290);
+            this.searchTb.Location = new System.Drawing.Point(786, 300);
             this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTb.Name = "searchTb";
             this.searchTb.PasswordChar = '\0';
@@ -316,7 +316,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(525, 259);
+            this.label1.Location = new System.Drawing.Point(781, 269);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 23);
