@@ -259,7 +259,5 @@ namespace HealthCare_Plus__HMS.Admin
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

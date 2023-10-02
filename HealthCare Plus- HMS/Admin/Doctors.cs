@@ -462,5 +462,9 @@ namespace HealthCare_Plus__HMS.Admin
             }
         }
 
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.btnDoctors = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.chartPnl = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.resourcesNumlbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.btnReport = new FontAwesome.Sharp.IconButton();
             this.btnLaboratoryTest = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.chartPnl = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxMin)).BeginInit();
             this.panelTitleBar.SuspendLayout();
@@ -340,6 +340,14 @@
             this.panelDesktop.Size = new System.Drawing.Size(1155, 721);
             this.panelDesktop.TabIndex = 7;
             // 
+            // chartPnl
+            // 
+            this.chartPnl.Location = new System.Drawing.Point(0, 211);
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(522, 456);
+            this.chartPnl.TabIndex = 24;
+            this.chartPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl_Paint);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -409,7 +417,7 @@
             this.roomNumlbl.AutoSize = true;
             this.roomNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.roomNumlbl.Location = new System.Drawing.Point(197, 42);
+            this.roomNumlbl.Location = new System.Drawing.Point(206, 45);
             this.roomNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.roomNumlbl.Name = "roomNumlbl";
             this.roomNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -450,6 +458,7 @@
             this.lblDateTime.Size = new System.Drawing.Size(560, 34);
             this.lblDateTime.TabIndex = 23;
             this.lblDateTime.Text = "Saturday, September 9, 2023 1:20:54 AM";
+            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // label1
             // 
@@ -531,7 +540,7 @@
             this.StaffNumlbl.AutoSize = true;
             this.StaffNumlbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffNumlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.StaffNumlbl.Location = new System.Drawing.Point(212, 45);
+            this.StaffNumlbl.Location = new System.Drawing.Point(197, 45);
             this.StaffNumlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StaffNumlbl.Name = "StaffNumlbl";
             this.StaffNumlbl.Size = new System.Drawing.Size(51, 37);
@@ -753,14 +762,6 @@
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // chartPnl
-            // 
-            this.chartPnl.Location = new System.Drawing.Point(0, 211);
-            this.chartPnl.Name = "chartPnl";
-            this.chartPnl.Size = new System.Drawing.Size(522, 456);
-            this.chartPnl.TabIndex = 24;
-            this.chartPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.chartPnl_Paint);
             // 
             // AdminDashboard
             // 

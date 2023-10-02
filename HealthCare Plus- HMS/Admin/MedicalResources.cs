@@ -267,5 +267,10 @@ namespace HealthCare_Plus__HMS.Admin
             medResourcesDGV.DataSource = dt;
             Con.Close();
         }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

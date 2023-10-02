@@ -419,5 +419,9 @@ namespace HealthCare_Plus__HMS.Admin
             chartPnl.Controls.Add(myChart);
         }
 
+        private void lblDateTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
