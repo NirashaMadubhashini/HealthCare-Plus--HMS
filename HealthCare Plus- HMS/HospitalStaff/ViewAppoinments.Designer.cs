@@ -186,12 +186,12 @@
             this.appoinmenysLoadDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.appoinmenysLoadDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appoinmenysLoadDGV.GridColor = System.Drawing.Color.White;
-            this.appoinmenysLoadDGV.Location = new System.Drawing.Point(35, 282);
+            this.appoinmenysLoadDGV.Location = new System.Drawing.Point(35, 330);
             this.appoinmenysLoadDGV.Margin = new System.Windows.Forms.Padding(2);
             this.appoinmenysLoadDGV.Name = "appoinmenysLoadDGV";
             this.appoinmenysLoadDGV.RowHeadersWidth = 62;
             this.appoinmenysLoadDGV.RowTemplate.Height = 28;
-            this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 403);
+            this.appoinmenysLoadDGV.Size = new System.Drawing.Size(1089, 355);
             this.appoinmenysLoadDGV.TabIndex = 132;
             this.appoinmenysLoadDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.appoinmenysLoadDGV_CellContentClick);
             // 
@@ -217,7 +217,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(416, 184);
+            this.label2.Location = new System.Drawing.Point(618, 225);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(506, 23);
@@ -237,7 +237,7 @@
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.searchTb.Location = new System.Drawing.Point(421, 215);
+            this.searchTb.Location = new System.Drawing.Point(623, 256);
             this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTb.Name = "searchTb";
             this.searchTb.PasswordChar = '\0';
@@ -262,11 +262,11 @@
             // 
             // appDateCb
             // 
-            this.appDateCb.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDateCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appDateCb.Location = new System.Drawing.Point(35, 206);
             this.appDateCb.Margin = new System.Windows.Forms.Padding(2);
             this.appDateCb.Name = "appDateCb";
-            this.appDateCb.Size = new System.Drawing.Size(259, 42);
+            this.appDateCb.Size = new System.Drawing.Size(259, 37);
             this.appDateCb.TabIndex = 147;
             // 
             // ViewAppoinments

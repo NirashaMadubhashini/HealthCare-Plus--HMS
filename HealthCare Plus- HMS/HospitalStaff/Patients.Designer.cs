@@ -59,12 +59,12 @@
             this.patientsDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.patientsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientsDGV.GridColor = System.Drawing.Color.White;
-            this.patientsDGV.Location = new System.Drawing.Point(33, 335);
+            this.patientsDGV.Location = new System.Drawing.Point(33, 365);
             this.patientsDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.patientsDGV.Name = "patientsDGV";
             this.patientsDGV.RowHeadersWidth = 62;
             this.patientsDGV.RowTemplate.Height = 28;
-            this.patientsDGV.Size = new System.Drawing.Size(1089, 345);
+            this.patientsDGV.Size = new System.Drawing.Size(1089, 315);
             this.patientsDGV.TabIndex = 77;
             this.patientsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDGV_CellContentClick);
             // 
@@ -162,7 +162,7 @@
             this.patMedHistoryTb.Margin = new System.Windows.Forms.Padding(2);
             this.patMedHistoryTb.Multiline = true;
             this.patMedHistoryTb.Name = "patMedHistoryTb";
-            this.patMedHistoryTb.Size = new System.Drawing.Size(258, 77);
+            this.patMedHistoryTb.Size = new System.Drawing.Size(542, 77);
             this.patMedHistoryTb.TabIndex = 103;
             // 
             // label2
@@ -284,7 +284,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(524, 243);
+            this.label1.Location = new System.Drawing.Point(778, 261);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 23);
@@ -304,7 +304,7 @@
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.searchTb.Location = new System.Drawing.Point(529, 274);
+            this.searchTb.Location = new System.Drawing.Point(783, 292);
             this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTb.Name = "searchTb";
             this.searchTb.PasswordChar = '\0';

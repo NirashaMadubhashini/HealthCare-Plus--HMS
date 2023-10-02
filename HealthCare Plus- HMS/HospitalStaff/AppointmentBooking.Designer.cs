@@ -195,11 +195,11 @@
             // 
             // appointmentDateDTP
             // 
-            this.appointmentDateDTP.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentDateDTP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentDateDTP.Location = new System.Drawing.Point(323, 479);
             this.appointmentDateDTP.Margin = new System.Windows.Forms.Padding(2);
             this.appointmentDateDTP.Name = "appointmentDateDTP";
-            this.appointmentDateDTP.Size = new System.Drawing.Size(269, 42);
+            this.appointmentDateDTP.Size = new System.Drawing.Size(269, 37);
             this.appointmentDateDTP.TabIndex = 152;
             this.appointmentDateDTP.ValueChanged += new System.EventHandler(this.appointmentDateDTP_ValueChanged);
             // 

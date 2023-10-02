@@ -109,12 +109,12 @@
             this.medicationDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.medicationDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medicationDGV.GridColor = System.Drawing.Color.White;
-            this.medicationDGV.Location = new System.Drawing.Point(36, 263);
+            this.medicationDGV.Location = new System.Drawing.Point(36, 334);
             this.medicationDGV.Margin = new System.Windows.Forms.Padding(2);
             this.medicationDGV.Name = "medicationDGV";
             this.medicationDGV.RowHeadersWidth = 62;
             this.medicationDGV.RowTemplate.Height = 28;
-            this.medicationDGV.Size = new System.Drawing.Size(1089, 416);
+            this.medicationDGV.Size = new System.Drawing.Size(1089, 345);
             this.medicationDGV.TabIndex = 82;
             this.medicationDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.medicationDGV_CellContentClick);
             // 
@@ -238,7 +238,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(543, 157);
+            this.label1.Location = new System.Drawing.Point(743, 239);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 23);
@@ -258,7 +258,7 @@
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.searchTb.Location = new System.Drawing.Point(548, 188);
+            this.searchTb.Location = new System.Drawing.Point(748, 270);
             this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTb.Name = "searchTb";
             this.searchTb.PasswordChar = '\0';

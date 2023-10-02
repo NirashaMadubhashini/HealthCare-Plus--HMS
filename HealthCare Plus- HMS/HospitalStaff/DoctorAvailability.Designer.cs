@@ -190,7 +190,7 @@
             this.deleteBtn.FillColor = System.Drawing.Color.Red;
             this.deleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(922, 149);
+            this.deleteBtn.Location = new System.Drawing.Point(931, 143);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(180, 45);
             this.deleteBtn.TabIndex = 201;
@@ -208,7 +208,7 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(922, 98);
+            this.updateBtn.Location = new System.Drawing.Point(931, 92);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 200;
@@ -226,7 +226,7 @@
             this.addBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(922, 47);
+            this.addBtn.Location = new System.Drawing.Point(931, 41);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(180, 45);
             this.addBtn.TabIndex = 199;
@@ -265,7 +265,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(701, 299);
+            this.label3.Location = new System.Drawing.Point(710, 299);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(325, 23);
@@ -285,7 +285,7 @@
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.searchTb.Location = new System.Drawing.Point(706, 330);
+            this.searchTb.Location = new System.Drawing.Point(715, 330);
             this.searchTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchTb.Name = "searchTb";
             this.searchTb.PasswordChar = '\0';
@@ -298,20 +298,20 @@
             // 
             // startTimeCb
             // 
-            this.startTimeCb.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.startTimeCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startTimeCb.Location = new System.Drawing.Point(537, 80);
             this.startTimeCb.Name = "startTimeCb";
-            this.startTimeCb.Size = new System.Drawing.Size(256, 42);
+            this.startTimeCb.Size = new System.Drawing.Size(256, 37);
             this.startTimeCb.TabIndex = 206;
             this.startTimeCb.Value = new System.DateTime(2023, 9, 14, 11, 3, 0, 0);
             this.startTimeCb.ValueChanged += new System.EventHandler(this.startTimeCb_ValueChanged);
             // 
             // endTimeCb
             // 
-            this.endTimeCb.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.endTimeCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endTimeCb.Location = new System.Drawing.Point(537, 166);
             this.endTimeCb.Name = "endTimeCb";
-            this.endTimeCb.Size = new System.Drawing.Size(256, 42);
+            this.endTimeCb.Size = new System.Drawing.Size(256, 37);
             this.endTimeCb.TabIndex = 207;
             this.endTimeCb.Value = new System.DateTime(2023, 9, 14, 11, 3, 0, 0);
             this.endTimeCb.ValueChanged += new System.EventHandler(this.endTimeCb_ValueChanged);
@@ -470,7 +470,7 @@
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
             this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(922, 200);
+            this.refreshBtn.Location = new System.Drawing.Point(931, 194);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 218;
