@@ -53,7 +53,7 @@
             this.experienceTb.Margin = new System.Windows.Forms.Padding(2);
             this.experienceTb.Multiline = true;
             this.experienceTb.Name = "experienceTb";
-            this.experienceTb.Size = new System.Drawing.Size(535, 71);
+            this.experienceTb.Size = new System.Drawing.Size(835, 71);
             this.experienceTb.TabIndex = 86;
             this.experienceTb.TextChanged += new System.EventHandler(this.experienceTb_TextChanged);
             // 
@@ -80,7 +80,7 @@
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.ForeColor = System.Drawing.Color.White;
-            this.updateBtn.Location = new System.Drawing.Point(799, 431);
+            this.updateBtn.Location = new System.Drawing.Point(480, 461);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(180, 45);
             this.updateBtn.TabIndex = 83;
