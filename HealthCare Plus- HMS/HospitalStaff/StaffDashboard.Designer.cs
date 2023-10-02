@@ -336,7 +336,7 @@
             this.medNumLbl.AutoSize = true;
             this.medNumLbl.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.medNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.medNumLbl.Location = new System.Drawing.Point(193, 45);
+            this.medNumLbl.Location = new System.Drawing.Point(192, 45);
             this.medNumLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.medNumLbl.Name = "medNumLbl";
             this.medNumLbl.Size = new System.Drawing.Size(51, 37);

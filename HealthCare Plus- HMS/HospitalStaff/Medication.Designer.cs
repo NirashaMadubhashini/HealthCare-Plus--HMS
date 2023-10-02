@@ -45,6 +45,7 @@
             this.medDosageTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.refreshBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.medicationDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -268,12 +269,31 @@
             this.searchTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.Color.White;
+            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshBtn.FillColor = System.Drawing.Color.Gray;
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(945, 196);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(180, 45);
+            this.refreshBtn.TabIndex = 219;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // Medication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1155, 719);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchTb);
             this.Controls.Add(this.medDosageTb);
@@ -319,5 +339,6 @@
         private System.Windows.Forms.TextBox medDosageTb;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox searchTb;
+        private Guna.UI2.WinForms.Guna2Button refreshBtn;
     }
 }
