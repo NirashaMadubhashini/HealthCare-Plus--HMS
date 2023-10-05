@@ -16,6 +16,8 @@ namespace HealthCare_Plus__HMS.Admin
 {
     public partial class Reports : Form
     {
+        private int currentLine = 0;  // Track the current line being printed
+
         public Reports()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace HealthCare_Plus__HMS.Admin
             reportDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             reportDGV.MultiSelect = false;
             reportDGV.ReadOnly = true;
+
 
         }
 
@@ -152,35 +155,41 @@ namespace HealthCare_Plus__HMS.Admin
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            printDocument2.PrintPage += new PrintPageEventHandler(printDocument2_PrintPage);
-            printDocument2.Print();
+            try
+            {
+                currentLine = 0;  // Reset the current line
+                printDocument2.PrintPage -= new PrintPageEventHandler(printDocument2_PrintPage);  // Unregister to avoid multiple event handlers
+                printDocument2.PrintPage += new PrintPageEventHandler(printDocument2_PrintPage);
+                printDocument2.Print();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
             Font printFont = new Font("Courier New", 12);
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
-            int count = 0;
             float yPos = e.MarginBounds.Top;
             string[] reportLines = reportTxt.Text.Split('\n');
 
-            while (count < reportLines.Length && count < linesPerPage)
+            int count = 0;  // Local count for the current page
+            while (currentLine < reportLines.Length && count < linesPerPage)
             {
-                string line = reportLines[count];
+                string line = reportLines[currentLine];
                 e.Graphics.DrawString(line, printFont, Brushes.Black, e.MarginBounds.Left, yPos, new StringFormat());
                 count++;
                 yPos += printFont.GetHeight(e.Graphics);
+                currentLine++;
             }
 
-            if (count < reportLines.Length)
-            {
-                e.HasMorePages = true;
-            }
-            else
-            {
-                e.HasMorePages = false;
-            }
+            // If there are more lines, set HasMorePages to true, else set it to false.
+            e.HasMorePages = (currentLine < reportLines.Length);
         }
+
 
         private void Reports_Load(object sender, EventArgs e)
         {
@@ -200,10 +209,17 @@ namespace HealthCare_Plus__HMS.Admin
                 {
                     StringBuilder csvContent = new StringBuilder();
 
+                    // Add a title/header at the top
+                    string selectedReportType = payRollCb.SelectedItem?.ToString() ?? "Report";
+                    csvContent.AppendLine($"# {selectedReportType} Report");
+                    csvContent.AppendLine($"# Generated on: {DateTime.Now.ToString("f")}");
+                    csvContent.AppendLine();
+
                     // Adding column names
+                    csvContent.Append("# Columns: ");
                     for (int i = 0; i < reportDGV.Columns.Count; i++)
                     {
-                        csvContent.Append(reportDGV.Columns[i].Name);
+                        csvContent.Append($"\"{reportDGV.Columns[i].Name}\"");
 
                         if (i < reportDGV.Columns.Count - 1)
                         {
@@ -213,12 +229,17 @@ namespace HealthCare_Plus__HMS.Admin
                     csvContent.AppendLine();
 
                     // Adding row data
-                    if (reportDGV.SelectedRows.Count == 1) // If a single row is selected, only export that row
+                    csvContent.AppendLine("# Data:");
+                    foreach (DataGridViewRow row in reportDGV.Rows)
                     {
-                        DataGridViewRow row = reportDGV.SelectedRows[0];
+                        if (row.IsNewRow) // Skip the new row at the end used for insertion
+                        {
+                            continue;
+                        }
+
                         for (int i = 0; i < row.Cells.Count; i++)
                         {
-                            csvContent.Append(row.Cells[i].Value?.ToString() ?? "");
+                            csvContent.Append($"\"{row.Cells[i].Value?.ToString() ?? ""}\"");
 
                             if (i < row.Cells.Count - 1)
                             {
@@ -226,27 +247,6 @@ namespace HealthCare_Plus__HMS.Admin
                             }
                         }
                         csvContent.AppendLine();
-                    }
-                    else // Otherwise, export all rows
-                    {
-                        foreach (DataGridViewRow row in reportDGV.Rows)
-                        {
-                            if (row.IsNewRow) // Skip the new row at the end used for insertion
-                            {
-                                continue;
-                            }
-
-                            for (int i = 0; i < row.Cells.Count; i++)
-                            {
-                                csvContent.Append(row.Cells[i].Value?.ToString() ?? "");
-
-                                if (i < row.Cells.Count - 1)
-                                {
-                                    csvContent.Append(",");
-                                }
-                            }
-                            csvContent.AppendLine();
-                        }
                     }
 
                     // Writing data to CSV file
@@ -259,5 +259,7 @@ namespace HealthCare_Plus__HMS.Admin
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

@@ -54,6 +54,9 @@ namespace HealthCare_Plus__HMS.Staff
                 DoctorLoadDGV.Columns[3].Width = totalWidth * 15 / 100; // 15% of the total width
                 DoctorLoadDGV.Columns[4].Width = totalWidth * 15 / 100; // 15% of the total width
                 DoctorLoadDGV.Columns[5].Width = totalWidth * 20 / 100; // 20% of the total width
+
+                DoctorLoadDGV.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(DoctorLoadDGV_DataBindingComplete);
+
             }
             catch (Exception ex)
             {
@@ -112,6 +115,13 @@ namespace HealthCare_Plus__HMS.Staff
             DoctorLoadDGV.Columns[5].Width = totalWidth * 20 / 100; // 20% of the total width
         }
 
+        private void DoctorLoadDGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in DoctorLoadDGV.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void DoctorLoadDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

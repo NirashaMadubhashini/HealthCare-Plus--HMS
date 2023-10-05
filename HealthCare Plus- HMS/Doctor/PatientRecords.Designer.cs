@@ -47,14 +47,15 @@
             // 
             // refreshBtn
             // 
+            this.refreshBtn.AutoRoundedCorners = true;
             this.refreshBtn.BackColor = System.Drawing.Color.White;
-            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.BorderRadius = 21;
             this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
-            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
             this.refreshBtn.Location = new System.Drawing.Point(945, 91);
             this.refreshBtn.Name = "refreshBtn";
@@ -65,14 +66,15 @@
             // 
             // updateBtn
             // 
+            this.updateBtn.AutoRoundedCorners = true;
             this.updateBtn.BackColor = System.Drawing.Color.White;
-            this.updateBtn.BorderRadius = 8;
+            this.updateBtn.BorderRadius = 21;
             this.updateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.updateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.updateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.updateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.updateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.updateBtn.ForeColor = System.Drawing.Color.White;
             this.updateBtn.Location = new System.Drawing.Point(945, 40);
             this.updateBtn.Name = "updateBtn";
@@ -197,7 +199,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(785, 154);
+            this.label4.Location = new System.Drawing.Point(804, 157);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(321, 23);
@@ -206,6 +208,8 @@
             // 
             // searchTb
             // 
+            this.searchTb.AutoRoundedCorners = true;
+            this.searchTb.BorderRadius = 22;
             this.searchTb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.searchTb.DefaultText = "";
             this.searchTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -213,7 +217,7 @@
             this.searchTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.searchTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.searchTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTb.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.searchTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchTb.IconLeft = ((System.Drawing.Image)(resources.GetObject("searchTb.IconLeft")));
             this.searchTb.IconLeftCursor = System.Windows.Forms.Cursors.Hand;

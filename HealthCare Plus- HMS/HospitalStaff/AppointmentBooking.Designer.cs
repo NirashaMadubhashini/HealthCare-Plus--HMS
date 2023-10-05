@@ -123,16 +123,17 @@
             // 
             // sheduleBtn
             // 
+            this.sheduleBtn.AutoRoundedCorners = true;
             this.sheduleBtn.BackColor = System.Drawing.Color.White;
-            this.sheduleBtn.BorderRadius = 8;
+            this.sheduleBtn.BorderRadius = 21;
             this.sheduleBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.sheduleBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.sheduleBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.sheduleBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.sheduleBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.sheduleBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sheduleBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.sheduleBtn.ForeColor = System.Drawing.Color.White;
-            this.sheduleBtn.Location = new System.Drawing.Point(639, 583);
+            this.sheduleBtn.Location = new System.Drawing.Point(671, 552);
             this.sheduleBtn.Name = "sheduleBtn";
             this.sheduleBtn.Size = new System.Drawing.Size(180, 45);
             this.sheduleBtn.TabIndex = 137;
@@ -141,16 +142,17 @@
             // 
             // reportGenBtn
             // 
+            this.reportGenBtn.AutoRoundedCorners = true;
             this.reportGenBtn.BackColor = System.Drawing.Color.White;
-            this.reportGenBtn.BorderRadius = 8;
+            this.reportGenBtn.BorderRadius = 21;
             this.reportGenBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.reportGenBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.reportGenBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.reportGenBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.reportGenBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.reportGenBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportGenBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.reportGenBtn.ForeColor = System.Drawing.Color.White;
-            this.reportGenBtn.Location = new System.Drawing.Point(839, 583);
+            this.reportGenBtn.Location = new System.Drawing.Point(857, 552);
             this.reportGenBtn.Name = "reportGenBtn";
             this.reportGenBtn.Size = new System.Drawing.Size(221, 45);
             this.reportGenBtn.TabIndex = 135;
@@ -401,16 +403,17 @@
             // 
             // refreshBtn
             // 
+            this.refreshBtn.AutoRoundedCorners = true;
             this.refreshBtn.BackColor = System.Drawing.Color.White;
-            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.BorderRadius = 21;
             this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
-            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(639, 646);
+            this.refreshBtn.Location = new System.Drawing.Point(671, 615);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 171;
@@ -419,16 +422,17 @@
             // 
             // viewAppoinmentsBtn
             // 
+            this.viewAppoinmentsBtn.AutoRoundedCorners = true;
             this.viewAppoinmentsBtn.BackColor = System.Drawing.Color.White;
-            this.viewAppoinmentsBtn.BorderRadius = 8;
+            this.viewAppoinmentsBtn.BorderRadius = 21;
             this.viewAppoinmentsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.viewAppoinmentsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.viewAppoinmentsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.viewAppoinmentsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.viewAppoinmentsBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.viewAppoinmentsBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewAppoinmentsBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.viewAppoinmentsBtn.ForeColor = System.Drawing.Color.White;
-            this.viewAppoinmentsBtn.Location = new System.Drawing.Point(839, 646);
+            this.viewAppoinmentsBtn.Location = new System.Drawing.Point(857, 615);
             this.viewAppoinmentsBtn.Name = "viewAppoinmentsBtn";
             this.viewAppoinmentsBtn.Size = new System.Drawing.Size(221, 45);
             this.viewAppoinmentsBtn.TabIndex = 172;

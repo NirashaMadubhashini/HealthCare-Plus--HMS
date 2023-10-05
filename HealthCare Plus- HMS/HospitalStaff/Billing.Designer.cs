@@ -43,14 +43,15 @@
             // 
             // generateBtn
             // 
+            this.generateBtn.AutoRoundedCorners = true;
             this.generateBtn.BackColor = System.Drawing.Color.White;
-            this.generateBtn.BorderRadius = 8;
+            this.generateBtn.BorderRadius = 21;
             this.generateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.generateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.generateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.generateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.generateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(234)))));
-            this.generateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.generateBtn.ForeColor = System.Drawing.Color.White;
             this.generateBtn.Location = new System.Drawing.Point(941, 134);
             this.generateBtn.Name = "generateBtn";
@@ -137,16 +138,17 @@
             // 
             // refreshBtn
             // 
+            this.refreshBtn.AutoRoundedCorners = true;
             this.refreshBtn.BackColor = System.Drawing.Color.White;
-            this.refreshBtn.BorderRadius = 8;
+            this.refreshBtn.BorderRadius = 21;
             this.refreshBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.refreshBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.refreshBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.refreshBtn.FillColor = System.Drawing.Color.Gray;
-            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(941, 194);
+            this.refreshBtn.Location = new System.Drawing.Point(941, 185);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(180, 45);
             this.refreshBtn.TabIndex = 179;

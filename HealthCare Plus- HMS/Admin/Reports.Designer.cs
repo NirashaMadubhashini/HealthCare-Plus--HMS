@@ -68,14 +68,15 @@
             // 
             // printBtn
             // 
+            this.printBtn.AutoRoundedCorners = true;
             this.printBtn.BackColor = System.Drawing.Color.White;
-            this.printBtn.BorderRadius = 8;
+            this.printBtn.BorderRadius = 21;
             this.printBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.printBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.printBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.printBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.printBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.printBtn.ForeColor = System.Drawing.Color.White;
             this.printBtn.Location = new System.Drawing.Point(953, 120);
             this.printBtn.Name = "printBtn";
@@ -151,14 +152,15 @@
             // 
             // exportBtn
             // 
+            this.exportBtn.AutoRoundedCorners = true;
             this.exportBtn.BackColor = System.Drawing.Color.White;
-            this.exportBtn.BorderRadius = 8;
+            this.exportBtn.BorderRadius = 21;
             this.exportBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.exportBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.exportBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.exportBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.exportBtn.FillColor = System.Drawing.Color.Purple;
-            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.exportBtn.ForeColor = System.Drawing.Color.White;
             this.exportBtn.Location = new System.Drawing.Point(953, 171);
             this.exportBtn.Name = "exportBtn";

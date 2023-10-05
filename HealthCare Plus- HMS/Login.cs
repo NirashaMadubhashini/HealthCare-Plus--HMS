@@ -16,6 +16,7 @@ namespace HealthCare_Plus__HMS
 {
     public partial class Login : Form
     {
+
         public Login()
         {
             InitializeComponent();
@@ -36,9 +37,9 @@ namespace HealthCare_Plus__HMS
         // Method to initialize the role combobox items
         private void InitializeRoleComboBox()
         {
-            roleCb.Items.Add("Admin");
-            roleCb.Items.Add("Doctor");
-            roleCb.Items.Add("Staff Member"); // Add staff member role here
+            rolesCmd.Items.Add("Admin");
+            rolesCmd.Items.Add("Doctor");
+            rolesCmd.Items.Add("Staff Member"); // Add staff member role here
             // You can add more roles as per your requirements
         }
 
@@ -58,14 +59,14 @@ namespace HealthCare_Plus__HMS
 
         private void resetlbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            roleCb.SelectedIndex = -1; // Set this to -1 to clear the selection
-            unameTb.Text = "";
-            passTb.Text = "";
+            rolesCmd.SelectedIndex = -1; // Set this to -1 to clear the selection
+            userNameTb.Text = "";
+            passwordTb.Text = "";
         }
 
         private void loginBtn_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(unameTb.Text) || string.IsNullOrEmpty(passTb.Text) || roleCb.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(userNameTb.Text) || string.IsNullOrEmpty(passwordTb.Text) || rolesCmd.SelectedIndex == -1)
             {
                 MessageBox.Show("All fields are required. Please complete each field before proceeding.");
                 return;
@@ -76,14 +77,14 @@ namespace HealthCare_Plus__HMS
                 Con.Open();
                 string query = "SELECT userRole FROM UserTbl WHERE userName=@userName AND userPassword=@userPassword";
                 SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.Parameters.AddWithValue("@userName", unameTb.Text);
-                cmd.Parameters.AddWithValue("@userPassword", passTb.Text);
+                cmd.Parameters.AddWithValue("@userName", userNameTb.Text);
+                cmd.Parameters.AddWithValue("@userPassword", passwordTb.Text);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     string dbUserRole = reader["userRole"].ToString();
-                    if (dbUserRole == roleCb.SelectedItem.ToString())
+                    if (dbUserRole == rolesCmd.SelectedItem.ToString())
                     {
                         switch (dbUserRole)
                         {
@@ -94,7 +95,7 @@ namespace HealthCare_Plus__HMS
                                 this.Hide();
                                 break;
                             case "Doctor":
-                                DoctorDashboard doctorDashboard = new DoctorDashboard(unameTb.Text, passTb.Text);
+                                DoctorDashboard doctorDashboard = new DoctorDashboard(userNameTb.Text, passwordTb.Text);
                                 MessageBox.Show("Login successful. Welcome, Doctor!");
                                 doctorDashboard.Show();
                                 this.Hide();
@@ -141,6 +142,79 @@ namespace HealthCare_Plus__HMS
 
         private void pnlLogin_Paint_1(object sender, PaintEventArgs e)
         {
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(userNameTb.Text) || string.IsNullOrEmpty(passwordTb.Text) || rolesCmd.SelectedIndex == -1)
+            {
+                MessageBox.Show("All fields are required. Please complete each field before proceeding.");
+                return;
+            }
+
+            try
+            {
+                Con.Open();
+                string query = "SELECT userRole FROM UserTbl WHERE userName=@userName AND userPassword=@userPassword";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.Parameters.AddWithValue("@userName", userNameTb.Text);
+                cmd.Parameters.AddWithValue("@userPassword", passwordTb.Text);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    string dbUserRole = reader["userRole"].ToString();
+                    if (dbUserRole == rolesCmd.SelectedItem.ToString())
+                    {
+                        switch (dbUserRole)
+                        {
+                            case "Admin":
+                                AdminDashboard adminDashboard = new AdminDashboard();
+                                MessageBox.Show("Login successful. Welcome, Admin!");
+                                adminDashboard.Show();
+                                this.Hide();
+                                break;
+                            case "Doctor":
+                                DoctorDashboard doctorDashboard = new DoctorDashboard(userNameTb.Text, passwordTb.Text);
+                                MessageBox.Show("Login successful. Welcome, Doctor!");
+                                doctorDashboard.Show();
+                                this.Hide();
+                                break;
+                            case "Staff Member": // Fixed the staff member case
+                                StaffDashboard staffDashboard = new StaffDashboard(); // Assuming the class name is StaffDashboard
+                                MessageBox.Show("Login successful. Welcome, Staff Member!");
+                                staffDashboard.Show();
+                                this.Hide();
+                                break;
+                            default:
+                                MessageBox.Show("The role you selected is not recognized. Please select a valid role.");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The selected role does not match the credentials provided. Please select the correct role.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The username or password entered is incorrect. Please try again.");
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred while attempting to log in. Please try again later.");
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void rolesCmd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
