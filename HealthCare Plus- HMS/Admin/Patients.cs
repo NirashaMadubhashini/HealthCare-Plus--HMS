@@ -105,7 +105,7 @@ namespace HealthCare_Plus__HMS.Admin
             sda.Fill(ds);
 
             // Improve DataGridView appearance
-            patDGV.AutoResizeColumns();  // Resize columns to fit content
+            patDGV.AutoResizeColumns();
             patDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
 
             patDGV.DataSource = ds.Tables[0];
